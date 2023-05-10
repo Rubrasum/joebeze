@@ -1,7 +1,7 @@
 <div class="h-30" x-data="{ open: false }" style="background-image: url('{{ asset('images/bytebeze-banner.png') }} '); background-size: cover; background-position: center;">
     <div class="container mx-auto px-4">
         <nav class="flex justify-between items-center py-4">
-            <div class="w-2/5">
+            <div class="w-1/5">
                 <a href="/">
                     <img src="/images/bytebeze-logo.png" alt="Logo">
                 </a>
