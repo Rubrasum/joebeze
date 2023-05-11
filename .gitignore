@@ -22,3 +22,7 @@ Homestead.json
 /.vagrant
 .phpunit.result.cache
 /.idea/blade.xml
+/public/build/assets/*
+/public/build/assets/*
+/database/migrations/migrations.rar
+/public/build/manifest.json
