@@ -12,7 +12,7 @@
 
     </section>
 
-<x-success-message />
+<x-users.success-message />
 
 </body>
 
