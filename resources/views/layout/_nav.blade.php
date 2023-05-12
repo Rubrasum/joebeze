@@ -1,4 +1,8 @@
-<div class="h-30" x-data="{ open: false }" style="background-image: url('{{ asset('images/bytebeze-banner.png') }} '); background-size: cover; background-position: center;">
+<div class="h-30" x-data="{ open: false }"
+     style="
+        background-image: url('{{ asset('images/bytebeze-banner-tess.png') }} ');
+        background-repeat: repeat;"
+>
     <div class="container mx-auto px-4">
         <nav class="flex justify-between items-center py-4">
             <div class="w-1/5">
@@ -7,11 +11,11 @@
                 </a>
             </div>
             <div class="hidden md:flex md:items-center md:w-3/5 justify-center">
-                <a href="#" class="bg-gray-600 mx-4 text-white border border-transparent hover:border-current py-2 px-3">Link 1</a>
-                <a href="#" class="bg-gray-600 mx-4 text-white border border-transparent hover:border-current py-2 px-3">Link 2</a>
-                <a href="#" class="bg-gray-600 mx-4 text-white border border-transparent hover:border-current py-2 px-3">Link 3</a>
-                <a href="#" class="bg-gray-600 mx-4 text-white border border-transparent hover:border-current py-2 px-3">Link 4</a>
-                <a href="#" class="bg-gray-600 mx-4 text-white border border-transparent hover:border-current py-2 px-3">Link 5</a>
+                <a href="#" class="bg-white mx-4 text-gray-800 border border-transparent hover:border-current py-2 px-3">Link 1</a>
+                <a href="#" class="bg-white mx-4 text-gray-800 border border-transparent hover:border-current py-2 px-3">Link 2</a>
+                <a href="#" class="bg-white mx-4 text-gray-800 border border-transparent hover:border-current py-2 px-3">Link 3</a>
+                <a href="#" class="bg-white mx-4 text-gray-800 border border-transparent hover:border-current py-2 px-3">Link 4</a>
+                <a href="#" class="bg-white mx-4 text-gray-800 border border-transparent hover:border-current py-2 px-3">Link 5</a>
             </div>
             <div class="hidden md:flex md:w-1/5 justify-end">
                 <input type="search" placeholder="Search" class="w-3/5 mr-5 rounded-md p-2 bg-gray-700 text-white">
