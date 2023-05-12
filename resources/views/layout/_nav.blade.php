@@ -11,6 +11,9 @@
                 </a>
             </div>
             <div class="hidden md:flex md:items-center md:w-3/5 justify-center">
+                <div class="py-2 px-3 relative flex lg:inline-flex bg-white text-gray-800 border border-transparent hover:border-current">
+                    <x-categories.dropdown />
+                </div>
                 <a href="#" class="bg-white mx-4 text-gray-800 border border-transparent hover:border-current py-2 px-3">Link 1</a>
                 <a href="#" class="bg-white mx-4 text-gray-800 border border-transparent hover:border-current py-2 px-3">Link 2</a>
                 <a href="#" class="bg-white mx-4 text-gray-800 border border-transparent hover:border-current py-2 px-3">Link 3</a>
