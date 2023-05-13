@@ -3,7 +3,7 @@
 
     @include('layout._head')
 <body style="font-family: Open Sans, sans-serif">
-    <section>
+    <section  class="min-h-screen flex flex-col">
         @include('layout._nav')
 
         @yield('content')
