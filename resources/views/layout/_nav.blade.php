@@ -21,17 +21,21 @@
                 <a href="#" class="bg-white mx-4 text-gray-800 border border-transparent hover:border-current py-2 px-3">Link 5</a>
             </div>
             <div class="hidden md:flex md:w-1/5 justify-end">
-                <form method="GET" action="#">
-                    @if (request('category'))
-                        <input type="hidden" name="category" value="{{ request('category') }}">
-                    @endif
-                    <input type="search"
-                           name="search"
-                           placeholder="Find something"
-                           class="border-2 border-gray-800 w-full rounded-md p-2 bg-white text-gray-800"
-                           value="{{ request('search') }}"
-                    >
-                </form>
+                <div x-data="{ search: '{{ request('search') }}', category: '{{ request('category') }}' }">
+                    <form method="GET" action="#" x-ref="form">
+                        @if (request('category'))
+                            <input type="hidden" name="category" value="{{ request('category') }}">
+                        @endif
+                        <input type="search"
+                               name="search"
+                               placeholder="Find something"
+                               class="border-2 border-gray-800 w-full rounded-md p-2 bg-white text-gray-800"
+                               x-model="search"
+                               x-on:search="if (!search) $refs.form.submit()"
+                               value="{{ request('search') }}"
+                        >
+                    </form>
+                </div>
             </div>
             <div class="md:hidden flex items-center">
                 <button @click="open = !open" class="inline-block cursor-pointer">
