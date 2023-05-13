@@ -9,15 +9,15 @@
                     <img src="your-image-url.jpg" alt="Image" class="w-full h-auto">
                 </div>
                 <div class="col-span-3">
-                    <h1 class="text-white text-4xl font-bold">Your Blog Title</h1>
+                    <h1 class="text-white text-4xl font-bold">{{ $post->title }}</h1>
                     <div class="mt-4 space-x-2">
                         <a href="#" class="px-3 py-1 border border-red-300 rounded-full text-red-300 text-xs uppercase font-semibold" style="font-size: 10px">Updates</a>
                         <a href="#" class="px-3 py-1 border border-blue-300 rounded-full text-blue-300 text-xs uppercase font-semibold" style="font-size: 10px">Technology</a>
                         <a href="#" class="px-3 py-1 border border-green-300 rounded-full text-green-300 text-xs uppercase font-semibold" style="font-size: 10px">Lifestyle</a>
                     </div>
-                    <p class="text-white mt-2">Published on: <span class="font-semibold">May 8, 2023</span></p>
+                    <p class="text-white mt-2">Published on: <span class="font-semibold">{{ $post->created_at->diffForHumans() }}</span></p>
                     <footer class="mt-6">
-                        <p class="text-white">Author: <span class="font-semibold">John Doe</span></p>
+                        <p class="text-white">Author: <span class="font-semibold">{{ $post->author->name }}</span></p>
                         <a href="#" class="text-white underline">Read more</a>
                     </footer>
                 </div>
