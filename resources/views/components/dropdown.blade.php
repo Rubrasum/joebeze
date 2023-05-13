@@ -1,6 +1,6 @@
-<div x-data="{ show: false }" @click.away="show = false">
+<div x-data="{ show: false }" @click.away="show = false" class="w-full">
     {{--  trigger  --}}
-    <div @click="show = ! show">
+    <div @click="show = ! show" class="w-full">
         {{ $trigger }}
     </div>
     {{--  Links--}}

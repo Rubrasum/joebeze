@@ -10,15 +10,14 @@
                     <img src="/images/bytebeze-logo.png" alt="Logo">
                 </a>
             </div>
-            <div class="hidden md:flex md:items-center md:w-3/5 justify-center">
-                <div class="py-2 px-3 relative flex lg:inline-flex bg-white text-gray-800 border border-transparent hover:border-current">
+            <div class="hidden md:flex md:items-center md:w-2/5 justify-center">
+                <a href="#" class="
+                    bg-white mx-1 font-semibold text-gray-800 border border-transparent
+                    hover:border-current py-2 px-3 border-2 border-gray-800"
+                >Category: </a>
+                <div class="w-2/5 py-2 px-3 relative flex lg:inline-flex bg-white text-gray-800 border-2 border-gray-800 hover:border-gray-500">
                     <x-categories.dropdown />
                 </div>
-                <a href="#" class="bg-white mx-4 text-gray-800 border border-transparent hover:border-current py-2 px-3">Link 1</a>
-                <a href="#" class="bg-white mx-4 text-gray-800 border border-transparent hover:border-current py-2 px-3">Link 2</a>
-                <a href="#" class="bg-white mx-4 text-gray-800 border border-transparent hover:border-current py-2 px-3">Link 3</a>
-                <a href="#" class="bg-white mx-4 text-gray-800 border border-transparent hover:border-current py-2 px-3">Link 4</a>
-                <a href="#" class="bg-white mx-4 text-gray-800 border border-transparent hover:border-current py-2 px-3">Link 5</a>
             </div>
             <div class="hidden md:flex md:w-1/5 justify-end">
                 <div x-data="{ search: '{{ request('search') }}', category: '{{ request('category') }}' }">
