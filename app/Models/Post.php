@@ -15,6 +15,13 @@ class Post extends Model
 
     public function scopeFilter($query, array $filters)
     {
+
+        $query->when($filters['search'] ?? false, fn($query, $search) =>
+            $query->where(fn($query) =>
+                $query->where('title', 'like', '%' . request('search') . '%')
+                    ->orWhere('body', 'like', '%' . request('search') . '%')
+            )
+        );
         $query->when($filters['author'] ?? false, fn($query, $author) =>
             $query->whereHas('author', fn($query) =>
                 $query->where('email', $author)

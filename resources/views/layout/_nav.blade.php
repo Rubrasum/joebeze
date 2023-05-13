@@ -21,7 +21,17 @@
                 <a href="#" class="bg-white mx-4 text-gray-800 border border-transparent hover:border-current py-2 px-3">Link 5</a>
             </div>
             <div class="hidden md:flex md:w-1/5 justify-end">
-                <input type="search" placeholder="Search" class="w-3/5 mr-5 rounded-md p-2 bg-gray-700 text-white">
+                <form method="GET" action="#">
+                    @if (request('category'))
+                        <input type="hidden" name="category" value="{{ request('category') }}">
+                    @endif
+                    <input type="search"
+                           name="search"
+                           placeholder="Find something"
+                           class="border-2 border-gray-800 w-full rounded-md p-2 bg-white text-gray-800"
+                           value="{{ request('search') }}"
+                    >
+                </form>
             </div>
             <div class="md:hidden flex items-center">
                 <button @click="open = !open" class="inline-block cursor-pointer">
@@ -42,7 +52,17 @@
                 <a href="#" class="block py-2 px-4 text-white">Link 5</a>
             </div>
             <div class="border-t border-gray-700 pt-4">
-                <input type="search" placeholder="Search" class="w-full rounded-md p-2 bg-gray-700 text-white">
+                <form method="GET" action="#">
+                    @if (request('category'))
+                        <input type="hidden" name="category" value="{{ request('category') }}">
+                    @endif
+                    <input type="text"
+                           name="search"
+                           placeholder="Find something"
+                           class="w-full rounded-md p-2 bg-gray-700 text-white"
+                           value="{{ request('search') }}"
+                    >
+                </form>
             </div>
         </div>
     </div>
