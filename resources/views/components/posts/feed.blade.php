@@ -10,4 +10,10 @@
         @endforeach
     @endif
 
+    <div class="bg-black">
+        <div class="mt-6 flex justify-center">
+            {{ $posts->links() }}
+        </div>
+    </div>
+
 </main>
