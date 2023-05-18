@@ -20,9 +20,9 @@
                         <p class="mb-4 text-justify">{!! $post->excerpt !!}</p>
                         <div class="flex justify-between items-center">
                             <div class="space-x-2">
-                                <a href="#" class="px-3 py-1 border border-red-300 rounded-full text-red-300 text-xs uppercase font-semibold" style="font-size: 10px">Updates</a>
-                                <a href="#" class="px-3 py-1 border border-blue-300 rounded-full text-blue-300 text-xs uppercase font-semibold" style="font-size: 10px">Technology</a>
-                                <a href="#" class="px-3 py-1 border border-green-300 rounded-full text-green-300 text-xs uppercase font-semibold" style="font-size: 10px">Lifestyle</a>
+                                <a href="/?category={{ $post->category->slug }}"
+                                   class="px-3 py-1 border border-red-300 rounded-full text-red-300 text-xs uppercase font-semibold"
+                                >{{ $post->category->name }}</a>
                             </div>
                             <div>
                                 <a href="/post/{{ $post->slug }}" class="bg-gray-500 hover:bg-gray-700 text-white font-bold py-2 px-4 rounded">
