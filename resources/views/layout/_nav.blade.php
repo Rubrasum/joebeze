@@ -15,8 +15,8 @@
                     bg-white mx-1 font-semibold text-gray-800 border border-transparent
                     hover:border-current py-2 px-3 border-2 border-gray-800"
                 >Category: </a>
-                <div class="w-2/5 py-2 px-3 relative flex lg:inline-flex bg-white text-gray-800 border-2 border-gray-800 hover:border-gray-500">
-                    <x-categories.dropdown />
+                <div class="w-2/5 relative flex lg:inline-flex bg-white text-gray-800 border-2 border-gray-800 hover:border-gray-500">
+                    <x-categories.dropdown/>
                 </div>
             </div>
             <div class="hidden md:flex md:w-1/5 justify-end">
