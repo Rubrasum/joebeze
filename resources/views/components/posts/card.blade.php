@@ -4,8 +4,8 @@
     <div class="w-full relative">
         <div class="top-0 left-0 w-full bg-black bg-opacity-60 flex flex-col justify-between ">
             <div class="container mx-auto px-8 py-5 mb-12 grid
-                        grid-cols-10 gap-5 border-l-4 border-r-2 border-b-2 border-t-4
-                        border-gray-800 rounded-b-xl
+                        grid-cols-10 gap-5 border-l-8 border-r-2 border-b-4 border-t-8
+                        border-gray-800 rounded-br-md
                         ">
                 <div class="col-span-2 border-l-2 border-t-2 border-gray-800">
                     <img src="your-image-url.jpg" alt="Image" class="w-full h-auto">

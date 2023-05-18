@@ -3,8 +3,8 @@
 
 <div class="bg-black">
     <div class="w-full relative">
-        <div class="top-0 left-0 w-full bg-black bg-opacity-60 flex flex-col justify-between border-t-4 border-gray-800">
-            <div class="container mx-auto px-16 pt-16 pb-64 mb-8 grid grid-cols-5 gap-5 border-l-4 border-r-2 border-b-2 border-gray-800 rounded-b-xl">
+        <div class="top-0 left-0 w-full bg-black bg-opacity-60 flex flex-col justify-between border-t-8 border-gray-800">
+            <div class="container mx-auto px-16 pt-16 pb-64 mb-8 grid grid-cols-5 gap-5 border-l-8 border-r-2 border-b-2 border-gray-800 rounded-br-md">
                 <div class="col-span-2 border-l-2 border-t-2 border-gray-800">
                     <img src="your-image-url.jpg" alt="Image" class="w-full h-auto">
                 </div>
