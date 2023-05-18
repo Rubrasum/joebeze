@@ -1,19 +1,25 @@
 @props(['posts'])
 
 <main>
-
-    <x-posts.featured-card :post="$posts[0]"/>
-
-    @if ($posts->count() > 1)
-        @foreach ($posts->skip(1) as $post)
+    @if (request('page') > 1) {{-- page two and onwards--}}
+        @foreach ($posts as $post)
             <x-posts.card :post="$post" />
         @endforeach
-    @endif
+    @else
+        <x-posts.featured-card :post="$posts[0]"/>
 
-    <div class="bg-black">
-        <div class="mt-6 flex justify-center">
-            {{ $posts->links() }}
+        @if ($posts->count() > 1)
+            @foreach ($posts->skip(1) as $post)
+                <x-posts.card :post="$post" />
+            @endforeach
+        @endif
+
+    @endif
+        <div class="bg-black">
+            <div class="flex justify-center">
+                {{ $posts->links('vendor.pagination.default') }}
+            </div>
         </div>
-    </div>
+
 
 </main>
