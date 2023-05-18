@@ -4,7 +4,7 @@
 <div class="bg-black">
     <div class="w-full relative">
         <div class="top-0 left-0 w-full bg-black bg-opacity-60 flex flex-col justify-between border-t-8 border-gray-800">
-            <div class="container mx-auto px-16 pt-16 pb-64 mb-8 grid grid-cols-5 gap-5 border-l-8 border-r-2 border-b-2 border-gray-800 rounded-br-md">
+            <div class="container mx-auto px-16 pt-16 pb-8 mb-8 grid grid-cols-5 gap-5 border-l-8 border-r-2 border-b-2 border-gray-800 rounded-br-md">
                 <div class="col-span-2 border-l-2 border-t-2 border-gray-800">
                     <img src="your-image-url.jpg" alt="Image" class="w-full h-auto">
                 </div>
@@ -15,11 +15,16 @@
                            class="px-3 py-1 border-2  border-blue-300 rounded-full text-blue-300 text-sm uppercase font-semibold hover:border-blue-100 hover:text-blue-100"
                         >{{ $post->category->name }}</a>
                     </div>
-                    <p class="text-white mt-2">Published on: <span class="font-semibold">{{ $post->created_at->diffForHumans() }}</span></p>
-                    <footer class="mt-6">
-                        <p class="text-white">Author: <span class="font-semibold">{{ $post->author->name }}</span></p>
-                        <a href="#" class="text-white underline">Read more</a>
-                    </footer>
+                    <div class="flex justify-between items-center mt-2 pt-10">
+                        <p class="text-white">Published on: <span class="font-semibold">{{ $post->created_at->diffForHumans() }}</span></p>
+                        <footer>
+                            <a href="#" class="bg-gray-500 hover:bg-gray-700 text-white font-bold py-2 px-4 rounded">Read more</a>
+                        </footer>
+                    </div>
+
+                </div>
+                <div class="col-span-5 border-gray-800 mt-8">
+                    <p class="mb-4 text-justify text-white">{{ $post->excerpt }}</p>
                 </div>
             </div>
         </div>
