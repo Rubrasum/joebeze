@@ -22,6 +22,7 @@ class UserFactory extends Factory
     {
         return [
             'name' => fake()->name(),
+            'admin' => false,
             'email' => fake()->unique()->safeEmail(),
             'email_verified_at' => now(),
             'password' => '$2a$12$cz7JA.aQcDJ1BreP6xt1h.ny9hB.onMcN3TnNdA31dF4He1kZrB4y', // password
