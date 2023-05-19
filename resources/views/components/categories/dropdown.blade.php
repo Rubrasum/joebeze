@@ -1,6 +1,6 @@
 <x-dropdown>
     <x-slot name="trigger">
-        <button class="pl-3 w-full lg:w-32 flex text-left lg-inline-flex" >
+        <button class="pl-3 mr-2 w-full lg:w-32 flex text-left lg-inline-flex" >
             {{ isset($currentCategory) ? $currentCategory->name : " All Categories " }}
 
             <x-icon name="down-arrow" class="absolute pointer-events-none " style="right: 12px;"/>
