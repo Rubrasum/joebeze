@@ -5,7 +5,7 @@
             {{-- Skip to Start Link --}}
             @if (!$paginator->onFirstPage())
                 <li>
-                    <a href="{{ $paginator->url(1) }}" rel="prev" aria-label="@lang('pagination.start')" class="px-1.5 py-1.5 border-2 rounded-l-full uppercase font-semibold bg-gray-900 text-white border-gray-700 hover:bg-gray-600 hover:border-white">&lsaquo;&lsaquo;</a>
+                    <a href="{{ $paginator->url(1) }}" rel="prev" aria-label="@lang('pagination.start')" class="px-1.5 py-0.5 border-2 rounded-l-full uppercase font-semibold bg-gray-900 text-white border-gray-700 hover:bg-gray-600 hover:border-white">&lsaquo;&lsaquo;</a>
                 </li>
             @else
             @endif
@@ -14,7 +14,7 @@
             @if ($paginator->onFirstPage())
             @else
                 <li>
-                    <a href="{{ $paginator->previousPageUrl() }}" rel="prev" aria-label="@lang('pagination.previous')" class="px-1.5 py-1.5 border-2 rounded-l-full uppercase font-semibold bg-gray-900 text-white border-gray-700 hover:bg-gray-600 hover:border-white">&lsaquo;</a>
+                    <a href="{{ $paginator->previousPageUrl() }}" rel="prev" aria-label="@lang('pagination.previous')" class="px-1.5 py-0.5 border-2 rounded-l-full uppercase font-semibold bg-gray-900 text-white border-gray-700 hover:bg-gray-600 hover:border-white">&lsaquo;</a>
                 </li>
             @endif
 
@@ -45,17 +45,17 @@
             {{-- Next Page Link --}}
             @if ($paginator->hasMorePages())
                 <li>
-                    <a href="{{ $paginator->nextPageUrl() }}" rel="next" aria-label="@lang('pagination.next')" class="px-1.5 py-1.5 border-2 rounded-r-full uppercase font-semibold border-gray-700 text-white bg-gray-900 hover:bg-gray-600 hover:border-white">&rsaquo;</a>
+                    <a href="{{ $paginator->nextPageUrl() }}" rel="next" aria-label="@lang('pagination.next')" class="px-1.5 py-0.5 border-2 rounded-r-full uppercase font-semibold border-gray-700 text-white bg-gray-900 hover:bg-gray-600 hover:border-white">&rsaquo;</a>
                 </li>
             @else
             @endif
 
             {{-- Skip to End Link --}}
             @if ($paginator->hasMorePages())
-            @else
-                <li class="disabled" aria-disabled="true" aria-label="@lang('pagination.end')">
-                    <span aria-hidden="true" class="px-1.5 py-1.5 border-2 rounded-r-full uppercase font-semibold text-white bg-gray-900 border-gray-700">&rsaquo;&rsaquo;</span>
+                <li>
+                    <a href="{{ $paginator->url($paginator->lastPage()) }}" rel="next" aria-label="@lang('pagination.end')" class="px-1.5 py-0.5 border-2 rounded-r-full uppercase font-semibold text-white bg-gray-900 border-gray-700">&rsaquo;&rsaquo;</a>
                 </li>
+            @else
             @endif
         </ul>
     </nav>
