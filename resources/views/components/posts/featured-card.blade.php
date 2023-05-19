@@ -9,7 +9,7 @@
                     <img src="your-image-url.jpg" alt="Image" class="w-full h-auto">
                 </div>
                 <div class="col-span-3">
-                    <h1 class="text-white text-4xl font-bold">{{ $post->title }}</h1>
+                    <a href="/post/{{ $post->slug }}"><h1 class="text-white text-4xl font-bold hover:underline">{{ $post->title }}</h1></a>
                     <div class="mt-4 space-x-2">
                         <a href="/?category={{ $post->category->slug }}"
                            class="px-3 py-1 border-2  border-blue-300 rounded-full text-blue-300 text-sm uppercase font-semibold hover:border-blue-100 hover:text-blue-100"
@@ -18,7 +18,7 @@
                     <div class="flex justify-between items-center mt-2 pt-10">
                         <p class="text-white pt-2">Published: <span class="font-semibold">{{ $post->created_at->diffForHumans() }}</span></p>
                         <footer>
-                            <a href="#" class="bg-gray-500 hover:bg-gray-700 text-white font-bold py-2 px-4 rounded">Read more</a>
+                            <a href="/post/{{ $post->slug }}" class="bg-gray-500 hover:bg-gray-700 text-white font-bold py-2 px-4 rounded">Read more</a>
                         </footer>
                     </div>
 

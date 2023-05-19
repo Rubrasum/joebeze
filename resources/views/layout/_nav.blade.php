@@ -13,11 +13,11 @@
             <div class="hidden md:flex md:items-center md:w-2/5 justify-center">
             </div>
             <div class="hidden md:flex md:w-2/5 justify-end">
-                <a href="#" class="
-                    bg-white mx-1 font-semibold text-gray-800 border border-transparent
-                    hover:border-current py-2 px-3 border-2 border-gray-800"
-                >Category: </a>
-                <div class="w-2/5 relative flex lg:inline-flex mr-3 bg-white text-gray-800 border-2 border-gray-800 hover:border-gray-500">
+                <p class="
+                    rounded-md bg-white mx-1 font-semibold text-gray-800 border border-transparent
+                    select-none hover:border-current py-2 px-3 border-2 border-gray-800"
+                >Category: </p>
+                <div class="w-2/5 relative flex lg:inline-flex mr-10 bg-white text-gray-800 border-2 border-gray-800 hover:border-gray-500 rounded-md">
                     <x-categories.dropdown :post="$post ?? null"/>
                 </div>
                 <div x-data="{ search: '{{ request('search') }}', category: '{{ request('category') }}' }">

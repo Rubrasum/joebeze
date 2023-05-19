@@ -12,7 +12,7 @@
                 </div>
                 <div class="col-span-8 flex">
                     <div class="w-2/5 pr-3">
-                        <h2 class="text-white text-2xl font-bold">{{ $post->title }}</h2>
+                        <a href="/post/{{ $post->slug }}"><h2 class="text-white text-2xl font-bold hover:underline">{{ $post->title }}</h2></a>
                         <p class="text-white my-2">Published on: <span class="font-semibold">{{ $post->created_at->diffForHumans() }}</span></p>
                     </div>
                     <div class="w-3/5 text-white">
