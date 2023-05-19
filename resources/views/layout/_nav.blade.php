@@ -27,7 +27,7 @@
                         @endif
                         <input type="search"
                                name="search"
-                               placeholder="Find something"
+                               placeholder="Search"
                                class="border-2 border-gray-800 w-full rounded-md p-2 bg-white text-gray-800"
                                x-model="search"
                                x-on:search="if (!search) $refs.form.submit()"
@@ -61,7 +61,7 @@
                     @endif
                     <input type="text"
                            name="search"
-                           placeholder="Find something"
+                           placeholder="Search"
                            class="w-full rounded-md p-2 bg-gray-700 text-white"
                            value="{{ request('search') }}"
                     >

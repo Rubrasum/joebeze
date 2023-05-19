@@ -16,7 +16,7 @@
                         >{{ $post->category->name }}</a>
                     </div>
                     <div class="flex justify-between items-center mt-2 pt-10">
-                        <p class="text-white">Published on: <span class="font-semibold">{{ $post->created_at->diffForHumans() }}</span></p>
+                        <p class="text-white pt-2">Published: <span class="font-semibold">{{ $post->created_at->diffForHumans() }}</span></p>
                         <footer>
                             <a href="#" class="bg-gray-500 hover:bg-gray-700 text-white font-bold py-2 px-4 rounded">Read more</a>
                         </footer>
