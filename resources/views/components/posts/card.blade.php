@@ -20,7 +20,7 @@
                         <div class="flex justify-between items-center">
                             <div class="space-x-2">
                                 <a href="/?category={{ $post->category->slug }}"
-                                   class="px-3 py-1 border border-red-300 rounded-full text-red-300 text-xs uppercase font-semibold"
+                                   class="px-3 py-1 border border-{{ $post->category->color }} rounded-full text-{{ $post->category->color }} text-xs uppercase font-semibold"
                                 >{{ $post->category->name }}</a>
                             </div>
                             <div>
