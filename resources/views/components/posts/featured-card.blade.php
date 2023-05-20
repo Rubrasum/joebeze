@@ -16,13 +16,13 @@
                         >{{ $post->category->name }}</a>
                     </div>
                     <div class="flex justify-between items-center mt-2 pt-10">
-                        <p class="text-white pt-2">Published: <span class="font-semibold">{{ $post->created_at->diffForHumans() }}</span></p>
+                        <p class="text-white pt-2">Published: <span class="font-semibold">{{ $post->published_at->diffForHumans() }}</span></p>
                         <footer>
                             <a href="/post/{{ $post->slug }}" class="bg-gray-500 hover:bg-gray-700 text-white font-bold py-2 px-4 rounded">Read more</a>
                         </footer>
                     </div>
-                    <div class="col-span-5 border-gray-800 mt-8">
-                        <p class="mb-4 text-justify text-white">{{ $post->excerpt }}</p>
+                    <div class="col-span-5 border-gray-800 mt-8 text-white">
+                        <p class="mb-4 text-justify text-white">{!! $post->excerpt !!}</p>
                     </div>
                 </div>
             </div>

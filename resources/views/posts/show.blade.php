@@ -3,7 +3,7 @@
 @section('content')
 
     <main class="bg-black mt-2">
-        <article class="container mx-auto p-16 mb-8 border-l-8 border-r-2 border-b-2 border-gray-900 rounded-br-md min-w-48 w-3/4 max-w-screen-lg">
+        <article id="post-article" class="container mx-auto p-16 mb-8 border-l-8 border-r-2 border-b-2 border-gray-900 rounded-br-md min-w-48 w-3/4 max-w-screen-lg">
             <div class="col-span-3">
                 <h1 class="text-white text-4xl font-bold mb-10">
                 {{ $post->title }}
