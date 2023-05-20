@@ -14,9 +14,11 @@ class PostController extends Controller
     public function index()
     {
         return view('posts.index', [
-            'posts' => Post::latest()->filter(
-                request(['search', 'category', 'author'])
-            )->paginate(8)->withQueryString()
+            'posts' => Post::where('published_at', '<=', now())
+                ->latest('published_at')
+                ->filter(request(['search', 'category', 'author']))
+                ->paginate(8)
+                ->withQueryString()
         ]);
     }
 

@@ -14,7 +14,7 @@
             @if ($paginator->onFirstPage())
             @else
                 <li>
-                    <a href="{{ $paginator->previousPageUrl() }}" rel="prev" aria-label="@lang('pagination.previous')" class="px-1.5 py-0.5 border-2 rounded-l-full uppercase font-semibold bg-gray-900 text-white border-gray-700 hover:bg-gray-600 hover:border-white">&lsaquo;</a>
+                    <a href="{{ $paginator->previousPageUrl() }}" rel="prev" aria-label="@lang('pagination.previous')" class="px-1.5 py-0.5 border-2 rounded-l-lg uppercase font-semibold bg-gray-900 text-white border-gray-700 hover:bg-gray-600 hover:border-white">&lsaquo;</a>
                 </li>
             @endif
 
@@ -45,7 +45,7 @@
             {{-- Next Page Link --}}
             @if ($paginator->hasMorePages())
                 <li>
-                    <a href="{{ $paginator->nextPageUrl() }}" rel="next" aria-label="@lang('pagination.next')" class="px-1.5 py-0.5 border-2 rounded-r-full uppercase font-semibold border-gray-700 text-white bg-gray-900 hover:bg-gray-600 hover:border-white">&rsaquo;</a>
+                    <a href="{{ $paginator->nextPageUrl() }}" rel="next" aria-label="@lang('pagination.next')" class="px-1.5 py-0.5 border-2 rounded-r-lg uppercase font-semibold border-gray-700 text-white bg-gray-900 hover:bg-gray-600 hover:border-white">&rsaquo;</a>
                 </li>
             @else
             @endif
