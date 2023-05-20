@@ -17,7 +17,7 @@
 
                 <select name="category_id" id="category_id" required class="border border-gray-800 bg-gray-900 text-white p-2 rounded">
                     @foreach (\App\Models\Category::all() as $category)
-                        <option class="bg-gray-900 text-white" value="{{ $category->id }}" {{ old('category_id') == $category->id ? 'selected' : '' }}>
+                        <option class="bg-gray-900 text-white" value="{{ $category->id }}" {{ old('category_id', $post->category->id) == $category->id ? 'selected' : '' }}>
                             {{ ucwords($category->name) }}
                         </option>
                     @endforeach
