@@ -14,6 +14,8 @@
 
 <x-users.success-message />
 
+@yield('script')
+
 </body>
 
 </html>

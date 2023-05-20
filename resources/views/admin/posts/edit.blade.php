@@ -10,7 +10,7 @@
             <x-form.input name="slug" :value="old('slug', $post->slug)" required />
 
             <x-form.textarea name="excerpt" required height="48">{{ old('excerpt', $post->excerpt) }}</x-form.textarea>
-            <x-form.textarea name="body" required height="96">{{ old('body', $post->body) }}</x-form.textarea>
+            <x-form.textarea id="body" name="body" required height="96">{{ old('body', $post->body) }}</x-form.textarea>
 
             <x-form.field>
                 <x-form.label name="category"/>
@@ -29,4 +29,22 @@
             <x-form.button>Update</x-form.button>
         </form>
     </x-dashpage>
+@endsection
+
+@section('script')
+    <!-- Initialize CKEditor -->
+
+    <script>
+        tinymce.init({
+            selector: 'textarea',
+            plugins: 'anchor autolink charmap codesample emoticons image link lists media searchreplace table visualblocks wordcount checklist mediaembed casechange export formatpainter pageembed linkchecker a11ychecker tinymcespellchecker permanentpen powerpaste advtable advcode editimage tinycomments tableofcontents footnotes mergetags autocorrect typography inlinecss',
+            toolbar: 'undo redo | blocks fontfamily fontsize | bold italic underline strikethrough | link image media table mergetags | addcomment showcomments | spellcheckdialog a11ycheck typography | align lineheight | checklist numlist bullist indent outdent | emoticons charmap | removeformat',
+            tinycomments_mode: 'embedded',
+            tinycomments_author: 'Author name',
+            mergetags_list: [
+                { value: 'First.Name', title: 'First Name' },
+                { value: 'Email', title: 'Email' },
+            ]
+        });
+    </script>
 @endsection
