@@ -1,4 +1,4 @@
-<div class="md:w-1/4 mt-8 md:mt-0 ml-8">
+<div class="md:w-2/5 mt-8 md:mt-0 ml-8">
     <h4 class="text-2xl font-bold mb-4 text-white">Contact</h4>
     <ul class="list-none">
         <li class="mb-2 flex items-center"><i class="fas fa-envelope mr-2"></i> <a href="mailto:josephbetbeze@gmail.com" class="hover:text-white">josephbetbeze@gmail.com</a></li>

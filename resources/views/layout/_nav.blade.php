@@ -1,4 +1,8 @@
-<div class="h-30" x-data="{ open: false }" style="background-image: url('{{ asset('images/bytebeze-banner.png') }} '); background-size: cover; background-position: center;">
+<div class="h-30" x-data="{ open: false }"
+     style="
+        background-image: url('{{ asset('images/bytebeze-banner-tess.png') }} ');
+        background-repeat: repeat;"
+>
     <div class="container mx-auto px-4">
         <nav class="flex justify-between items-center py-4">
             <div class="w-1/5">
@@ -6,15 +10,31 @@
                     <img src="/images/bytebeze-logo.png" alt="Logo">
                 </a>
             </div>
-            <div class="hidden md:flex md:items-center md:w-3/5 justify-center">
-                <a href="#" class="bg-gray-600 mx-4 text-white border border-transparent hover:border-current py-2 px-3">Link 1</a>
-                <a href="#" class="bg-gray-600 mx-4 text-white border border-transparent hover:border-current py-2 px-3">Link 2</a>
-                <a href="#" class="bg-gray-600 mx-4 text-white border border-transparent hover:border-current py-2 px-3">Link 3</a>
-                <a href="#" class="bg-gray-600 mx-4 text-white border border-transparent hover:border-current py-2 px-3">Link 4</a>
-                <a href="#" class="bg-gray-600 mx-4 text-white border border-transparent hover:border-current py-2 px-3">Link 5</a>
+            <div class="hidden md:flex md:items-center md:w-2/5 justify-center">
             </div>
-            <div class="hidden md:flex md:w-1/5 justify-end">
-                <input type="search" placeholder="Search" class="w-3/5 mr-5 rounded-md p-2 bg-gray-700 text-white">
+            <div class="hidden md:flex md:w-2/5 justify-end">
+                <p class="
+                    rounded-md bg-white mx-1 font-semibold text-gray-800 border border-transparent
+                    select-none hover:border-current py-2 px-3 border-2 border-gray-800"
+                >Category: </p>
+                <div class="w-2/5 relative flex lg:inline-flex mr-10 bg-white text-gray-800 border-2 border-gray-800 hover:border-gray-500 rounded-md">
+                    <x-categories.dropdown :post="$post ?? null"/>
+                </div>
+                <div x-data="{ search: '{{ request('search') }}', category: '{{ request('category') }}' }">
+                    <form method="GET" action="#" x-ref="form">
+                        @if (request('category'))
+                            <input type="hidden" name="category" value="{{ request('category') }}">
+                        @endif
+                        <input type="search"
+                               name="search"
+                               placeholder="Search"
+                               class="border-2 border-gray-800 w-full rounded-md p-2 bg-white text-gray-800"
+                               x-model="search"
+                               x-on:search="if (!search) $refs.form.submit()"
+                               value="{{ request('search') }}"
+                        >
+                    </form>
+                </div>
             </div>
             <div class="md:hidden flex items-center">
                 <button @click="open = !open" class="inline-block cursor-pointer">
@@ -35,7 +55,17 @@
                 <a href="#" class="block py-2 px-4 text-white">Link 5</a>
             </div>
             <div class="border-t border-gray-700 pt-4">
-                <input type="search" placeholder="Search" class="w-full rounded-md p-2 bg-gray-700 text-white">
+                <form method="GET" action="#">
+                    @if (request('category'))
+                        <input type="hidden" name="category" value="{{ request('category') }}">
+                    @endif
+                    <input type="text"
+                           name="search"
+                           placeholder="Search"
+                           class="w-full rounded-md p-2 bg-gray-700 text-white"
+                           value="{{ request('search') }}"
+                    >
+                </form>
             </div>
         </div>
     </div>
