@@ -2,3 +2,11 @@ body article h2 {
     font-size: 1.75rem;
     line-height: 1rem;
 }
+
+main a {
+    text-decoration: underline;
+}
+
+main a:hover {
+    text-decoration: none;
+}

@@ -17,6 +17,9 @@
                 <a href="/?category={{ $post->category->slug }}"
                    class="px-3 py-1 border border-blue-300 rounded-full text-blue-300 text-xs uppercase font-semibold"
                 >{{ $post->category->name }}</a>
+                @if (auth()->check())
+                    <a href="/admin/posts/{{ $post->id }}/edit">Edit</a>
+                @endif
             </div>
 
 

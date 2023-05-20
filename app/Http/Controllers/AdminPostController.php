@@ -10,7 +10,7 @@ class AdminPostController extends Controller
     public function index()
     {
         return view('admin.posts.index', [
-            'posts' => Post::oldest('published_at')
+            'posts' => Post::latest('published_at')
                 ->paginate(25)
                 ->withQueryString()
         ]);

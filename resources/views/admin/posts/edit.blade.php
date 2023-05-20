@@ -26,6 +26,8 @@
                 <x-form.error name="category"/>
             </x-form.field>
 
+            <x-form.input name="published_ad" type="datetime-local" required />
+
             <x-form.button>Update</x-form.button>
         </form>
     </x-dashpage>
