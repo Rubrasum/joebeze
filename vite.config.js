@@ -10,6 +10,5 @@ export default defineConfig({
             ],
             refresh: true,
         }),
-    ],
-    assetsInclude: ['node_modules/ckeditor4'],
+    ]
 });
