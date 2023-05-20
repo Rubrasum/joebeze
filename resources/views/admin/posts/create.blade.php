@@ -7,8 +7,9 @@
 
             <x-form.input name="title" required />
             <x-form.input name="slug" required />
-            <x-form.textarea name="excerpt" height="48" required />
-            <x-form.textarea name="body" height="96" required />
+
+            <x-form.textarea name="excerpt" height="48" required >{{ old('excerpt') }}</x-form.textarea>
+            <x-form.textarea id="body" name="body" height="96" required >{{ old('body') }}</x-form.textarea>
 
             <x-form.field>
                 <x-form.label name="category"/>
@@ -31,7 +32,6 @@
 @endsection
 
 @section('script')
-    <!-- Initialize CKEditor -->
 
     <script>
         tinymce.init({

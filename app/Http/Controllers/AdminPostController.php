@@ -10,7 +10,9 @@ class AdminPostController extends Controller
     public function index()
     {
         return view('admin.posts.index', [
-            'posts' => Post::paginate(25)
+            'posts' => Post::oldest('published_at')
+                ->paginate(25)
+                ->withQueryString()
         ]);
     }
 
@@ -23,7 +25,7 @@ class AdminPostController extends Controller
             'user_id' => request()->user()->id
         ]));
 
-        return redirect('/');
+        return redirect('/admin/posts');
     }
 
     public function edit(Post $post) {
