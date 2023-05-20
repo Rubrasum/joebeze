@@ -13,6 +13,15 @@ class Post extends Model
 
     protected $with = ['category', 'author']; // More efficient sql
 
+    /**
+     * The attributes that should be cast.
+     *
+     * @var array
+     */
+    protected $casts = [
+        'published_at' => 'datetime',
+    ];
+
     public function scopeFilter($query, array $filters)
     {
 

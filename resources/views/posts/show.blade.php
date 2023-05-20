@@ -12,7 +12,7 @@
             <div class="col-span-2 border-t-2 border-b-2 border-gray-900 text-center flex justify-center items-center space-x-4">
                 <p class="my-2 text-white">
                     Published
-                    <span class="font-semibold">{{ $post->created_at->diffForHumans() }}</span>
+                    <span class="font-semibold">{{ $post->published_at->toFormattedDateString() }}</span>
                 </p>
                 <a href="/?category={{ $post->category->slug }}"
                    class="px-3 py-1 border border-blue-300 rounded-full text-blue-300 text-xs uppercase font-semibold"
