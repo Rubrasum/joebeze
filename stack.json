@@ -1,19 +1,19 @@
 {
   "Resources": {
     "VPC": {
-      "Type": "AWS :: EC2 :: VPC",
+      "Type": "AWS::EC2::VPC",
       "Properties": {
         "CidrBlock": "10.0.0.0/16",
         "EnableDnsSupport": true,
         "EnableDnsHostnames": true
       },
       "InternetGateway": {
-        "Type": "AWS :: EC2 :: InternetGateway",
+        "Type": "AWS::EC2::InternetGateway",
         "Properties": {
         }
       },
       "InternetGatewayAttachment": {
-        "Type": "AWS :: EC2 :: VPCGatewayAttachment",
+        "Type": "AWS::EC2::VPCGatewayAttachment",
         "Properties": {
           "InternetGatewayId": {
             "Ref": "InternetGateway"
@@ -24,7 +24,7 @@
         }
       },
       "PublicSubnet": {
-        "Type": "AWS :: EC2 :: Subnet",
+        "Type": "AWS::EC2::Subnet",
         "Properties": {
           "VpcId": {
             "Ref": "VPC"
@@ -36,7 +36,7 @@
       }
     },
     "PublicRouteTable": {
-      "Type": "AWS :: EC2 :: RouteTable",
+      "Type": "AWS::EC2::RouteTable",
       "Properties": {
         "VpcId": {
           "Ref": "VPC"
@@ -44,7 +44,7 @@
       }
     },
     "DefaultPublicRoute": {
-      "Type": "AWS :: EC2 :: Route",
+      "Type": "AWS::EC2::Route",
       "DependsOn": "InternetGatewayAttachment",
       "Properties": {
         "RouteTableId": {
@@ -57,7 +57,7 @@
       }
     },
     "PublicSubnet RouteTableAssociation": {
-      "Type": "AWS :: EC2 :: SubnetRouteTableAssociation",
+      "Type": "AWS::EC2::SubnetRouteTableAssociation",
       "Properties": {
         "RouteTableId": {
           "Ref": "PublicRouteTable"
@@ -68,7 +68,7 @@
       }
     },
     "SecurityGroup": {
-      "Type": "AWS :: EC2 :: SecurityGroup", "Properties": {
+      "Type": "AWS::EC2::SecurityGroup", "Properties": {
         "GroupDescription": "Allow SSH Access", "SecurityGroupIngress": [
           {
             "IpProtocol": "tcp",
