@@ -26,7 +26,7 @@
                 <x-form.error name="category"/>
             </x-form.field>
 
-            <x-form.input name="published_ad" type="datetime-local" required />
+            <x-form.input name="published_ad" type="date" required class="datepicker" :value="date('Y-m-d')" />
 
             <x-form.button>Publish</x-form.button>
         </form>
@@ -36,6 +36,21 @@
 @section('script')
 
     <script>
+        $(function() {
+            let initialDate = "{{ date('Y-m-d') }}";
+
+            $(".datepicker").datepicker({
+                dateFormat: 'yy-mm-dd'
+            });
+
+            $(".datepicker").datepicker("setDate", initialDate);
+
+            $(".datepicker").on("change", function() {
+                selectedDate = $(this).val();
+            });
+
+        });
+
         tinymce.init({
             selector: 'textarea',
             plugins: 'anchor autolink charmap codesample emoticons image link lists media searchreplace table visualblocks wordcount checklist mediaembed casechange export formatpainter pageembed linkchecker a11ychecker tinymcespellchecker permanentpen powerpaste advtable advcode editimage tinycomments tableofcontents footnotes mergetags autocorrect typography inlinecss',

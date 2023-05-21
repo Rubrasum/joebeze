@@ -1,6 +1,7 @@
 @extends('layout.full')
 
 @section('content')
+
     <x-dashpage :heading="'Edit Post: ' . $post->title">
         <form method="POST" action="/admin/posts/{{ $post->id }}" enctype="multipart/form-data">
             @csrf
@@ -26,7 +27,7 @@
                 <x-form.error name="category"/>
             </x-form.field>
 
-            <x-form.input name="published_ad" type="datetime-local" required />
+            <x-form.input name="published_at" type="date" required class="datepicker" :value="$post->published_at->format('Y-m-d')" />
 
             <x-form.button>Update</x-form.button>
         </form>
@@ -36,6 +37,23 @@
 @section('script')
 
     <script>
+
+        // use the datepicker
+        $(function() {
+            let initialDate = "{{ $post->published_at->format('Y-m-d') }}";
+
+            $(".datepicker").datepicker({
+                dateFormat: 'yy-mm-dd'
+            });
+
+            $(".datepicker").datepicker("setDate", initialDate);
+
+            $(".datepicker").on("change", function() {
+                selectedDate = $(this).val();
+            });
+
+        });
+
         tinymce.init({
             selector: 'textarea#body',
             plugins: 'anchor autolink charmap codesample emoticons image link lists media searchreplace table visualblocks wordcount checklist mediaembed casechange export formatpainter pageembed linkchecker a11ychecker tinymcespellchecker permanentpen powerpaste advtable advcode editimage tinycomments tableofcontents footnotes mergetags autocorrect typography inlinecss',
