@@ -12,7 +12,7 @@
                 </div>
                 <div class="col-span-8 flex">
                     <div class="w-2/5 pr-3">
-                        <a href="/post/{{ $post->slug }}"><h2 class="text-white text-2xl font-bold hover:underline">{{ $post->title }}</h2></a>
+                        <a href="/post/{{ $post->slug }}"><h2 class="text-white text-2xl font-bold">{{ $post->title }}</h2></a>
                         <p class="text-white my-2">Published: <span class="font-semibold">{{ $post->published_at->toFormattedDateString() }}</span></p>
                     </div>
                     <div class="w-3/5 text-white">
@@ -20,11 +20,11 @@
                         <div class="flex justify-between items-center">
                             <div class="space-x-2">
                                 <a href="/?category={{ $post->category->slug }}"
-                                   class="px-3 py-1 border border-{{ $post->category->color }} rounded-full text-{{ $post->category->color }} text-xs uppercase font-semibold"
+                                   class="px-3 py-1 border border-{{ $post->category->color }} rounded-full text-{{ $post->category->color }} text-xs uppercase font-semibold btn-color-cat"
                                 >{{ $post->category->name }}</a>
                             </div>
                             <div>
-                                <a href="/post/{{ $post->slug }}" class="bg-gray-500 hover:bg-gray-700 text-white font-bold py-2 px-4 rounded">
+                                <a href="/post/{{ $post->slug }}" class="bg-gray-500 hover:bg-gray-700 text-white font-bold py-2 px-4 rounded btn-read-gray">
                                     Read more
                                 </a>
                             </div>

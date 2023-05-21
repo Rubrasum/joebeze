@@ -15,7 +15,7 @@
                     <span class="font-semibold">{{ $post->published_at->toFormattedDateString() }}</span>
                 </p>
                 <a href="/?category={{ $post->category->slug }}"
-                   class="px-3 py-1 border border-blue-300 rounded-full text-blue-300 text-xs uppercase font-semibold"
+                   class="px-3 py-1 border border-blue-300 rounded-full text-blue-300 text-xs uppercase font-semibold btn-color-cat"
                 >{{ $post->category->name }}</a>
                 @if (auth()->check())
                     <a href="/admin/posts/{{ $post->id }}/edit">Edit</a>
