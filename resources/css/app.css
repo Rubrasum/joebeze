@@ -1,0 +1,17 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.navbar {
+    background-color: #ffffff;
+}
+
+.navbar a {
+    color: #000000;
+    text-decoration: none;
+}
+
+.navbar input[type="search"] {
+    outline: none;
+    border: 1px solid #cccccc;
+}
