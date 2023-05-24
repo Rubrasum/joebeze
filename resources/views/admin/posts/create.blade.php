@@ -7,8 +7,9 @@
 
             <x-form.input name="title" required />
             <x-form.input name="slug" required />
-            <x-form.textarea name="excerpt" height="48" required />
-            <x-form.textarea name="body" height="96" required />
+
+            <x-form.textarea name="excerpt" height="48" required >{{ old('excerpt') }}</x-form.textarea>
+            <x-form.textarea id="body" name="body" height="96" required >{{ old('body') }}</x-form.textarea>
 
             <x-form.field>
                 <x-form.label name="category"/>
@@ -25,15 +26,31 @@
                 <x-form.error name="category"/>
             </x-form.field>
 
+            <x-form.input name="published_ad" type="date" required class="datepicker" :value="date('Y-m-d')" />
+
             <x-form.button>Publish</x-form.button>
         </form>
     </x-dashpage>
 @endsection
 
 @section('script')
-    <!-- Initialize CKEditor -->
 
     <script>
+        $(function() {
+            let initialDate = "{{ date('Y-m-d') }}";
+
+            $(".datepicker").datepicker({
+                dateFormat: 'yy-mm-dd'
+            });
+
+            $(".datepicker").datepicker("setDate", initialDate);
+
+            $(".datepicker").on("change", function() {
+                selectedDate = $(this).val();
+            });
+
+        });
+
         tinymce.init({
             selector: 'textarea',
             plugins: 'anchor autolink charmap codesample emoticons image link lists media searchreplace table visualblocks wordcount checklist mediaembed casechange export formatpainter pageembed linkchecker a11ychecker tinymcespellchecker permanentpen powerpaste advtable advcode editimage tinycomments tableofcontents footnotes mergetags autocorrect typography inlinecss',
