@@ -10,7 +10,7 @@
                 <br>
                 <span>211 South Greenwood Avenue,</span>
                 <br>
-                <span>Tulsa, FL 74120</span>
+                <span>Tulsa, OK 74120</span>
             </div>
         </li>
     </ul>
