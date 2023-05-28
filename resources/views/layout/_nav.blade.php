@@ -5,7 +5,7 @@
 >
     <div class="container mx-auto px-4">
         <nav class="flex justify-between items-center py-4">
-            <div class="sm:w-3/5 md:w-2/5 lg:w-2/5">
+            <div class="w-4/5 sm:w-3/5 md:w-2/5 lg:w-2/5">
                 <a href="/">
                     <img src="/images/bytebeze-logo.png" alt="Logo">
                 </a>
@@ -13,10 +13,6 @@
             <div class="hidden lg:flex xl:w-2/5 lg:w-0/5 items-center justify-center">
             </div>
             <div class="hidden lg:flex lg:w-3/5 justify-end">
-                <p class="
-                    rounded-md bg-white mx-1 font-semibold text-gray-800 border border-transparent
-                    select-none hover:border-current py-2 px-3 border-2 border-gray-800"
-                >Category: </p>
                 <div class="w-2/5 relative flex lg:inline-flex mr-10 lg:mr-5 bg-white text-gray-800 border-2 border-gray-800 hover:border-gray-500 rounded-md">
                     <x-categories.dropdown :post="$post ?? null"/>
                 </div>
@@ -36,7 +32,7 @@
                     </form>
                 </div>
             </div>
-            <div class="lg:hidden flex items-center">
+            <div class="lg:hidden w-1/5 flex items-center justify-center">
                 <button @click="open = !open" class="inline-block cursor-pointer">
                     <svg class="fill-current text-white h-6 w-6" viewBox="0 0 24 24">
                         <path x-show="!open" fill-rule="evenodd" clip-rule="evenodd" d="M4 5h16a1 1 0 010 2H4a1 1 0 110-2zm0 6h16a1 1 0 010 2H4a1 1 0 010-2zm0 6h16a1 1 0 010 2H4a1 1 0 010-2z"/>
@@ -47,25 +43,23 @@
         </nav>
 
         <div x-show="open" class="lg:hidden">
-            <div class="border-t border-gray-700 pt-4">
-                <p class="
-                    rounded-md bg-white mx-1 font-semibold text-gray-800 border border-transparent
-                    select-none hover:border-current py-2 px-3 border-2 border-gray-800"
-                >Category: </p>
+            <div class="lg:border-t border-gray-700 pt-4 flex mb-10">
                 <div class="w-2/5 relative flex lg:inline-flex mr-10 lg:mr-5 bg-white text-gray-800 border-2 border-gray-800 hover:border-gray-500 rounded-md">
                     <x-categories.dropdown :post="$post ?? null"/>
                 </div>
-                <form method="GET" action="#">
-                    @if (request('category'))
-                        <input type="hidden" name="category" value="{{ request('category') }}">
-                    @endif
-                    <input type="text"
-                           name="search"
-                           placeholder="Search"
-                           class="w-full rounded-md p-2 bg-gray-700 text-white"
-                           value="{{ request('search') }}"
-                    >
-                </form>
+                <div class="w-2/5 relative flex lg:inline-flex mr-10 lg:mr-5 text-gray-800 border-2 border-gray-800 hover:border-gray-500 rounded-md">
+                    <form method="GET" action="#">
+                        @if (request('category'))
+                            <input type="hidden" name="category" value="{{ request('category') }}">
+                        @endif
+                        <input type="text"
+                               name="search"
+                               placeholder="Search"
+                               class="w-full rounded-md p-2 bg-gray-700 text-white"
+                               value="{{ request('search') }}"
+                        >
+                    </form>
+                </div>
             </div>
         </div>
     </div>
