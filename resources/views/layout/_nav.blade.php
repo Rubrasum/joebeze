@@ -48,6 +48,13 @@
 
         <div x-show="open" class="lg:hidden">
             <div class="border-t border-gray-700 pt-4">
+                <p class="
+                    rounded-md bg-white mx-1 font-semibold text-gray-800 border border-transparent
+                    select-none hover:border-current py-2 px-3 border-2 border-gray-800"
+                >Category: </p>
+                <div class="w-2/5 relative flex lg:inline-flex mr-10 lg:mr-5 bg-white text-gray-800 border-2 border-gray-800 hover:border-gray-500 rounded-md">
+                    <x-categories.dropdown :post="$post ?? null"/>
+                </div>
                 <form method="GET" action="#">
                     @if (request('category'))
                         <input type="hidden" name="category" value="{{ request('category') }}">
