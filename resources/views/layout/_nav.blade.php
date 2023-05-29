@@ -33,7 +33,7 @@
                 </div>
             </div>
             <div class="lg:hidden w-1/5 flex items-center justify-center">
-                <button @click="open = !open" class="inline-block cursor-pointer">
+                <button @click="open = !open" class="border border-white rounded-md p-2 bg-gray-800 inline-block cursor-pointer">
                     <svg class="fill-current text-white h-6 w-6" viewBox="0 0 24 24">
                         <path x-show="!open" fill-rule="evenodd" clip-rule="evenodd" d="M4 5h16a1 1 0 010 2H4a1 1 0 110-2zm0 6h16a1 1 0 010 2H4a1 1 0 010-2zm0 6h16a1 1 0 010 2H4a1 1 0 010-2z"/>
                         <path x-show="open" fill-rule="evenodd" clip-rule="evenodd" d="M12.707 17.707a1 1 0 01-1.414 0l-5-5a1 1 0 011.414-1.414L12 14.586l4.293-4.293a1 1 0 111.414 1.414l-5 5z"/>
@@ -43,19 +43,19 @@
         </nav>
 
         <div x-show="open" class="lg:hidden">
-            <div class="lg:border-t border-gray-700 pt-4 flex mb-10">
+            <div class="lg:border-t border-gray-700 pt-4 flex mb-2">
                 <div class="w-2/5 relative flex lg:inline-flex mr-10 lg:mr-5 bg-white text-gray-800 border-2 border-gray-800 hover:border-gray-500 rounded-md">
                     <x-categories.dropdown :post="$post ?? null"/>
                 </div>
-                <div class="w-2/5 relative flex lg:inline-flex mr-10 lg:mr-5 text-gray-800 border-2 border-gray-800 hover:border-gray-500 rounded-md">
-                    <form method="GET" action="#">
+                <div class="w-2/5 relative flex lg:inline-flex mr-10 lg:mr-5 bg-white text-gray-800 border-2 border-gray-800 hover:border-gray-500 rounded-md">
+                    <form class="w-full" method="GET" action="#">
                         @if (request('category'))
                             <input type="hidden" name="category" value="{{ request('category') }}">
                         @endif
                         <input type="text"
                                name="search"
                                placeholder="Search"
-                               class="w-full rounded-md p-2 bg-gray-700 text-white"
+                               class="w-full rounded-md p-2 bg-white text-gray-800"
                                value="{{ request('search') }}"
                         >
                     </form>
