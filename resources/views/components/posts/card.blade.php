@@ -19,7 +19,7 @@
                     </div>
 
                     <div class="md:w-3/5 text-white">
-                        <div class="mb-4 text-justify text-xs xl:text-base">{!! $post->excerpt !!}</div>
+                        <div class="mb-4 text-justify text-sm xl:text-base">{!! $post->excerpt !!}</div>
                         <div class="flex justify-between items-center">
                             <div class="space-x-2">
                                 <a href="/?category={{ $post->category->slug }}"
