@@ -16,7 +16,7 @@
 
     @endif
         <div class="bg-black">
-            <div class="flex justify-center">
+            <div class="flex justify-center mx-2 md:mx-0">
                 {{ $posts->links('vendor.pagination.default') }}
             </div>
         </div>
