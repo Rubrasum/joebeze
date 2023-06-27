@@ -7,14 +7,15 @@
                         grid-cols-10 gap-5 border-l-8 border-r-2 border-b-4 border-t-8
                         border-gray-800 rounded-br-md
                         ">
-                <div class="col-span-2 ">
+                <div class="col-span-2 h-full">
                     <img src="{{ asset('images/' .$post->category->name. '-cat-logo.jpg') }}" alt="Image" class="w-full h-auto border-2 border-gray-800">
                 </div>
                 <div class="col-span-8 flex">
-                    <div class="w-2/5 pr-3">
+                    <div class="w-2/5 pr-3 items-center md:items-start md:flex-row md:items-baseline md:space-x-3">
                         <a href="/post/{{ $post->slug }}"><h2 class="text-white text-2xl font-bold">{{ $post->title }}</h2></a>
                         <p class="text-white my-2">Published: <span class="font-semibold">{{ $post->published_at->toFormattedDateString() }}</span></p>
                     </div>
+
                     <div class="w-3/5 text-white">
                         <div class="mb-4 text-justify">{!! $post->excerpt !!}</div>
                         <div class="flex justify-between items-center">
