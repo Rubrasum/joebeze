@@ -10,6 +10,7 @@
 <link rel="stylesheet" href="//code.jquery.com/ui/1.11.2/themes/smoothness/jquery-ui.css" />
 <link rel="stylesheet" href="//code.jquery.com/ui/1.11.2/themes/smoothness/jquery-ui.css" />
 @vite(['resources/css/app.css', 'resources/js/app.js'])
+<script src="https://cdn.quilljs.com/1.3.6/quill.js"></script>
 
 <script src="https://kit.fontawesome.com/90fd230ab0.js" crossorigin="anonymous"></script>
 <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
