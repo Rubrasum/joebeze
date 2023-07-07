@@ -8,8 +8,13 @@
             <x-form.input name="title" required />
             <x-form.input name="slug" required />
 
-            <x-form.textarea id="excerpt" name="excerpt" height="48" required >{{ old('excerpt') }}</x-form.textarea>
-            <x-form.textarea id="body" name="body" height="96" required >{{ old('body') }}</x-form.textarea>
+            <div id="editor">
+                <p>Hello World!</p>
+                <p>Some initial <strong>bold</strong> text</p>
+                <p><br></p>
+            </div>
+{{--            <x-form.quill-textarea id="excerpt" name="excerpt" height="48" required >{{ old('excerpt') }}</x-form.quill-textarea>--}}
+{{--            <x-form.quill-textarea id="body" name="body" height="96" required >{{ old('body') }}</x-form.quill-textarea>--}}
 
             <x-form.field>
                 <x-form.label name="category"/>
