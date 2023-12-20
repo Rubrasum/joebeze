@@ -20,6 +20,11 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', [PostController::class, 'index'])->name('home');
 Route::get('post/{post:slug}', [PostController::class, 'show']);
 
+// resume download
+Route::get('/resume', function () {
+    $resumePath = public_path('joseph_betbeze_resume.pdf');
+    return response()->download($resumePath);
+});
 
 // User Dashboard
 Route::get('/dashboard', function () {
@@ -37,5 +42,7 @@ Route::middleware('auth')->group(function () {
 Route::middleware('can:admin')->group(function () {
     Route::resource('admin/posts', AdminPostController::class)->except('show');
 });
+
+
 
 require __DIR__.'/auth.php';

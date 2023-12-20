@@ -1,5 +1,5 @@
 @if ($paginator->hasPages())
-    <nav class="w-4/12 min-w-96 container mx-auto px-8 py-4 mb-8 grid grid-cols-5 gap-5 border-4 border-gray-800 rounded-b-xl">
+    <nav class="w-full md:w-4/12 min-w-96 container mx-auto px-8 py-4 mb-8 grid grid-cols-5 gap-5 border-4 border-gray-800 rounded-b-xl">
         <ul class="pagination col-span-5 flex justify-center items-center space-x-4 text-gray-300">
 
             {{-- Skip to Start Link --}}

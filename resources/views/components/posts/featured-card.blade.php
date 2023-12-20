@@ -5,8 +5,11 @@
     <div class="w-full relative">
         <div class="top-0 left-0 w-full bg-black bg-opacity-60 flex
                     flex-col justify-between border-t-8 border-gray-800">
-            <div class="container mx-auto xl:px-16 px-4 pt-8 lg:pt-16 pb-8 mb-8 lg:grid lg:grid-cols-5
-                        lg:gap-5 border-l-8 border-r-2 border-b-2 border-gray-800 rounded-br-md">
+            <div class="container mx-2 md:mx-auto mb-8
+                        pt-8 lg:pt-16 px-4 xl:px-16 pb-8
+                        lg:grid lg:grid-cols-5 lg:gap-5
+                        border-l-8 border-r-2 border-b-2 border-gray-800 rounded-br-md"
+            >
                 <div class="lg:col-span-2 border-gray-800">
                     <img src="{{ asset('images/' .$post->category->name. '-cat-logo.jpg') }}" alt="Image"
                          class="w-full h-auto border-2 border-gray-800">

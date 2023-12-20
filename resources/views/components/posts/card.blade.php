@@ -3,9 +3,9 @@
 <div class="bg-black">
     <div class="w-full relative">
         <div class="top-0 left-0 w-full bg-black bg-opacity-60 flex flex-col justify-between ">
-            <div class="container mx-auto xl:px-16 px-4 py-5 mb-12 md:grid items-center
+            <div class="container xl:px-16 px-4 py-5 mb-12 md:grid items-center
                         md:grid-cols-10 md:gap-5 border-l-8 border-r-2 border-b-4 border-t-8
-                        border-gray-800 rounded-br-md
+                        border-gray-800 rounded-br-md mx-2 md:mx-auto
                         ">
                 <div class="md:col-span-2 h-full">
                     <img src="{{ asset('images/' .$post->category->name. '-cat-logo.jpg') }}"
