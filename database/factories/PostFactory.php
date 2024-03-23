@@ -28,6 +28,7 @@ class PostFactory extends Factory
             'slug' => $this->faker->slug(),
             'excerpt' => implode("<br><br>", $this->faker->paragraphs(2)),
             'body' => implode("<br><br>", $this->faker->paragraphs(6)),
+            'published_at' => now(), // Set the published_at date to now
         ];
     }
 }
