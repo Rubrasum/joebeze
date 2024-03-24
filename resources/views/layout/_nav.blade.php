@@ -12,8 +12,8 @@
                             <defs>
                                 <style>
                                     .cls-1 {
-                                        fill: #fff;
-                                        stroke-width: 0px;
+                                        fill: transparent;
+                                        stroke-width: 1px;
                                     }
                                 </style>
                             </defs>
@@ -180,8 +180,9 @@
                     this.ctx = canvas.getContext("2d");
                     this.ctx2 = canvas2.getContext("2d");
                     this.tick = 0;
-                    this.pointsIndex = 0;
-                    this.points = [];
+                    this.pathIndex = 0;
+                    this.pointIndex = 0;
+                    this.paths = [];
                     this.size = 3;
                     this.initCanvasSize();
                 }
@@ -264,26 +265,36 @@
                 draw() {
                     this.ctx2.clearRect(0, 0, this.w, this.h);
 
-                    if (this.pointsIndex < this.points.length) {
-                        var p = this.points[this.pointsIndex];
-                        this.x = p[0];
-                        this.y = p[1];
-                        this.laser.drawTo(this.x, this.y, this.ctx2);
+                    if (this.pathIndex < this.paths.length) {
+                        const path = this.paths[this.pathIndex];
+                        const p = path.points[this.pointIndex];
 
-                        if (this.tick % 2 === 0) {
-                            var particle = new Particle(this.x, this.y, this.size);
-                            this.laser.particles.push(particle);
+                        if (p) {
+                            this.x = p[0];
+                            this.y = p[1];
+                            this.laser.drawTo(this.x, this.y, this.ctx2);
+
+                            // Reveal the SVG path segment
+                            const segmentLength = path.path.getTotalLength() / path.points.length;
+                            const distance = this.pointIndex * segmentLength;
+                            path.path.style.strokeDasharray = `${distance} ${path.path.getTotalLength()}`;
+                            path.path.style.stroke = '#fff';
+                            path.path.style.strokeWidth = '2px';
                         }
-                    } else if (this.pointsIndex === this.points.length) {
+
+                        this.pointIndex += 1;
+
+                        if (this.pointIndex >= path.points.length) {
+                            this.pathIndex++;
+                            this.pointIndex = 0;
+                        }
+                    } else if (this.pathIndex === this.paths.length) {
                         this.laser.endFrom(this.x, this.y);
                     } else {
                         this.laser.drawEnd(this.ctx2);
                     }
 
-                    this.pointsIndex++;
-                    this.tick++;
-
-                    if (this.pointsIndex <= this.points.length + 400) {
+                    if (this.pathIndex <= this.paths.length + 400) {
                         requestAnimationFrame(() => this.draw());
                     }
                 }
@@ -291,14 +302,17 @@
                 traceSVG() {
                     const paths = this.svg.querySelectorAll('path');
                     paths.forEach(path => {
+                        path.style.stroke = 'transparent';
+                        const pathPoints = [];
                         const length = path.getTotalLength();
                         for (let i = 0; i < length; i++) {
                             const point = path.getPointAtLength(i);
-                            this.points.push([point.x, point.y]);
+                            pathPoints.push([point.x, point.y]);
                         }
+                        this.paths.push({ path, points: pathPoints });
                     });
 
-                    this.laser = new Laser(this.points[0][0], this.points[0][1]);
+                    this.laser = new Laser(this.paths[0].points[0][0], this.paths[0].points[0][1]);
                 }
             }
 
@@ -315,6 +329,10 @@
             position: absolute;
             top: 0;
             left: 0;
+        }
+
+        #joebeze_logo {
+            overflow: visible;
         }
     </style>
 
