@@ -17,11 +17,20 @@
 <script src="//code.jquery.com/ui/1.11.2/jquery-ui.js"></script>
 <link rel="stylesheet" href="//code.jquery.com/ui/1.11.2/themes/smoothness/jquery-ui.css" />
 <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
-
-
+{{-- TODO REMOVE INLINE STYLES --}}
+{{-- TODO ORGANIZE NAVBAR MORE EFFICIENTLY - TEST AGAINST SPEED THINGIES--}}
+<script>
+    // hide the page body_container id element until its loaded
+    window.onload = function() {
+        document.getElementById('body_container').style.visibility = 'visible';
+    }
+</script>
 
 <style>
     html {
         scroll-behavior: smooth
+    }
+    #body_container {
+        visibility: hidden;
     }
 </style>
