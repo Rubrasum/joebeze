@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 523.82 61.68">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #000;
+        font-family: NasalizationRg-Regular, Nasalization;
+        font-size: 56px;
+      }
+
+      .cls-2 {
+        letter-spacing: -.01em;
+      }
+
+      .cls-3 {
+        letter-spacing: -.02em;
+      }
+
+      .cls-4 {
+        letter-spacing: -.02em;
+      }
+    </style>
+  </defs>
+  <text class="cls-1" transform="translate(0 46.9)"><tspan x="0" y="0">Joeb</tspan><tspan class="cls-3" x="145.65" y="0">e</tspan><tspan class="cls-2" x="181.1" y="0">z</tspan><tspan x="215.37" y="0">e d</tspan><tspan class="cls-4" x="305.76" y="0">e</tspan><tspan x="341.26" y="0">v blog</tspan></text>
+</svg>
