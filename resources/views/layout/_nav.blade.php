@@ -145,6 +145,73 @@
         </div>
     </div>
     <script>
+        class RippleAnimation {
+            constructor(bgElement) {
+                this.bgElement = bgElement;
+                this.canvas = document.createElement('canvas');
+                this.canvas.style.position = 'absolute';
+                this.canvas.style.top = '0';
+                this.canvas.style.left = '0';
+                this.ctx = this.canvas.getContext('2d');
+                this.setupCanvas();
+                this.bgElement.appendChild(this.canvas);
+
+                this.bgElement.addEventListener('mousedown', this.startRipple.bind(this));
+                this.bgElement.addEventListener('touchstart', this.startRipple.bind(this), { passive: true });
+
+                this.nextImageIndex = 0;
+                this.imageUrls = [
+                    "{{ asset('images/Screenshot 2024-03-23 100050.jpg') }}",
+                    "{{ asset('images/noita-logo.gif') }}",
+                    "{{ asset('images/logo-bg-image-003.jpg') }}",
+                    "{{ asset('images/logo-bg-image-004.jpg') }}",
+                    "{{ asset('images/logo-bg-image-005.jpg') }}",
+                    "{{ asset('images/logo-bg-image-006.jpg') }}",
+                    "{{ asset('images/logo-bg-image-007.jpg') }}"
+                ];
+            }
+
+            setupCanvas() {
+                this.canvas.width = this.bgElement.offsetWidth;
+                this.canvas.height = this.bgElement.offsetHeight;
+            }
+
+            startRipple(event) {
+                const logoContainer = document.getElementById('logo-container');
+                const rect = logoContainer.getBoundingClientRect();
+                const x = event.clientX + logoContainer.left;
+                const y = event.clientY - rect.top - logoContainer.top;
+                this.animate(x, y);
+            }
+
+            animate(x, y) {
+                this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
+
+                const maxRadius = Math.sqrt(this.canvas.width ** 2 + this.canvas.height ** 2);
+                let radius = 0;
+                let opacity = 1;
+
+                const animate = () => {
+                    requestAnimationFrame(animate);
+
+                    this.ctx.beginPath();
+                    this.ctx.arc(x, y, radius, 0, 2 * Math.PI);
+                    this.ctx.fillStyle = `rgba(255, 255, 255, ${opacity})`;
+                    this.ctx.fill();
+
+                    radius += 10;
+                    opacity -= 0.01;
+
+                    if (radius > maxRadius) {
+                        this.bgElement.style.backgroundImage = `url('${this.imageUrls[this.nextImageIndex]}')`;
+                        this.nextImageIndex = (this.nextImageIndex + 1) % this.imageUrls.length;
+                        return;
+                    }
+                };
+
+                animate();
+            }
+        }
         class Particle {
             constructor(x, y, size) {
                 this.speed = 0.6;
@@ -385,7 +452,46 @@
                 this.laser = new Laser(this.paths[0].points[0][0], this.paths[0].points[0][1]);
             }
         }
-        // delay til page load
+
+        let lastMouseX = 0;
+        let lastMouseY = 0;
+
+        document.addEventListener('mousemove', (e) => {
+            lastMouseX = e.clientX;
+            lastMouseY = e.clientY;
+        });
+
+        function createRipple(x, y) {
+            const canvas = document.createElement('canvas');
+            const ctx = canvas.getContext('2d');
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+            const parent = document.getElementById('logo-background');
+            parent.appendChild(canvas);
+
+            const maxRadius = Math.sqrt(canvas.width ** 2 + canvas.height ** 2);
+            let radius = 0;
+            let opacity = 1;
+
+            const animate = function() {
+                requestAnimationFrame(animate);
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+                ctx.beginPath();
+                ctx.arc(x, y, radius, 0, 2 * Math.PI);
+                ctx.fillStyle = `rgba(255, 255, 255, ${opacity})`;
+                ctx.fill();
+
+                radius += 5;
+                opacity -= 0.01;
+
+                if (radius > maxRadius || opacity <= 0) {
+                    parent.removeChild(canvas);
+                }
+            };
+
+            animate();
+        }        // delay til page load
         document.addEventListener("DOMContentLoaded", () => {
             // Set initial fill for the filled logo
             document.querySelectorAll('#joebeze_logo_filled .cls-2-1').forEach(path => {
@@ -447,18 +553,21 @@
                 document.getElementById('logo-background').style.opacity = '1';
 
                 const paths = document.querySelectorAll('#joebeze_logo_lazer_anim .cls-1');
-                paths.forEach(path => {
-                    // Change the stroke color
-                    path.style.stroke = '#012'; // Change to your desired color
-                });
                 // Update #joebeze_logo_lazer_anim .cls-1 transition to stroke 1s ease
                 paths.forEach(path => {
                     path.style.transition = 'stroke 1s ease';
                 });
+                paths.forEach(path => {
+                    // Change the stroke color
+                    path.style.stroke = '#012'; // Change to your desired color            // ...
+                });
+
 
                 // Set up a timer to transition to the next image every 5 seconds
                 let currentIndex = rand;
                 setInterval(() => {
+                    // get last mouse x and y
+                    createRipple(lastMouseX, lastMouseY);
                     currentIndex = (currentIndex + 1) % options.length;
                     let nextImageUrl = options[currentIndex];
 
@@ -466,6 +575,7 @@
                     document.getElementById('logo-background').style.transition = 'background-image 2s';
                     document.getElementById('logo-background').style.backgroundImage = `url('${nextImageUrl}')`;
                 }, 5000);
+                const rippleAnimation = new RippleAnimation(document.getElementById('logo-background'));
             }, 13000);
 
 
