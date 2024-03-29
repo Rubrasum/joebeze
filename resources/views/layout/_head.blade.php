@@ -17,6 +17,7 @@
 <script src="//code.jquery.com/ui/1.11.2/jquery-ui.js"></script>
 <link rel="stylesheet" href="//code.jquery.com/ui/1.11.2/themes/smoothness/jquery-ui.css" />
 <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.0/p5.js"></script>
 {{-- TODO REMOVE INLINE STYLES --}}
 {{-- TODO ORGANIZE NAVBAR MORE EFFICIENTLY - TEST AGAINST SPEED THINGIES--}}
 <script>

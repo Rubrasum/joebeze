@@ -1,11 +1,19 @@
-<div id="nav_container" class="h-30" x-data="{ open: false }" style="background-image: url('{{ asset('images/bytebeze-banner-tess.png') }}'); background-repeat: repeat;">
+<div id="nav_container" class="h-30" x-data="{ open: false }"
+     style="background-image: url('{{ asset('images/bytebeze-banner-tess.png') }}'); background-repeat: repeat;">
+    <div id="p5-canvas"></div>
     <div class="container mx-auto px-4">
         <nav class="flex justify-between items-center py-4">
             <div class="w-4/5 sm:w-3/5 md:w-2/5 lg:w-2/5">
-                <a href="/">
+                <a href="/" style="z-index: 110">
                     <div id="logo-container" style="position: relative; width: 650px; height: 76.27px;">
-                        <div id="logo-background" style="position: absolute; background-position: center bottom; background-size: cover; top: 0; left: 0; width: 100%; height: 100%; background-color: white; border-radius: 0.5rem; box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -4px rgba(0, 0, 0, 0.1); border: solid white 2px;  transition: all 1000ms ease-in-out; background-image: url('');"><div class="ripple"></div></div>
-                        <svg id="joebeze_logo_lazer_anim" data-name="joebeze_logo_lazer_anim" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 650 76.27">
+                        <div id="logo-background"
+                             style="position: absolute; background-position: center bottom; background-size: cover; top: 0; left: 0; width: 100%; height: 100%; background-color: white; border-radius: 0.5rem; box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -4px rgba(0, 0, 0, 0.1); border: solid white 2px;  transition: all 1000ms ease-in-out; background-image: url('');">
+                            <div class="ripple"></div>
+                        </div>
+                        <div id="logo-background2"
+                             style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border-radius: 0.5rem; box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -4px rgba(0, 0, 0, 0.1); border: solid white 2px;  transition: all 1000ms ease-in-out;"></div>
+                        <svg id="joebeze_logo_lazer_anim" data-name="joebeze_logo_lazer_anim"
+                             xmlns="http://www.w3.org/2000/svg" viewBox="0 0 650 76.27">
                             <defs>
                                 <style>
                                     .cls-1 {
@@ -14,30 +22,53 @@
                                     }
                                 </style>
                             </defs>
-                            <path class="cls-1" d="M26.82,4.59v24.75c0,7.56-3.98,13.05-14,13.05H0v-6.61h12.43c5.94,0,7.73-2.86,7.73-6.5V4.59h6.66Z"/>
-                            <path class="cls-1" d="M52.92,12.82c7.84,0,12.82,4.82,12.82,14.78s-4.98,14.78-12.82,14.78h-6.22c-7.9,0-12.82-4.82-12.82-14.78s4.93-14.78,12.82-14.78h6.22Z"/>
-                            <path class="cls-1" d="M47.26,18.54c-5.15,0-7.39,2.69-7.39,9.07s2.24,9.02,7.39,9.02h5.1c5.1,0,7.39-2.63,7.39-9.02s-2.3-9.07-7.39-9.07h-5.1Z"/>
-                            <path class="cls-1" d="M92.12,12.82c7,0,9.97,3.36,9.97,9.07s-2.74,8.51-10.02,8.51h-14.06v2.13c0,2.35,1.29,4.09,4.54,4.09h18.09v5.77h-18.09c-7.39,0-10.3-4.14-10.3-9.74v-10.08c0-5.6,2.91-9.74,10.3-9.74h9.58Z"/>
-                            <path class="cls-1" d="M78.01,25.76h13.89c3.19,0,4.37-1.34,4.37-3.53s-1.29-3.7-4.2-3.7h-9.52c-3.25,0-4.54,1.79-4.54,4.09v3.14Z"/>
-                            <path class="cls-1" d="M115.3,0v12.82h13.1c7.84,0,12.77,4.82,12.77,14.78s-4.93,14.78-12.77,14.78h-8.18c-7.11,0-10.86-4.14-10.86-12.66V0h5.94Z"/>
-                            <path class="cls-1" d="M115.3,18.54v10.92c0,5.04,1.85,7.17,6.66,7.17h5.82c5.15,0,7.39-2.63,7.39-9.02s-2.24-9.07-7.39-9.07h-12.49Z"/>
-                            <path class="cls-1" d="M167.55,12.82c7,0,9.97,3.36,9.97,9.07s-2.74,8.51-10.02,8.51h-14.06v2.13c0,2.35,1.29,4.09,4.54,4.09h18.09v5.77h-18.09c-7.39,0-10.3-4.14-10.3-9.74v-10.08c0-5.6,2.91-9.74,10.3-9.74h9.58Z"/>
-                            <path class="cls-1" d="M153.44,25.76h13.89c3.19,0,4.37-1.34,4.37-3.53s-1.29-3.7-4.2-3.7h-9.52c-3.25,0-4.54,1.79-4.54,4.09v3.14Z"/>
-                            <path class="cls-1" d="M204.01,12.82c5.15,0,7.62,2.69,7.62,6.78,0,3.64-1.96,5.99-5.04,7.11l-16.97,6.16c-1.01.39-1.57,1.06-1.57,2.02,0,1.12.73,1.79,2.24,1.79h20.72v5.71h-21.06c-5.1,0-7.62-2.69-7.62-6.78,0-3.3,1.62-5.94,5.04-7.17l17.02-6.1c1.23-.45,1.57-1.29,1.57-2.07,0-1.12-.73-1.74-2.3-1.74h-20.27v-5.71h20.61Z"/>
-                            <path class="cls-1" d="M237.27,12.82c7,0,9.97,3.36,9.97,9.07s-2.74,8.51-10.02,8.51h-14.06v2.13c0,2.35,1.29,4.09,4.54,4.09h18.09v5.77h-18.09c-7.39,0-10.3-4.14-10.3-9.74v-10.08c0-5.6,2.91-9.74,10.3-9.74h9.58Z"/>
-                            <path class="cls-1" d="M223.16,25.76h13.89c3.19,0,4.37-1.34,4.37-3.53s-1.29-3.7-4.2-3.7h-9.52c-3.25,0-4.54,1.79-4.54,4.09v3.14Z"/>
-                            <path class="cls-1" d="M299.93,0v29.74c0,8.51-3.81,12.66-10.86,12.66h-8.18c-7.9,0-12.82-4.82-12.82-14.78s4.93-14.78,12.82-14.78h13.05V0h5.99Z"/>
-                            <path class="cls-1" d="M293.94,29.46v-10.92h-12.49c-5.1,0-7.39,2.69-7.39,9.07s2.3,9.02,7.39,9.02h5.88c4.76,0,6.61-2.13,6.61-7.17Z"/>
-                            <path class="cls-1" d="M327.65,12.82c7,0,9.97,3.36,9.97,9.07s-2.74,8.51-10.02,8.51h-14.06v2.13c0,2.35,1.29,4.09,4.54,4.09h18.09v5.77h-18.09c-7.39,0-10.3-4.14-10.3-9.74v-10.08c0-5.6,2.91-9.74,10.3-9.74h9.58Z"/>
-                            <path class="cls-1" d="M313.54,25.76h13.89c3.19,0,4.37-1.34,4.37-3.53s-1.29-3.7-4.2-3.7h-9.52c-3.25,0-4.54,1.79-4.54,4.09v3.14Z"/>
-                            <path class="cls-1" d="M346.97,12.82l9.86,23.74c.22.62.73.9,1.46.9.78,0,1.29-.28,1.57-.9l10.25-23.74h6.38l-11.42,26.38c-1.23,2.8-3.42,3.86-6.78,3.86s-5.6-1.12-6.72-3.86l-10.86-26.38h6.27Z"/>
-                            <path class="cls-1" d="M402.69,0v12.82h13.1c7.84,0,12.77,4.82,12.77,14.78s-4.93,14.78-12.77,14.78h-8.18c-7.11,0-10.86-4.14-10.86-12.66V0h5.94Z"/>
-                            <path class="cls-1" d="M402.69,18.54v10.92c0,5.04,1.85,7.17,6.66,7.17h5.82c5.15,0,7.39-2.63,7.39-9.02s-2.24-9.07-7.39-9.07h-12.49Z"/>
+                            <path class="cls-1"
+                                  d="M26.82,4.59v24.75c0,7.56-3.98,13.05-14,13.05H0v-6.61h12.43c5.94,0,7.73-2.86,7.73-6.5V4.59h6.66Z"/>
+                            <path class="cls-1"
+                                  d="M52.92,12.82c7.84,0,12.82,4.82,12.82,14.78s-4.98,14.78-12.82,14.78h-6.22c-7.9,0-12.82-4.82-12.82-14.78s4.93-14.78,12.82-14.78h6.22Z"/>
+                            <path class="cls-1"
+                                  d="M47.26,18.54c-5.15,0-7.39,2.69-7.39,9.07s2.24,9.02,7.39,9.02h5.1c5.1,0,7.39-2.63,7.39-9.02s-2.3-9.07-7.39-9.07h-5.1Z"/>
+                            <path class="cls-1"
+                                  d="M92.12,12.82c7,0,9.97,3.36,9.97,9.07s-2.74,8.51-10.02,8.51h-14.06v2.13c0,2.35,1.29,4.09,4.54,4.09h18.09v5.77h-18.09c-7.39,0-10.3-4.14-10.3-9.74v-10.08c0-5.6,2.91-9.74,10.3-9.74h9.58Z"/>
+                            <path class="cls-1"
+                                  d="M78.01,25.76h13.89c3.19,0,4.37-1.34,4.37-3.53s-1.29-3.7-4.2-3.7h-9.52c-3.25,0-4.54,1.79-4.54,4.09v3.14Z"/>
+                            <path class="cls-1"
+                                  d="M115.3,0v12.82h13.1c7.84,0,12.77,4.82,12.77,14.78s-4.93,14.78-12.77,14.78h-8.18c-7.11,0-10.86-4.14-10.86-12.66V0h5.94Z"/>
+                            <path class="cls-1"
+                                  d="M115.3,18.54v10.92c0,5.04,1.85,7.17,6.66,7.17h5.82c5.15,0,7.39-2.63,7.39-9.02s-2.24-9.07-7.39-9.07h-12.49Z"/>
+                            <path class="cls-1"
+                                  d="M167.55,12.82c7,0,9.97,3.36,9.97,9.07s-2.74,8.51-10.02,8.51h-14.06v2.13c0,2.35,1.29,4.09,4.54,4.09h18.09v5.77h-18.09c-7.39,0-10.3-4.14-10.3-9.74v-10.08c0-5.6,2.91-9.74,10.3-9.74h9.58Z"/>
+                            <path class="cls-1"
+                                  d="M153.44,25.76h13.89c3.19,0,4.37-1.34,4.37-3.53s-1.29-3.7-4.2-3.7h-9.52c-3.25,0-4.54,1.79-4.54,4.09v3.14Z"/>
+                            <path class="cls-1"
+                                  d="M204.01,12.82c5.15,0,7.62,2.69,7.62,6.78,0,3.64-1.96,5.99-5.04,7.11l-16.97,6.16c-1.01.39-1.57,1.06-1.57,2.02,0,1.12.73,1.79,2.24,1.79h20.72v5.71h-21.06c-5.1,0-7.62-2.69-7.62-6.78,0-3.3,1.62-5.94,5.04-7.17l17.02-6.1c1.23-.45,1.57-1.29,1.57-2.07,0-1.12-.73-1.74-2.3-1.74h-20.27v-5.71h20.61Z"/>
+                            <path class="cls-1"
+                                  d="M237.27,12.82c7,0,9.97,3.36,9.97,9.07s-2.74,8.51-10.02,8.51h-14.06v2.13c0,2.35,1.29,4.09,4.54,4.09h18.09v5.77h-18.09c-7.39,0-10.3-4.14-10.3-9.74v-10.08c0-5.6,2.91-9.74,10.3-9.74h9.58Z"/>
+                            <path class="cls-1"
+                                  d="M223.16,25.76h13.89c3.19,0,4.37-1.34,4.37-3.53s-1.29-3.7-4.2-3.7h-9.52c-3.25,0-4.54,1.79-4.54,4.09v3.14Z"/>
+                            <path class="cls-1"
+                                  d="M299.93,0v29.74c0,8.51-3.81,12.66-10.86,12.66h-8.18c-7.9,0-12.82-4.82-12.82-14.78s4.93-14.78,12.82-14.78h13.05V0h5.99Z"/>
+                            <path class="cls-1"
+                                  d="M293.94,29.46v-10.92h-12.49c-5.1,0-7.39,2.69-7.39,9.07s2.3,9.02,7.39,9.02h5.88c4.76,0,6.61-2.13,6.61-7.17Z"/>
+                            <path class="cls-1"
+                                  d="M327.65,12.82c7,0,9.97,3.36,9.97,9.07s-2.74,8.51-10.02,8.51h-14.06v2.13c0,2.35,1.29,4.09,4.54,4.09h18.09v5.77h-18.09c-7.39,0-10.3-4.14-10.3-9.74v-10.08c0-5.6,2.91-9.74,10.3-9.74h9.58Z"/>
+                            <path class="cls-1"
+                                  d="M313.54,25.76h13.89c3.19,0,4.37-1.34,4.37-3.53s-1.29-3.7-4.2-3.7h-9.52c-3.25,0-4.54,1.79-4.54,4.09v3.14Z"/>
+                            <path class="cls-1"
+                                  d="M346.97,12.82l9.86,23.74c.22.62.73.9,1.46.9.78,0,1.29-.28,1.57-.9l10.25-23.74h6.38l-11.42,26.38c-1.23,2.8-3.42,3.86-6.78,3.86s-5.6-1.12-6.72-3.86l-10.86-26.38h6.27Z"/>
+                            <path class="cls-1"
+                                  d="M402.69,0v12.82h13.1c7.84,0,12.77,4.82,12.77,14.78s-4.93,14.78-12.77,14.78h-8.18c-7.11,0-10.86-4.14-10.86-12.66V0h5.94Z"/>
+                            <path class="cls-1"
+                                  d="M402.69,18.54v10.92c0,5.04,1.85,7.17,6.66,7.17h5.82c5.15,0,7.39-2.63,7.39-9.02s-2.24-9.07-7.39-9.07h-12.49Z"/>
                             <path class="cls-1" d="M441.61,0v42.39h-5.94V0h5.94Z"/>
-                            <path class="cls-1" d="M467.76,12.82c7.84,0,12.82,4.82,12.82,14.78s-4.98,14.78-12.82,14.78h-6.22c-7.9,0-12.82-4.82-12.82-14.78s4.93-14.78,12.82-14.78h6.22Z"/>
-                            <path class="cls-1" d="M462.11,18.54c-5.15,0-7.39,2.69-7.39,9.07s2.24,9.02,7.39,9.02h5.1c5.1,0,7.39-2.63,7.39-9.02s-2.3-9.07-7.39-9.07h-5.1Z"/>
-                            <path class="cls-1" d="M507.3,12.82c7.06,0,10.86,4.14,10.86,12.66v17.02c0,8.4-2.91,11.7-11.2,11.7h-17.58v-5.71h16.91c4.42,0,5.88-1.74,5.88-5.99v-1.34h-13.05c-7.9,0-12.82-4.65-12.82-14.22s4.93-14.11,12.82-14.11h8.18Z"/>
-                            <path class="cls-1" d="M499.68,35.78h12.49v-10.36c0-4.82-1.85-6.89-6.61-6.89h-5.88c-5.1,0-7.39,2.58-7.39,8.62s2.3,8.62,7.39,8.62Z"/>
+                            <path class="cls-1"
+                                  d="M467.76,12.82c7.84,0,12.82,4.82,12.82,14.78s-4.98,14.78-12.82,14.78h-6.22c-7.9,0-12.82-4.82-12.82-14.78s4.93-14.78,12.82-14.78h6.22Z"/>
+                            <path class="cls-1"
+                                  d="M462.11,18.54c-5.15,0-7.39,2.69-7.39,9.07s2.24,9.02,7.39,9.02h5.1c5.1,0,7.39-2.63,7.39-9.02s-2.3-9.07-7.39-9.07h-5.1Z"/>
+                            <path class="cls-1"
+                                  d="M507.3,12.82c7.06,0,10.86,4.14,10.86,12.66v17.02c0,8.4-2.91,11.7-11.2,11.7h-17.58v-5.71h16.91c4.42,0,5.88-1.74,5.88-5.99v-1.34h-13.05c-7.9,0-12.82-4.65-12.82-14.22s4.93-14.11,12.82-14.11h8.18Z"/>
+                            <path class="cls-1"
+                                  d="M499.68,35.78h12.49v-10.36c0-4.82-1.85-6.89-6.61-6.89h-5.88c-5.1,0-7.39,2.58-7.39,8.62s2.3,8.62,7.39,8.62Z"/>
                         </svg>
                         <svg id="joebeze_logo_filled" data-name="joebeze_logo_filled" xmlns="http://www.w3.org/2000/svg"
                              viewBox="0 0 650 76.27">
@@ -63,10 +94,12 @@
                                     }
                                 </style>
                                 <pattern id="tessPattern" patternUnits="userSpaceOnUse" width="256" height="256">
-                                    <image href="{{ asset('images/bytebeze-banner-tess.png') }}" width="256" height="256" preserveAspectRatio="xMidYMid slice"/>
+                                    <image href="{{ asset('images/bytebeze-banner-tess.png') }}" width="256"
+                                           height="256" preserveAspectRatio="xMidYMid slice"/>
                                 </pattern>
                                 <pattern id="fillPattern" patternUnits="userSpaceOnUse" width="100%" height="100%">
-                                    <image href="{{ asset('images/Screenshot 2024-03-23 100050.jpg') }}" width="100%" height="100%" preserveAspectRatio="xMidYMid slice" />
+                                    <image href="{{ asset('images/Screenshot 2024-03-23 100050.jpg') }}" width="100%"
+                                           height="100%" preserveAspectRatio="xMidYMid slice"/>
                                 </pattern>
                             </defs>
                             <text class="cls-2-1" transform="translate(0 46.9)">
@@ -79,8 +112,10 @@
                             </text>
                         </svg>
 
-                        <canvas id="canvas" width="650" height="76.27" style="position: absolute; top: 15px; left:5px;"></canvas>
-                        <canvas id="canvas2" width="650" height="76.27" style="position: absolute; top: 15px; left:5px;"></canvas>
+                        <canvas id="canvas" width="650" height="76.27"
+                                style="position: absolute; top: 15px; left:5px;"></canvas>
+                        <canvas id="canvas2" width="650" height="76.27"
+                                style="position: absolute; top: 15px; left:5px;"></canvas>
                     </div>
 
                 </a>
@@ -146,7 +181,7 @@
     </div>
     <script>
         class Particle {
-            constructor(x, y, size) {
+            constructor(x, y, size, color) {
                 this.speed = 0.6;
                 this.x = x;
                 this.y = y;
@@ -154,12 +189,15 @@
                 this.vy = (Math.random() - 0.5) * this.speed;
                 this.opacity = 1;
                 this.size = size;
+                this.color = color;
             }
 
             draw(context) {
                 this.opacity -= this.speed / 200;
-                context.fillStyle = `rgba(0, 255, 0, ${this.opacity})`;
-                context.fillRect(this.x, this.y, this.size, this.size);
+                context.fillStyle = this.color.replace('rgb', 'rgba').replace(')', `, ${this.opacity})`);
+                context.beginPath();
+                context.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+                context.fill();
             }
 
             move() {
@@ -174,6 +212,7 @@
                 this.y = y;
                 this.steps = [];
                 this.particles = [];
+                this.sparkParticles = [];
             }
 
             drawTo(x, y, ctx) {
@@ -189,6 +228,7 @@
                 var p = this.steps.shift();
                 if (p !== undefined) {
                     this.drawTo(p[0], p[1], ctx);
+                    this.generateSparkParticles(p[0], p[1]);
                 } else {
                     var index = this.particles.length;
                     while (index--) {
@@ -198,6 +238,17 @@
                             this.particles.splice(index, 1);
                         } else {
                             p.draw(ctx);
+                        }
+                    }
+
+                    var sparkIndex = this.sparkParticles.length;
+                    while (sparkIndex--) {
+                        var sparkParticle = this.sparkParticles[sparkIndex];
+                        sparkParticle.move();
+                        if (sparkParticle.opacity < 0 || sparkParticle.x < 0 || sparkParticle.x > ctx.canvas.width || sparkParticle.y < 0 || sparkParticle.y > ctx.canvas.height) {
+                            this.sparkParticles.splice(sparkIndex, 1);
+                        } else {
+                            sparkParticle.draw(ctx);
                         }
                     }
                 }
@@ -211,11 +262,23 @@
                     var y = this.y + i * (y0 - this.y) / nrOfSteps + Math.sin(i / 10) * i / 4;
                     this.steps.push([x, y]);
                     if (i < 100) {
-                        this.particles.push(new Particle(x, y, 2));
+                        this.particles.push(new Particle(x, y, 2, 'rgb(0, 255, 0)'));
                     }
                 }
             }
+
+            generateSparkParticles(x, y) {
+                var numSparkParticles = 10;
+                for (var i = 0; i < numSparkParticles; i++) {
+                    var size = Math.random() * 3 + 1;
+                    var sparkParticle = new Particle(x, y, size, 'rgb(255, 255, 0)');
+                    sparkParticle.vx = (Math.random() - 0.5) * 2;
+                    sparkParticle.vy = (Math.random() - 0.5) * 2;
+                    this.sparkParticles.push(sparkParticle);
+                }
+            }
         }
+
 
         class LaserWriter {
             constructor(canvasId, canvas2Id, svgId) {
@@ -385,8 +448,21 @@
                 this.laser = new Laser(this.paths[0].points[0][0], this.paths[0].points[0][1]);
             }
         }
+
         // delay til page load
         document.addEventListener("DOMContentLoaded", () => {
+
+            // Randomly choose between the images
+            let options = [
+                "{{ asset('images/Screenshot 2024-03-23 100050.jpg') }}",
+                "{{ asset('images/noita-logo.gif') }}",
+                "{{ asset('images/logo-bg-image-003.jpg') }}",
+                "{{ asset('images/logo-bg-image-004.jpg') }}",
+                "{{ asset('images/logo-bg-image-006.jpg') }}",
+                "{{ asset('images/logo-bg-image-007.jpg') }}"
+            ];// Set the background to the random image
+            // Pick a random index based on the length of the options array
+
             // Set initial fill for the filled logo
             document.querySelectorAll('#joebeze_logo_filled .cls-2-1').forEach(path => {
                 path.style.fill = 'url(#tessPattern)';
@@ -395,6 +471,7 @@
             // Fade out the background and filled logo
             setTimeout(() => {
                 document.getElementById('logo-background').style.opacity = '0';
+
                 // add an animation to fade out the filled logo
                 document.getElementById('joebeze_logo_filled').style.animation = 'fadeOut 2s ease-in-out forwards';
             }, 2000);
@@ -406,6 +483,11 @@
                 laserWriter.traceSVG();
                 laserWriter.traceBorder();
                 laserWriter.draw();
+
+
+                // let rand = Math.floor(Math.random() * options.length);
+                // let imageUrl = options[rand];
+                // document.getElementById('logo-background').style.backgroundImage = `url('${imageUrl}')`;
 
             }, 4000);
 
@@ -419,33 +501,7 @@
                 // set animation
                 document.getElementById('joebeze_logo_filled').style.animation = 'fadeIn 2s ease-in-out forwards';
             }, 11000);
-
-
-
-            // Fade the filled logo to white
             setTimeout(() => {
-                // Randomly choose between the images
-                let options = [
-                    "{{ asset('images/Screenshot 2024-03-23 100050.jpg') }}",
-                    "{{ asset('images/noita-logo.gif') }}",
-                    "{{ asset('images/logo-bg-image-003.jpg') }}",
-                    "{{ asset('images/logo-bg-image-004.jpg') }}",
-                    "{{ asset('images/logo-bg-image-005.jpg') }}",
-                    "{{ asset('images/logo-bg-image-006.jpg') }}",
-                    "{{ asset('images/logo-bg-image-007.jpg') }}"
-                ];
-
-                // Pick a random index based on the length of the options array
-                let rand = Math.floor(Math.random() * options.length);
-
-                // Fix background color to show the image and be transparent
-                document.getElementById('logo-background').style.backgroundColor = 'transparent';
-
-                // Set the background to the random image
-                let imageUrl = options[rand];
-                document.getElementById('logo-background').style.backgroundImage = `url('${imageUrl}')`;
-                document.getElementById('logo-background').style.opacity = '1';
-
                 const paths = document.querySelectorAll('#joebeze_logo_lazer_anim .cls-1');
                 paths.forEach(path => {
                     // Change the stroke color
@@ -455,19 +511,89 @@
                 paths.forEach(path => {
                     path.style.transition = 'stroke 1s ease';
                 });
-
-                // Set up a timer to transition to the next image every 5 seconds
-                let currentIndex = rand;
-                setInterval(() => {
-                    currentIndex = (currentIndex + 1) % options.length;
-                    let nextImageUrl = options[currentIndex];
-
-                    // Transition to the next image over a 2-second duration
-                    document.getElementById('logo-background').style.transition = 'background-image 2s';
-                    document.getElementById('logo-background').style.backgroundImage = `url('${nextImageUrl}')`;
-                }, 5000);
             }, 13000);
 
+            let activetransitioning = false;
+            const logoBackground = document.getElementById('logo-background');
+            let initialIndex = Math.floor(Math.random() * options.length);
+            document.getElementById('logo-container').addEventListener('mouseenter', () => {
+                activetransitioning = true
+
+                // Initialize background image if not done already
+                if (!logoBackground.dataset.initialized) {
+                    logoBackground.style.backgroundImage = `url('${options[initialIndex]}')`;
+                    logoBackground.dataset.currentIndex = initialIndex;
+                    logoBackground.dataset.initialized = true;
+                }
+
+                logoBackground.style.transition = 'opacity 0.5s';
+                logoBackground.style.opacity = '1';
+
+                // Start or continue the image transition
+                if (activetransitioning) {
+                    let intervalId = setInterval(() => {
+                        let currentIndex = (parseInt(logoBackground.dataset.currentIndex, 10) + 1) % options.length;
+                        logoBackground.dataset.currentIndex = currentIndex;
+                        let nextImageUrl = options[currentIndex];
+
+                        // Change the background image with a fade effect
+                        logoBackground.style.opacity = '0.0';
+                        setTimeout(() => {
+                            logoBackground.style.backgroundImage = `url('${nextImageUrl}')`;
+                            logoBackground.style.opacity = '1';
+                        }, 1500); // Change the image after the fade-out transition completes
+                    }, 8000); // Adjust timing as needed (increased to 6000ms to account for transition time)
+
+                    // Store the interval ID
+                    logoBackground.dataset.intervalId = intervalId;
+                }
+            });
+
+            document.getElementById('logo-container').addEventListener('mouseleave', () => {
+                activetransitioning = false;
+                const logoBackground = document.getElementById('logo-background');
+
+                // Clear the interval and reset the state
+                if (logoBackground.dataset.intervalId) {
+                    clearInterval(logoBackground.dataset.intervalId);
+                    logoBackground.dataset.intervalId = null;
+
+                    // Wait for the current transition to complete before fading out
+                    setTimeout(() => {
+                        logoBackground.style.opacity = '0';
+
+                        setTimeout(() => {
+                            // Only clear the background image if you want to restart the cycle each time
+                            logoBackground.style.backgroundImage = '';
+                        }, 2000); // Wait for the opacity transition to finish
+                    }, 2000); // Wait for the current transition to complete
+                }
+            });
+
+
+            // Fade the filled logo to white
+            // setTimeout(() => {
+            //
+            //     // Fix background color to show the image and be transparent
+            //     document.getElementById('logo-background').style.backgroundColor = 'transparent';
+            //
+            //
+            //     document.getElementById('logo-background').style.opacity = '1';
+            //
+            //
+            //
+            //     // Set up a timer to transition to the next image every 5 seconds
+            //     let currentIndex = Math.floor(Math.random() * options.length);
+            //     setInterval(() => {
+            //         currentIndex = (currentIndex + 1) % options.length;
+            //         let nextImageUrl = options[currentIndex];
+            //
+            //         // Transition to the next image over a 2-second duration
+            //         document.getElementById('logo-background').style.transition = 'background-image 2s';
+            //         document.getElementById('logo-background').style.backgroundImage = `url('${nextImageUrl}')`;
+            //     }, 4000);
+            //
+            // }, 13000);
 
 
         });
@@ -481,6 +607,15 @@
             /* Add width and height if necessary to control the size of the container */
         }
 
+        #logo-background, #logo-background2 {
+            z-index: 98;
+        }
+
+        #logo-background2 {
+            background-color: transparent;
+            opacity: 1;
+        }
+
 
         #joebeze_logo_lazer_anim {
             display: flex;
@@ -490,8 +625,12 @@
             left: 2px;
             padding: 10px;
             overflow: visible;
+            z-index: 99;
         }
 
+        #p5-canvas {
+            z-index: 1; /* Ensure the canvas is behind the content */
+        }
 
 
         @keyframes fadeIn {
@@ -513,6 +652,7 @@
             padding: 10px;
             visibility: visible;
             opacity: 1;
+            z-index: 99;
         }
 
         @keyframes fadeOut {
