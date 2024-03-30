@@ -148,32 +148,32 @@
                                     }
                                 </style>
                                 <clipPath id="clippath">
-                                    <circle id="_EllipseWhite10_" data-name="&amp;lt;EllipseWhite10&amp;gt;" class="cls-3-2" cx="597.26" cy="447.13" r="447.13"/>
+                                    <circle id="_EllipseWhite10_" data-name="&amp;lt;EllipseWhite10&amp;gt;" class="cls-3-2" cx="-100" cy="-100" r="1"/>
                                 </clipPath>
                                 <clipPath id="clippath-1">
-                                    <circle class="cls-3-2" cx="520.31" cy="465.13" r="435.91"/>
+                                    <circle class="cls-3-2" cx="-100" cy="-100" r="1"/>
                                 </clipPath>
-                                <clipPath id="clippath-2">
-                                    <circle class="cls-3-2" cx="435.91" cy="460.49" r="435.91"/>
-                                </clipPath>
+{{--                                <clipPath id="clippath-2">--}}
+{{--                                    <circle class="cls-3-2" cx="-100" cy="-100" r="1"/>--}}
+{{--                                </clipPath>--}}
                                 <clipPath id="clippath-3">
-                                    <circle class="cls-3-2" cx="507.79" cy="462" r="432.78"/>
+                                    <circle class="cls-3-2" cx="-100" cy="-100" r="1"/>
                                 </clipPath>
                                 <clipPath id="clippath-4">
-                                    <circle class="cls-3-2" cx="520.31" cy="465.13" r="435.91"/>
+                                    <circle class="cls-3-2" cx="-100" cy="-100" r="1"/>
                                 </clipPath>
                                 <clipPath id="clippath-5">
-                                    <circle class="cls-3-2" cx="435.91" cy="460.49" r="435.91"/>
+                                    <circle class="cls-3-2" cx="-100" cy="-100" r="1"/>
                                 </clipPath>
                             </defs>
                             <g id="_Clip_Group_Redhead_" data-name="&amp;lt;Clip Group Redhead&amp;gt;">
                                 <g class="cls-3-5">
-                                    <image width="1017" height="284" transform="translate(159.85 361.18) scale(.66)" xlink:href="{{ asset('images/redhead.jpg') }}"/>
+                                    <image width="1017" height="284" transform="translate(80.85 331.18) scale(.76)" xlink:href="{{ asset('images/redhead.jpg') }}"/>
                                 </g>
                             </g>
                             <g id="_Clip_Group_Blueninja_" data-name="&amp;lt;Clip Group Blueninja&amp;gt;">
                                 <g class="cls-3-3">
-                                    <image width="1575" height="315" transform="translate(1070.78 327.37) rotate(-180) scale(.6 -.6)" xlink:href="{{ asset('images/blue-ninja.jpg') }}"/>
+                                    <image width="1575" height="315" transform="translate(1220.78 205.37) rotate(-180) scale(.9 -.9)" xlink:href="{{ asset('images/blue-ninja.jpg') }}"/>
                                 </g>
                             </g>
 {{--                            <g id="_Clip_Group_Darkgame_" data-name="&amp;lt;Clip Group Darkgame&amp;gt;">--}}
@@ -183,17 +183,17 @@
 {{--                            </g>--}}
                             <g id="_Clip_Group_Blackcat_" data-name="&amp;lt;Clip Group Blackcat&amp;gt;">
                                 <g class="cls-3-6">
-                                    <image width="740" height="119" transform="translate(150.31 396.18) scale(1.08)" xlink:href="{{ asset('images/black-cat.jpg') }}"/>
+                                    <image width="740" height="119" transform="translate(50.31 390.18) scale(1.08)" xlink:href="{{ asset('images/black-cat.jpg') }}"/>
                                 </g>
                             </g>
                             <g id="_Clip_Group_Tanwoman_" data-name="&amp;lt;Clip Group Tanwoman&amp;gt;">
                                 <g class="cls-3-4">
-                                    <image width="829" height="141" transform="translate(153.61 406.43) scale(.85)" xlink:href="{{ asset('images/tan-woman.jpg') }}"/>
+                                    <image width="829" height="141" transform="translate(90.61 355.43) scale(.95)" xlink:href="{{ asset('images/tan-woman.jpg') }}"/>
                                 </g>
                             </g>
                             <g id="_Clip_Group_Orangewoman_" data-name="&amp;lt;Clip Group Orangewoman&amp;gt;">
                                 <g class="cls-3-7">
-                                    <image width="1740" height="270" transform="translate(82.83 372.35) scale(.49)" xlink:href="{{ asset('images/orange-woman.jpg') }}"/>
+                                    <image width="1740" height="270" transform="translate(82.83 372.35) scale(.45)" xlink:href="{{ asset('images/orange-woman.jpg') }}"/>
                                 </g>
                             </g>
                         </svg>
@@ -535,9 +535,60 @@
                 this.laser = new Laser(this.paths[0].points[0][0], this.paths[0].points[0][1]);
             }
         }
+        var lastMousePosition = { x: window.innerWidth / 2, y: window.innerHeight / 2 };
+        document.addEventListener('mousemove', (event) => {
+            lastMousePosition.x = event.clientX;
+            lastMousePosition.y = event.clientY;
+            console.log("lastx: " + lastMousePosition.x + " lasty: " + lastMousePosition.y);
+        });
 
         // delay til page load
         document.addEventListener("DOMContentLoaded", () => {
+
+            let currentIndex = 0;
+
+// Update last mouse position on move
+
+
+            function animateCircle() {
+                const circles = document.querySelectorAll('circle.cls-3-2');
+
+                if (circles.length === 0) return;
+
+                // get previous index
+                const prevIndex = currentIndex === 0 ? circles.length - 1 : currentIndex - 1;
+                const circle = circles[currentIndex];
+
+
+                // Calculate the mouse position relative to the entire page
+                const pageX = lastMousePosition.x;
+                const pageY = lastMousePosition.y;
+
+                // Start expanding without transition for position change
+                circle.setAttribute('cx', pageX - 50);
+                circle.setAttribute('cy', pageY + 385);
+                setTimeout(() => {
+                    circle.style.transition = 'r 12s';
+                    circle.setAttribute('r', '2500');  // Use 2500 for half of 5000 to simulate radius expansion
+                }, 10);
+
+
+                // Reset all circles
+                circles.forEach((c, index) => {
+                    circle.style.transition = 'r 32s';
+                    c.setAttribute('r', '1');
+                    c.style.zIndex = index === currentIndex ? '89' : '87';
+                });
+                // set z-index of current circle to 89 and previous circle to 88
+                circle.style.zIndex = '89';
+                circles[prevIndex].style.zIndex = '88';
+
+                currentIndex = (currentIndex + 1) % circles.length;
+            }
+
+// Start the animation cycle
+            setInterval(animateCircle, 5500);
+
 
             // Randomly choose between the images
             let options = [
