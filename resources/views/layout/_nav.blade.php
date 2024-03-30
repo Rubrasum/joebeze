@@ -2,16 +2,18 @@
      style="background-image: url('{{ asset('images/bytebeze-banner-tess.png') }}'); background-repeat: repeat;">
     <div id="p5-canvas"></div>
     <div class="container mx-auto px-4">
+
         <nav class="flex justify-between items-center py-4">
+
             <div class="w-4/5 sm:w-3/5 md:w-2/5 lg:w-2/5">
+
                 <a href="/" style="z-index: 110">
+
                     <div id="logo-container" style="position: relative; width: 650px; height: 76.27px;">
                         <div id="logo-background"
                              style="position: absolute; background-position: center bottom; background-size: cover; top: 0; left: 0; width: 100%; height: 100%; background-color: white; border-radius: 0.5rem; box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -4px rgba(0, 0, 0, 0.1); border: solid white 2px;  transition: all 1000ms ease-in-out; background-image: url('');">
                             <div class="ripple"></div>
                         </div>
-                        <div id="logo-background2"
-                             style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border-radius: 0.5rem; box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -4px rgba(0, 0, 0, 0.1); border: solid white 2px;  transition: all 1000ms ease-in-out;"></div>
                         <svg id="joebeze_logo_lazer_anim" data-name="joebeze_logo_lazer_anim"
                              xmlns="http://www.w3.org/2000/svg" viewBox="0 0 650 76.27">
                             <defs>
@@ -111,6 +113,89 @@
                                 <tspan x="341.26" y="0">v blog</tspan>
                             </text>
                         </svg>
+                        <svg id="ripple-effect-bg" style="position: absolute; top: -340px; left: -80px; width: 921px; height: 775px; border-radius: 0.5rem; box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -4px rgba(0, 0, 0, 0.1); border: solid white 2px; transition: all 1000ms ease-in-out;" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1070.78 901.04">
+                            <defs>
+                                <style>
+                                    .cls-3-1 {
+                                        clip-path: url(#clippath-2);
+                                    }
+
+                                    .cls-3-2 {
+                                        fill: none;
+                                        stroke-width: 0px;
+                                    }
+
+                                    .cls-3-3 {
+                                        clip-path: url(#clippath-1);
+                                    }
+
+                                    .cls-3-4 {
+                                        clip-path: url(#clippath-4);
+                                    }
+
+                                    .cls-3-5 {
+                                        clip-path: url(#clippath);
+                                    }
+
+                                    .cls-3-6 {
+                                        clip-path: url(#clippath-3);
+                                    }
+
+                                    .cls-3-7 {
+                                        clip-path: url(#clippath-5);
+                                    }
+                                </style>
+                                <clipPath id="clippath">
+                                    <circle id="_EllipseWhite10_" data-name="&amp;lt;EllipseWhite10&amp;gt;" class="cls-3-2" cx="597.26" cy="447.13" r="447.13"/>
+                                </clipPath>
+                                <clipPath id="clippath-1">
+                                    <circle class="cls-3-2" cx="520.31" cy="465.13" r="435.91"/>
+                                </clipPath>
+                                <clipPath id="clippath-2">
+                                    <circle class="cls-3-2" cx="435.91" cy="460.49" r="435.91"/>
+                                </clipPath>
+                                <clipPath id="clippath-3">
+                                    <circle class="cls-3-2" cx="507.79" cy="462" r="432.78"/>
+                                </clipPath>
+                                <clipPath id="clippath-4">
+                                    <circle class="cls-3-2" cx="520.31" cy="465.13" r="435.91"/>
+                                </clipPath>
+                                <clipPath id="clippath-5">
+                                    <circle class="cls-3-2" cx="435.91" cy="460.49" r="435.91"/>
+                                </clipPath>
+                            </defs>
+                            <g id="_Clip_Group_Redhead_" data-name="&amp;lt;Clip Group Redhead&amp;gt;">
+                                <g class="cls-3-5">
+                                    <image width="1017" height="284" transform="translate(159.85 361.18) scale(.66)" xlink:href="{{ asset('images/redhead.jpg') }}"/>
+                                </g>
+                            </g>
+                            <g id="_Clip_Group_Blueninja_" data-name="&amp;lt;Clip Group Blueninja&amp;gt;">
+                                <g class="cls-3-3">
+                                    <image width="1575" height="315" transform="translate(1070.78 327.37) rotate(-180) scale(.6 -.6)" xlink:href="{{ asset('images/blue-ninja.jpg') }}"/>
+                                </g>
+                            </g>
+{{--                            <g id="_Clip_Group_Darkgame_" data-name="&amp;lt;Clip Group Darkgame&amp;gt;">--}}
+{{--                                <g class="cls-3-1">--}}
+{{--                                    <image width="640" height="360" transform="translate(150.31 277.3) scale(1.05)" xlink:href="{{ asset('images/dark-game.gif') }}"/>--}}
+{{--                                </g>--}}
+{{--                            </g>--}}
+                            <g id="_Clip_Group_Blackcat_" data-name="&amp;lt;Clip Group Blackcat&amp;gt;">
+                                <g class="cls-3-6">
+                                    <image width="740" height="119" transform="translate(150.31 396.18) scale(1.08)" xlink:href="{{ asset('images/black-cat.jpg') }}"/>
+                                </g>
+                            </g>
+                            <g id="_Clip_Group_Tanwoman_" data-name="&amp;lt;Clip Group Tanwoman&amp;gt;">
+                                <g class="cls-3-4">
+                                    <image width="829" height="141" transform="translate(153.61 406.43) scale(.85)" xlink:href="{{ asset('images/tan-woman.jpg') }}"/>
+                                </g>
+                            </g>
+                            <g id="_Clip_Group_Orangewoman_" data-name="&amp;lt;Clip Group Orangewoman&amp;gt;">
+                                <g class="cls-3-7">
+                                    <image width="1740" height="270" transform="translate(82.83 372.35) scale(.49)" xlink:href="{{ asset('images/orange-woman.jpg') }}"/>
+                                </g>
+                            </g>
+                        </svg>
+
 
                         <canvas id="canvas" width="650" height="76.27"
                                 style="position: absolute; top: 15px; left:5px;"></canvas>
@@ -461,6 +546,8 @@
                 "{{ asset('images/logo-bg-image-006.jpg') }}",
                 "{{ asset('images/logo-bg-image-007.jpg') }}"
             ];// Set the background to the random image
+
+
             // Pick a random index based on the length of the options array
 
             // Set initial fill for the filled logo
@@ -513,62 +600,7 @@
                 });
             }, 13000);
 
-            let activetransitioning = false;
-            const logoBackground = document.getElementById('logo-background');
-            let initialIndex = Math.floor(Math.random() * options.length);
-            document.getElementById('logo-container').addEventListener('mouseenter', () => {
-                activetransitioning = true
 
-                // Initialize background image if not done already
-                if (!logoBackground.dataset.initialized) {
-                    logoBackground.style.backgroundImage = `url('${options[initialIndex]}')`;
-                    logoBackground.dataset.currentIndex = initialIndex;
-                    logoBackground.dataset.initialized = true;
-                }
-
-                logoBackground.style.transition = 'opacity 0.5s';
-                logoBackground.style.opacity = '1';
-
-                // Start or continue the image transition
-                if (activetransitioning) {
-                    let intervalId = setInterval(() => {
-                        let currentIndex = (parseInt(logoBackground.dataset.currentIndex, 10) + 1) % options.length;
-                        logoBackground.dataset.currentIndex = currentIndex;
-                        let nextImageUrl = options[currentIndex];
-
-                        // Change the background image with a fade effect
-                        logoBackground.style.opacity = '0.0';
-                        setTimeout(() => {
-                            logoBackground.style.backgroundImage = `url('${nextImageUrl}')`;
-                            logoBackground.style.opacity = '1';
-                        }, 1500); // Change the image after the fade-out transition completes
-                    }, 8000); // Adjust timing as needed (increased to 6000ms to account for transition time)
-
-                    // Store the interval ID
-                    logoBackground.dataset.intervalId = intervalId;
-                }
-            });
-
-            document.getElementById('logo-container').addEventListener('mouseleave', () => {
-                activetransitioning = false;
-                const logoBackground = document.getElementById('logo-background');
-
-                // Clear the interval and reset the state
-                if (logoBackground.dataset.intervalId) {
-                    clearInterval(logoBackground.dataset.intervalId);
-                    logoBackground.dataset.intervalId = null;
-
-                    // Wait for the current transition to complete before fading out
-                    setTimeout(() => {
-                        logoBackground.style.opacity = '0';
-
-                        setTimeout(() => {
-                            // Only clear the background image if you want to restart the cycle each time
-                            logoBackground.style.backgroundImage = '';
-                        }, 2000); // Wait for the opacity transition to finish
-                    }, 2000); // Wait for the current transition to complete
-                }
-            });
 
 
             // Fade the filled logo to white
