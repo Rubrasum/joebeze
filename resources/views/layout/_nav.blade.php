@@ -14,6 +14,8 @@
                              style="position: absolute; background-position: center bottom; background-size: cover; top: 0; left: 0; width: 100%; height: 100%; background-color: white; border-radius: 0.5rem; box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -4px rgba(0, 0, 0, 0.1); border: solid white 2px;  transition: all 1000ms ease-in-out; background-image: url('');">
                             <div class="ripple"></div>
                         </div>
+                        <div id="logo-background2"
+                             style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border-radius: 0.5rem; box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -4px rgba(0, 0, 0, 0.1); border: solid white 2px;  transition: all 1000ms ease-in-out;"></div>
                         <svg id="joebeze_logo_lazer_anim" data-name="joebeze_logo_lazer_anim"
                              xmlns="http://www.w3.org/2000/svg" viewBox="0 0 650 76.27">
                             <defs>
@@ -113,7 +115,7 @@
                                 <tspan x="341.26" y="0">v blog</tspan>
                             </text>
                         </svg>
-                        <svg id="ripple-effect-bg" style="position: absolute; top: -340px; left: -80px; width: 921px; height: 775px; border-radius: 0.5rem; box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -4px rgba(0, 0, 0, 0.1); border: solid white 2px; transition: all 1000ms ease-in-out;" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1070.78 901.04">
+                        <svg id="ripple-effect-bg" style="z-index: 89; position: absolute; top: -340px; left: -80px; width: 921px; height: 775px; border-radius: 0.5rem; box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -4px rgba(0, 0, 0, 0.1); border: solid white 2px; transition: all 1000ms ease-in-out;" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1070.78 901.04">
                             <defs>
                                 <style>
                                     .cls-3-1 {
@@ -601,8 +603,6 @@
             }, 13000);
 
 
-
-
             // Fade the filled logo to white
             // setTimeout(() => {
             //
@@ -636,6 +636,7 @@
             display: flex;
             align-items: center; /* This will vertically center the contents */
             justify-content: center; /* This will horizontally center the contents, if needed */
+            overflow: hidden;
             /* Add width and height if necessary to control the size of the container */
         }
 
