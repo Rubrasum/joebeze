@@ -559,19 +559,34 @@
                 const prevIndex = currentIndex === 0 ? circles.length - 1 : currentIndex - 1;
                 const circle = circles[currentIndex];
 
+                // Get the bounding rectangle of the SVG element
+                const svgRect = document.getElementById('joebeze_logo_lazer_anim').getBoundingClientRect();
 
-                // Calculate the mouse position relative to the entire page
-                const pageX = lastMousePosition.x;
-                const pageY = lastMousePosition.y;
+                // Calculate the mouse position relative to the SVG element
+                const svgX = lastMousePosition.x - svgRect.left;
+                const svgY = lastMousePosition.y - svgRect.top;
+
+                // put a small dot on the same location that is upper level and 100% visible
+                const dot = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
+                dot.setAttribute('cx', svgX);
+                dot.setAttribute('cy', svgY);
+                dot.setAttribute('r', '1');
+                dot.setAttribute('fill', 'white');
+                dot.setAttribute('stroke', 'white');
+                dot.setAttribute('stroke-width', '1');
+                dot.style.transition = 'r 1s';
+                document.getElementById('joebeze_logo_lazer_anim').appendChild(dot);
+
+
+                // Set the circle's position based on the mouse position
+                circle.setAttribute('cx', svgX);
+                circle.setAttribute('cy', svgY);
 
                 // Start expanding without transition for position change
-                circle.setAttribute('cx', pageX - 50);
-                circle.setAttribute('cy', pageY + 385);
                 setTimeout(() => {
                     circle.style.transition = 'r 12s';
                     circle.setAttribute('r', '2500');  // Use 2500 for half of 5000 to simulate radius expansion
                 }, 10);
-
 
                 // Reset all circles
                 circles.forEach((c, index) => {
@@ -579,6 +594,7 @@
                     c.setAttribute('r', '1');
                     c.style.zIndex = index === currentIndex ? '89' : '87';
                 });
+
                 // set z-index of current circle to 89 and previous circle to 88
                 circle.style.zIndex = '89';
                 circles[prevIndex].style.zIndex = '88';
