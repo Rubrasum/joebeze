@@ -1,195 +1,208 @@
 <div id="nav_container" class="h-30" x-data="{ open: false }"
      style="background-image: url('{{ asset('images/bytebeze-banner-tess.png') }}'); background-repeat: repeat;min-height: 116px;">
-    <div id="logo-container" class="absolute w-full p-4" style="min-height: 116px;">
+    <div id="logo-container" class="absolute m-2 top-0 left-0 " style="min-height: 116px;width:650px">
         <div id="logo-background" class="absolute m-4 p-4 top-0 left-0 bg-white rounded-lg shadow-lg border-2 border-white transition-all duration-1000 ease-in-out" style="background-position: center bottom; background-size: cover; background-image: url(&quot;&quot;); opacity: 0;">
             <div class="ripple"></div>
         </div>
-        <div id="logo-background2" class="absolute m-4 p-4 top-0 left-0 rounded-lg shadow-lg border-2 border-white transition-all duration-1000 ease-in-out"></div>
-        <svg id="joebeze_logo_lazer_anim" data-name="joebeze_logo_lazer_anim"
-             xmlns="http://www.w3.org/2000/svg" viewBox="0 0 650 76.27">
-            <defs>
-                <style>
-                    .cls-1 {
-                        fill: transparent;
-                        stroke-width: 0px;
-                    }
-                </style>
-            </defs>
-            <path class="cls-1"
-                  d="M26.82,4.59v24.75c0,7.56-3.98,13.05-14,13.05H0v-6.61h12.43c5.94,0,7.73-2.86,7.73-6.5V4.59h6.66Z"/>
-            <path class="cls-1"
-                  d="M52.92,12.82c7.84,0,12.82,4.82,12.82,14.78s-4.98,14.78-12.82,14.78h-6.22c-7.9,0-12.82-4.82-12.82-14.78s4.93-14.78,12.82-14.78h6.22Z"/>
-            <path class="cls-1"
-                  d="M47.26,18.54c-5.15,0-7.39,2.69-7.39,9.07s2.24,9.02,7.39,9.02h5.1c5.1,0,7.39-2.63,7.39-9.02s-2.3-9.07-7.39-9.07h-5.1Z"/>
-            <path class="cls-1"
-                  d="M92.12,12.82c7,0,9.97,3.36,9.97,9.07s-2.74,8.51-10.02,8.51h-14.06v2.13c0,2.35,1.29,4.09,4.54,4.09h18.09v5.77h-18.09c-7.39,0-10.3-4.14-10.3-9.74v-10.08c0-5.6,2.91-9.74,10.3-9.74h9.58Z"/>
-            <path class="cls-1"
-                  d="M78.01,25.76h13.89c3.19,0,4.37-1.34,4.37-3.53s-1.29-3.7-4.2-3.7h-9.52c-3.25,0-4.54,1.79-4.54,4.09v3.14Z"/>
-            <path class="cls-1"
-                  d="M115.3,0v12.82h13.1c7.84,0,12.77,4.82,12.77,14.78s-4.93,14.78-12.77,14.78h-8.18c-7.11,0-10.86-4.14-10.86-12.66V0h5.94Z"/>
-            <path class="cls-1"
-                  d="M115.3,18.54v10.92c0,5.04,1.85,7.17,6.66,7.17h5.82c5.15,0,7.39-2.63,7.39-9.02s-2.24-9.07-7.39-9.07h-12.49Z"/>
-            <path class="cls-1"
-                  d="M167.55,12.82c7,0,9.97,3.36,9.97,9.07s-2.74,8.51-10.02,8.51h-14.06v2.13c0,2.35,1.29,4.09,4.54,4.09h18.09v5.77h-18.09c-7.39,0-10.3-4.14-10.3-9.74v-10.08c0-5.6,2.91-9.74,10.3-9.74h9.58Z"/>
-            <path class="cls-1"
-                  d="M153.44,25.76h13.89c3.19,0,4.37-1.34,4.37-3.53s-1.29-3.7-4.2-3.7h-9.52c-3.25,0-4.54,1.79-4.54,4.09v3.14Z"/>
-            <path class="cls-1"
-                  d="M204.01,12.82c5.15,0,7.62,2.69,7.62,6.78,0,3.64-1.96,5.99-5.04,7.11l-16.97,6.16c-1.01.39-1.57,1.06-1.57,2.02,0,1.12.73,1.79,2.24,1.79h20.72v5.71h-21.06c-5.1,0-7.62-2.69-7.62-6.78,0-3.3,1.62-5.94,5.04-7.17l17.02-6.1c1.23-.45,1.57-1.29,1.57-2.07,0-1.12-.73-1.74-2.3-1.74h-20.27v-5.71h20.61Z"/>
-            <path class="cls-1"
-                  d="M237.27,12.82c7,0,9.97,3.36,9.97,9.07s-2.74,8.51-10.02,8.51h-14.06v2.13c0,2.35,1.29,4.09,4.54,4.09h18.09v5.77h-18.09c-7.39,0-10.3-4.14-10.3-9.74v-10.08c0-5.6,2.91-9.74,10.3-9.74h9.58Z"/>
-            <path class="cls-1"
-                  d="M223.16,25.76h13.89c3.19,0,4.37-1.34,4.37-3.53s-1.29-3.7-4.2-3.7h-9.52c-3.25,0-4.54,1.79-4.54,4.09v3.14Z"/>
-            <path class="cls-1"
-                  d="M299.93,0v29.74c0,8.51-3.81,12.66-10.86,12.66h-8.18c-7.9,0-12.82-4.82-12.82-14.78s4.93-14.78,12.82-14.78h13.05V0h5.99Z"/>
-            <path class="cls-1"
-                  d="M293.94,29.46v-10.92h-12.49c-5.1,0-7.39,2.69-7.39,9.07s2.3,9.02,7.39,9.02h5.88c4.76,0,6.61-2.13,6.61-7.17Z"/>
-            <path class="cls-1"
-                  d="M327.65,12.82c7,0,9.97,3.36,9.97,9.07s-2.74,8.51-10.02,8.51h-14.06v2.13c0,2.35,1.29,4.09,4.54,4.09h18.09v5.77h-18.09c-7.39,0-10.3-4.14-10.3-9.74v-10.08c0-5.6,2.91-9.74,10.3-9.74h9.58Z"/>
-            <path class="cls-1"
-                  d="M313.54,25.76h13.89c3.19,0,4.37-1.34,4.37-3.53s-1.29-3.7-4.2-3.7h-9.52c-3.25,0-4.54,1.79-4.54,4.09v3.14Z"/>
-            <path class="cls-1"
-                  d="M346.97,12.82l9.86,23.74c.22.62.73.9,1.46.9.78,0,1.29-.28,1.57-.9l10.25-23.74h6.38l-11.42,26.38c-1.23,2.8-3.42,3.86-6.78,3.86s-5.6-1.12-6.72-3.86l-10.86-26.38h6.27Z"/>
-            <path class="cls-1"
-                  d="M402.69,0v12.82h13.1c7.84,0,12.77,4.82,12.77,14.78s-4.93,14.78-12.77,14.78h-8.18c-7.11,0-10.86-4.14-10.86-12.66V0h5.94Z"/>
-            <path class="cls-1"
-                  d="M402.69,18.54v10.92c0,5.04,1.85,7.17,6.66,7.17h5.82c5.15,0,7.39-2.63,7.39-9.02s-2.24-9.07-7.39-9.07h-12.49Z"/>
-            <path class="cls-1" d="M441.61,0v42.39h-5.94V0h5.94Z"/>
-            <path class="cls-1"
-                  d="M467.76,12.82c7.84,0,12.82,4.82,12.82,14.78s-4.98,14.78-12.82,14.78h-6.22c-7.9,0-12.82-4.82-12.82-14.78s4.93-14.78,12.82-14.78h6.22Z"/>
-            <path class="cls-1"
-                  d="M462.11,18.54c-5.15,0-7.39,2.69-7.39,9.07s2.24,9.02,7.39,9.02h5.1c5.1,0,7.39-2.63,7.39-9.02s-2.3-9.07-7.39-9.07h-5.1Z"/>
-            <path class="cls-1"
-                  d="M507.3,12.82c7.06,0,10.86,4.14,10.86,12.66v17.02c0,8.4-2.91,11.7-11.2,11.7h-17.58v-5.71h16.91c4.42,0,5.88-1.74,5.88-5.99v-1.34h-13.05c-7.9,0-12.82-4.65-12.82-14.22s4.93-14.11,12.82-14.11h8.18Z"/>
-            <path class="cls-1"
-                  d="M499.68,35.78h12.49v-10.36c0-4.82-1.85-6.89-6.61-6.89h-5.88c-5.1,0-7.39,2.58-7.39,8.62s2.3,8.62,7.39,8.62Z"/>
-        </svg>
-        <svg id="joebeze_logo_filled" data-name="joebeze_logo_filled" xmlns="http://www.w3.org/2000/svg"
-             viewBox="0 0 650 76.27">
-            <defs>
-                <style> {{-- The 2nd svg classes are all cls-2-x --}}
+        <div style="min-height: 76px; overflow: hidden;">
+            <div id="logo-background2"
+                 class="absolute top-0 left-0 w-full h-full rounded-lg shadow-lg border-2 border-white transition-all duration-1000 ease-in-out">
+            </div>
+            <div style="position: relative;">
+                <svg id="joebeze_logo_lazer_anim" data-name="joebeze_logo_lazer_anim"
+                 xmlns="http://www.w3.org/2000/svg" viewBox="0 0 650 76.27">
+                <defs>
+                    <style>
+                        .cls-1 {
+                            fill: transparent;
+                            stroke-width: 0px;
+                        }
+                    </style>
+                </defs>
+                <path class="cls-1"
+                      d="M26.82,4.59v24.75c0,7.56-3.98,13.05-14,13.05H0v-6.61h12.43c5.94,0,7.73-2.86,7.73-6.5V4.59h6.66Z"/>
+                <path class="cls-1"
+                      d="M52.92,12.82c7.84,0,12.82,4.82,12.82,14.78s-4.98,14.78-12.82,14.78h-6.22c-7.9,0-12.82-4.82-12.82-14.78s4.93-14.78,12.82-14.78h6.22Z"/>
+                <path class="cls-1"
+                      d="M47.26,18.54c-5.15,0-7.39,2.69-7.39,9.07s2.24,9.02,7.39,9.02h5.1c5.1,0,7.39-2.63,7.39-9.02s-2.3-9.07-7.39-9.07h-5.1Z"/>
+                <path class="cls-1"
+                      d="M92.12,12.82c7,0,9.97,3.36,9.97,9.07s-2.74,8.51-10.02,8.51h-14.06v2.13c0,2.35,1.29,4.09,4.54,4.09h18.09v5.77h-18.09c-7.39,0-10.3-4.14-10.3-9.74v-10.08c0-5.6,2.91-9.74,10.3-9.74h9.58Z"/>
+                <path class="cls-1"
+                      d="M78.01,25.76h13.89c3.19,0,4.37-1.34,4.37-3.53s-1.29-3.7-4.2-3.7h-9.52c-3.25,0-4.54,1.79-4.54,4.09v3.14Z"/>
+                <path class="cls-1"
+                      d="M115.3,0v12.82h13.1c7.84,0,12.77,4.82,12.77,14.78s-4.93,14.78-12.77,14.78h-8.18c-7.11,0-10.86-4.14-10.86-12.66V0h5.94Z"/>
+                <path class="cls-1"
+                      d="M115.3,18.54v10.92c0,5.04,1.85,7.17,6.66,7.17h5.82c5.15,0,7.39-2.63,7.39-9.02s-2.24-9.07-7.39-9.07h-12.49Z"/>
+                <path class="cls-1"
+                      d="M167.55,12.82c7,0,9.97,3.36,9.97,9.07s-2.74,8.51-10.02,8.51h-14.06v2.13c0,2.35,1.29,4.09,4.54,4.09h18.09v5.77h-18.09c-7.39,0-10.3-4.14-10.3-9.74v-10.08c0-5.6,2.91-9.74,10.3-9.74h9.58Z"/>
+                <path class="cls-1"
+                      d="M153.44,25.76h13.89c3.19,0,4.37-1.34,4.37-3.53s-1.29-3.7-4.2-3.7h-9.52c-3.25,0-4.54,1.79-4.54,4.09v3.14Z"/>
+                <path class="cls-1"
+                      d="M204.01,12.82c5.15,0,7.62,2.69,7.62,6.78,0,3.64-1.96,5.99-5.04,7.11l-16.97,6.16c-1.01.39-1.57,1.06-1.57,2.02,0,1.12.73,1.79,2.24,1.79h20.72v5.71h-21.06c-5.1,0-7.62-2.69-7.62-6.78,0-3.3,1.62-5.94,5.04-7.17l17.02-6.1c1.23-.45,1.57-1.29,1.57-2.07,0-1.12-.73-1.74-2.3-1.74h-20.27v-5.71h20.61Z"/>
+                <path class="cls-1"
+                      d="M237.27,12.82c7,0,9.97,3.36,9.97,9.07s-2.74,8.51-10.02,8.51h-14.06v2.13c0,2.35,1.29,4.09,4.54,4.09h18.09v5.77h-18.09c-7.39,0-10.3-4.14-10.3-9.74v-10.08c0-5.6,2.91-9.74,10.3-9.74h9.58Z"/>
+                <path class="cls-1"
+                      d="M223.16,25.76h13.89c3.19,0,4.37-1.34,4.37-3.53s-1.29-3.7-4.2-3.7h-9.52c-3.25,0-4.54,1.79-4.54,4.09v3.14Z"/>
+                <path class="cls-1"
+                      d="M299.93,0v29.74c0,8.51-3.81,12.66-10.86,12.66h-8.18c-7.9,0-12.82-4.82-12.82-14.78s4.93-14.78,12.82-14.78h13.05V0h5.99Z"/>
+                <path class="cls-1"
+                      d="M293.94,29.46v-10.92h-12.49c-5.1,0-7.39,2.69-7.39,9.07s2.3,9.02,7.39,9.02h5.88c4.76,0,6.61-2.13,6.61-7.17Z"/>
+                <path class="cls-1"
+                      d="M327.65,12.82c7,0,9.97,3.36,9.97,9.07s-2.74,8.51-10.02,8.51h-14.06v2.13c0,2.35,1.29,4.09,4.54,4.09h18.09v5.77h-18.09c-7.39,0-10.3-4.14-10.3-9.74v-10.08c0-5.6,2.91-9.74,10.3-9.74h9.58Z"/>
+                <path class="cls-1"
+                      d="M313.54,25.76h13.89c3.19,0,4.37-1.34,4.37-3.53s-1.29-3.7-4.2-3.7h-9.52c-3.25,0-4.54,1.79-4.54,4.09v3.14Z"/>
+                <path class="cls-1"
+                      d="M346.97,12.82l9.86,23.74c.22.62.73.9,1.46.9.78,0,1.29-.28,1.57-.9l10.25-23.74h6.38l-11.42,26.38c-1.23,2.8-3.42,3.86-6.78,3.86s-5.6-1.12-6.72-3.86l-10.86-26.38h6.27Z"/>
+                <path class="cls-1"
+                      d="M402.69,0v12.82h13.1c7.84,0,12.77,4.82,12.77,14.78s-4.93,14.78-12.77,14.78h-8.18c-7.11,0-10.86-4.14-10.86-12.66V0h5.94Z"/>
+                <path class="cls-1"
+                      d="M402.69,18.54v10.92c0,5.04,1.85,7.17,6.66,7.17h5.82c5.15,0,7.39-2.63,7.39-9.02s-2.24-9.07-7.39-9.07h-12.49Z"/>
+                <path class="cls-1" d="M441.61,0v42.39h-5.94V0h5.94Z"/>
+                <path class="cls-1"
+                      d="M467.76,12.82c7.84,0,12.82,4.82,12.82,14.78s-4.98,14.78-12.82,14.78h-6.22c-7.9,0-12.82-4.82-12.82-14.78s4.93-14.78,12.82-14.78h6.22Z"/>
+                <path class="cls-1"
+                      d="M462.11,18.54c-5.15,0-7.39,2.69-7.39,9.07s2.24,9.02,7.39,9.02h5.1c5.1,0,7.39-2.63,7.39-9.02s-2.3-9.07-7.39-9.07h-5.1Z"/>
+                <path class="cls-1"
+                      d="M507.3,12.82c7.06,0,10.86,4.14,10.86,12.66v17.02c0,8.4-2.91,11.7-11.2,11.7h-17.58v-5.71h16.91c4.42,0,5.88-1.74,5.88-5.99v-1.34h-13.05c-7.9,0-12.82-4.65-12.82-14.22s4.93-14.11,12.82-14.11h8.18Z"/>
+                <path class="cls-1"
+                      d="M499.68,35.78h12.49v-10.36c0-4.82-1.85-6.89-6.61-6.89h-5.88c-5.1,0-7.39,2.58-7.39,8.62s2.3,8.62,7.39,8.62Z"/>
+            </svg>
+            </div>
+            <div style="position: relative;">
+                <svg id="joebeze_logo_filled" data-name="joebeze_logo_filled" xmlns="http://www.w3.org/2000/svg"
+                 viewBox="0 0 650 76.27">
+                <defs>
+                    <style> {{-- The 2nd svg classes are all cls-2-x --}}
                                     .cls-2-1 {
-                        fill: url('#tessPattern');
-                        font-family: NasalizationRg-Regular, Nasalization;
-                        font-size: 56px;
-                        transition: fill 2s ease;
-                    }
+                            fill: url('#tessPattern');
+                            font-family: NasalizationRg-Regular, Nasalization;
+                            font-size: 56px;
+                            transition: fill 2s ease;
+                        }
 
-                    .cls-2-2 {
-                        letter-spacing: -.01em;
-                    }
+                        .cls-2-2 {
+                            letter-spacing: -.01em;
+                        }
 
-                    .cls-2-3 {
-                        letter-spacing: -.02em;
-                    }
+                        .cls-2-3 {
+                            letter-spacing: -.02em;
+                        }
 
-                    .cls-2-4 {
-                        letter-spacing: -.02em;
-                    }
-                </style>
-                <pattern id="tessPattern" patternUnits="userSpaceOnUse" width="256" height="256">
-                    <image href="{{ asset('images/bytebeze-banner-tess.png') }}" width="256"
-                           height="256" preserveAspectRatio="xMidYMid slice"/>
-                </pattern>
-                <pattern id="fillPattern" patternUnits="userSpaceOnUse" width="100%" height="100%">
-                    <image href="{{ asset('images/Screenshot 2024-03-23 100050.jpg') }}" width="100%"
-                           height="100%" preserveAspectRatio="xMidYMid slice"/>
-                </pattern>
-            </defs>
-            <text class="cls-2-1" transform="translate(0 46.9)">
-                <tspan x="0" y="0">Joeb</tspan>
-                <tspan class="cls-2-3" x="145.65" y="0">e</tspan>
-                <tspan class="cls-2-2" x="181.1" y="0">z</tspan>
-                <tspan x="215.37" y="0">e d</tspan>
-                <tspan class="cls-2-4" x="305.76" y="0">e</tspan>
-                <tspan x="341.26" y="0">v blog</tspan>
-            </text>
-        </svg>
-        <svg id="ripple-effect-bg" style="z-index: 89; position: absolute; width: 650px; height: 75px; border-radius: 0.5rem; box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -4px rgba(0, 0, 0, 0.1); border: solid white 2px; transition: all 1000ms ease-in-out;" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1070.78 901.04">
-            <defs>
-                <style>
-                    .cls-3-1 {
-                        clip-path: url(#clippath-2);
-                    }
+                        .cls-2-4 {
+                            letter-spacing: -.02em;
+                        }
+                    </style>
+                    <pattern id="tessPattern" patternUnits="userSpaceOnUse" width="256" height="256">
+                        <image href="{{ asset('images/bytebeze-banner-tess.png') }}" width="256"
+                               height="256" preserveAspectRatio="xMidYMid slice"/>
+                    </pattern>
+                    <pattern id="fillPattern" patternUnits="userSpaceOnUse" width="100%" height="100%">
+                        <image href="{{ asset('images/Screenshot 2024-03-23 100050.jpg') }}" width="100%"
+                               height="100%" preserveAspectRatio="xMidYMid slice"/>
+                    </pattern>
+                </defs>
+                <text class="cls-2-1" transform="translate(0 46.9)">
+                    <tspan x="0" y="0">Joeb</tspan>
+                    <tspan class="cls-2-3" x="145.65" y="0">e</tspan>
+                    <tspan class="cls-2-2" x="181.1" y="0">z</tspan>
+                    <tspan x="215.37" y="0">e d</tspan>
+                    <tspan class="cls-2-4" x="305.76" y="0">e</tspan>
+                    <tspan x="341.26" y="0">v blog</tspan>
+                </text>
+            </svg>
+            </div>
+            <div style="position: relative;">
+            <svg id="ripple-effect-bg" style="
+                z-index: 19; position: absolute; top: -340px; left: -80px; width: 921px; height: 775px;
+                border-radius: 0.5rem; box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -4px rgba(0, 0, 0, 0.1);
+                border: solid white 2px; transition: all 1000ms ease-in-out;" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg"
+                 xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1070.78 901.04">
+                <defs>
+                    <style>
+                        .cls-3-1 {
+                            clip-path: url(#clippath-2);
+                        }
 
-                    .cls-3-2 {
-                        fill: none;
-                        stroke-width: 0px;
-                    }
+                        .cls-3-2 {
+                            fill: none;
+                            stroke-width: 0px;
+                        }
 
-                    .cls-3-3 {
-                        clip-path: url(#clippath-1);
-                    }
+                        .cls-3-3 {
+                            clip-path: url(#clippath-1);
+                        }
 
-                    .cls-3-4 {
-                        clip-path: url(#clippath-4);
-                    }
+                        .cls-3-4 {
+                            clip-path: url(#clippath-4);
+                        }
 
-                    .cls-3-5 {
-                        clip-path: url(#clippath);
-                    }
+                        .cls-3-5 {
+                            clip-path: url(#clippath);
+                        }
 
-                    .cls-3-6 {
-                        clip-path: url(#clippath-3);
-                    }
+                        .cls-3-6 {
+                            clip-path: url(#clippath-3);
+                        }
 
-                    .cls-3-7 {
-                        clip-path: url(#clippath-5);
-                    }
-                </style>
-                <clipPath id="clippath">
-                    <circle id="_EllipseWhite10_" data-name="&amp;lt;EllipseWhite10&amp;gt;" class="cls-3-2" cx="-100" cy="-100" r="1"/>
-                </clipPath>
-                <clipPath id="clippath-1">
-                    <circle class="cls-3-2" cx="-100" cy="-100" r="1"/>
-                </clipPath>
-                {{--                                <clipPath id="clippath-2">--}}
-                {{--                                    <circle class="cls-3-2" cx="-100" cy="-100" r="1"/>--}}
-                {{--                                </clipPath>--}}
-                <clipPath id="clippath-3">
-                    <circle class="cls-3-2" cx="-100" cy="-100" r="1"/>
-                </clipPath>
-                <clipPath id="clippath-4">
-                    <circle class="cls-3-2" cx="-100" cy="-100" r="1"/>
-                </clipPath>
-                <clipPath id="clippath-5">
-                    <circle class="cls-3-2" cx="-100" cy="-100" r="1"/>
-                </clipPath>
-            </defs>
-            <g id="_Clip_Group_Redhead_" data-name="&amp;lt;Clip Group Redhead&amp;gt;">
-                <g class="cls-3-5">
-                    <image width="1017" height="284" transform="translate(80.85 331.18) scale(.76)" xlink:href="{{ asset('images/redhead.jpg') }}"/>
+                        .cls-3-7 {
+                            clip-path: url(#clippath-5);
+                        }
+                    </style>
+                    <clipPath id="clippath">
+                        <circle id="_EllipseWhite10_" data-name="&amp;lt;EllipseWhite10&amp;gt;" class="cls-3-2" cx="-100" cy="-100" r="1"/>
+                    </clipPath>
+                    <clipPath id="clippath-1">
+                        <circle class="cls-3-2" cx="-100" cy="-100" r="1"/>
+                    </clipPath>
+                    {{--                                <clipPath id="clippath-2">--}}
+                    {{--                                    <circle class="cls-3-2" cx="-100" cy="-100" r="1"/>--}}
+                    {{--                                </clipPath>--}}
+                    <clipPath id="clippath-3">
+                        <circle class="cls-3-2" cx="-100" cy="-100" r="1"/>
+                    </clipPath>
+                    <clipPath id="clippath-4">
+                        <circle class="cls-3-2" cx="-100" cy="-100" r="1"/>
+                    </clipPath>
+                    <clipPath id="clippath-5">
+                        <circle class="cls-3-2" cx="-100" cy="-100" r="1"/>
+                    </clipPath>
+                </defs>
+                <g id="_Clip_Group_Redhead_" data-name="&amp;lt;Clip Group Redhead&amp;gt;">
+                    <g class="cls-3-5">
+                        <image width="1017" height="284" transform="translate(80.85 331.18) scale(.76)" xlink:href="{{ asset('images/redhead.jpg') }}"/>
+                    </g>
                 </g>
-            </g>
-            <g id="_Clip_Group_Blueninja_" data-name="&amp;lt;Clip Group Blueninja&amp;gt;">
-                <g class="cls-3-3">
-                    <image width="1575" height="315" transform="translate(1220.78 205.37) rotate(-180) scale(.9 -.9)" xlink:href="{{ asset('images/blue-ninja.jpg') }}"/>
+                <g id="_Clip_Group_Blueninja_" data-name="&amp;lt;Clip Group Blueninja&amp;gt;">
+                    <g class="cls-3-3">
+                        <image width="1575" height="315" transform="translate(1220.78 205.37) rotate(-180) scale(.9 -.9)" xlink:href="{{ asset('images/blue-ninja.jpg') }}"/>
+                    </g>
                 </g>
-            </g>
-            {{--                            <g id="_Clip_Group_Darkgame_" data-name="&amp;lt;Clip Group Darkgame&amp;gt;">--}}
-            {{--                                <g class="cls-3-1">--}}
-            {{--                                    <image width="640" height="360" transform="translate(150.31 277.3) scale(1.05)" xlink:href="{{ asset('images/dark-game.gif') }}"/>--}}
-            {{--                                </g>--}}
-            {{--                            </g>--}}
-            <g id="_Clip_Group_Blackcat_" data-name="&amp;lt;Clip Group Blackcat&amp;gt;">
-                <g class="cls-3-6">
-                    <image width="740" height="119" transform="translate(50.31 390.18) scale(1.08)" xlink:href="{{ asset('images/black-cat.jpg') }}"/>
+                {{--                            <g id="_Clip_Group_Darkgame_" data-name="&amp;lt;Clip Group Darkgame&amp;gt;">--}}
+                {{--                                <g class="cls-3-1">--}}
+                {{--                                    <image width="640" height="360" transform="translate(150.31 277.3) scale(1.05)" xlink:href="{{ asset('images/dark-game.gif') }}"/>--}}
+                {{--                                </g>--}}
+                {{--                            </g>--}}
+                <g id="_Clip_Group_Blackcat_" data-name="&amp;lt;Clip Group Blackcat&amp;gt;">
+                    <g class="cls-3-6">
+                        <image width="740" height="119" transform="translate(50.31 390.18) scale(1.08)" xlink:href="{{ asset('images/black-cat.jpg') }}"/>
+                    </g>
                 </g>
-            </g>
-            <g id="_Clip_Group_Tanwoman_" data-name="&amp;lt;Clip Group Tanwoman&amp;gt;">
-                <g class="cls-3-4">
-                    <image width="829" height="141" transform="translate(90.61 355.43) scale(.95)" xlink:href="{{ asset('images/tan-woman.jpg') }}"/>
+                <g id="_Clip_Group_Tanwoman_" data-name="&amp;lt;Clip Group Tanwoman&amp;gt;">
+                    <g class="cls-3-4">
+                        <image width="829" height="141" transform="translate(90.61 355.43) scale(.95)" xlink:href="{{ asset('images/tan-woman.jpg') }}"/>
+                    </g>
                 </g>
-            </g>
-            <g id="_Clip_Group_Orangewoman_" data-name="&amp;lt;Clip Group Orangewoman&amp;gt;">
-                <g class="cls-3-7">
-                    <image width="1740" height="270" transform="translate(82.83 372.35) scale(.45)" xlink:href="{{ asset('images/orange-woman.jpg') }}"/>
+                <g id="_Clip_Group_Orangewoman_" data-name="&amp;lt;Clip Group Orangewoman&amp;gt;">
+                    <g class="cls-3-7">
+                        <image width="1740" height="270" transform="translate(82.83 372.35) scale(.45)" xlink:href="{{ asset('images/orange-woman.jpg') }}"/>
+                    </g>
                 </g>
-            </g>
-        </svg>
+            </svg></div>
 
 
-        <canvas id="canvas" class="absolute top-0 left-0 w-full h-full" width="650" height="76"></canvas>
-        <canvas id="canvas2" class="absolute top-0 left-0 w-full h-full" width="650" height="76"></canvas>
+            <canvas id="canvas" class="absolute top-0 left-0 w-full h-full" width="650" height="76"></canvas>
+            <canvas id="canvas2" style="z-index:99" class="absolute top-0 left-0 w-full h-full" width="650" height="76"></canvas>
+        </div>
     </div>
     <div id="p5-canvas"></div>
     <div class="container mx-auto px-4">
@@ -594,12 +607,12 @@
                 circles.forEach((c, index) => {
                     circle.style.transition = 'r 20s';
                     c.setAttribute('r', '1');
-                    c.style.zIndex = index === currentIndex ? '89' : '87';
+                    c.style.zIndex = index === currentIndex ? '19' : '17';
                 });
 
                 // set z-index of current circle to 89 and previous circle to 88
-                circle.style.zIndex = '89';
-                circles[prevIndex].style.zIndex = '88';
+                circle.style.zIndex = '19';
+                circles[prevIndex].style.zIndex = '18';
 
                 currentIndex = (currentIndex + 1) % circles.length;
             }
@@ -704,12 +717,8 @@
         #logo-container {
             align-items: center; /* This will vertically center the contents */
             justify-content: left; /* This will horizontally center the contents, if needed */
+            overflow: hidden;
             /* Add width and height if necessary to control the size of the container */
-        }
-
-        #logo-container svg {
-            padding-left: 2rem;
-            padding-top: 1rem;
         }
 
         #logo-background, #logo-background2 {
@@ -730,6 +739,8 @@
             width: 650px;
             overflow: visible;
             z-index: 99;
+            top: 12px;
+            left: 15px;
         }
 
         #p5-canvas {
@@ -754,7 +765,7 @@
             visibility: visible;
             opacity: 1;
             z-index: 99;
-            top: 12px;
+            top: 9px;
             left: 15px;
         }
 
