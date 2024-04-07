@@ -1,7 +1,7 @@
 <div id="nav_container" class="h-30" x-data="{ open: false }"
      style="background-image: url('{{ asset('images/bytebeze-banner-tess.png') }}'); background-repeat: repeat;min-height: 96px;">
     <div id="logo-container" class="absolute m-2 top-0 left-0 ml-6 " style="min-height: 76px;width:650px; border-radius: 0.5rem;">
-        <div id="logo-background" class="absolute p-4 top-0 left-0 bg-white rounded-lg shadow-lg border-2 border-white transition-all duration-1000 ease-in-out" style="background-position: center bottom; background-size: cover; background-image: url(&quot;&quot;); opacity: 0;">
+        <div id="logo-background" class="absolute p-4 top-0 left-0 bg-white rounded-lg shadow-lg border-2 border-white transition-all duration-1000 ease-in-out" style="background-position: center bottom; background-size: cover; ">
             <div class="ripple"></div>
         </div>
         <div style="min-height: 76px; overflow: hidden;">
@@ -315,7 +315,7 @@
                 ctx.lineTo(x, y);
                 ctx.stroke();
                 ctx.fillStyle = "red";
-                ctx.fillRect(x - 2.5, y - 2.5, 5, 5); // Adjust the position of the dot
+                ctx.fillRect(x + 12, y + 10, 5, 5); // Adjust the position of the dot
             }
 
             drawEnd(ctx) {
@@ -568,8 +568,8 @@
 
                 // Get the bounding rectangle of the SVG element
                 const svgRect = document.getElementById('joebeze_logo_lazer_anim').getBoundingClientRect();
-
-                // Get the viewBox dimensions
+                const margin = parseFloat(getComputedStyle(document.getElementById('logo-container')).marginLeft);
+                const svgRippleRect = document.getElementById('ripple-effect-bg').getBoundingClientRect();
                 const viewBox = document.getElementById('joebeze_logo_lazer_anim').viewBox.baseVal;
 
                 // Calculate the scale factors based on the viewBox dimensions
@@ -577,37 +577,44 @@
                 const scaleY = svgRect.height / viewBox.height;
 
                 // Calculate the mouse position relative to the SVG's viewBox coordinates
-                const svgX = (lastMousePosition.x - svgRect.left) / scaleX;
-                const svgY = (lastMousePosition.y - svgRect.top) / scaleY;
+                const svgX = lastMousePosition.x + 130;
+                const svgY = lastMousePosition.y + (svgRippleRect.height/2) - 10;
 
                 // Adjust the position to align with the pointer finger
-                const pointerOffset = 7; // Adjust this value based on the size of your pointer finger
-                const adjustedSvgX = svgX + pointerOffset;
-                const adjustedSvgY = svgY - pointerOffset;
+                const adjustedSvgX = svgX;
+                const adjustedSvgY = svgY;
 
                 // Put a small dot on the same location that is upper level and 100% visible
-                const dot = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
-                dot.setAttribute('cx', adjustedSvgX);
-                dot.setAttribute('cy', adjustedSvgY);
-                dot.setAttribute('r', '1');
-                dot.setAttribute('fill', 'white');
-                dot.setAttribute('stroke', 'white');
-                dot.setAttribute('stroke-width', '1');
-                dot.style.transition = 'r 1s';
-                document.getElementById('joebeze_logo_lazer_anim').appendChild(dot);
+                // const dot = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
+                // dot.setAttribute('cx', adjustedSvgX);
+                // dot.setAttribute('cy', adjustedSvgY);
+                // dot.setAttribute('r', '1');
+                // dot.setAttribute('fill', 'white');
+                // dot.setAttribute('stroke', 'white');
+                // dot.setAttribute('stroke-width', '1');
+                // dot.style.transition = 'r 1s';
+                // document.getElementById('joebeze_logo_lazer_anim').appendChild(dot);
 
 
                 // Start expanding without transition for position change
                 setTimeout(() => {
+                    //change location of circles
+                    circle.setAttribute('cx', adjustedSvgX);
+                    circle.setAttribute('cy', adjustedSvgY);
                     circle.style.transition = 'r 12s';
                     circle.setAttribute('r', '2500');  // Use 2500 for half of 5000 to simulate radius expansion
                 }, 10);
 
                 // Reset all circles
                 circles.forEach((c, index) => {
-                    circle.style.transition = 'r 20s';
-                    c.setAttribute('r', '1');
-                    c.style.zIndex = index === currentIndex ? '19' : '17';
+                    if (index !== currentIndex) {
+                        c.setAttribute('cx', adjustedSvgX);
+                        c.setAttribute('cy', adjustedSvgY);
+                        c.style.transition = 'r 1s';
+                        c.setAttribute('r', '1');
+                        c.style.zIndex = index === currentIndex ? '19' : '17';
+                    }
+
                 });
 
                 // set z-index of current circle to 89 and previous circle to 88
@@ -641,7 +648,8 @@
 
             // Fade out the background and filled logo
             setTimeout(() => {
-                document.getElementById('logo-background').style.opacity = '0';
+
+                document.getElementById('logo-background').classList.add('fade-out');
 
                 // add an animation to fade out the filled logo
                 document.getElementById('joebeze_logo_filled').style.animation = 'fadeOut 2s ease-in-out forwards';
@@ -720,6 +728,17 @@
             overflow: hidden;
             /* Add width and height if necessary to control the size of the container */
         }
+        #logo-background {
+            background-color: white;
+            opacity: 1;
+        }
+
+        #logo-background.fade-out {
+            opacity: 0;
+            background-color: transparent;
+            transition: opacity 2s, background-color 2s; /* Adjust the time as needed */
+        }
+
 
         #logo-background, #logo-background2 {
             z-index: 98;
