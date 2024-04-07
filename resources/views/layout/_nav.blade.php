@@ -1,6 +1,6 @@
 <div id="nav_container" class="h-30" x-data="{ open: false }"
      style="background-image: url('{{ asset('images/bytebeze-banner-tess.png') }}'); background-repeat: repeat;min-height: 96px;">
-    <div id="logo-container" class="absolute m-2 top-0 left-0 ml-6 " style="min-height: 76px;width:650px; border-radius: 0.5rem;">
+    <div id="logo-container" class="absolute m-2 top-0 left-0 ml-48 " style="min-height: 76px;width:650px; border-radius: 0.5rem;">
         <div id="logo-background" class="absolute p-4 top-0 left-0 bg-white rounded-lg shadow-lg border-2 border-white transition-all duration-1000 ease-in-out" style="background-position: center bottom; background-size: cover; ">
             <div class="ripple"></div>
         </div>
@@ -577,8 +577,8 @@
                 const scaleY = svgRect.height / viewBox.height;
 
                 // Calculate the mouse position relative to the SVG's viewBox coordinates
-                const svgX = lastMousePosition.x + 130;
-                const svgY = lastMousePosition.y + (svgRippleRect.height/2) - 10;
+                const svgX = lastMousePosition.x - 60 > 1200 ? 1200 : lastMousePosition.x - 50;
+                const svgY = lastMousePosition.y + (svgRippleRect.height/2) - 10 > 800 ? 800 : lastMousePosition.y + (svgRippleRect.height/2) - 10;
 
                 // Adjust the position to align with the pointer finger
                 const adjustedSvgX = svgX;
@@ -601,18 +601,25 @@
                     //change location of circles
                     circle.setAttribute('cx', adjustedSvgX);
                     circle.setAttribute('cy', adjustedSvgY);
-                    circle.style.transition = 'r 12s';
-                    circle.setAttribute('r', '2500');  // Use 2500 for half of 5000 to simulate radius expansion
+                    circle.style.transition = 'r 29s';
+                    circle.setAttribute('r', '5500');  // Use 2500 for half of 5000 to simulate radius expansion
                 }, 10);
 
                 // Reset all circles
                 circles.forEach((c, index) => {
-                    if (index !== currentIndex) {
+                    lastIndex = (currentIndex - 1) % circles.length;
+                    if (index === currentIndex) {
+                        c.style.zIndex = '19';
+                    } else if (index === lastIndex) {
+                        c.setAttribute('cx', adjustedSvgX);
+                        c.setAttribute('cy', adjustedSvgY);
+                        c.style.zIndex = '18';
+                    } else {
                         c.setAttribute('cx', adjustedSvgX);
                         c.setAttribute('cy', adjustedSvgY);
                         c.style.transition = 'r 1s';
-                        c.setAttribute('r', '1');
-                        c.style.zIndex = index === currentIndex ? '19' : '17';
+                        c.setAttribute('r', '0.1');
+                        c.style.zIndex = '17';
                     }
 
                 });
@@ -624,8 +631,10 @@
                 currentIndex = (currentIndex + 1) % circles.length;
             }
 
+            setTimeout(animateCircle, 10500)
+
             // Start the animation cycle
-            setInterval(animateCircle, 5500);
+            setInterval(animateCircle, 20500);
 
 
             // Randomly choose between the images
@@ -662,8 +671,6 @@
                 laserWriter.traceSVG();
                 laserWriter.traceBorder();
                 laserWriter.draw();
-
-
                 // let rand = Math.floor(Math.random() * options.length);
                 // let imageUrl = options[rand];
                 // document.getElementById('logo-background').style.backgroundImage = `url('${imageUrl}')`;
