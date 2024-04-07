@@ -1,7 +1,7 @@
 <div id="nav_container" class="h-30" x-data="{ open: false }"
-     style="background-image: url('{{ asset('images/bytebeze-banner-tess.png') }}'); background-repeat: repeat;min-height: 116px;">
-    <div id="logo-container" class="absolute m-2 top-0 left-0 " style="min-height: 116px;width:650px">
-        <div id="logo-background" class="absolute m-4 p-4 top-0 left-0 bg-white rounded-lg shadow-lg border-2 border-white transition-all duration-1000 ease-in-out" style="background-position: center bottom; background-size: cover; background-image: url(&quot;&quot;); opacity: 0;">
+     style="background-image: url('{{ asset('images/bytebeze-banner-tess.png') }}'); background-repeat: repeat;min-height: 96px;">
+    <div id="logo-container" class="absolute m-2 top-0 left-0 ml-6 " style="min-height: 76px;width:650px; border-radius: 0.5rem;">
+        <div id="logo-background" class="absolute p-4 top-0 left-0 bg-white rounded-lg shadow-lg border-2 border-white transition-all duration-1000 ease-in-out" style="background-position: center bottom; background-size: cover; background-image: url(&quot;&quot;); opacity: 0;">
             <div class="ripple"></div>
         </div>
         <div style="min-height: 76px; overflow: hidden;">
@@ -113,7 +113,7 @@
             </div>
             <div style="position: relative;">
             <svg id="ripple-effect-bg" style="
-                z-index: 19; position: absolute; top: -340px; left: -80px; width: 921px; height: 775px;
+                z-index: 19; position: absolute; top: -352px; left: -80px; width: 950px; height: 800px;
                 border-radius: 0.5rem; box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -4px rgba(0, 0, 0, 0.1);
                 border: solid white 2px; transition: all 1000ms ease-in-out;" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg"
                  xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1070.78 901.04">
