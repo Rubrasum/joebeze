@@ -204,7 +204,7 @@
             </div>
         </div>
     </a>
-    <div class="container mx-auto px-4 h-full">
+    <div class="container mx-auto px-4 h-full z-[99]">
         <nav class="h-full flex justify-between items-center py-4">
             <div id="Logo container placeholder" class="w-full">
                 <div class="block z-[110] max-w-[33.85vw]"></div>
@@ -231,7 +231,7 @@
             </div>
             <div class="lg:hidden">
                 <button @click="open = !open"
-                        class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-white hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white"
+                        class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-white hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white bg-gray-800 border-2 border-gray-300"
                         aria-controls="mobile-menu" aria-expanded="false">
                     <span class="sr-only">Open main menu</span>
                     <svg class="block h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
