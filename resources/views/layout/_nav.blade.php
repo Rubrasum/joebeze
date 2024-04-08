@@ -1,17 +1,15 @@
-<div id="nav_container" class="h-30" x-data="{ open: false }"
-     style="background-image: url('{{ asset('images/bytebeze-banner-tess.png') }}'); background-repeat: repeat;min-height: 96px; height: 96px;">
+<div id="nav_container" class="nav_container h-24" x-data="{ open: false }">
     <a href="/">
-        <div id="logo-container" class="absolute m-2 top-0 left-0 ml-[10vw] " style="min-height: 76px;width:650px; border-radius: 0.5rem;">
-
-            <div id="logo-background" class="absolute p-4 top-0 left-0 bg-white rounded-lg shadow-lg border-2 border-white transition-all duration-1000 ease-in-out" style="background-position: center bottom; background-size: cover; ">
+        <div id="logo-container" class="logo-container min-h-[4.75rem] w-[40.625rem] absolute items-center justify-start overflow-hidden m-2 top-0 left-0 ml-[10vw] rounded-md">
+            <div id="logo-background" class="absolute z-[98] w-[40.625rem] w-[4.75] block p-4 top-0 left-0 bg-white rounded-lg shadow-lg border-2 border-white transition-all duration-1000 ease-in-out">
                 <div class="ripple"></div>
             </div>
-            <div style="min-height: 76px; overflow: hidden;">
+            <div class="overflow-hidden h-[4.75rem]">
                 <div id="logo-background2"
-                     class="absolute top-0 left-0 w-full h-full rounded-lg shadow-lg border-2 border-white transition-all duration-1000 ease-in-out">
+                     class="absolute z-[98] w-[40.625rem] w-[4.75] block top-0 left-0 w-full h-full bg-transparent rounded-lg shadow-lg border-2 border-white transition-all duration-1000 ease-in-out">
                 </div>
-                <div style="position: relative;">
-                    <svg id="joebeze_logo_lazer_anim" data-name="joebeze_logo_lazer_anim"
+                <div class="relative">
+                    <svg id="joebeze_logo_lazer_anim" class="absolute z-[99] top-[12px] left-[15px]" data-name="joebeze_logo_lazer_anim"
                      xmlns="http://www.w3.org/2000/svg" viewBox="0 0 650 76.27">
                     <defs>
                         <style>
@@ -70,8 +68,8 @@
                           d="M499.68,35.78h12.49v-10.36c0-4.82-1.85-6.89-6.61-6.89h-5.88c-5.1,0-7.39,2.58-7.39,8.62s2.3,8.62,7.39,8.62Z"/>
                 </svg>
                 </div>
-                <div style="position: relative;">
-                    <svg id="joebeze_logo_filled" data-name="joebeze_logo_filled" xmlns="http://www.w3.org/2000/svg"
+                <div class="relative">
+                    <svg id="joebeze_logo_filled" class="absolute w-[650px] z-[99] top-[9px] left-[15px]" data-name="joebeze_logo_filled" xmlns="http://www.w3.org/2000/svg"
                      viewBox="0 0 650 76.27">
                     <defs>
                         <style> {{-- The 2nd svg classes are all cls-2-x --}}
@@ -113,10 +111,9 @@
                     </text>
                 </svg>
                 </div>
-                <div style="position: relative;">
-                    <svg id="ripple-effect-bg" style=" z-index: 19; position: absolute; top: -352px; left: -80px; width: 950px; height: 800px;
-                        border-radius: 0.5rem; box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -4px rgba(0, 0, 0, 0.1);
-                        border: solid white 2px; transition: all 1000ms ease-in-out;" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg"
+                <div class="relative">
+                    <svg id="ripple-effect-bg" class="z-20 absolute top-[-352px] left-[-80px] w-[950px] h-[800px] rounded-md shadow-lg border-2 border-white transition-all duration-1000 ease-in-out"
+                        data-name="Layer 1" xmlns="http://www.w3.org/2000/svg"
                          xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1070.78 901.04">
                         <defs>
                             <style>
@@ -198,25 +195,18 @@
                                 <image width="1740" height="270" transform="translate(82.83 372.35) scale(.45)" xlink:href="{{ asset('images/orange-woman.jpg') }}"/>
                             </g>
                         </g>
-                    </svg></div>
+                    </svg>
+                </div>
 
                 <canvas id="canvas" class="absolute top-0 left-0 w-full h-full" width="650" height="76"></canvas>
-                <canvas id="canvas2" style="z-index:99" class="absolute top-0 left-0 w-full h-full" width="650" height="76"></canvas>
+                <canvas id="canvas2" class="z-[99] absolute top-0 left-0 w-full h-full" width="650" height="76"></canvas>
             </div>
         </div>
     </a>
-    <div id="p5-canvas"></div>
     <div class="container mx-auto px-4 h-full">
-
         <nav class="h-full flex justify-between items-center py-4">
-
-            <div class="w-full">
-
-                <a href="/" class="block" style="z-index: 110; max-width: 650px;">
-
-
-
-                </a>
+            <div id="Logo container placeholder" class="w-full">
+                <div class="block z-[110] max-w-[40.625rem]"></div>
             </div>
             <div class="hidden lg:flex items-center">
                 <div class="relative mr-4">
@@ -730,15 +720,15 @@
     </script>
 
     <style>
-        #logo-container {
-            align-items: center; /* This will vertically center the contents */
-            justify-content: left; /* This will horizontally center the contents, if needed */
-            overflow: hidden;
-            /* Add width and height if necessary to control the size of the container */
+        {{-- Top Element --}}
+        .nav_container {
+            background-image: url('{{ asset('images/bytebeze-banner-tess.png') }}');
+            background-repeat: repeat;
         }
+
         #logo-background {
-            background-color: white;
-            opacity: 1;
+            background-position: center bottom;
+            background-size: cover;
         }
 
         #logo-background.fade-out {
@@ -748,31 +738,7 @@
         }
 
 
-        #logo-background, #logo-background2 {
-            z-index: 98;
-            width: 650px;
-            height: 76px;
-            display: block;
-        }
 
-        #logo-background2 {
-            background-color: transparent;
-            opacity: 1;
-        }
-
-
-        #joebeze_logo_lazer_anim {
-            position: absolute;
-            width: 650px;
-            overflow: visible;
-            z-index: 99;
-            top: 12px;
-            left: 15px;
-        }
-
-        #p5-canvas {
-            z-index: 1; /* Ensure the canvas is behind the content */
-        }
 
 
         @keyframes fadeIn {
@@ -784,16 +750,6 @@
                 opacity: 1;
                 visibility: visible;
             }
-        }
-
-        #joebeze_logo_filled {
-            position: absolute;
-            width: 650px;
-            visibility: visible;
-            opacity: 1;
-            z-index: 99;
-            top: 9px;
-            left: 15px;
         }
 
         @keyframes fadeOut {
