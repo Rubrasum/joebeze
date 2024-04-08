@@ -1,15 +1,16 @@
-<div id="nav_container" class="nav_container h-24" x-data="{ open: false }">
+<div id="nav_container" class="nav_container h-24 flex items-center items-center justify-center" x-data="{ open: false }">
     <a href="/">
-        <div id="logo-container" class="logo-container min-h-[4.75rem] w-[40.625rem] absolute items-center justify-start overflow-hidden m-2 top-0 left-0 ml-[10vw] rounded-md">
-            <div id="logo-background" class="absolute z-[98] w-[40.625rem] w-[4.75] block p-4 top-0 left-0 bg-white rounded-lg shadow-lg border-2 border-white transition-all duration-1000 ease-in-out">
+        <div id="logo-container" class="lg:h-[3.96vw] h-[7.92vw] lg:w-[33.85vw] w-[67.70vw] relative items-center overflow-hidden ml-[10vw]  rounded-md">
+            <div id="logo-background" class="absolute z-[98] w-full block p-4 top-0 left-0 bg-white rounded-lg shadow-lg border-2 border-white transition-all duration-250 ease-in-out">
                 <div class="ripple"></div>
             </div>
-            <div class="overflow-hidden h-[4.75rem]">
+            <div class="overflow-hidden lg:h-[3.96vw] h-[7.92vw]">
+{{--                Width 33.85vw * 16px/rem = 650px -- Assuming default 1920x1080 (which is my screen) (650px / 1920px) * 100 = 33.85vw --}}
                 <div id="logo-background2"
-                     class="absolute z-[98] w-[40.625rem] w-[4.75] block top-0 left-0 w-full h-full bg-transparent rounded-lg shadow-lg border-2 border-white transition-all duration-1000 ease-in-out">
+                     class="absolute z-[98] lg:h-[3.96vw] h-[7.92vw] lg:w-[33.85vw] w-[67.70vw] block top-0 left-0 bg-transparent rounded-lg shadow-lg border-2 border-white transition-all duration-250 ease-in-out">
                 </div>
                 <div class="relative">
-                    <svg id="joebeze_logo_lazer_anim" class="absolute z-[99] top-[12px] left-[15px]" data-name="joebeze_logo_lazer_anim"
+                    <svg id="joebeze_logo_lazer_anim" class="absolute lg:h-[3.96vw] h-[7.92vw] lg:w-[33.85vw] w-[67.70vw] z-[99] top-[0.68vw] left-[0.73vw]" data-name="joebeze_logo_lazer_anim"
                      xmlns="http://www.w3.org/2000/svg" viewBox="0 0 650 76.27">
                     <defs>
                         <style>
@@ -69,7 +70,7 @@
                 </svg>
                 </div>
                 <div class="relative">
-                    <svg id="joebeze_logo_filled" class="absolute w-[650px] z-[99] top-[9px] left-[15px]" data-name="joebeze_logo_filled" xmlns="http://www.w3.org/2000/svg"
+                    <svg id="joebeze_logo_filled" class="absolute lg:h-[3.96vw] h-[7.92vw] lg:w-[33.85vw] w-[67.70vw] z-[99] top-[0.47vw] left-[0.78vw]" data-name="joebeze_logo_filled" xmlns="http://www.w3.org/2000/svg"
                      viewBox="0 0 650 76.27">
                     <defs>
                         <style> {{-- The 2nd svg classes are all cls-2-x --}}
@@ -112,7 +113,7 @@
                 </svg>
                 </div>
                 <div class="relative">
-                    <svg id="ripple-effect-bg" class="z-20 absolute top-[-352px] left-[-80px] w-[950px] h-[800px] rounded-md shadow-lg border-2 border-white transition-all duration-1000 ease-in-out"
+                    <svg id="ripple-effect-bg" class="z-20 absolute lg:top-[-18.33vw] top-[-36.66vw]  lg:left-[-4.17vw] left-[-8.34vw] w-[98.96vw] lg:w-[49.48vw] h-[83.34] lg:h-[41.67vw] rounded-md shadow-lg border-2 border-white transition-all duration-1000 ease-in-out"
                         data-name="Layer 1" xmlns="http://www.w3.org/2000/svg"
                          xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1070.78 901.04">
                         <defs>
@@ -198,15 +199,15 @@
                     </svg>
                 </div>
 
-                <canvas id="canvas" class="absolute top-0 left-0 w-full h-full" width="650" height="76"></canvas>
-                <canvas id="canvas2" class="z-[99] absolute top-0 left-0 w-full h-full" width="650" height="76"></canvas>
+                <canvas id="canvas" class="absolute top-0 left-0 lg:h-[3.96vw] h-[7.92vw] lg:w-[33.85vw] w-[67.70vw]"></canvas>
+                <canvas id="canvas2" class="z-[99] absolute top-0 left-0 lg:h-[3.96vw] h-[7.92vw] lg:w-[33.85vw] w-[67.70vw]"></canvas>
             </div>
         </div>
     </a>
     <div class="container mx-auto px-4 h-full">
         <nav class="h-full flex justify-between items-center py-4">
             <div id="Logo container placeholder" class="w-full">
-                <div class="block z-[110] max-w-[40.625rem]"></div>
+                <div class="block z-[110] max-w-[33.85vw]"></div>
             </div>
             <div class="hidden lg:flex items-center">
                 <div class="relative mr-4">
@@ -545,9 +546,6 @@
 
             let currentIndex = 0;
 
-// Update last mouse position on move
-
-
             function animateCircle() {
                 const circles = document.querySelectorAll('circle.cls-3-2');
 
@@ -593,7 +591,12 @@
                     circle.setAttribute('cx', adjustedSvgX);
                     circle.setAttribute('cy', adjustedSvgY);
                     circle.style.transition = 'r 29s';
-                    circle.setAttribute('r', '5500');  // Use 2500 for half of 5000 to simulate radius expansion
+                    const viewportWidth = window.innerWidth;
+                    const radius = (2500 / 1920) * viewportWidth;
+                    // Set the radius attribute
+                    circle.setAttribute('r', radius.toString());
+
+                    circle.setAttribute('r', '286.46vw');  // Use 2500 for half of 5000 to simulate radius expansion
                 }, 10);
 
                 // Reset all circles
