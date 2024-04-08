@@ -1,7 +1,7 @@
 <div id="nav_container" class="nav_container h-24 flex items-center items-center justify-center" x-data="{ open: false }">
     <a href="/">
         <div id="logo-container" class="lg:h-[3.96vw] h-[7.92vw] lg:w-[33.85vw] w-[67.70vw] relative items-center overflow-hidden ml-[10vw]  rounded-md">
-            <div id="logo-background" class="absolute z-[98] w-full block p-4 top-0 left-0 bg-white rounded-lg shadow-lg border-2 border-white transition-all duration-250 ease-in-out">
+            <div id="logo-background" class="absolute z-[98] w-full h-full block p-4 top-0 left-0 bg-white rounded-lg shadow-lg border-2 border-white transition-all duration-250 ease-in-out">
                 <div class="ripple"></div>
             </div>
             <div class="overflow-hidden lg:h-[3.96vw] h-[7.92vw]">
