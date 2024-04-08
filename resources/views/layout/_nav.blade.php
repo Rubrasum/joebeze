@@ -246,10 +246,10 @@
 
         <div x-show="open" class="lg:hidden" id="mobile-menu">
             <div class="px-2 pt-2 pb-3 space-y-1">
-                <div class="relative mb-4">
+                <div class="absolute lg:relative mb-4 top-[4.25rem] right-[0.3rem]">
                     <x-categories.dropdown :post="$post ?? null"/>
                 </div>
-                <div>
+                <div class="absolute lg:relative top-[6.5rem] right-[1rem]">
                     <form method="GET" action="#">
                         @if (request('category'))
                             <input type="hidden" name="category" value="{{ request('category') }}">
