@@ -1,7 +1,7 @@
 <div id="nav_container" class="h-30" x-data="{ open: false }"
      style="background-image: url('{{ asset('images/bytebeze-banner-tess.png') }}'); background-repeat: repeat;min-height: 96px;">
     <a href="/">
-        <div id="logo-container" class="absolute m-2 top-0 left-0 ml-48 " style="min-height: 76px;width:650px; border-radius: 0.5rem;">
+        <div id="logo-container" class="absolute m-2 top-0 left-0 ml-[10vw] " style="min-height: 76px;width:650px; border-radius: 0.5rem;">
 
             <div id="logo-background" class="absolute p-4 top-0 left-0 bg-white rounded-lg shadow-lg border-2 border-white transition-all duration-1000 ease-in-out" style="background-position: center bottom; background-size: cover; ">
                 <div class="ripple"></div>

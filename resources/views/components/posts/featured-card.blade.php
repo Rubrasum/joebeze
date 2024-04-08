@@ -1,11 +1,10 @@
 @props(['post'])
 
-
 <div class="bg-black">
     <div class="w-full relative">
         <div class="top-0 left-0 w-full bg-black bg-opacity-60 flex
                     flex-col justify-between border-t-8 border-gray-800">
-            <div class="container mx-2 md:mx-auto mb-8
+            <div class="mb-8 mx-[10vw]
                         pt-8 lg:pt-16 px-4 xl:px-16 pb-8
                         lg:grid lg:grid-cols-5 lg:gap-5
                         border-l-8 border-r-2 border-b-2 border-gray-800 rounded-br-md"
