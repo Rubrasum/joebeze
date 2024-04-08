@@ -13,8 +13,9 @@ class PostController extends Controller
      */
     public function index()
     {
+        // TODO fix the factory to actually add the published_at dates
         return view('posts.index', [
-            'posts' => Post::where('published_at', '<=', now())
+            'posts' => Post::where('created_at', '<=', now('UTC'))
                 ->latest('published_at')
                 ->filter(request(['search', 'category', 'author']))
                 ->paginate(8)

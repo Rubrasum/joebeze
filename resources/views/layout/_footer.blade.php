@@ -7,5 +7,6 @@
 {{--        @include('layout.footer.newsletter')--}}
     </div>
     @include('layout.footer.copyright')
+
 </footer>
 
