@@ -1,3 +1,19 @@
+# Default list from Laravel's .gitignore, with dupes removed.
+/.phpunit.cache
+/bootstrap/ssr
+/node_modules
+/public/build
+/public/hot
+/public/storage
+/storage/*.key
+/vendor
+.env.backup
+.env.production
+auth.json
+/.fleet
+/.vscode
+
+# Betbeze's list below. Purged any repeates from above.
 /vendor/
 node_modules/
 npm-debug.log
@@ -21,8 +37,10 @@ Homestead.yaml
 Homestead.json
 /.vagrant
 .phpunit.result.cache
-/.idea/blade.xml
-/public/build/assets/*
-/public/build/assets/*
+/.idea
 /database/migrations/migrations.rar
-/public/build/manifest.json
+
+# phpunit cach
+/.phpunit.cache/
+/tarkov-snipper.sql
+**/test-results
