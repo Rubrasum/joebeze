@@ -153,9 +153,9 @@
                             <clipPath id="clippath-1">
                                 <circle class="cls-3-2" cx="-100" cy="-100" r="1"/>
                             </clipPath>
-                            {{--                                <clipPath id="clippath-2">--}}
-                            {{--                                    <circle class="cls-3-2" cx="-100" cy="-100" r="1"/>--}}
-                            {{--                                </clipPath>--}}
+{{--                                <clipPath id="clippath-2">--}}
+{{--                                    <circle class="cls-3-2" cx="-100" cy="-100" r="1"/>--}}
+{{--                                </clipPath>--}}
                             <clipPath id="clippath-3">
                                 <circle class="cls-3-2" cx="-100" cy="-100" r="1"/>
                             </clipPath>
@@ -168,32 +168,32 @@
                         </defs>
                         <g id="_Clip_Group_Redhead_" data-name="&amp;lt;Clip Group Redhead&amp;gt;">
                             <g class="cls-3-5">
-                                <image width="1017" height="284" transform="translate(80.85 331.18) scale(.76)" xlink:href="{{ asset('images/redhead.jpg') }}"/>
+                                <image id="redhead" width="1017" height="284" transform="translate(80.85 331.18) scale(.76)"/>
                             </g>
                         </g>
                         <g id="_Clip_Group_Blueninja_" data-name="&amp;lt;Clip Group Blueninja&amp;gt;">
                             <g class="cls-3-3">
-                                <image width="1575" height="315" transform="translate(1220.78 205.37) rotate(-180) scale(.9 -.9)" xlink:href="{{ asset('images/blue-ninja.jpg') }}"/>
+                                <image id="blueninja" width="1575" height="315" transform="translate(1220.78 205.37) rotate(-180) scale(.9 -.9)"/>
                             </g>
                         </g>
-                        {{--                            <g id="_Clip_Group_Darkgame_" data-name="&amp;lt;Clip Group Darkgame&amp;gt;">--}}
-                        {{--                                <g class="cls-3-1">--}}
-                        {{--                                    <image width="640" height="360" transform="translate(150.31 277.3) scale(1.05)" xlink:href="{{ asset('images/dark-game.gif') }}"/>--}}
-                        {{--                                </g>--}}
-                        {{--                            </g>--}}
+{{--                            <g id="_Clip_Group_Darkgame_" data-name="&amp;lt;Clip Group Darkgame&amp;gt;">--}}
+{{--                                <g class="cls-3-1">--}}
+{{--                                    <image width="640" height="360" transform="translate(150.31 277.3) scale(1.05)" xlink:href="{{ asset('images/dark-game.gif') }}"/>--}}
+{{--                                </g>--}}
+{{--                            </g>--}}
                         <g id="_Clip_Group_Blackcat_" data-name="&amp;lt;Clip Group Blackcat&amp;gt;">
                             <g class="cls-3-6">
-                                <image width="740" height="119" transform="translate(50.31 390.18) scale(1.08)" xlink:href="{{ asset('images/black-cat.jpg') }}"/>
+                                <image id="blackcat" width="740" height="119" transform="translate(50.31 390.18) scale(1.08)"/>
                             </g>
                         </g>
                         <g id="_Clip_Group_Tanwoman_" data-name="&amp;lt;Clip Group Tanwoman&amp;gt;">
                             <g class="cls-3-4">
-                                <image width="829" height="141" transform="translate(90.61 355.43) scale(.95)" xlink:href="{{ asset('images/tan-woman.jpg') }}"/>
+                                <image id="tanwoman" width="829" height="141" transform="translate(90.61 355.43) scale(.95)"/>
                             </g>
                         </g>
                         <g id="_Clip_Group_Orangewoman_" data-name="&amp;lt;Clip Group Orangewoman&amp;gt;">
                             <g class="cls-3-7">
-                                <image width="1740" height="270" transform="translate(82.83 372.35) scale(.45)" xlink:href="{{ asset('images/orange-woman.jpg') }}"/>
+                                <image id="orangewoman"  width="1740" height="270" transform="translate(82.83 372.35) scale(.45)"/>
                             </g>
                         </g>
                     </svg>
@@ -430,7 +430,6 @@
                 this.laserStart.x = startX;
                 this.laserStart.y = startY;
                 this.laser = new Laser(this.laserStart.x, this.laserStart.y);
-
                 // Iterate over every pixel to find where the text is drawn
                 for (var y = 0; y < this.h; y++) {
                     for (var x = 0; x < this.w; x++) {
@@ -543,6 +542,65 @@
 
         // delay til page load
         document.addEventListener("DOMContentLoaded", () => {
+
+            // mainly for the image optimization. 1024 is tailwinds lg.
+            const breakpoints = [
+                { width: 2560, suffix: '-2560' },
+                { width: 1920, suffix: '-1920' },
+                { width: 1600, suffix: '-1600' },
+                { width: 1200, suffix: '-1200' },
+                { width: 1024, suffix: '-1024' },
+                { width: 834, suffix: '-834' },
+                { width: 600, suffix: '-600' },
+                { width: 414, suffix: '-414' },
+                { width: 360, suffix: '-360' },
+                { width: 320, suffix: '-320' }
+            ];
+
+
+            const imagesInfo = [
+                {
+                    id: "redhead",
+                    baseName: "{{ asset('images/animated-logo/redhead') }}"
+                },
+                {
+                    id: "blueninja",
+                    baseName: "{{ asset('images/animated-logo/blue-ninja') }}"
+                },
+                {
+                    id: "blackcat",
+                    baseName: "{{ asset('images/animated-logo/black-cat') }}"
+                },
+                {
+                    id: "tanwoman",
+                    baseName: "{{ asset('images/animated-logo/tan-woman') }}"
+                },
+                {
+                    id: "orangewoman",
+                    baseName: "{{ asset('images/animated-logo/orange-woman') }}"
+                }
+            ];
+
+            let image_index = 0;
+
+            function loadNextImage() {
+                if (image_index < imagesInfo.length) {
+                    const imageElement = document.getElementById(imagesInfo[image_index].id);
+                    if (imageElement) {
+                        const screenWidth = window.innerWidth;
+                        const breakpoint = breakpoints.find(bp => screenWidth >= bp.width);
+
+                        const suffix = breakpoint ? breakpoint.suffix : '';
+                        const fileName = `${imagesInfo[image_index].baseName}${suffix}.jpg`;
+                        imageElement.setAttributeNS('http://www.w3.org/1999/xlink', 'href', fileName);
+                        console.log("loading image: " + fileName);
+                        image_index++;
+                    }
+                    setTimeout(loadNextImage, 10000); // Wait for 10 seconds before loading the next image
+                }
+            }
+
+            loadNextImage();
 
             let currentIndex = 0;
 
