@@ -582,12 +582,17 @@
             ];
 
             let image_index = 0;
-
+            let old_width = window.innerWidth;
+            // this dies on resize, then reruns.
+            // this is recursive to load all the images for the logo svg slowly
             function loadNextImage() {
                 if (image_index < imagesInfo.length) {
                     const imageElement = document.getElementById(imagesInfo[image_index].id);
                     if (imageElement) {
                         const screenWidth = window.innerWidth;
+                        if (old_width !== screenWidth) {
+                            return;
+                        }
                         const breakpoint = breakpoints.find(bp => screenWidth >= bp.width);
 
                         const suffix = breakpoint ? breakpoint.suffix : '';
@@ -595,12 +600,20 @@
                         imageElement.setAttributeNS('http://www.w3.org/1999/xlink', 'href', fileName);
                         console.log("loading image: " + fileName);
                         image_index++;
+                        setTimeout(loadNextImage, 7500); // Wait for 7.5 seconds before loading the next image
+                    } else {
+                        image_index = 0
                     }
-                    setTimeout(loadNextImage, 10000); // Wait for 10 seconds before loading the next image
                 }
             }
+            loadNextImage(); // first run
 
-            loadNextImage();
+            // On resize, load the images
+            window.addEventListener('resize', () => {
+                old_width = window.innerWidth;
+                image_index = 0;
+                loadNextImage();
+            });
 
             let currentIndex = 0;
 
