@@ -113,9 +113,8 @@
                 </svg>
                 </div>
                 <div class="relative">
-                    <svg id="ripple-effect-bg" class="z-20 absolute lg:top-[-18.33vw] top-[-36.66vw]  lg:left-[-4.17vw] left-[-8.34vw] w-[98.96vw] lg:w-[49.48vw] h-[83.34] lg:h-[41.67vw] rounded-md shadow-lg border-2 border-white transition-all duration-1000 ease-in-out"
-                        data-name="Layer 1" xmlns="http://www.w3.org/2000/svg"
-                         xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1070.78 901.04">
+                    <svg id="ripple-effect-bg" class="z-20 absolute lg:top-[-18.33vw] top-[-36.66vw]  lg:left-[-4.17vw] left-[-8.34vw] w-[98.96vw] lg:w-[49.48vw] h-[83.34vw] lg:h-[41.67vw] rounded-md shadow-lg border-2 border-white transition-all duration-1000 ease-in-out"
+                         data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1070.78 901.04">
                         <defs>
                             <style>
                                 .cls-3-1 {
@@ -148,14 +147,14 @@
                                 }
                             </style>
                             <clipPath id="clippath">
-                                <circle id="_EllipseWhite10_" data-name="&amp;lt;EllipseWhite10&amp;gt;" class="cls-3-2" cx="-100" cy="-100" r="1"/>
+                                <circle id="_EllipseWhite10_" data-name="&lt;EllipseWhite10&gt;" class="cls-3-2" cx="-100" cy="-100" r="1"/>
                             </clipPath>
                             <clipPath id="clippath-1">
                                 <circle class="cls-3-2" cx="-100" cy="-100" r="1"/>
                             </clipPath>
-{{--                                <clipPath id="clippath-2">--}}
-{{--                                    <circle class="cls-3-2" cx="-100" cy="-100" r="1"/>--}}
-{{--                                </clipPath>--}}
+                            {{--            <clipPath id="clippath-2">--}}
+                            {{--                <circle class="cls-3-2" cx="-100" cy="-100" r="1"/>--}}
+                            {{--            </clipPath>--}}
                             <clipPath id="clippath-3">
                                 <circle class="cls-3-2" cx="-100" cy="-100" r="1"/>
                             </clipPath>
@@ -166,38 +165,39 @@
                                 <circle class="cls-3-2" cx="-100" cy="-100" r="1"/>
                             </clipPath>
                         </defs>
-                        <g id="_Clip_Group_Redhead_" data-name="&amp;lt;Clip Group Redhead&amp;gt;">
+                        <g id="_Clip_Group_Redhead_" data-name="&lt;Clip Group Redhead&gt;">
                             <g class="cls-3-5">
-                                <image id="redhead" width="1017" height="284" transform="translate(80.85 331.18) scale(.76)"/>
+                                <image id="redhead" width="1017" height="256" transform="translate(80.85 340) scale(.76)"/>
                             </g>
                         </g>
-                        <g id="_Clip_Group_Blueninja_" data-name="&amp;lt;Clip Group Blueninja&amp;gt;">
+                        <g id="_Clip_Group_Blueninja_" data-name="&lt;Clip Group Blueninja&gt;">
                             <g class="cls-3-3">
-                                <image id="blueninja" width="1575" height="315" transform="translate(1220.78 205.37) rotate(-180) scale(.9 -.9)"/>
+                                <image id="blueninja" width="1017" height="256" transform="translate(80.85 340) scale(.76)"/>
                             </g>
                         </g>
-{{--                            <g id="_Clip_Group_Darkgame_" data-name="&amp;lt;Clip Group Darkgame&amp;gt;">--}}
-{{--                                <g class="cls-3-1">--}}
-{{--                                    <image width="640" height="360" transform="translate(150.31 277.3) scale(1.05)" xlink:href="{{ asset('images/dark-game.gif') }}"/>--}}
-{{--                                </g>--}}
-{{--                            </g>--}}
-                        <g id="_Clip_Group_Blackcat_" data-name="&amp;lt;Clip Group Blackcat&amp;gt;">
+                        {{--        <g id="_Clip_Group_Darkgame_" data-name="&lt;Clip Group Darkgame&gt;">--}}
+                        {{--            <g class="cls-3-1">--}}
+                        {{--                <image width="640" height="360" transform="translate(150.31 277.3) scale(1.05)" xlink:href="{{ asset('images/dark-game.gif') }}"/>--}}
+                        {{--            </g>--}}
+                        {{--        </g>--}}
+                        <g id="_Clip_Group_Blackcat_" data-name="&lt;Clip Group Blackcat&gt;">
                             <g class="cls-3-6">
-                                <image id="blackcat" width="740" height="119" transform="translate(50.31 390.18) scale(1.08)"/>
+                                <image id="blackcat" width="1017" height="256" transform="translate(80.85 331.18) scale(.76)"/>
                             </g>
                         </g>
-                        <g id="_Clip_Group_Tanwoman_" data-name="&amp;lt;Clip Group Tanwoman&amp;gt;">
+                        <g id="_Clip_Group_Tanwoman_" data-name="&lt;Clip Group Tanwoman&gt;">
                             <g class="cls-3-4">
-                                <image id="tanwoman" width="829" height="141" transform="translate(90.61 355.43) scale(.95)"/>
+                                <image id="tanwoman" width="1017" height="256" transform="translate(80.85 331.18) scale(.76)"/>
                             </g>
                         </g>
-                        <g id="_Clip_Group_Orangewoman_" data-name="&amp;lt;Clip Group Orangewoman&amp;gt;">
+                        <g id="_Clip_Group_Orangewoman_" data-name="&lt;Clip Group Orangewoman&gt;">
                             <g class="cls-3-7">
-                                <image id="orangewoman"  width="1740" height="270" transform="translate(82.83 372.35) scale(.45)"/>
+                                <image id="orangewoman" width="1017" height="256" transform="translate(80.85 331.18) scale(.76)"/>
                             </g>
                         </g>
                     </svg>
                 </div>
+
 
                 <canvas id="canvas" class="absolute top-0 left-0 lg:h-[3.96vw] h-[7.92vw] lg:w-[33.85vw] w-[67.70vw]"></canvas>
                 <canvas id="canvas2" class="z-[99] absolute top-0 left-0 lg:h-[3.96vw] h-[7.92vw] lg:w-[33.85vw] w-[67.70vw]"></canvas>
