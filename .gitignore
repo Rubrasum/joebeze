@@ -37,7 +37,7 @@ Homestead.yaml
 Homestead.json
 /.vagrant
 .phpunit.result.cache
-/.idea
+.idea
 /database/migrations/migrations.rar
 
 # phpunit cach

@@ -8,7 +8,7 @@
                         border-gray-800 rounded-br-md
                         ">
                 <div class="md:col-span-2 h-full">
-                    <img src="{{ asset('images/' .$post->category->name. '-cat-logo.jpg') }}"
+                    <img src="{{ asset('images/category-logos/' .$post->category->name. '-cat-logo.jpg') }}"
                          alt="Image" class="w-full h-auto border-2 border-gray-800">
                 </div>
                 <div class="md:col-span-8 md:flex">
