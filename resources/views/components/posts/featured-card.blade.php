@@ -10,7 +10,7 @@
                         border-l-8 border-r-2 border-b-2 border-gray-800 rounded-br-md"
             >
                 <div class="lg:col-span-2 border-gray-800">
-                    <img src="{{ asset('images/' .$post->category->name. '-cat-logo.jpg') }}" alt="Image"
+                    <img src="{{ asset('images/category-logos/' .$post->category->name. '-cat-logo.jpg') }}" alt="Image"
                          class="w-full h-auto border-2 border-gray-800">
                 </div>
                 <div class="lg:col-span-3">
