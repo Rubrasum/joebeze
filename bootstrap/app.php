@@ -1,4 +1,7 @@
 <?php
+use App\Http\Middleware\HandleInertiaRequests;
+
+
 
 /*
 |--------------------------------------------------------------------------
@@ -40,6 +43,24 @@ $app->singleton(
     Illuminate\Contracts\Debug\ExceptionHandler::class,
     App\Exceptions\Handler::class
 );
+
+/*
+|--------------------------------------------------------------------------
+| Configure Middleware
+|--------------------------------------------------------------------------
+|
+| Here we configure the application's middleware. This allows us to add
+| middleware to the web middleware group.
+|
+*/
+
+$app->configure('app');
+
+$app->middleware(function ($middleware) {
+    $middleware->web(append: [
+        HandleInertiaRequests::class,
+    ]);
+});
 
 /*
 |--------------------------------------------------------------------------
