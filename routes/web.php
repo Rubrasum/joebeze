@@ -1,9 +1,11 @@
 <?php
 
+use Illuminate\Foundation\Application;
 use App\Http\Controllers\AdminPostController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
+use Inertia\Inertia;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,7 +19,14 @@ use Illuminate\Support\Facades\Route;
 */
 
 // Home page & Posts
-Route::get('/', [PostController::class, 'index'])->name('home');
+Route::get('/', function () {
+    return Inertia::render('Home', [
+        'canLogin' => Route::has('login'),
+        'canRegister' => Route::has('register'),
+        'laravelVersion' => Application::VERSION,
+        'phpVersion' => PHP_VERSION,
+    ]);
+});
 Route::get('post/{post:slug}', [PostController::class, 'show']);
 
 // resume download
