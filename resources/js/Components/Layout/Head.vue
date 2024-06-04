@@ -1,8 +1,6 @@
 <template>
     <title></title>
     <!-- Fonts -->
-    @vite(['resources/css/app.css', 'resources/js/app.js'])
-
 </template>
 
 <script setup>

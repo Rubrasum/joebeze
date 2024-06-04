@@ -7,7 +7,10 @@ export default defineConfig({
         laravel({
             input: ['resources/js/app.js', 'resources/css/app.css'], // Ensure CSS is included
             ssr: 'resources/js/ssr.js', // Specify SSR entry point
-            refresh: true,
+            refresh: [
+                'resources/views/**/*.blade.php',
+                'resources/js/**/*.vue',
+            ],
         }),
         vue({
             template: {

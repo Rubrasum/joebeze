@@ -27,7 +27,6 @@ const logout = () => {
 
 <template>
     <!-- HELLO HEADER -->
-    <Head title="Joe Betbeze Dev Blog" />
     <div class="">
         <!-- Setting the page title -->
         <!--        <Head :title="title" />-->
