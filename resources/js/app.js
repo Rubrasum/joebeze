@@ -19,7 +19,7 @@ createInertiaApp({
     },
     progress: {
         delay: 0,
-        color: process.env.THEME_COLOR || '#11A',
+        color: import.meta.env.THEME_COLOR || '#11A',
         // Whether to include the default NProgress styles...
         includeCSS: true,
 

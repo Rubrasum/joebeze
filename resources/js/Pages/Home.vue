@@ -12,8 +12,8 @@ import ApplicationMark from '@/Components/Default/ApplicationMark.vue';
 </script>
 
 <template>
+    <Head title="Home" />
     <HomeLayout >
-        <Head title="Home" />
         <!-- Simple Blurb -->
         <SimpleBlurb />
 

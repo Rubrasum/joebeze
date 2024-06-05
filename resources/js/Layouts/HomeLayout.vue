@@ -28,11 +28,7 @@ const logout = () => {
 <template>
     <!-- HELLO HEADER -->
     <div class="">
-        <!-- Setting the page title -->
-        <!--        <Head :title="title" />-->
-
-        <!-- Banner component -->
-        <Banner />
+<!--        <Banner />-->
 
         <!-- Holds most of the page content and in a particular layout -->
         <!-- If everything is in this container, that represents the simplicity of the design -->
