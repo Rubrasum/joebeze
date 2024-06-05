@@ -14,13 +14,14 @@ class PostController extends Controller
      */
     public function index(): \Inertia\Response
     {
+        $posts = Post::where('created_at', '<=', now('UTC'))
+            ->latest('published_at')
+            ->filter(request(['search', 'category', 'author']))
+            ->paginate(8)
+            ->withQueryString();
         // TODO fix the factory to actually add the published_at dates
         return Inertia::render('Home', [
-            'posts' => Post::where('created_at', '<=', now('UTC'))
-                ->latest('published_at')
-                ->filter(request(['search', 'category', 'author']))
-                ->paginate(8)
-                ->withQueryString()
+            'posts' => $posts->only('id', 'title', 'slug', 'excerpt', 'published_at', 'category', 'author'),
         ]);
     }
 

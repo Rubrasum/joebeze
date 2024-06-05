@@ -1,17 +1,10 @@
 import './bootstrap';
 import '../css/app.css';
 
-import Alpine from 'alpinejs';
-
-import 'p5';
-import anime from 'animejs/lib/anime.es.js';
-
-
 import { createApp, h } from 'vue';
 import { createInertiaApp } from '@inertiajs/vue3';
 import { resolvePageComponent } from 'laravel-vite-plugin/inertia-helpers';
 import { ZiggyVue } from '../../vendor/tightenco/ziggy';
-import process from "@inertiajs/inertia-vue3/.eslintrc.js";
 
 const appName = import.meta.env.VITE_APP_NAME || 'Laravel';
 
@@ -34,4 +27,3 @@ createInertiaApp({
         showSpinner: true,
     },
 });
-

@@ -1,24 +1,9 @@
 <?php
 
 use Illuminate\Foundation\Application;
-use App\Http\Controllers\AdminPostController;
-use App\Http\Controllers\PostController;
-use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider and all of them will
-| be assigned to the "web" middleware group. Make something great!
-|
-*/
-
-// Home page & Posts
 Route::get('/', function () {
     return Inertia::render('Home', [
         'canLogin' => Route::has('login'),
@@ -27,6 +12,18 @@ Route::get('/', function () {
         'phpVersion' => PHP_VERSION,
     ]);
 });
+
+Route::middleware([
+    'auth:sanctum',
+    config('jetstream.auth_session'),
+    'verified',
+])->group(function () {
+    Route::get('/dashboard', function () {
+        return Inertia::render('Dashboard');
+    })->name('dashboard');
+});
+
+// TODO UPDATE WITH JETSTREAM  & VUE
 Route::get('post/{post:slug}', [PostController::class, 'show']);
 
 // resume download
@@ -51,7 +48,3 @@ Route::middleware('auth')->group(function () {
 Route::middleware('can:admin')->group(function () {
     Route::resource('admin/posts', AdminPostController::class)->except('show');
 });
-
-
-
-require __DIR__.'/auth.php';
