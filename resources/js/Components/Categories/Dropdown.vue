@@ -8,7 +8,8 @@
             <Icon name="down-arrow" class="absolute pointer-events-none" style="right: 12px;" />
         </button>
 
-        <div v-if="isDropdownOpen" class="absolute bg-white border border-gray-300 shadow-lg mt-2.5 z-50">
+        <div v-if="isDropdownOpen" class="absolute bg-white border border-gray-300 shadow-lg z-50 inset-x-0 py-1 w-full rounded-b-xl overflow-auto max-h-52
+">
             <DropdownItem
                 :href="`/?${buildQueryString({ category: null })}`"
                 :active="!currentCategory"
