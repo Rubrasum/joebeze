@@ -9,9 +9,7 @@
                 <div>
                     <span>Joseph Betbeze</span>
                     <br>
-                    <span>211 South Greenwood Avenue,</span>
-                    <br>
-                    <span>Tulsa, OK 74120</span>
+                    <span>Jacksonville, FL</span>
                 </div>
             </li>
         </ul>
