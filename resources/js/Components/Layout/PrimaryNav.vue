@@ -124,10 +124,8 @@ defineProps({
 
 const open = ref(false)
 const post = ref(null) // Assuming `post` is some data you need to manage
-const currentCategory = ref(null)
 const search = ref('')
 const form = ref(null)
-const categories = ref([])
 
 
 </script>

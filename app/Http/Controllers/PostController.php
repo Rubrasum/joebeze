@@ -34,12 +34,12 @@ class PostController extends Controller
         }
 
         return Inertia::render('Home', [
-            'posts' => $posts->only('id', 'title', 'slug', 'excerpt', 'published_at', 'category', 'author'),
+            'posts' => $posts,
             'canLogin' => Route::has('login'),
             'canRegister' => Route::has('register'),
             'laravelVersion' => Application::VERSION,
             'phpVersion' => PHP_VERSION,
-            'categories' => $categories->only('id', 'name'),
+            'categories' => $categories,
             'currentCategory' => $category,
         ]);
     }
