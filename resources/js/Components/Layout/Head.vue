@@ -12,11 +12,5 @@ window.onload = function() {
 </script>
 
 <style scoped>
-html {
-    scroll-behavior: smooth
-}
-#body_container {
-    visibility: hidden;
-}
 
 </style>

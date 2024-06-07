@@ -33,13 +33,16 @@ defineProps({
 const logout = () => {
     router.post(route('logout'));
 };
-
+// hide the page body_container id element until its loaded
+window.onload = function() {
+    // change body element to visible
+    document.body.style.visibility = 'visible';
+}
 
 </script>
 
 <template>
-    <!-- HELLO HEADER -->
-    <div class="">
+    <div class="flex flex-col min-h-screen">
 <!--        <Banner />-->
 
         <!-- Holds most of the page content and in a particular layout -->
@@ -63,10 +66,11 @@ const logout = () => {
 
 <style>
 
-    html {
-        scroll-behavior: smooth
-    }
-    #body_container {
-        visibility: hidden;
-    }
+
+html {
+    scroll-behavior: smooth
+}
+body {
+    visibility: hidden;
+}
 </style>
