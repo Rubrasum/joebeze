@@ -8,25 +8,18 @@ import GraphicsBlurb2 from '@/Components/Layout/GraphicsBlurb2.vue';
 import ClientReviews from '@/Components/Layout/ClientReviews.vue';
 import ContactForm from '@/Components/Layout/ContactForm.vue';
 import ApplicationMark from '@/Components/Default/ApplicationMark.vue';
+import PostsFeaturedCard from "@/Components/Posts/PostsFeaturedCard.vue";
 // import Head from '@/Components/Layout/Head.vue';
 </script>
 
 <template>
     <Head title="Home" />
-    <HomeLayout >
-        <!-- Simple Blurb -->
-        <SimpleBlurb />
+    <HomeLayout :categories="categories" :posts="posts">
 
-        <!-- Section with some Graphic Elements -->
-        <GraphicsBlurb />
-        <GraphicsBlurb2 />
+<!--        <FeaturedCard :post="posts[0]" />-->
 
-        <!-- Client Reviews -->
-        <ClientReviews />
-
-        <!-- Contact Form -->
-        <ContactForm />
-
-        <!-- Footer -->
+<!--        <div v-for="post in posts.slice(1)" :key="post.id">-->
+<!--            <Card :post="post" />-->
+<!--        </div>-->
     </HomeLayout>
 </template>

@@ -15,6 +15,18 @@ import ResponsiveNav from '@/Components/Layout/ResponsiveNav.vue';
 // Defining properties for the component
 defineProps({
     title: String,
+    categories: {
+        type: Array,
+        required: true
+    },
+    category: {
+        type: Object,
+        default: null
+    },
+    posts: {
+        type: Array,
+        required: true
+    },
 });
 
 // Function to log out the user
@@ -36,7 +48,7 @@ const logout = () => {
         Maybe nav and banner are both without containers. Who the fuck nose. So a full design will include unqiue -->
         <MainContain>
             <!-- Primary Navigation Menu -->
-            <PrimaryNav />
+            <PrimaryNav :categories="categories" :category="category" />
 
             <!-- Secondary Navigation Menu -->
             <!--            <ResponsiveNav />-->
