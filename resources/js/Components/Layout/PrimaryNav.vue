@@ -12,15 +12,15 @@
                     <div class="hidden lg:flex items-center">
                         <div class="relative mr-4">
                             <!-- Categories dropdown component -->
-                            <Dropdown  :categories="categories" :currentCategory="category" />
+                            <Dropdown  :categories="categories" :currentCategory="currentCategory" />
                         </div>
                         <div>
                             <form @submit.prevent="handleSearch" ref="form">
                                 <input
-                                    v-if="category"
+                                    v-if="currentCategory"
                                     type="hidden"
                                     name="category"
-                                    :value="category"
+                                    :value="currentCategory.name"
                                 />
                                 <input
                                     type="search"
@@ -79,15 +79,15 @@
                     <div class="px-2 pt-2 pb-3 space-y-1">
                         <div class="absolute lg:relative mb-4 top-[4.25rem] right-[0.3rem]">
                             <!-- Categories dropdown component -->
-                            <Dropdown :post="post" />
+                            <Dropdown :categories="categories" :currentCategory="currentCategory" />
                         </div>
                         <div class="absolute lg:relative top-[6.5rem] right-[1rem]">
                             <form @submit.prevent="handleSearch">
                                 <input
-                                    v-if="category"
+                                    v-if="currentCategory"
                                     type="hidden"
                                     name="category"
-                                    :value="category"
+                                    :value="currentCategory.name"
                                 />
                                 <input
                                     type="text"
@@ -116,7 +116,7 @@ defineProps({
         type: Array,
         required: true
     },
-    category: {
+    currentCategory: {
         type: Object,
         default: null
     }
@@ -124,7 +124,7 @@ defineProps({
 
 const open = ref(false)
 const post = ref(null) // Assuming `post` is some data you need to manage
-const category = ref(null)
+const currentCategory = ref(null)
 const search = ref('')
 const form = ref(null)
 const categories = ref([])

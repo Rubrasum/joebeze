@@ -2,12 +2,9 @@
 // Importing necessary functions and components from Vue and Inertia.js
 import { ref } from 'vue';
 import { Link, router } from '@inertiajs/vue3';
-import Banner from '@/Components/Layout/Banner.vue';
 import MainContain from '@/Components/Layout/MainContain.vue';
 import Footer from '@/Components/Layout/Footer.vue';
 import PrimaryNav from '@/Components/Layout/PrimaryNav.vue';
-import Head from '@/Components/Layout/Head.vue'
-import ResponsiveNav from '@/Components/Layout/ResponsiveNav.vue';
 
 
 // SAMPLE CODE FOR PAGE //////////////////////////////////////////////////////////////////////////////////////////////
@@ -19,7 +16,7 @@ defineProps({
         type: Array,
         required: true
     },
-    category: {
+    currentCategory: {
         type: Object,
         default: null
     },
@@ -28,6 +25,9 @@ defineProps({
         required: true
     },
 });
+
+// give refs
+
 
 // Function to log out the user
 const logout = () => {
@@ -48,7 +48,7 @@ const logout = () => {
         Maybe nav and banner are both without containers. Who the fuck nose. So a full design will include unqiue -->
         <MainContain>
             <!-- Primary Navigation Menu -->
-            <PrimaryNav :categories="categories" :category="category" />
+            <PrimaryNav :categories="categories" :currentCategory="currentCategory" />
 
             <!-- Secondary Navigation Menu -->
             <!--            <ResponsiveNav />-->

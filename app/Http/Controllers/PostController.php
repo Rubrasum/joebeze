@@ -27,13 +27,20 @@ class PostController extends Controller
         $categories = Category::all();
         // TODO fix the factory to actually add the published_at dates
 
+        $category = null;
+        // Check for currentCategory in the request get
+        if (request()->has('currentCategory')) {
+            $category = Category::where('name', request('currentCategory'))->first();
+        }
+
         return Inertia::render('Home', [
             'posts' => $posts->only('id', 'title', 'slug', 'excerpt', 'published_at', 'category', 'author'),
             'canLogin' => Route::has('login'),
             'canRegister' => Route::has('register'),
             'laravelVersion' => Application::VERSION,
             'phpVersion' => PHP_VERSION,
-            'categories' => $categories->only('id', 'name')
+            'categories' => $categories->only('id', 'name'),
+            'currentCategory' => $category,
         ]);
     }
 
