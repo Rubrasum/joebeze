@@ -19,11 +19,7 @@ defineProps({
     currentCategory: {
         type: Object,
         default: null
-    },
-    posts: {
-        type: Array,
-        required: true
-    },
+    }
 });
 
 // give refs

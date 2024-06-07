@@ -17,11 +17,14 @@ class PostController extends Controller
      */
     public function index(): \Inertia\Response
     {
-        $posts = Post::where('created_at', '<=', now('UTC'))
-            ->latest('published_at')
-            ->filter(request(['search', 'category', 'author']))
-            ->paginate(8)
-            ->withQueryString();
+        // TODO FIX so that the previous fitler works
+//        $posts = Post::where('created_at', '<=', now('UTC'))
+//            ->latest('published_at')
+//            ->filter(request(['search', 'category', 'author']))
+//            ->paginate(8)
+//            ->withQueryString();
+
+        $posts = Post::all();
 
         // TODO add a filter here or option to turn off categories
         $categories = Category::all();
@@ -46,8 +49,12 @@ class PostController extends Controller
 
     public function show(Post $post)
     {
-        return view('posts.show', [
-            'post' => $post
+        return Inertia::render('Post', [
+            'post' => $post,
+            'canLogin' => Route::has('login'),
+            'canRegister' => Route::has('register'),
+            'laravelVersion' => Application::VERSION,
+            'phpVersion' => PHP_VERSION,
         ]);
     }
 }
