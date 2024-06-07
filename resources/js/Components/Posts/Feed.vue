@@ -1,5 +1,5 @@
 <template>
-    <div v-if="posts">
+    <div v-if="posts.length > 0">
         <div>
             <FeaturedCard :post="posts[0]" />
         </div>
@@ -17,12 +17,14 @@
 </template>
 
 <script setup>
+import FeaturedCard from './FeaturedCard.vue';
+import Card from './Card.vue';
 import { defineProps } from 'vue';
 
 // Props
 const props = defineProps({
     posts: {
-        type: Object,
+        type: Array,
         required: true
     }
 });
