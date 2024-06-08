@@ -49,12 +49,14 @@ class PostController extends Controller
 
     public function show(Post $post)
     {
+        $categories = Category::all();
         return Inertia::render('Post', [
             'post' => $post,
             'canLogin' => Route::has('login'),
             'canRegister' => Route::has('register'),
             'laravelVersion' => Application::VERSION,
             'phpVersion' => PHP_VERSION,
+            'categories' => $categories,
         ]);
     }
 }

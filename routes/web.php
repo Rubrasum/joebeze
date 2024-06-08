@@ -31,7 +31,6 @@ Route::middleware([
         return response()->download($resumePath);
     });
 // TODO UPDATE WITH JETSTREAM  & VUE
-    Route::get('post/{post:slug}', [PostController::class, 'show']);
 // Login
     Route::middleware('auth')->group(function () {
         Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
