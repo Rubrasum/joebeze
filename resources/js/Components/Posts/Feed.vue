@@ -6,8 +6,7 @@
         <div v-for="(post, index) in items.slice(1)" :key="post.id">
             <Card :post="post" />
         </div>
-
-        <Link :href="props.posts.next_page_url" preserve-state preserve-scroll>Load More</Link>
+        <div ref="landmark">    </div>
     </div>
     <div v-else>
         <div class="flex items-center flex-grow justify-center text-center ">
@@ -21,10 +20,11 @@
 <script setup>
 import FeaturedCard from './FeaturedCard.vue';
 import Card from './Card.vue';
-import { Link } from '@inertiajs/vue3';
-import {ref, watch} from 'vue';
+import {Link, router, usePage} from '@inertiajs/vue3';
+import {onMounted, ref, watch} from 'vue';
 
 // This is an example of infinite scrolling and how to add data without refreshing the page, or resetting the whole obj
+// TODO make this reusable (ep 4 infinite scrolling)
 
 // Props
 const props = defineProps({
@@ -36,8 +36,36 @@ const props = defineProps({
 
 const items = ref(props.posts.data)
 
-watch(() => props.posts, (posts) => {
-    items.value = [...items.value, ...posts.data]
-})
+const initialUrl = usePage().url;
+const nextPageUrl = ref(props.posts.next_page_url);
+
+const loadMoreItems = () => {
+    if (!nextPageUrl.value) {
+        return;
+    }
+
+    router.get(props.posts.next_page_url, {}, {
+        preserveState: true,
+        preserveScroll: true,
+        onSuccess: (page) => {
+            window.history.replaceState({}, '', initialUrl);
+            items.value = [...items.value, ...page.props.posts.data];
+        }
+    });
+}
+const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+            loadMoreItems();
+        }
+    });
+});
+
+const landmark = ref(null);
+
+
+onMounted(() => {
+    observer.observe(landmark.value);
+});
 
 </script>
