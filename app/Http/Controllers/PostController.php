@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Category;
+use Illuminate\Http\Request;
 use Illuminate\Foundation\Application;
 use App\Http\Requests\StorePostRequest;
 use App\Http\Requests\UpdatePostRequest;
@@ -15,26 +16,32 @@ class PostController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index(): \Inertia\Response
+    public function index(Request $request): \Inertia\Response
     {
-        // TODO FIX so that the previous fitler works
-//        $posts = Post::where('created_at', '<=', now('UTC'))
-//            ->latest('published_at')
-//            ->filter(request(['search', 'category', 'author']))
-//            ->paginate(8)
-//            ->withQueryString();
+        // Retrieve query parameters
+        $search = $request->input('search');
+        $category = $request->input('category');
+        $author = $request->input('author');
 
-        $posts = Post::all();
+
+        $posts = Post::where('created_at', '<=', now('UTC'))
+            ->latest('published_at')
+            ->filter([
+                'search' => $search,
+                'category' => $category,
+                'author' => $author,
+            ])
+            ->paginate(8)
+            ->withQueryString();
 
         // TODO add a filter here or option to turn off categories
         $categories = Category::all();
         // TODO fix the factory to actually add the published_at dates
-
-        $category = null;
         // Check for currentCategory in the request get
-        if (request()->has('currentCategory')) {
-            $category = Category::where('name', request('currentCategory'))->first();
+        if (request()->has('category')) {
+            $category = Category::where('slug', $category)->first();
         }
+
 
         return Inertia::render('Home', [
             'posts' => $posts,

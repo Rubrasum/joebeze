@@ -13,11 +13,11 @@
                             Published
                             <span class="font-semibold">{{ formatDate(post.published_at) }}</span>
                         </p>
-                        <a href="/?category={{ post.category.slug }}"
+                        <Link :href="`/?category=${post.category.slug}`"
                            class="px-3 py-1 border border-blue-300 rounded-full text-blue-300 text-xs uppercase font-semibold btn-color-cat"
-                        >{{ post.category.name }}</a>
+                        >{{ post.category.name }}</Link>
                         <div v-if = "$page.props.auth.user">
-                            <a href="/admin/posts/{{ post.id }}/edit">Edit</a>
+                            <Link :href="`/admin/posts/${post.id}/edit`">Edit</Link>
                         </div>
                     </div>
 
@@ -31,7 +31,7 @@
 
 
 <script setup>
-import { Head } from '@inertiajs/inertia-vue3';
+import { Head, Link } from '@inertiajs/inertia-vue3';
 import HomeLayout from '@/Layouts/HomeLayout.vue';
 import Feed from '@/Components/Posts/Feed.vue';
 // import Head from '@/Components/Layout/Head.vue';

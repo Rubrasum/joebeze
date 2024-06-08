@@ -14,7 +14,7 @@ defineProps({
         default: null
     },
     posts: {
-        type: Array,
+        type: Object,
         required: true
     },
 });
