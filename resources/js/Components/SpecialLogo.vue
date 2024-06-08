@@ -147,11 +147,12 @@
 
 <script setup>
 
-import {onMounted} from "vue";
+import {onMounted, onUpdated} from "vue";
+const tessSrc = '/images/bytebeze-banner-tess.png';
+const tessPatternSrc = '/images/bytebeze-banner-tess.png';
+
 
 onMounted(() => {
-    const tessSrc = '/images/bytebeze-banner-tess.png';
-    const tessPatternSrc = '/images/bytebeze-banner-tess.png';
 
     class Particle {
         constructor(x, y, size, color) {
@@ -428,259 +429,262 @@ onMounted(() => {
     });
 
 // delay til page load
-    document.addEventListener("DOMContentLoaded", () => {
+    // TODO Master "onMounted" definitions
 
-        // mainly for the image optimization. 1024 is tailwinds lg.
-        const breakpoints = [
-            { width: 2560, suffix: '-2560' },
-            { width: 1920, suffix: '-1920' },
-            { width: 1600, suffix: '-1600' },
-            { width: 1200, suffix: '-1200' },
-            { width: 1024, suffix: '-1024' },
-            { width: 834, suffix: '-834' },
-            { width: 600, suffix: '-600' },
-            { width: 414, suffix: '-414' },
-            { width: 360, suffix: '-360' },
-            { width: 320, suffix: '-320' }
-        ];
+    // mainly for the image optimization. 1024 is tailwinds lg.
+    const breakpoints = [
+        { width: 2560, suffix: '-2560' },
+        { width: 1920, suffix: '-1920' },
+        { width: 1600, suffix: '-1600' },
+        { width: 1200, suffix: '-1200' },
+        { width: 1024, suffix: '-1024' },
+        { width: 834, suffix: '-834' },
+        { width: 600, suffix: '-600' },
+        { width: 414, suffix: '-414' },
+        { width: 360, suffix: '-360' },
+        { width: 320, suffix: '-320' }
+    ];
 
 
-        const imagesInfo = [
-            {
-                id: "redhead",
-                baseName: "/images/animated-logo/redhead"
-            },
-            {
-                id: "blueninja",
-                baseName: "/images/animated-logo/blue-ninja"
-            },
-            {
-                id: "blackcat",
-                baseName: "/images/animated-logo/black-cat"
-            },
-            {
-                id: "tanwoman",
-                baseName: "/images/animated-logo/tan-woman"
-            },
-            {
-                id: "orangewoman",
-                baseName: "/images/animated-logo/orange-woman"
-            }
-        ];
+    const imagesInfo = [
+        {
+            id: "redhead",
+            baseName: "/images/animated-logo/redhead"
+        },
+        {
+            id: "blueninja",
+            baseName: "/images/animated-logo/blue-ninja"
+        },
+        {
+            id: "blackcat",
+            baseName: "/images/animated-logo/black-cat"
+        },
+        {
+            id: "tanwoman",
+            baseName: "/images/animated-logo/tan-woman"
+        },
+        {
+            id: "orangewoman",
+            baseName: "/images/animated-logo/orange-woman"
+        }
+    ];
 
-        let image_index = 0;
-        let old_width = window.innerWidth;
-        // this dies on resize, then reruns.
-        // this is recursive to load all the images for the logo svg slowly
-        function loadNextImage() {
-            if (image_index < imagesInfo.length) {
-                const imageElement = document.getElementById(imagesInfo[image_index].id);
-                if (imageElement) {
-                    const screenWidth = window.innerWidth;
-                    if (old_width !== screenWidth) {
-                        return;
-                    }
-                    const breakpoint = breakpoints.find(bp => screenWidth >= bp.width);
-
-                    const suffix = breakpoint ? breakpoint.suffix : '';
-                    const fileName = `${imagesInfo[image_index].baseName}${suffix}.jpg`;
-                    imageElement.setAttributeNS('http://www.w3.org/1999/xlink', 'href', fileName);
-                    console.log("loading image: " + fileName);
-                    image_index++;
-                    setTimeout(loadNextImage, 7500); // Wait for 7.5 seconds before loading the next image
-                } else {
-                    image_index = 0
+    let image_index = 0;
+    let old_width = window.innerWidth;
+    // this dies on resize, then reruns.
+    // this is recursive to load all the images for the logo svg slowly
+    function loadNextImage() {
+        if (image_index < imagesInfo.length) {
+            const imageElement = document.getElementById(imagesInfo[image_index].id);
+            if (imageElement) {
+                const screenWidth = window.innerWidth;
+                if (old_width !== screenWidth) {
+                    return;
                 }
+                const breakpoint = breakpoints.find(bp => screenWidth >= bp.width);
+
+                const suffix = breakpoint ? breakpoint.suffix : '';
+                const fileName = `${imagesInfo[image_index].baseName}${suffix}.jpg`;
+                imageElement.setAttributeNS('http://www.w3.org/1999/xlink', 'href', fileName);
+                console.log("loading image: " + fileName);
+                image_index++;
+                setTimeout(loadNextImage, 7500); // Wait for 7.5 seconds before loading the next image
+            } else {
+                image_index = 0
             }
         }
-        loadNextImage(); // first run
+    }
+    loadNextImage(); // first run
 
-        // On resize, load the images
-        window.addEventListener('resize', () => {
-            old_width = window.innerWidth;
-            image_index = 0;
-            loadNextImage();
+    // On resize, load the images
+    // window.addEventListener('resize', () => {
+    //     old_width = window.innerWidth;
+    //     image_index = 0;
+    //     loadNextImage();
+    // });
+
+    let currentIndex = 0;
+
+    function animateCircle() {
+        const circles = document.querySelectorAll('circle.cls-3-2');
+
+        if (circles.length === 0) return;
+
+        // get previous index
+        const prevIndex = currentIndex === 0 ? circles.length - 1 : currentIndex - 1;
+        const circle = circles[currentIndex];
+
+        // Get the bounding rectangle of the SVG element
+        const svgRect = document.getElementById('joebeze_logo_lazer_anim').getBoundingClientRect();
+        const margin = parseFloat(getComputedStyle(document.getElementById('logo-container')).marginLeft);
+        const svgRippleRect = document.getElementById('ripple-effect-bg').getBoundingClientRect();
+        const viewBox = document.getElementById('joebeze_logo_lazer_anim').viewBox.baseVal;
+
+        // Calculate the scale factors based on the viewBox dimensions
+        const scaleX = svgRect.width / viewBox.width;
+        const scaleY = svgRect.height / viewBox.height;
+
+        // Calculate the mouse position relative to the SVG's viewBox coordinates
+        const svgX = lastMousePosition.x - 60 > 1200 ? 1200 : lastMousePosition.x - 50;
+        const svgY = lastMousePosition.y + (svgRippleRect.height/2) - 10 > 800 ? 800 : lastMousePosition.y + (svgRippleRect.height/2) - 10;
+
+        // Adjust the position to align with the pointer finger
+        const adjustedSvgX = svgX;
+        const adjustedSvgY = svgY;
+
+        // Put a small dot on the same location that is upper level and 100% visible
+        // const dot = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
+        // dot.setAttribute('cx', adjustedSvgX);
+        // dot.setAttribute('cy', adjustedSvgY);
+        // dot.setAttribute('r', '1');
+        // dot.setAttribute('fill', 'white');
+        // dot.setAttribute('stroke', 'white');
+        // dot.setAttribute('stroke-width', '1');
+        // dot.style.transition = 'r 1s';
+        // document.getElementById('joebeze_logo_lazer_anim').appendChild(dot);
+
+
+        // Start expanding without transition for position change
+        setTimeout(() => {
+            //change location of circles
+            circle.setAttribute('cx', adjustedSvgX);
+            circle.setAttribute('cy', adjustedSvgY);
+            circle.style.transition = 'r 29s';
+            const viewportWidth = window.innerWidth;
+            const radius = (2500 / 1920) * viewportWidth;
+            // Set the radius attribute
+            circle.setAttribute('r', radius.toString());
+
+            circle.setAttribute('r', '286.46vw');  // Use 2500 for half of 5000 to simulate radius expansion
+        }, 10);
+
+        // Reset all circles
+        circles.forEach((c, index) => {
+            let lastIndex = (currentIndex - 1) % circles.length;
+            if (index === currentIndex) {
+                c.style.zIndex = '19';
+            } else if (index === lastIndex) {
+                c.setAttribute('cx', adjustedSvgX);
+                c.setAttribute('cy', adjustedSvgY);
+                c.style.zIndex = '18';
+            } else {
+                c.setAttribute('cx', adjustedSvgX);
+                c.setAttribute('cy', adjustedSvgY);
+                c.style.transition = 'r 1s';
+                c.setAttribute('r', '0.1');
+                c.style.zIndex = '17';
+            }
+
         });
 
-        let currentIndex = 0;
+        // set z-index of current circle to 89 and previous circle to 88
+        circle.style.zIndex = '19';
+        circles[prevIndex].style.zIndex = '18';
 
-        function animateCircle() {
-            const circles = document.querySelectorAll('circle.cls-3-2');
+        currentIndex = (currentIndex + 1) % circles.length;
+    }
 
-            if (circles.length === 0) return;
+    setTimeout(animateCircle, 10500)
 
-            // get previous index
-            const prevIndex = currentIndex === 0 ? circles.length - 1 : currentIndex - 1;
-            const circle = circles[currentIndex];
-
-            // Get the bounding rectangle of the SVG element
-            const svgRect = document.getElementById('joebeze_logo_lazer_anim').getBoundingClientRect();
-            const margin = parseFloat(getComputedStyle(document.getElementById('logo-container')).marginLeft);
-            const svgRippleRect = document.getElementById('ripple-effect-bg').getBoundingClientRect();
-            const viewBox = document.getElementById('joebeze_logo_lazer_anim').viewBox.baseVal;
-
-            // Calculate the scale factors based on the viewBox dimensions
-            const scaleX = svgRect.width / viewBox.width;
-            const scaleY = svgRect.height / viewBox.height;
-
-            // Calculate the mouse position relative to the SVG's viewBox coordinates
-            const svgX = lastMousePosition.x - 60 > 1200 ? 1200 : lastMousePosition.x - 50;
-            const svgY = lastMousePosition.y + (svgRippleRect.height/2) - 10 > 800 ? 800 : lastMousePosition.y + (svgRippleRect.height/2) - 10;
-
-            // Adjust the position to align with the pointer finger
-            const adjustedSvgX = svgX;
-            const adjustedSvgY = svgY;
-
-            // Put a small dot on the same location that is upper level and 100% visible
-            // const dot = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
-            // dot.setAttribute('cx', adjustedSvgX);
-            // dot.setAttribute('cy', adjustedSvgY);
-            // dot.setAttribute('r', '1');
-            // dot.setAttribute('fill', 'white');
-            // dot.setAttribute('stroke', 'white');
-            // dot.setAttribute('stroke-width', '1');
-            // dot.style.transition = 'r 1s';
-            // document.getElementById('joebeze_logo_lazer_anim').appendChild(dot);
+    // Start the animation cycle
+    setInterval(animateCircle, 20500);
 
 
-            // Start expanding without transition for position change
-            setTimeout(() => {
-                //change location of circles
-                circle.setAttribute('cx', adjustedSvgX);
-                circle.setAttribute('cy', adjustedSvgY);
-                circle.style.transition = 'r 29s';
-                const viewportWidth = window.innerWidth;
-                const radius = (2500 / 1920) * viewportWidth;
-                // Set the radius attribute
-                circle.setAttribute('r', radius.toString());
-
-                circle.setAttribute('r', '286.46vw');  // Use 2500 for half of 5000 to simulate radius expansion
-            }, 10);
-
-            // Reset all circles
-            circles.forEach((c, index) => {
-                let lastIndex = (currentIndex - 1) % circles.length;
-                if (index === currentIndex) {
-                    c.style.zIndex = '19';
-                } else if (index === lastIndex) {
-                    c.setAttribute('cx', adjustedSvgX);
-                    c.setAttribute('cy', adjustedSvgY);
-                    c.style.zIndex = '18';
-                } else {
-                    c.setAttribute('cx', adjustedSvgX);
-                    c.setAttribute('cy', adjustedSvgY);
-                    c.style.transition = 'r 1s';
-                    c.setAttribute('r', '0.1');
-                    c.style.zIndex = '17';
-                }
-
-            });
-
-            // set z-index of current circle to 89 and previous circle to 88
-            circle.style.zIndex = '19';
-            circles[prevIndex].style.zIndex = '18';
-
-            currentIndex = (currentIndex + 1) % circles.length;
-        }
-
-        setTimeout(animateCircle, 10500)
-
-        // Start the animation cycle
-        setInterval(animateCircle, 20500);
+    // Randomly choose between the images
+    let options = [
+        "/images/Screenshot 2024-03-23 100050.jpg",
+        "/images/noita-logo.gif",
+        "/images/logo-bg-image-003.jpg",
+        "/images/logo-bg-image-004.jpg",
+        "/images/logo-bg-image-006.jpg",
+        "/images/logo-bg-image-007.jpg"
+    ];// Set the background to the random image
 
 
-        // Randomly choose between the images
-        let options = [
-            "/images/Screenshot 2024-03-23 100050.jpg",
-            "/images/noita-logo.gif",
-            "/images/logo-bg-image-003.jpg",
-            "/images/logo-bg-image-004.jpg",
-            "/images/logo-bg-image-006.jpg",
-            "/images/logo-bg-image-007.jpg"
-        ];// Set the background to the random image
+    // Pick a random index based on the length of the options array
 
-
-        // Pick a random index based on the length of the options array
-
-        // Set initial fill for the filled logo
-        document.querySelectorAll('#joebeze_logo_filled .cls-2-1').forEach(path => {
-            path.style.fill = 'url(#tessPattern)';
-        });
-
-        // Fade out the background and filled logo
-        setTimeout(() => {
-
-            document.getElementById('logo-background').classList.add('fade-out');
-
-            // add an animation to fade out the filled logo
-            document.getElementById('joebeze_logo_filled').style.animation = 'fadeOut 2s ease-in-out forwards';
-        }, 2000);
-
-        // Fade in the laser animation
-        setTimeout(() => {
-            document.getElementById('joebeze_logo_lazer_anim').style.visibility = 'visible';
-            const laserWriter = new LaserWriter("canvas", "canvas2", "joebeze_logo_lazer_anim");
-            laserWriter.traceSVG();
-            laserWriter.traceBorder();
-            laserWriter.draw();
-            // let rand = Math.floor(Math.random() * options.length);
-            // let imageUrl = options[rand];
-            // document.getElementById('logo-background').style.backgroundImage = `url('${imageUrl}')`;
-
-        }, 4000);
-
-        // Fade in the filled logo with the screenshot pattern and fade the background to the screenshot
-        setTimeout(() => {
-            document.querySelectorAll('#joebeze_logo_filled .cls-2-1').forEach(path => {
-                path.style.fill = 'white';
-            });
-            document.getElementById('joebeze_logo_filled').style.visibility = 'visible';
-            document.getElementById('joebeze_logo_filled').style.opacity = '1';
-            // set animation
-            document.getElementById('joebeze_logo_filled').style.animation = 'fadeIn 2s ease-in-out forwards';
-        }, 11000);
-        setTimeout(() => {
-            const paths = document.querySelectorAll('#joebeze_logo_lazer_anim .cls-1');
-            paths.forEach(path => {
-                // Change the stroke color
-                path.style.stroke = '#012'; // Change to your desired color
-            });
-            // Update #joebeze_logo_lazer_anim .cls-1 transition to stroke 1s ease
-            paths.forEach(path => {
-                path.style.transition = 'stroke 1s ease';
-            });
-        }, 13000);
-
-
-        // Fade the filled logo to white
-        // setTimeout(() => {
-        //
-        //     // Fix background color to show the image and be transparent
-        //     document.getElementById('logo-background').style.backgroundColor = 'transparent';
-        //
-        //
-        //     document.getElementById('logo-background').style.opacity = '1';
-        //
-        //
-        //
-        //     // Set up a timer to transition to the next image every 5 seconds
-        //     let currentIndex = Math.floor(Math.random() * options.length);
-        //     setInterval(() => {
-        //         currentIndex = (currentIndex + 1) % options.length;
-        //         let nextImageUrl = options[currentIndex];
-        //
-        //         // Transition to the next image over a 2-second duration
-        //         document.getElementById('logo-background').style.transition = 'background-image 2s';
-        //         document.getElementById('logo-background').style.backgroundImage = `url('${nextImageUrl}')`;
-        //     }, 4000);
-        //
-        // }, 13000);
-
-
+    // Set initial fill for the filled logo
+    document.querySelectorAll('#joebeze_logo_filled .cls-2-1').forEach(path => {
+        path.style.fill = 'url(#tessPattern)';
     });
+
+    // Fade out the background and filled logo
+    setTimeout(() => {
+
+        document.getElementById('logo-background').classList.add('fade-out');
+
+        // add an animation to fade out the filled logo
+        document.getElementById('joebeze_logo_filled').style.animation = 'fadeOut 2s ease-in-out forwards';
+    }, 2000);
+
+    // Fade in the laser animation
+    setTimeout(() => {
+        document.getElementById('joebeze_logo_lazer_anim').style.visibility = 'visible';
+        const laserWriter = new LaserWriter("canvas", "canvas2", "joebeze_logo_lazer_anim");
+        laserWriter.traceSVG();
+        laserWriter.traceBorder();
+        laserWriter.draw();
+        // let rand = Math.floor(Math.random() * options.length);
+        // let imageUrl = options[rand];
+        // document.getElementById('logo-background').style.backgroundImage = `url('${imageUrl}')`;
+
+    }, 4000);
+
+    // Fade in the filled logo with the screenshot pattern and fade the background to the screenshot
+    setTimeout(() => {
+        document.querySelectorAll('#joebeze_logo_filled .cls-2-1').forEach(path => {
+            path.style.fill = 'white';
+        });
+        document.getElementById('joebeze_logo_filled').style.visibility = 'visible';
+        document.getElementById('joebeze_logo_filled').style.opacity = '1';
+        // set animation
+        document.getElementById('joebeze_logo_filled').style.animation = 'fadeIn 2s ease-in-out forwards';
+    }, 11000);
+    setTimeout(() => {
+        const paths = document.querySelectorAll('#joebeze_logo_lazer_anim .cls-1');
+        paths.forEach(path => {
+            // Change the stroke color
+            path.style.stroke = '#012'; // Change to your desired color
+        });
+        // Update #joebeze_logo_lazer_anim .cls-1 transition to stroke 1s ease
+        paths.forEach(path => {
+            path.style.transition = 'stroke 1s ease';
+        });
+    }, 13000);
+
+
+    // Fade the filled logo to white
+    // setTimeout(() => {
+    //
+    //     // Fix background color to show the image and be transparent
+    //     document.getElementById('logo-background').style.backgroundColor = 'transparent';
+    //
+    //
+    //     document.getElementById('logo-background').style.opacity = '1';
+    //
+    //
+    //
+    //     // Set up a timer to transition to the next image every 5 seconds
+    //     let currentIndex = Math.floor(Math.random() * options.length);
+    //     setInterval(() => {
+    //         currentIndex = (currentIndex + 1) % options.length;
+    //         let nextImageUrl = options[currentIndex];
+    //
+    //         // Transition to the next image over a 2-second duration
+    //         document.getElementById('logo-background').style.transition = 'background-image 2s';
+    //         document.getElementById('logo-background').style.backgroundImage = `url('${nextImageUrl}')`;
+    //     }, 4000);
+    //
+    // }, 13000);
+
+
+    console.log('SpecialLogo mounted');
+
+
 });
-
-
+onUpdated(() => {
+    console.log('SpecialLogo updated');
+});
 
 </script>
 
