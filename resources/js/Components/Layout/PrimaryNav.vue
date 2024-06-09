@@ -79,7 +79,7 @@
                     <div class="px-2 pt-2 pb-3 space-y-1">
                         <div class="absolute lg:relative mb-4 top-[4.25rem] right-[0.3rem]">
                             <!-- Categories dropdown component -->
-                            <Dropdown :categories="categories" :currentCategory="currentCategory" />
+                            <Dropdown />
                         </div>
                         <div class="absolute lg:relative top-[6.5rem] right-[1rem]">
                             <form @submit.prevent="handleSearch">
@@ -106,12 +106,18 @@
 </template>
 
 <script setup>
-import { ref } from 'vue';
+import {computed, ref} from 'vue';
 
 import SpecialLogo from '@/Components/SpecialLogo.vue';
 import Dropdown from '@/Components/Categories/Dropdown.vue';
 import { Link } from '@inertiajs/inertia-vue3';
 
+import { usePage } from '@inertiajs/vue3'
+
+const page = usePage()
+
+const categories = computed(() => page.props.categories)
+const currentCategory = computed(() => page.props.currentCategory)
 
 
 
