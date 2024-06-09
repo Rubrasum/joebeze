@@ -2,7 +2,7 @@
     <header class="bg-white">
         <div id="nav_container" class="nav_container h-24 flex items-center items-center justify-center" x-data="{ open: false }">
             <a href="/">
-                <SpecialLogo v-memo="[post]"/>
+                <SpecialLogo v-once/>
             </a>
             <div class="container mx-auto px-4 h-full z-[99]">
                 <nav class="h-full flex justify-between items-center py-4">

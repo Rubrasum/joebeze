@@ -18,13 +18,12 @@ defineProps({
         required: true
     },
 });
+defineOptions({ layout: HomeLayout })
 
 </script>
 
 <template>
     <Head title="Home" />
-    <HomeLayout :categories="categories" :currentCategory="currentCategory" :posts="posts">
 
-        <Feed  :posts="posts"/>
-    </HomeLayout>
+    <Feed  :posts="posts"/>
 </template>
