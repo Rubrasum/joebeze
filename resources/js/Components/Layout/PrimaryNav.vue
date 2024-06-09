@@ -1,9 +1,9 @@
 <template>
     <header class="bg-white">
         <div id="nav_container" class="nav_container h-24 flex items-center items-center justify-center" x-data="{ open: false }">
-            <a href="/">
+            <Link :href="`/`" preserve-state>
                 <SpecialLogo v-once/>
-            </a>
+            </Link>
             <div class="container mx-auto px-4 h-full z-[99]">
                 <nav class="h-full flex justify-between items-center py-4">
                     <div id="Logo container placeholder" class="w-full">
@@ -12,7 +12,7 @@
                     <div class="hidden lg:flex items-center">
                         <div class="relative mr-4">
                             <!-- Categories dropdown component -->
-                            <Dropdown  :categories="categories" :currentCategory="currentCategory" />
+                            <Dropdown />
                         </div>
                         <div>
                             <form @submit.prevent="handleSearch" ref="form">
@@ -110,22 +110,10 @@ import { ref } from 'vue';
 
 import SpecialLogo from '@/Components/SpecialLogo.vue';
 import Dropdown from '@/Components/Categories/Dropdown.vue';
+import { Link } from '@inertiajs/inertia-vue3';
 
-defineProps({
-    categories: {
-        type: Array,
-        required: true
-    },
-    currentCategory: {
-        type: Object,
-        default: null
-    }
-});
 
-const open = ref(false)
-const post = ref(null) // Assuming `post` is some data you need to manage
-const search = ref('')
-const form = ref(null)
+
 
 
 </script>

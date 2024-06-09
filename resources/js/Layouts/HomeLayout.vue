@@ -12,14 +12,6 @@ import PrimaryNav from '@/Components/Layout/PrimaryNav.vue';
 // Defining properties for the component
 defineProps({
     title: String,
-    categories: {
-        type: Array,
-        required: true
-    },
-    currentCategory: {
-        type: Object,
-        default: null
-    }
 });
 
 // give refs
@@ -47,7 +39,7 @@ window.onload = function() {
         Maybe nav and banner are both without containers. Who the fuck nose. So a full design will include unqiue -->
         <MainContain>
             <!-- Primary Navigation Menu -->
-            <PrimaryNav :categories="categories" :currentCategory="currentCategory" />
+            <PrimaryNav />
 
             <!-- Secondary Navigation Menu -->
             <!--            <ResponsiveNav />-->

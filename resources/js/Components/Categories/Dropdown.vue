@@ -30,23 +30,16 @@
 </template>
 
 <script setup>
-import { ref } from 'vue'
+import {computed, ref} from 'vue'
 // import Icon from './Icon.vue'
 import DropdownItem from './DropdownItem.vue'
 import { ChevronDownIcon } from '@heroicons/vue/20/solid'
+import { usePage } from '@inertiajs/vue3'
 
-const props = defineProps({
-    categories: {
-        type: Array,
-        required: true
-    },
-    currentCategory: {
-        type: Object,
-        default: null
-    }
-})
-const categories = ref(props.categories)
-const currentCategory = ref(props.currentCategory)
+const page = usePage()
+
+const categories = computed(() => page.props.categories)
+const currentCategory = computed(() => page.props.currentCategory)
 const isDropdownOpen = ref(false)
 
 const toggleDropdown = () => {

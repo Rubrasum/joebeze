@@ -676,14 +676,6 @@ onMounted(() => {
     //     }, 4000);
     //
     // }, 13000);
-
-
-    console.log('SpecialLogo mounted');
-
-
-});
-onUpdated(() => {
-    console.log('SpecialLogo updated');
 });
 
 </script>

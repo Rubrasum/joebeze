@@ -8,21 +8,27 @@
                     </div>
                     <div class="md:col-span-8 md:flex">
                         <div class="md:w-2/5 pr-3 items-center md:items-start md:flex-row md:items-baseline md:space-x-3">
-                            <a :href="`/post/${post.slug}`">
+                            <Link :href="`/post/${post.slug}`" preserve-state :only="['post']">
                                 <h2 class="text-white text-2xl font-bold">{{ post.title }}</h2>
-                            </a>
+                            </Link>
                             <p class="text-white my-2">Published: <span class="font-semibold">{{ formattedDate }}</span></p>
                         </div>
                         <div class="md:w-3/5 text-white">
                             <div class="mb-4 text-justify text-sm xl:text-base" v-html="post.excerpt"></div>
                             <div class="flex justify-between items-center">
                                 <div class="space-x-2">
-                                    <a :href="`/?category=${post.category.slug}`" :class="`px-3 py-1 border border-${post.category.color} rounded-full text-${post.category.color} text-xs uppercase font-semibold btn-color-cat`">
+                                    <Link :href="`/?category=${post.category.slug}`" preserve-state
+                                          :class="`px-3 py-1 border border-${post.category.color} rounded-full
+                                          text-${post.category.color} text-xs uppercase font-semibold btn-color-cat`"
+                                    >
                                         {{ post.category.name }}
-                                    </a>
+                                    </Link>
                                 </div>
                                 <div>
-                                    <a :href="`/post/${post.slug}`" class="bg-gray-500 hover:bg-gray-700 text-white font-bold py-2 px-4 rounded btn-read-gray">
+                                    <a :href="`/post/${post.slug}`"  preserve-state :only="['post']"
+                                       class="bg-gray-500 hover:bg-gray-700 text-white font-bold py-2 px-4
+                                       rounded btn-read-gray"
+                                    >
                                         Read more
                                     </a>
                                 </div>
@@ -41,6 +47,7 @@
 <script setup>
 import { computed } from 'vue';
 import { format } from 'date-fns'; // Assuming you're using date-fns for date formatting
+import { Link } from '@inertiajs/inertia-vue3';
 
 // Define the props
 const props = defineProps({
