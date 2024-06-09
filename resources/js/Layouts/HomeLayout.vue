@@ -8,15 +8,6 @@ import PrimaryNav from '@/Components/Layout/PrimaryNav.vue';
 
 
 // SAMPLE CODE FOR PAGE //////////////////////////////////////////////////////////////////////////////////////////////
-
-// Defining properties for the component
-defineProps({
-    title: String,
-});
-
-// give refs
-
-
 // Function to log out the user
 const logout = () => {
     router.post(route('logout'));
@@ -37,9 +28,9 @@ window.onload = function() {
         <!-- If everything is in this container, that represents the simplicity of the design -->
         <!-- more complicated designs might have slightly more complicated container layouts.
         Maybe nav and banner are both without containers. Who the fuck nose. So a full design will include unqiue -->
+        <!-- Primary Navigation Menu -->
+        <PrimaryNav v-once/>
         <MainContain>
-            <!-- Primary Navigation Menu -->
-            <PrimaryNav />
 
             <!-- Secondary Navigation Menu -->
             <!--            <ResponsiveNav />-->

@@ -5,7 +5,8 @@ use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 
-Route::get('/', [PostController::class, 'index'])->name('home');
+Route::get('/', [PostController::class, 'index']);
+Route::get('/home', [PostController::class, 'home']);
 Route::get('post/{post:slug}', [PostController::class, 'show']);
 
 Route::middleware([

@@ -27,17 +27,11 @@ import {onMounted, ref, watch} from 'vue';
 // TODO make this reusable (ep 4 infinite scrolling)
 
 // Props
-const props = defineProps({
-    posts: {
-        type: Object,
-        required: true
-    }
-});
-
-const items = ref(props.posts.data)
-
-const initialUrl = usePage().url;
-const nextPageUrl = ref(props.posts.next_page_url);
+const page = usePage();
+const items = ref(page.props.posts.data)
+const initialUrl = page.url;
+const nextPageUrl = ref(page.props.posts.next_page_url);
+const posts = ref(page.props.posts);
 
 const loadMoreItems = () => {
     if (!nextPageUrl.value) {
