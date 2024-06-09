@@ -7,18 +7,25 @@
                         <img :src="`/images/category-logos/${post.category.name}-cat-logo.jpg`" alt="Image" class="w-full h-auto border-2 border-gray-800">
                     </div>
                     <div class="lg:col-span-3">
-                        <Link :href="`/post/${post.slug}`">
+                        <Link :href="`/post/${post.slug}`" preserve-state :only="['post']" >
                             <h1 class="text-white text-3xl md:text-4xl font-bold">{{ post.title }}</h1>
                         </Link>
                         <div class="mt-4 space-x-2">
-                            <Link :href="`/?category=${post.category.slug}`" :class="`px-3 py-1 border-2 border-${post.category.color} rounded-full text-${post.category.color} text-sm uppercase font-semibold btn-color-cat`">
+                            <Link  :href="`/?category=${post.category.slug}`" preserve-state :only="['post']"
+                                   :class="`px-3 py-1 border-2 border-${post.category.color} rounded-full
+                                   text-${post.category.color} text-sm uppercase font-semibold btn-color-cat`"
+
+                            >
                                 {{ post.category.name }}
                             </Link>
                         </div>
                         <div class="flex justify-between items-center mt-2">
                             <p class="text-white pt-2">Published: <span class="font-semibold">{{ post.published_at }}</span></p>
                             <footer>
-                                <Link :href="`/post/${post.slug}`" class="bg-gray-500 hover:bg-gray-700 text-white font-bold py-2 px-4 rounded btn-read-gray">Read more</Link>
+                                <Link :href="`/post/${post.slug}`"  :only="['post']"
+                                      class="bg-gray-500 hover:bg-gray-700 text-white font-bold py-2 px-4 rounded btn-read-gray"
+                                      preserve-state
+                                >Read more</Link>
                             </footer>
                         </div>
                         <div class="lg:col-span-5 border-gray-800 mt-8 text-white text-sm xl:text-base">

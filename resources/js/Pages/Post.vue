@@ -1,6 +1,6 @@
 <template>
     <Head :title="post.title" />
-    <HomeLayout :categories="categories" :currentCategory="currentCategory" :pagetype="content">
+    <HomeLayout :categories="categories" :currentCategory="currentCategory" >
         <div v-if="post !== null">
             <main class="bg-black mt-2">
                 <article id="post-article" class="container mx-auto p-16 mb-8 border-l-8 border-r-2 border-b-2 border-gray-900 rounded-br-md min-w-48 w-3/4 max-w-screen-lg">
