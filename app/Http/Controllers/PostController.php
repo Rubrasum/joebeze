@@ -26,7 +26,7 @@ class PostController extends Controller
         // ALWAYS included on first visit...
         // OPTIONALLY included on partial reloads...
         // ONLY evaluated when needed...
-        $posts = fn () => Post::where('created_at', '<=', now('UTC'))
+        $posts = Post::where('created_at', '<=', now('UTC'))
             ->latest('published_at')
             ->filter([
                 'search' => $search,
@@ -36,10 +36,10 @@ class PostController extends Controller
             ->paginate(8)
             ->withQueryString();
 
-        $categories = fn () => Category::all();
+        $categories = Category::all();
 
         $currentCategory = $request->has('category')
-            ? fn () => Category::where('slug', $request->input('category'))->first()
+            ? Category::where('slug', $request->input('category'))->first()
             : null;
 
         return Inertia::render('Home', [
@@ -58,7 +58,6 @@ class PostController extends Controller
         // ALWAYS included on first visit...
         // OPTIONALLY included on partial reloads...
         // ONLY evaluated when needed...
-        $categories = fn () => Category::all();
 
         return Inertia::render('Post', [
             'post' => $post,
