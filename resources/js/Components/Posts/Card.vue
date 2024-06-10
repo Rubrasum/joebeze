@@ -47,7 +47,7 @@
 <script setup>
 import { computed } from 'vue';
 import { format } from 'date-fns'; // Assuming you're using date-fns for date formatting
-import { Link } from '@inertiajs/inertia-vue3';
+import { Link } from '@inertiajs/vue3';
 
 // Define the props
 const props = defineProps({
