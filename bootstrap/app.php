@@ -1,4 +1,7 @@
 <?php
+use App\Http\Middleware\HandleInertiaRequests;
+
+
 
 /*
 |--------------------------------------------------------------------------
@@ -40,6 +43,7 @@ $app->singleton(
     Illuminate\Contracts\Debug\ExceptionHandler::class,
     App\Exceptions\Handler::class
 );
+
 
 /*
 |--------------------------------------------------------------------------

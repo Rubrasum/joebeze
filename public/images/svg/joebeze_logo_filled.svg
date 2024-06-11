@@ -1,0 +1,41 @@
+<svg id="joebeze_logo_filled" data-name="joebeze_logo_filled" xmlns="http://www.w3.org/2000/svg"
+     viewBox="0 0 650 76.27">
+    <defs>
+        <style> {{-- The 2nd svg classes are all cls-2-x --}}
+            .cls-2-1 {
+            fill: url('#tessPattern');
+            font-family: NasalizationRg-Regular, Nasalization;
+            font-size: 56px;
+            transition: fill 2s ease;
+            }
+
+            .cls-2-2 {
+            letter-spacing: -.01em;
+            }
+
+            .cls-2-3 {
+            letter-spacing: -.02em;
+            }
+
+            .cls-2-4 {
+            letter-spacing: -.02em;
+            }
+        </style>
+        <pattern id="tessPattern" patternUnits="userSpaceOnUse" width="256" height="256">
+            <image href="{{ asset('images/bytebeze-banner-tess.png') }}" width="256"
+                   height="256" preserveAspectRatio="xMidYMid slice"/>
+        </pattern>
+        <pattern id="fillPattern" patternUnits="userSpaceOnUse" width="100%" height="100%">
+            <image href="{{ asset('images/Screenshot 2024-03-23 100050.jpg') }}" width="100%"
+                   height="100%" preserveAspectRatio="xMidYMid slice"/>
+        </pattern>
+    </defs>
+    <text class="cls-2-1" transform="translate(0 46.9)">
+        <tspan x="0" y="0">Joeb</tspan>
+        <tspan class="cls-2-3" x="145.65" y="0">e</tspan>
+        <tspan class="cls-2-2" x="181.1" y="0">z</tspan>
+        <tspan x="215.37" y="0">e d</tspan>
+        <tspan class="cls-2-4" x="305.76" y="0">e</tspan>
+        <tspan x="341.26" y="0">v blog</tspan>
+    </text>
+</svg>
