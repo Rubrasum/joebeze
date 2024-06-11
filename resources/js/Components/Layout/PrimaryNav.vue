@@ -105,7 +105,7 @@
 </template>
 
 <script setup>
-import {computed, ref} from 'vue';
+import {computed, ref, watch} from 'vue';
 
 import SpecialLogo from '@/Components/SpecialLogo.vue';
 import Dropdown from '@/Components/Categories/Dropdown.vue';
@@ -125,5 +125,8 @@ function handleSearch () {
     })
 }
 
+watch(() => page.props.search, (newSearch) => {
+    search.value = newSearch;
+});
 
 </script>
