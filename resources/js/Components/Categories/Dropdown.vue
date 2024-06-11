@@ -11,7 +11,7 @@
         <div v-if="isDropdownOpen" class="absolute bg-white border border-gray-300 shadow-lg z-50 inset-x-0 py-1 w-full rounded-b-xl overflow-auto max-h-52
 ">
             <DropdownItem
-                @click="updatePosts('')"
+                @click="updatePosts(null)"
                 :active="!currentCategory"
             >
                 All Categories

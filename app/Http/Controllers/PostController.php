@@ -58,7 +58,6 @@ class PostController extends Controller
         // ALWAYS included on first visit...
         // OPTIONALLY included on partial reloads...
         // ONLY evaluated when needed...
-        $categories = Category::all();
 
         return Inertia::render('Post', [
             'post' => $post,
@@ -66,7 +65,6 @@ class PostController extends Controller
             'canRegister' => Route::has('register'),
             'laravelVersion' => Application::VERSION,
             'phpVersion' => PHP_VERSION,
-            'categories' => $categories,
         ]);
     }
 }

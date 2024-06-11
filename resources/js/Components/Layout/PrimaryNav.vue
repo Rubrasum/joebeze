@@ -10,7 +10,7 @@
                         <div class="block z-[110] max-w-[33.85vw]"></div>
                     </div>
                     <div class="hidden lg:flex items-center">
-                        <div class="relative mr-4">
+                        <div class="relative mr-4" :class="{ hidden : !posts }">
                             <!-- Categories dropdown component -->
                             <Dropdown />
                         </div>
@@ -112,6 +112,7 @@ import Dropdown from '@/Components/Categories/Dropdown.vue';
 import {Link, router, usePage} from '@inertiajs/vue3';
 
 const page = usePage()
+const posts = computed(() => page.props.posts)
 const categories = computed(() => page.props.categories)
 const currentCategory = computed(() => page.props.currentCategory)
 const search = ref(page.props.search || '')
