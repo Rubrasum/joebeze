@@ -17,9 +17,18 @@ defineProps({
         type: Object,
         required: true
     },
+    currentCategory: {
+        type: Object,
+        required: false
+    },
+    search: {
+        type: String,
+        required: false
+    },
 });
 
 const page = usePage();
 // create ref from posts prop
 const posts = computed(() => page.props.posts.data)
+const search = computed(() => page.props.search)
 </script>
