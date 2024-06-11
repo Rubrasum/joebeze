@@ -59,13 +59,20 @@
 </template>
 
 <script setup>
-import { Link } from '@inertiajs/vue3';
+import {Link, usePage} from '@inertiajs/vue3';
 import AdminLayout from '@/Layouts/AdminLayout.vue';
-
-const isActive = window.location.pathname === '/admin/posts';
-
+import {computed} from "vue";
 defineOptions({
-    layout: AdminLayout
+    layout: AdminLayout,
+})
+const page = usePage();
+
+defineProps({
+    posts: {
+        type: Object,
+        required: true
+    }
 })
 
+const posts = computed(() => page.props.posts.data)
 </script>
