@@ -2,31 +2,70 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Category;
+use Illuminate\Http\Request;
+use Illuminate\Foundation\Application;
 use App\Http\Requests\StorePostRequest;
 use App\Http\Requests\UpdatePostRequest;
 use App\Models\Post;
+use Illuminate\Support\Facades\Route;
+use Inertia\Inertia;
 
 class PostController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request): \Inertia\Response
     {
-        // TODO fix the factory to actually add the published_at dates
-        return view('posts.index', [
-            'posts' => Post::where('created_at', '<=', now('UTC'))
-                ->latest('published_at')
-                ->filter(request(['search', 'category', 'author']))
-                ->paginate(8)
-                ->withQueryString()
+        // Retrieve query parameters
+        $search = $request->input('search');
+        $category = $request->input('category');
+        $author = $request->input('author');
+
+        // ALWAYS included on first visit...
+        // OPTIONALLY included on partial reloads...
+        // ONLY evaluated when needed...
+        $posts = Post::where('created_at', '<=', now('UTC'))
+            ->latest('published_at')
+            ->filter([
+                'search' => $search,
+                'category' => $category,
+                'author' => $author,
+            ])
+            ->paginate(8)
+            ->withQueryString();
+
+        $categories = Category::all();
+
+        $currentCategory = $request->has('category')
+            ? Category::where('slug', $request->input('category'))->first()
+            : null;
+
+        return Inertia::render('Home', [
+            'posts' => $posts,
+            'canLogin' => Route::has('login'),
+            'canRegister' => Route::has('register'),
+            'laravelVersion' => Application::VERSION,
+            'phpVersion' => PHP_VERSION,
+            'categories' => $categories,
+            'currentCategory' => $currentCategory,
         ]);
     }
 
     public function show(Post $post)
     {
-        return view('posts.show', [
-            'post' => $post
+        // ALWAYS included on first visit...
+        // OPTIONALLY included on partial reloads...
+        // ONLY evaluated when needed...
+
+        return Inertia::render('Post', [
+            'post' => $post,
+            'canLogin' => Route::has('login'),
+            'canRegister' => Route::has('register'),
+            'laravelVersion' => Application::VERSION,
+            'phpVersion' => PHP_VERSION,
+            'categories' => $categories,
         ]);
     }
 }
