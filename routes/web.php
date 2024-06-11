@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AdminPostController;
 use App\Http\Controllers\PostController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
@@ -40,7 +41,7 @@ Route::middleware([
     });
 // Admin Section
     Route::middleware('can:admin')->group(function () {
-        Route::resource('admin/posts', AdminPostController::class)->except('show');
+        Route::get('admin/posts', [AdminPostController::class, 'index'])->name('admin.posts.index');
     });
 });
 

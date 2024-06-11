@@ -5,15 +5,25 @@ namespace App\Http\Controllers;
 use App\Models\Post;
 use Carbon\Carbon;
 use Illuminate\Validation\Rule;
+use Inertia\Inertia;
 
 class AdminPostController extends Controller
 {
     public function index()
     {
-        return view('admin.posts.index', [
-            'posts' => Post::latest('published_at')
-                ->paginate(25)
-                ->withQueryString()
+//        return view('admin.posts.index', [
+//            'posts' => Post::latest('published_at')
+//                ->paginate(25)
+//                ->withQueryString()
+//        ]);
+
+        // Inertia version
+        $posts = Post::latest('published_at')
+            ->paginate(25)
+            ->withQueryString();
+
+        return Inertia::render('Admin/Posts/Index', [
+            'posts' => $posts
         ]);
     }
 

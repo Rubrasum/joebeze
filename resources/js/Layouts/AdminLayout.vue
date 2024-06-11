@@ -3,14 +3,11 @@
 import { Link, router } from '@inertiajs/vue3';
 import MainContain from '@/Components/Layout/MainContain.vue';
 import Footer from '@/Components/Layout/Footer.vue';
-import AdminNav from '@/Components/Layout/PrimaryNav.vue';
+import AdminNav from '@/Components/Layout/AdminNav.vue';
 
 
-// SAMPLE CODE FOR PAGE //////////////////////////////////////////////////////////////////////////////////////////////
-// Function to log out the user
-// hide the page body_container id element until its loaded
 window.onload = function() {
-    // change body element to visible
+    // change body element to visible after everything loaded. This is to prevent the flicker effect
     document.body.style.visibility = 'visible';
 }
 
@@ -18,21 +15,12 @@ window.onload = function() {
 
 <template>
     <div class="flex flex-col min-h-screen">
-        <!--        <Banner />-->
 
-        <!-- Holds most of the page content and in a particular layout -->
-        <!-- If everything is in this container, that represents the simplicity of the design -->
-        <!-- more complicated designs might have slightly more complicated container layouts.
-        Maybe nav and banner are both without containers. Who the fuck nose. So a full design will include unqiue -->
-        <!-- Primary Navigation Menu -->
         <AdminNav v-once/>
-        <MainContain>
-
-            <!-- Secondary Navigation Menu -->
-            <!--            <ResponsiveNav />-->
-
-            <!-- page -->
-            <slot></slot>
+        <MainContain class="bg-gray-800">
+            <div :class="`p-8 min-w-4xl max-w-screen-lg w-4/5 mx-auto bg-gray-900 text-white flex-grow`">
+                <slot></slot>
+            </div>
         </MainContain>
 
         <Footer />
