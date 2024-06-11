@@ -57,9 +57,10 @@ const observer = new IntersectionObserver((entries) => {
 
 const landmark = ref(null);
 
-
-onMounted(() => {
-    observer.observe(landmark.value);
-});
+if (items.length > 1) {
+    onMounted(() => {
+        observer.observe(landmark.value);
+    });
+}
 
 </script>
