@@ -18,6 +18,10 @@ class PostController extends Controller
      */
     public function index(Request $request): \Inertia\Response
     {
+
+        \Log::info('search: ' . $request->input('search'));
+        \Log::info('category: ' . $request->input('category'));
+        \Log::info('author: ' . $request->input('author'));
         // Retrieve query parameters
         $search = $request->input('search');
         $category = $request->input('category');
@@ -39,7 +43,7 @@ class PostController extends Controller
         $categories = Category::all();
 
         $currentCategory = $request->has('category')
-            ? Category::where('slug', $request->input('category'))->first()
+            ? Category::where('slug', $category)->first()
             : null;
 
         return Inertia::render('Home', [
@@ -58,13 +62,15 @@ class PostController extends Controller
         // ALWAYS included on first visit...
         // OPTIONALLY included on partial reloads...
         // ONLY evaluated when needed...
+        $categories = Category::all();
 
         return Inertia::render('Post', [
             'post' => $post,
             'canLogin' => Route::has('login'),
             'canRegister' => Route::has('register'),
             'laravelVersion' => Application::VERSION,
-            'phpVersion' => PHP_VERSION
+            'phpVersion' => PHP_VERSION,
+            'categories' => $categories,
         ]);
     }
 }

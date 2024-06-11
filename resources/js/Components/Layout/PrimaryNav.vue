@@ -110,15 +110,13 @@ import {computed, ref} from 'vue';
 
 import SpecialLogo from '@/Components/SpecialLogo.vue';
 import Dropdown from '@/Components/Categories/Dropdown.vue';
-import { Link } from '@inertiajs/vue3';
-
-import { usePage } from '@inertiajs/vue3'
+import { Link, usePage } from '@inertiajs/vue3';
 
 const page = usePage()
-
 const categories = computed(() => page.props.categories)
 const currentCategory = computed(() => page.props.currentCategory)
-
+const search = computed(() => page.props.search)
+const open = computed(() => page.props.open)
 
 
 

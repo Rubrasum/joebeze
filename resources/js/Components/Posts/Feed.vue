@@ -21,17 +21,17 @@
 import FeaturedCard from './FeaturedCard.vue';
 import Card from './Card.vue';
 import {Link, router, usePage} from '@inertiajs/vue3';
-import {onMounted, ref, watch} from 'vue';
+import {computed, onMounted, ref, watch} from 'vue';
 
 // This is an example of infinite scrolling and how to add data without refreshing the page, or resetting the whole obj
 // TODO make this reusable (ep 4 infinite scrolling)
 
 // Props
 const page = usePage();
-const items = ref(page.props.posts.data)
+const items = computed(() => page.props.posts.data);
 const initialUrl = page.url;
-const nextPageUrl = ref(page.props.posts.next_page_url);
-const posts = ref(page.props.posts);
+const nextPageUrl = computed(() => page.props.posts.next_page_url);
+const posts = computed(() => page.props.posts);
 
 const loadMoreItems = () => {
     if (!nextPageUrl.value) {
