@@ -7,11 +7,11 @@
                         <img :src="`/images/category-logos/${post.category.name}-cat-logo.jpg`" alt="Image" class="w-full h-auto border-2 border-gray-800">
                     </div>
                     <div class="lg:col-span-3">
-                        <Link :href="`/post/${post.slug}`" preserve-state  >
+                        <Link :href="`/post/${post.slug}`" preserve-state >
                             <h1 class="text-white text-3xl md:text-4xl font-bold">{{ post.title }}</h1>
                         </Link>
                         <div class="mt-4 space-x-2">
-                            <Link  :href="`/?category=${post.category.slug}`" preserve-state :only="['post']"
+                            <Link  :href="`/?category=${post.category.slug}`" preserve-state
                                    :class="`px-3 py-1 border-2 border-${post.category.color} rounded-full
                                    text-${post.category.color} text-sm uppercase font-semibold btn-color-cat`"
 

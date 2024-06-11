@@ -10,7 +10,7 @@
                         <div class="block z-[110] max-w-[33.85vw]"></div>
                     </div>
                     <div class="hidden lg:flex items-center">
-                        <div class="relative mr-4">
+                        <div class="relative mr-4" :class="{ hidden : !posts }">
                             <!-- Categories dropdown component -->
                             <Dropdown />
                         </div>
@@ -28,7 +28,6 @@
                                     placeholder="Search"
                                     class="border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
                                     v-model="search"
-                                    @search="onSearch"
                                 />
                             </form>
                         </div>
@@ -106,20 +105,28 @@
 </template>
 
 <script setup>
-import {computed, ref} from 'vue';
+import {computed, ref, watch} from 'vue';
 
 import SpecialLogo from '@/Components/SpecialLogo.vue';
 import Dropdown from '@/Components/Categories/Dropdown.vue';
-import { Link } from '@inertiajs/vue3';
-
-import { usePage } from '@inertiajs/vue3'
+import {Link, router, usePage} from '@inertiajs/vue3';
 
 const page = usePage()
-
+const posts = computed(() => page.props.posts)
 const categories = computed(() => page.props.categories)
 const currentCategory = computed(() => page.props.currentCategory)
+const search = ref(page.props.search || '')
+const open = computed(() => page.props.open)
 
+function handleSearch () {
+    router.get('/', {
+        category: currentCategory.value?.slug,
+        search: search.value,
+    })
+}
 
-
+watch(() => page.props.search, (newSearch) => {
+    search.value = newSearch;
+});
 
 </script>

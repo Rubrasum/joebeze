@@ -25,12 +25,12 @@
                                     </Link>
                                 </div>
                                 <div>
-                                    <a :href="`/post/${post.slug}`"  preserve-state :only="['post']"
+                                    <Link :href="`/post/${post.slug}`"  preserve-state :only="['post']"
                                        class="bg-gray-500 hover:bg-gray-700 text-white font-bold py-2 px-4
                                        rounded btn-read-gray"
                                     >
                                         Read more
-                                    </a>
+                                    </Link>
                                 </div>
                             </div>
                         </div>
@@ -45,9 +45,9 @@
 </template>
 
 <script setup>
-import { computed } from 'vue';
+import {computed, ref} from 'vue';
 import { format } from 'date-fns'; // Assuming you're using date-fns for date formatting
-import { Link } from '@inertiajs/vue3';
+import {Link, usePage} from '@inertiajs/vue3';
 
 // Define the props
 const props = defineProps({
@@ -57,6 +57,8 @@ const props = defineProps({
     }
 });
 
+const page = usePage();
+const post = ref(props.post);
 // Computed property for formatted date
 const formattedDate = computed(() => format(new Date(props.post.published_at), 'MMMM dd, yyyy'));
 </script>

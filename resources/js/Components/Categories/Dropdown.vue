@@ -11,7 +11,7 @@
         <div v-if="isDropdownOpen" class="absolute bg-white border border-gray-300 shadow-lg z-50 inset-x-0 py-1 w-full rounded-b-xl overflow-auto max-h-52
 ">
             <DropdownItem
-                :href="`/?${buildQueryString({ category: null })}`"
+                @click="updatePosts(null)"
                 :active="!currentCategory"
             >
                 All Categories
@@ -20,8 +20,8 @@
             <DropdownItem
                 v-for="category in categories"
                 :key="category.slug"
-                :href="`/?${buildQueryString({ category: category.slug })}`"
                 :active="currentCategory && currentCategory.slug === category.slug"
+                @click="updatePosts(category.slug)"
             >
                 {{ category.name }}
             </DropdownItem>
@@ -34,27 +34,25 @@ import {computed, ref} from 'vue'
 // import Icon from './Icon.vue'
 import DropdownItem from './DropdownItem.vue'
 import { ChevronDownIcon } from '@heroicons/vue/20/solid'
-import { usePage } from '@inertiajs/vue3'
+import {router, usePage} from '@inertiajs/vue3'
 
 const page = usePage()
 
 const categories = computed(() => page.props.categories)
 const currentCategory = computed(() => page.props.currentCategory)
 const isDropdownOpen = ref(false)
+const search = computed(() => page.props.search)
 
 const toggleDropdown = () => {
     isDropdownOpen.value = !isDropdownOpen.value
 }
 
-const buildQueryString = (params) => {
-    const query = new URLSearchParams(window.location.search)
-    Object.keys(params).forEach((key) => {
-        if (params[key] === null) {
-            query.delete(key)
-        } else {
-            query.set(key, params[key])
-        }
+const updatePosts = (categorySlug) => {
+    isDropdownOpen.value = false
+
+    router.get('/', {
+        category: categorySlug,
+        search: search.value,
     })
-    return query.toString()
 }
 </script>
