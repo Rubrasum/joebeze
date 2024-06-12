@@ -17,9 +17,12 @@ const props = defineProps({
 const page = usePage();
 
 // Compute the error message for the given field name
-const errorMessage = computed(() => {
-    return page.props.value.errors[props.name] ? page.props.value.errors[props.name][0] : '';
-});
+
+if (page.props.errors) {
+    const errorMessage = computed(() => {
+        return page.props.errors[props.name] ? page.props.errors[props.name][0] : '';
+    });
+}
 
 
 

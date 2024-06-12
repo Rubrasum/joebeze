@@ -13,8 +13,8 @@
 
                             <Input :name="slug" :value="post.slug" :required="true" />
 
-                            <Textarea :name="excerpt" :height="48" :required="true">{{ post.excerpt) }}</Textarea>
-                            <Textarea :name="body" :height="96" :required="true">{{ post.body }}</Textarea>
+                            <Textarea :name="excerpt" :height="48" :required="true" v-model="post.excerpt"></Textarea>
+                            <Textarea :name="body" :height="96" :required="true" v-model="post.body"></Textarea>
 
                             <Field>
                                 <Label :name="category"/>
@@ -29,7 +29,7 @@
                                 <Error name="category"/>
                             </Field>
 
-                            <Input name="published_at" type="date" required class="datepicker" :value="$post->published_at->format('Y-m-d')" />
+                            <Input name="published_at" type="date" required class="datepicker" :value="post.published_at" />
 
                             <Button>Update</Button>
                         </form>
@@ -42,13 +42,36 @@
 
 
 <script setup>
-import { Head, Link, usePage} from '@inertiajs/vue3';
+import {Head, Link, useForm, usePage} from '@inertiajs/vue3';
 import AdminLayout from '@/Layouts/AdminLayout.vue';
 import {computed} from "vue";
+import Input from "@/Components/Forms/Input.vue";
+import Textarea from "@/Components/Forms/Textarea.vue";
+import Field from "@/Components/Forms/Field.vue";
+import Label from "@/Components/Forms/Label.vue";
+import Error from "@/Components/Forms/Error.vue";
+import Button from "@/Components/Forms/Button.vue";
+
 defineOptions({
     layout: AdminLayout,
 })
+const props = defineProps({
+    post: {
+        type: Object,
+        required: true,
+    },
+    form: useForm({
+        title: '',
+        slug: '',
+        excerpt: '',
+        body: '',
+        category_id: '',
+        published_at: '',
+    }),
+});
 const page = usePage();
+
+
 
 
 const post = computed(() => page.props.post)

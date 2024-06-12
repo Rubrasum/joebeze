@@ -2,7 +2,7 @@
     <label class="block mb-2 uppercase font-bold text-xs text-white"
            for="{{ name }}" name="{{ name }}"
     >
-        {{ formattedName }}
+        {{ name.replace(/\b\w/g, char => char.toUpperCase()) }}
     </label>
 </template>
 
@@ -14,13 +14,10 @@ const props = defineProps({
     name: {
         type: String,
         required: true,
+        default: "name missing"
     },
 });
-const formattedName = computed(() => {
-    return props.name
-        .split(' ')
-        .map(word => word.charAt(0).toUpperCase() + word.slice(1))
-        .join(' ');
-});
+
+const name = computed(() => props.name);
 
 </script>

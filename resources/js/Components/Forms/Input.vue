@@ -46,12 +46,15 @@ const props = defineProps({
 const message = ref('');
 
 // Create a computed property to dynamically bind the input value
-const inputValue = computed({
-    get() {
-        return page.props.value.form[props.name];
-    },
-    set(value) {
-        page.props.value.form[props.name] = value;
-    }
-});
+
+if (page.props.form) {
+    const inputValue = computed({
+        get() {
+            return page.props.form[props.name];
+        },
+        set(value) {
+            page.props.form[props.name] = value;
+        }
+    });
+}
 </script>
