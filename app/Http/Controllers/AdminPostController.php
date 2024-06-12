@@ -19,7 +19,7 @@ class AdminPostController extends Controller
 
         // Inertia version
         $posts = Post::latest('published_at')
-            ->paginate(25)
+            ->paginate(10)
             ->withQueryString();
 
         return Inertia::render('Admin/Posts/Index', [

@@ -8,7 +8,7 @@
 import {Head, Link, usePage} from '@inertiajs/vue3';
 import HomeLayout from '@/Layouts/HomeLayout.vue';
 import Feed from '@/Components/Posts/Feed.vue';
-import {computed, ref} from "vue";
+import {computed} from "vue";
 // import Head from '@/Components/Layout/Head.vue';
 defineOptions({ layout: HomeLayout })
 
