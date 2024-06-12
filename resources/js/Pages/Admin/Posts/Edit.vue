@@ -9,15 +9,15 @@
 <!--                            https://inertiajs.com/forms-->
                             @csrf
                             @method('PATCH')
-                            <Input :name="title" :value="post.title" :required="true" />
+                            <Input name="title" :value="post.title" required/>
 
-                            <Input :name="slug" :value="post.slug" :required="true" />
+                            <Input name="slug" :value="post.slug" required />
 
-                            <Textarea :name="excerpt" :height="48" :required="true" v-model="post.excerpt"></Textarea>
-                            <Textarea :name="body" :height="96" :required="true" v-model="post.body"></Textarea>
+                            <Textarea name="excerpt" :height="48" required v-model="post.excerpt"></Textarea>
+                            <Textarea name="body" :height="96" required v-model="post.body"></Textarea>
 
                             <Field>
-                                <Label :name="category"/>
+                                <Label name="category"/>
 
                                 <select name="category_id" id="category_id" required class="border border-gray-800 bg-gray-900 text-white p-2 rounded">
                                     <option v-for="category in page.props.categories" :value="category.id" :selected="category.id === post.category.id"
