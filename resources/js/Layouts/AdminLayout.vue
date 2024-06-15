@@ -5,9 +5,11 @@
         <MainContain class="my-6">
             <div class="p-8 min-w-4xl max-w-screen-lg w-4/5 mx-auto bg-gray-900 text-white flex-grow overflow-hidden sm:rounded-lg sm:shadow">
                 <div class="-ml-4 -mt-4">
-                    <h1 class="text-2xl font-bold mb-8 pb-2 border-b border-gray-200 ">
-                        {{ title }}
-                    </h1>
+                    <Link :href="'/admin/posts'">
+                        <h1 class="text-2xl font-bold mb-8 pb-2 border-b border-gray-200 ">
+                            {{ title }}
+                        </h1>
+                    </Link>
                     <div class="flex">
                         <aside class="w-48 flex-shrink-0">
                             <h4 class="font-semibold mb-4 text-white">Options</h4>
