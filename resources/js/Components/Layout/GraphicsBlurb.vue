@@ -33,7 +33,8 @@
     </div>
 </template>
 
-<script setup>import {
+<script setup>
+import {
     CheckIcon,
     InboxArrowDownIcon,
     EnvelopeIcon,
