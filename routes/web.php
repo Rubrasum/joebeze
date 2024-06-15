@@ -44,7 +44,7 @@ Route::middleware([
     Route::middleware('can:admin')->group(function () {
         Route::get('admin/posts', [AdminPostController::class, 'index'])->name('admin.posts.index');
         Route::get('admin/posts/{post:id}/edit', [AdminPostController::class, 'edit'])->name('admin.posts.edit');
-        Route::patch('admin/posts/{post:id}', [AdminPostController::class, 'updated'])->name('admin.posts.update');
+        Route::patch('admin/posts/{post:id}', [AdminPostController::class, 'update'])->name('admin.posts.update');
     });
 });
 
