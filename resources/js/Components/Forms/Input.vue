@@ -8,7 +8,8 @@
             :type="type"
             :required="required"
             :placeholder="placeholder"
-            v-model="inputValue"
+            :value="modelValue"
+            @input="$emit('update:modelValue', $event.target.value)"
         />
         <Error :name="name" />
 
@@ -41,6 +42,10 @@ const props = defineProps({
         type: String,
         default: '',
     },
+    modelValue : {
+        type: String,
+        default: '',
+    }
 });
 
 const message = ref('');
