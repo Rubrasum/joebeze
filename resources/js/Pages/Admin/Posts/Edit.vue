@@ -5,22 +5,20 @@
             <div class="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
                 <div class="py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8">
                     <div class="shadow overflow-hidden border-b border-gray-200 sm:rounded-lg">
-                        <form @submit.prevent="`/admin/posts/${post.id}`" enctype="multipart/form-data">
+                        <form @submit.prevent="form.patch(`/admin/posts/${post.id}`)" enctype="multipart/form-data">
 <!--                            https://inertiajs.com/forms-->
-                            @csrf
-                            @method('PATCH')
-                            <Input name="title" :v-model="form.title" required/>
+                            <Input name="title" v-model="form.title" required/>
 
-                            <Input name="slug" :v-model="form.slug" required />
+                            <Input name="slug" v-model="form.slug" required />
 
-                            <Textarea name="excerpt" :height="48" required :v-model="form.excerpt"></Textarea>
-                            <Textarea name="body" :height="96" required :v-model="form.body"></Textarea>
+                            <Textarea name="excerpt" :height="48" required v-model="form.excerpt"></Textarea>
+                            <Textarea name="body" :height="96" required v-model="form.body"></Textarea>
 
-                            <Select name="category_id" :v-model="form.category_id"
+                            <Select name="category_id" v-model="form.category_id"
                                     :options="page.props.categories.map(category => ({ key: category.slug, value: category.id }))"
                                     required/>
 
-                            <Input name="published_at" type="date" required class="datepicker" :v-model="form.published_at" />
+                            <Input name="published_at" type="date" required class="datepicker" v-model="form.published_at" />
 
                             <Button>Update</Button>
                         </form>
@@ -60,12 +58,12 @@ const props = defineProps({
 const page = usePage();
 
 const form = useForm({
-    title: '',
-    slug: '',
-    excerpt: '',
-    body: '',
-    category_id: '',
-    published_at: '',
+    title: props.post.title,
+    slug: props.post.slug,
+    excerpt: props.post.excerpt,
+    body: props.post.body,
+    category_id: props.post.category_id,
+    published_at: props.post.published_at,
 });
 
 
