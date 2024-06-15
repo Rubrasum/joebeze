@@ -7,9 +7,9 @@
             :id="name"
             :required="required"
             :placeholder="placeholder"
-            v-model="inputValue"
+            :value="modelValue"
+            @input="$emit('update:modelValue', $event.target.value)"
         >
-            <slot></slot>
         </textarea>
         <Error :name="name" />
     </Field>
@@ -21,6 +21,7 @@ import Label from './Label.vue';
 import Error from './Error.vue';
 import {usePage} from "@inertiajs/vue3";
 import {computed, ref} from "vue";
+import Input from "@/Components/Forms/Input.vue";
 
 const page = usePage();
 
@@ -41,17 +42,9 @@ const props = defineProps({
         type: String,
         default: '',
     },
+    modelValue : {
+        type: String,
+        default: '',
+    }
 });
-
-// Create a computed property to dynamically bind the input value
-if (page.props.form) {
-    const inputValue = computed({
-        get() {
-            return page.props.form[props.name];
-        },
-        set(value) {
-            page.props.form[props.name] = value;
-        }
-    });
-}
 </script>
