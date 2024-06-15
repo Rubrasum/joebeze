@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Category;
 use App\Models\Post;
 use Carbon\Carbon;
 use Illuminate\Validation\Rule;
@@ -40,8 +41,12 @@ class AdminPostController extends Controller
     }
 
     public function edit(Post $post) {
+        // Get categories for dropdown
+        $categories = Category::all();
+
         return Inertia::render('Admin/Posts/Edit', [
-            'post' => $post
+            'post' => $post,
+            'categories' => $categories
         ]);
     }
 

@@ -16,18 +16,9 @@
                             <Textarea name="excerpt" :height="48" required :v-model="form.excerpt"></Textarea>
                             <Textarea name="body" :height="96" required :v-model="form.body"></Textarea>
 
-                            <Field>
-                                <Label name="category"/>
-
-                                <select name="category_id" id="category_id" required class="border border-gray-800 bg-gray-900 text-white p-2 rounded">
-                                    <option v-for="category in page.props.categories" :value="category.id" :selected="category.id === post.category.id"
-                                        class="bg-gray-900 text-white" value="{{ category.id }}">
-                                        {{ category.name.replace(/\b\w/g, char => char.toUpperCase()) }}
-                                    </option>
-                                </select>
-
-                                <Error name="category"/>
-                            </Field>
+                            <Select name="category_id" :v-model="form.category_id"
+                                    :options="page.props.categories.map(category => ({ key: category.slug, value: category.id }))"
+                                    required/>
 
                             <Input name="published_at" type="date" required class="datepicker" :v-model="form.published_at" />
 
@@ -51,6 +42,7 @@ import Field from "@/Components/Forms/Field.vue";
 import Label from "@/Components/Forms/Label.vue";
 import Error from "@/Components/Forms/Error.vue";
 import Button from "@/Components/Forms/Button.vue";
+import Select from "@/Components/Forms/Select.vue";
 
 defineOptions({
     layout: AdminLayout,
@@ -60,17 +52,21 @@ const props = defineProps({
         type: Object,
         required: true,
     },
-    form: useForm({
-        title: '',
-        slug: '',
-        excerpt: '',
-        body: '',
-        category_id: '',
-        published_at: '',
-    }),
+    categories : {
+        type: Array,
+        required: true,
+    }
 });
 const page = usePage();
 
+const form = useForm({
+    title: '',
+    slug: '',
+    excerpt: '',
+    body: '',
+    category_id: '',
+    published_at: '',
+});
 
 
 
