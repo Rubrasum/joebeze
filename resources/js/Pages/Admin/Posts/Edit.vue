@@ -63,10 +63,18 @@ const form = useForm({
     excerpt: props.post.excerpt,
     body: props.post.body,
     category_id: props.post.category_id,
-    published_at: props.post.published_at,
+    published_at: formatDate(props.post.published_at) || '',
 });
 
 
+
+function formatDate(dateString) {
+    const date = new Date(dateString);
+    const year = date.getFullYear();
+    const month = String(date.getMonth() + 1).padStart(2, '0');
+    const day = String(date.getDate()).padStart(2, '0');
+    return `${year}-${month}-${day}`;
+}
 
 const post = computed(() => page.props.post)
 </script>
