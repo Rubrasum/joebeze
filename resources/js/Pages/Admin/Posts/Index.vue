@@ -7,7 +7,7 @@
                     <div class="shadow overflow-hidden border-b border-gray-200 sm:rounded-lg">
                         <table class="min-w-full divide-y divide-gray-200">
                             <tbody class="bg-white divide-y divide-gray-200">
-                            <tr v-for="post in posts" :key="post.id">
+                            <tr v-for="post in posts.data" :key="post.id">
                                 <td class="px-6 py-4 whitespace-nowrap">
                                     <div class="flex items-center">
                                         <div class="text-sm font-medium text-gray-900">
@@ -32,6 +32,7 @@
                             </tr>
                             </tbody>
                         </table>
+                        <Pagination :items="posts"/>
                     </div>
                 </div>
             </div>
@@ -40,9 +41,10 @@
 </template>
 
 <script setup>
-import { Head, Link, usePage} from '@inertiajs/vue3';
-import AdminLayout from '@/Layouts/AdminLayout.vue';
+import { Head, Link, usePage } from '@inertiajs/vue3';
 import {computed} from "vue";
+import AdminLayout from '@/Layouts/AdminLayout.vue';
+import Pagination from "@/Components/Pagination/Main.vue";
 defineOptions({
     layout: AdminLayout,
 })
@@ -55,5 +57,5 @@ defineProps({
     }
 })
 
-const posts = computed(() => page.props.posts.data)
+const posts = computed(() => page.props.posts)
 </script>
