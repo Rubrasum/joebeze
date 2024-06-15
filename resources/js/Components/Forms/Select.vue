@@ -4,20 +4,17 @@
         <select
             :name="name"
             :id="name"
-            required
+            :value="modelValue"
+            :required="required"
             class="border border-gray-800 bg-gray-900 text-white p-2 rounded"
-            @change="$emit('update:selected', $event.target.value)"
+            @change="$emit('update:modelValue', $event.target.value)"
         >
-            <option
-                :value="''"
-                :selected="selected === ''"
-            >{{ placeholder }}
-            </option>
+            <option :value="''" :selected="modelValue === ''" >{{ placeholder }}</option>
             <option
                 v-for="option in options"
                 :key="option.key"
                 :value="option.value"
-                :selected="option.value === selected"
+                :selected="option.value === modelValue"
             >
                 {{ option.key }}
             </option>
@@ -33,6 +30,7 @@ import Label from './Label.vue';
 import Error from './Error.vue';
 import {usePage} from "@inertiajs/vue3";
 import {computed, ref} from "vue";
+import Input from "@/Components/Forms/Input.vue";
 
 const page = usePage();
 
@@ -50,10 +48,6 @@ const props = defineProps({
         default: '',
     },
     modelValue : {
-        type: String,
-        default: '',
-    },
-    selected : {
         type: String,
         default: '',
     },
