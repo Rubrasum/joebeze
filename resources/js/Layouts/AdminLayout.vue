@@ -58,7 +58,5 @@ const title = ref(slot.title ? slot.title()[0].children : 'Admin Dashboard');
 html {
     scroll-behavior: smooth
 }
-body {
-    visibility: hidden;
-}
+// TODO: Reapply the flicker avoiding this body -> visibility hidden
 </style>
