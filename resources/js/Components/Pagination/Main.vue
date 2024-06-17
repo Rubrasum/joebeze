@@ -29,17 +29,19 @@
                     <!-- Current: "z-10 bg-indigo-600 text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600", Default: "text-gray-900 ring-1 ring-inset ring-gray-300 hover:bg-gray-50 focus:outline-offset-0" -->
                      <Link v-for="link in items.links"
                            :href="link.url"
-                           class="relative inline-flex items-center px-2 py-2 text-sm font-semibold"
-                           :class="link.active ? 'z-10 bg-indigo-600 text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600' : 'text-gray-900 ring-1 ring-inset ring-gray-300 hover:bg-gray-50 focus:outline-offset-0 disabled'"
+                           class="relative inline-flex items-center px-2 py-1.5 text-sm font-semibold text-gray-900 ring-1 ring-inset ring-gray-300 focus:z-20 focus:outline-offset-0"
+                           :class="link.url === null || link.active ? 'bg-gray-200 text-gray-600 cursor-default' : 'hover:bg-gray-50'"
 
                      >
                          <div v-if="link.label.includes('Next')">
-                                Next
+                             <div class="flex">
                                 <ChevronRightIcon class="h-5 w-5 ml-1" aria-hidden="true" />
+                             </div>
                          </div>
                          <div v-else-if="link.label.includes('Previous')">
-                                <ChevronLeftIcon class="h-5 w-5 mr-1" aria-hidden="true" />
-                                Previous
+                             <div class="flex">
+                                 <ChevronLeftIcon class="h-5 w-5" aria-hidden="true" />
+                             </div>
                          </div>
                          <div v-else>
                              {{ link.label }}
