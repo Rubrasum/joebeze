@@ -4,7 +4,7 @@
             <Label :name="name" :label="label" class="block text-3xl px-2 leading-8 bg-slate-900 text-white  "/>
             <div class="relative mt-2">
                 <input
-                    class="peer block w-full text-4xl font-weight-lighter border-0 custom-slate px-3 pt-4 pb-3 text-white focus:ring-0 sm:leading-6"
+                    class="peer block w-full text-4xl border font-weight-lighter border-0 custom-slate px-3 pt-4 pb-3 text-white focus:ring-0 sm:leading-6"
                     :name="name"
                     :id="name"
                     :type="type"

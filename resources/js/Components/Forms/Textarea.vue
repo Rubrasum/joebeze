@@ -1,18 +1,15 @@
 <template>
     <Field>
-        <div class="relative">
-            <Label :name="name" :label="label" :class="['absolute -top-3 left-2 inline-block bg-slate-900 px-1 text-white text-md font-weight-bolder']"/>
-            <textarea
-                :class="['block w-full rounded-md border-0 py-3 bg-slate-900 text-md font-weight-bolder shadow-sm ring-1 ring-inset ring-slate-400 placeholder:text-slate-900 focus:ring-2 focus:ring-inset focus:ring-white sm:leading-6 ', height]"
-                :name="name"
-                :id="name"
-                :required="required"
-                :placeholder="placeholder"
-                :value="modelValue"
-                @input="$emit('update:modelValue', $event.target.value)"
-            >
-            </textarea>
-        </div>
+        <Label :name="name" :label="label" :class="['absolute -top-3 left-2 inline-block bg-slate-900 px-1 text-white text-md font-weight-bolder']"/>
+        <textarea
+            :name="name"
+            :id="name"
+            :required="required"
+            :placeholder="placeholder"
+            :value="modelValue"
+            @input="$emit('update:modelValue', $event.target.value)"
+        >
+        </textarea>
         <Error :name="name" />
     </Field>
 </template>
@@ -22,8 +19,10 @@ import Field from './Field.vue';
 import Label from './Label.vue';
 import Error from './Error.vue';
 import {usePage} from "@inertiajs/vue3";
-import {computed, ref} from "vue";
+import {computed, onMounted, ref} from "vue";
 import Input from "@/Components/Forms/Input.vue";
+import Quill from 'quill';
+import "quill/dist/quill.core.css";
 
 const page = usePage();
 
@@ -52,5 +51,9 @@ const props = defineProps({
         type: String,
         default: null,
     }
+});
+
+onMounted(() => {
+    const quill = new Quill('#'+props.name);
 });
 </script>
