@@ -1,7 +1,7 @@
 <template>
     <Field>
         <div class="relative">
-            <Label :name="name" class="absolute -top-2 left-2 inline-block bg-slate-900 px-1 text-white text-xs font-medium" />
+            <Label :name="name" :label="label" class="absolute -top-2 left-2 inline-block bg-slate-900 px-1 text-white text-xs font-medium" />
             <select
                 :name="name"
                 :id="name"
@@ -58,6 +58,10 @@ const props = defineProps({
     options : {
         type: Array,
         required: true,
+    },
+    label : {
+        type: String,
+        default: null,
     }
 });
 

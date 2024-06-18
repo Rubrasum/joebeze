@@ -1,7 +1,7 @@
 <template>
     <label for="{{ name }}" name="{{ name }}"
     >
-        {{ name.replace(/\b\w/g, char => char.toUpperCase()) }}
+        {{ label ? label.replace(/\b\w/g, char => char.toUpperCase()) : name.replace(/\b\w/g, char => char.toUpperCase()) }}
     </label>
 </template>
 
@@ -15,6 +15,10 @@ const props = defineProps({
         required: true,
         default: "name missing"
     },
+    label : {
+        type: String,
+        default: null,
+    }
 });
 
 const name = computed(() => props.name);
