@@ -11,14 +11,14 @@
 
                             <Input name="slug" :label="'Post Slug'" v-model="form.slug" required />
 
-                            <Textarea name="excerpt" :label="'Post Excerpt'" :height="'h-48'" required v-model="form.excerpt"></Textarea>
-                            <Textarea name="body" :label="'Post Body'" :height="'h-96'" required v-model="form.body"></Textarea>
-
                             <Select name="category_id" :label="'Category'" v-model="form.category_id"
                                     :options="page.props.categories.map(category => ({ key: category.slug, value: category.id }))"
                                     required/>
 
                             <Input name="published_at" type="date" required class="datepicker" v-model="form.published_at" />
+
+                            <Textarea name="excerpt" :label="'Post Excerpt'" :height="'h-48'" required v-model="form.excerpt"></Textarea>
+                            <Textarea name="body" :label="'Post Body'" :height="'h-96'" required v-model="form.body"></Textarea>
 
                             <Button>Update</Button>
                         </form>
