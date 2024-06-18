@@ -7,16 +7,14 @@
                     <div class="shadow overflow-hidden border-b border-gray-200 sm:rounded-lg">
                         <form @submit.prevent="form.patch(`/admin/posts/${post.id}`)" enctype="multipart/form-data">
 <!--                            https://inertiajs.com/forms-->
-                            <div class="border-b border-white pb-6">
-                                <Input name="title" :label="'Post Title'" v-model="form.title" required />
-                            </div>
+                            <TitleInput name="title" :label="'Post Title'" v-model="form.title" required />
 
                             <Input name="slug" :label="'Post Slug'" v-model="form.slug" required />
 
                             <Textarea name="excerpt" :label="'Post Excerpt'" :height="'h-48'" required v-model="form.excerpt"></Textarea>
                             <Textarea name="body" :label="'Post Body'" :height="'h-96'" required v-model="form.body"></Textarea>
 
-                            <Select name="category_id" :label="'Post Body'" v-model="form.category_id"
+                            <Select name="category_id" :label="'Category'" v-model="form.category_id"
                                     :options="page.props.categories.map(category => ({ key: category.slug, value: category.id }))"
                                     required/>
 
@@ -37,6 +35,7 @@ import {Head, Link, useForm, usePage} from '@inertiajs/vue3';
 import AdminLayout from '@/Layouts/AdminLayout.vue';
 import {computed} from "vue";
 import Input from "@/Components/Forms/Input.vue";
+import TitleInput from "@/Components/Forms/TitleInput.vue";
 import Textarea from "@/Components/Forms/Textarea.vue";
 import Field from "@/Components/Forms/Field.vue";
 import Label from "@/Components/Forms/Label.vue";

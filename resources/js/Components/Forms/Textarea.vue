@@ -1,9 +1,9 @@
 <template>
     <Field>
         <div class="relative">
-            <Label :name="name" :label="label" :class="['absolute -top-2 left-2 inline-block bg-slate-900 px-1 text-xs font-medium text-white']"/>
+            <Label :name="name" :label="label" :class="['absolute -top-3 left-2 inline-block bg-slate-900 px-1 text-white text-md font-weight-bolder']"/>
             <textarea
-                :class="['block w-full rounded-md border-0 py-1.5 bg-slate-900 text-white shadow-sm ring-1 ring-inset ring-white placeholder:text-slate-900 focus:ring-2 focus:ring-inset focus:ring-slate-900 sm:text-sm sm:leading-6 ', height]"
+                :class="['block w-full rounded-md border-0 py-3 bg-slate-900 text-md font-weight-bolder shadow-sm ring-1 ring-inset ring-slate-400 placeholder:text-slate-900 focus:ring-2 focus:ring-inset focus:ring-white sm:leading-6 ', height]"
                 :name="name"
                 :id="name"
                 :required="required"
