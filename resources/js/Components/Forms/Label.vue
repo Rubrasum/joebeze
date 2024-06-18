@@ -1,6 +1,5 @@
 <template>
-    <label class="block mb-2 uppercase font-bold text-xs text-white"
-           for="{{ name }}" name="{{ name }}"
+    <label for="{{ name }}" name="{{ name }}"
     >
         {{ name.replace(/\b\w/g, char => char.toUpperCase()) }}
     </label>

@@ -7,12 +7,12 @@
                     <div class="shadow overflow-hidden border-b border-gray-200 sm:rounded-lg">
                         <form @submit.prevent="form.patch(`/admin/posts/${post.id}`)" enctype="multipart/form-data">
 <!--                            https://inertiajs.com/forms-->
-                            <Input name="title" v-model="form.title" required/>
+                            <Input name="title" v-model="form.title" required />
 
                             <Input name="slug" v-model="form.slug" required />
 
-                            <Textarea name="excerpt" :height="48" required v-model="form.excerpt"></Textarea>
-                            <Textarea name="body" :height="96" required v-model="form.body"></Textarea>
+                            <Textarea name="excerpt" :height="'h-48'" required v-model="form.excerpt"></Textarea>
+                            <Textarea name="body" :height="'h-96'" required v-model="form.body"></Textarea>
 
                             <Select name="category_id" v-model="form.category_id"
                                     :options="page.props.categories.map(category => ({ key: category.slug, value: category.id }))"

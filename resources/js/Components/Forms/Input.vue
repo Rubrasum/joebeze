@@ -1,16 +1,18 @@
 <template>
     <Field>
-        <Label :name="name"/>
-        <input
-            :class="['border border-gray-800 bg-gray-900 text-white p-2 w-full rounded']"
-            :name="name"
-            :id="name"
-            :type="type"
-            :required="required"
-            :placeholder="placeholder"
-            :value="modelValue"
-            @input="$emit('update:modelValue', $event.target.value)"
-        />
+        <div class="relative">
+            <Label :name="name" class="absolute -top-2 left-2 inline-block bg-slate-900 px-1 text-white text-xs font-medium"/>
+            <input
+                class="block w-full rounded-md border-0 py-1.5 bg-slate-900 text-white shadow-sm ring-1 ring-inset ring-white placeholder:text-slate-900 focus:ring-2 focus:ring-inset focus:ring-grey-300 sm:leading-6"
+                :name="name"
+                :id="name"
+                :type="type"
+                :required="required"
+                :placeholder="placeholder"
+                :value="modelValue"
+                @input="$emit('update:modelValue', $event.target.value)"
+            />
+        </div>
         <Error :name="name" />
 
     </Field>

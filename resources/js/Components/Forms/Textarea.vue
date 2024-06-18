@@ -1,16 +1,18 @@
 <template>
     <Field>
-        <Label :name="name"/>
-        <textarea
-            :class="['border border-gray-800 bg-gray-900 text-white p-2 w-full rounded-md h-' + height + ' resize-none']"
-            :name="name"
-            :id="name"
-            :required="required"
-            :placeholder="placeholder"
-            :value="modelValue"
-            @input="$emit('update:modelValue', $event.target.value)"
-        >
-        </textarea>
+        <div class="relative">
+            <Label :name="name" :class="['absolute -top-2 left-2 inline-block bg-slate-900 px-1 text-xs font-medium text-white']"/>
+            <textarea
+                :class="['block w-full rounded-md border-0 py-1.5 bg-slate-900 text-white shadow-sm ring-1 ring-inset ring-white placeholder:text-slate-900 focus:ring-2 focus:ring-inset focus:ring-slate-900 sm:text-sm sm:leading-6 ', height]"
+                :name="name"
+                :id="name"
+                :required="required"
+                :placeholder="placeholder"
+                :value="modelValue"
+                @input="$emit('update:modelValue', $event.target.value)"
+            >
+            </textarea>
+        </div>
         <Error :name="name" />
     </Field>
 </template>
