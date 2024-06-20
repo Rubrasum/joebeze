@@ -7,12 +7,12 @@
                 :id="name"
                 :value="modelValue"
                 :required="required"
-                class="border border-slate-400 bg-gray-900 text-md text-white px-4 rounded focus:ring-white"
+                class="border border-slate-400 w-full bg-slate-900 text-md text-white px-4 rounded focus:ring-white"
                 @change="$emit('update:modelValue', $event.target.value)"
             >
                 <option :value="''" :selected="modelValue === ''" >{{ placeholder }}</option>
                 <option
-                    class="px-4"
+                    class="px-4 w-full bg-gray-900 text-md text-white"
                     v-for="option in options"
                     :key="option.key"
                     :value="option.value"
@@ -21,7 +21,6 @@
                     {{ option.key }}
                 </option>
             </select>
-            <ChevronDownIcon class="absolute right-2 top-2 text-white" />
             <Error :name="name" />
         </div>
 

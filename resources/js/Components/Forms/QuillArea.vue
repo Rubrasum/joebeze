@@ -1,5 +1,5 @@
 <template>
-    <Field>
+    <Field class="mb-8">
         <Label :name="name" :label="label" :class="['block text-md px-2 leading-8 bg-slate-900 text-white']"/>
         <div :id="name" ref="quillEditor" class="quill-editor w-full"></div>
         <Error :name="name" />

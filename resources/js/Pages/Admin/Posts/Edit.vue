@@ -18,7 +18,7 @@
                             <Input name="published_at" type="date" required class="datepicker" v-model="form.published_at" />
 
                             <Textarea name="excerpt" :label="'Post Excerpt'" :height="'h-48'" required v-model="form.excerpt"></Textarea>
-                            <Textarea name="body" :label="'Post Body'" :height="'h-96'" required v-model="form.body"></Textarea>
+                            <QuillArea name="body" :label="'Post Body'" :height="'h-96'" required v-model="form.body"></QuillArea>
 
                             <Button>Update</Button>
                         </form>
@@ -42,6 +42,7 @@ import Label from "@/Components/Forms/Label.vue";
 import Error from "@/Components/Forms/Error.vue";
 import Button from "@/Components/Forms/Button.vue";
 import Select from "@/Components/Forms/Select.vue";
+import QuillArea from "@/Components/Forms/QuillArea.vue";
 
 defineOptions({
     layout: AdminLayout,
