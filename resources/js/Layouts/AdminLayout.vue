@@ -22,6 +22,9 @@
                             </ul>
                         </aside>
                         <div class="flex-1 overflow-hidden">
+                            <div v-if="$page.props.flash.message" class="alert">
+                                {{ $page.props.flash.message }}
+                            </div>
                             <slot></slot>
                         </div>
                     </div>
