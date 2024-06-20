@@ -1,15 +1,7 @@
 <template>
     <Field>
-        <Label :name="name" :label="label" :class="['absolute -top-3 left-2 inline-block bg-slate-900 px-1 text-white text-md font-weight-bolder']"/>
-        <textarea
-            :name="name"
-            :id="name"
-            :required="required"
-            :placeholder="placeholder"
-            :value="modelValue"
-            @input="$emit('update:modelValue', $event.target.value)"
-        >
-        </textarea>
+        <Label :name="name" :label="label" :class="['block text-md px-2 leading-8 bg-slate-900 text-white']"/>
+        <div :id="name" ref="quillEditor" class="quill-editor w-full"></div>
         <Error :name="name" />
     </Field>
 </template>
@@ -19,10 +11,10 @@ import Field from './Field.vue';
 import Label from './Label.vue';
 import Error from './Error.vue';
 import {usePage} from "@inertiajs/vue3";
-import {computed, onMounted, ref} from "vue";
-import Input from "@/Components/Forms/Input.vue";
+import {computed, onMounted, ref, defineEmits, watch} from "vue";
 import Quill from 'quill';
 import "quill/dist/quill.core.css";
+import "quill/dist/quill.snow.css";
 
 const page = usePage();
 
@@ -80,7 +72,6 @@ onMounted(() => {
     editor.style.padding = '1rem'; // Matching textarea padding
 
 
-
     quill.root.innerHTML = props.modelValue;
 
     quill.on('text-change', () => {
@@ -97,6 +88,8 @@ watch(() => props.modelValue, (newValue) => {
         }
     }
 });
+
+
 </script>
 
 <style>
