@@ -15,7 +15,7 @@
                                     :options="page.props.categories.map(category => ({ key: category.slug, value: category.id }))"
                                     required/>
 
-                            <Input name="published_at" type="date" required class="datepicker" v-model="form.published_at" />
+                            <Input name="published_at" type="datetime-local" required class="datepicker" v-model="form.published_at" />
 
                             <QuillArea name="excerpt" :label="'Post Excerpt'" :height="'h-48'" required v-model="form.excerpt"></QuillArea>
                             <QuillArea name="body" :label="'Post Body'" :height="'h-96'" required v-model="form.body"></QuillArea>
@@ -36,10 +36,6 @@ import AdminLayout from '@/Layouts/AdminLayout.vue';
 import {computed} from "vue";
 import Input from "@/Components/Forms/Input.vue";
 import TitleInput from "@/Components/Forms/TitleInput.vue";
-import Textarea from "@/Components/Forms/Textarea.vue";
-import Field from "@/Components/Forms/Field.vue";
-import Label from "@/Components/Forms/Label.vue";
-import Error from "@/Components/Forms/Error.vue";
 import Button from "@/Components/Forms/Button.vue";
 import Select from "@/Components/Forms/Select.vue";
 import QuillArea from "@/Components/Forms/QuillArea.vue";
@@ -73,9 +69,12 @@ const form = useForm({
 function formatDate(dateString) {
     const date = new Date(dateString);
     const year = date.getFullYear();
-    const month = String(date.getMonth() + 1).padStart(2, '0');
+    const month = String(date.getMonth()).padStart(2, '0');
     const day = String(date.getDate()).padStart(2, '0');
-    return `${year}-${month}-${day}`;
+    const hours = String(date.getHours()).padStart(2, '0');
+    const minutes = String(date.getMinutes()).padStart(2, '0');
+    const seconds = String(date.getSeconds()).padStart(2, '0');
+    return `${year}-${month}-${day}T${hours}:${minutes}:${seconds}`;
 }
 
 const post = computed(() => page.props.post)

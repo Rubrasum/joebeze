@@ -44,8 +44,6 @@ class AdminPostController extends Controller
         // Get categories for dropdown
         $categories = Category::all();
 
-        $post->published_at = Carbon::parse($post->published_at)->format('Y-m-d');
-
         return Inertia::render('Admin/Posts/Edit', [
             'post' => $post,
             'categories' => $categories
