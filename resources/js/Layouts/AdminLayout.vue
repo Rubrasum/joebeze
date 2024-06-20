@@ -3,7 +3,7 @@
 
         <AdminNav v-once/>
         <MainContain class="my-6">
-            <div class="p-8 min-w-4xl max-w-screen-lg w-4/5 mx-auto bg-gray-900 text-white flex-grow overflow-hidden sm:rounded-lg sm:shadow">
+            <div class="p-8 min-w-4xl max-w-screen-xl w-4/5 mx-auto bg-gray-900 text-white flex-grow overflow-hidden sm:rounded-lg sm:shadow">
                 <div class="-ml-4 -mt-4">
                     <Link :href="'/admin/posts'">
                         <h1 class="text-2xl font-bold mb-8 pb-2 border-b border-gray-200 ">
@@ -21,7 +21,9 @@
                                 </Link>
                             </ul>
                         </aside>
-                        <slot></slot>
+                        <div class="flex-1 overflow-x-auto overflow-y-hidden">
+                            <slot></slot>
+                        </div>
                     </div>
                 </div>
             </div>
