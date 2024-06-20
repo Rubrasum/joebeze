@@ -11,6 +11,7 @@
                 :placeholder="placeholder"
                 :value="modelValue"
                 @input="$emit('update:modelValue', $event.target.value)"
+                :step="type === 'datetime-local' ? '1' : undefined"
             />
         </div>
         <Error :name="name" />
