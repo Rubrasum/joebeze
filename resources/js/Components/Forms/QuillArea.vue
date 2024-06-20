@@ -66,7 +66,7 @@ onMounted(() => {
     // Apply custom styles
     const editor = quill.root;
     editor.style.minHeight = props.height === 'h-48' ? '12rem' : '24rem'; // Match h-48 and h-96
-    editor.style.backgroundColor = '#1e293b'; // Tailwind Slate-900
+    editor.style.backgroundColor = 'rgb(15 23 42)'; // Tailwind Slate-800
     editor.style.color = '#ffffff'; // White text
     editor.style.padding = '1rem'; // Matching textarea padding
 
@@ -80,11 +80,9 @@ onMounted(() => {
 
 // Watch for external modelValue changes and update Quill
 watch(() => props.modelValue, (newValue) => {
-    if (quillEditor.value) {
-        const quill = Quill.find(quillEditor.value);
-        if (quill && quill.root.innerHTML !== newValue) {
-            quill.root.innerHTML = newValue;
-        }
+    const quill = Quill.find(`#${props.name}`);
+    if (quill && quill.root.innerHTML !== newValue) {
+        quill.root.innerHTML = newValue;
     }
 });
 
