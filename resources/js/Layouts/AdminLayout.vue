@@ -22,8 +22,8 @@
                             </ul>
                         </aside>
                         <div class="flex-1 overflow-hidden">
-                            <div v-if="$page.props.flash.message" class="alert">
-                                {{ $page.props.flash.message }}
+                            <div v-if="$page.props.flash.message" >
+                                <FlashMessage/>
                             </div>
                             <slot></slot>
                         </div>
@@ -43,6 +43,7 @@ import MainContain from '@/Components/Layout/MainContain.vue';
 import Footer from '@/Components/Layout/Footer.vue';
 import AdminNav from '@/Components/Layout/AdminNav.vue';
 import {ref, useSlots} from "vue";
+import FlashMessage from "@/Components/Layout/FlashMessage.vue";
 
 
 window.onload = function() {
