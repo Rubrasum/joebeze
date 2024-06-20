@@ -1,13 +1,13 @@
 <template>
     <Field>
         <div class="relative">
-            <Label :name="name" :label="label" class="absolute -top-3 left-2 inline-block bg-slate-900 px-1 text-white text-md font-weight-bolder" />
+            <Label :name="name" :label="label" class="absolute -top-3 left-2 inline-block bg-slate-900 px-1 text-white text-md font-weight-bolder focus:ring-white" />
             <select
                 :name="name"
                 :id="name"
                 :value="modelValue"
                 :required="required"
-                class="border border-slate-400 w-full bg-slate-900 text-md text-white px-4 rounded focus:ring-white"
+                class="border border-slate-400 w-full bg-slate-900 text-md text-white ring-inset ring-slate-400 focus:ring-2 focus:ring-inset focus:ring-white"
                 @change="$emit('update:modelValue', $event.target.value)"
             >
                 <option :value="''" :selected="modelValue === ''" >{{ placeholder }}</option>

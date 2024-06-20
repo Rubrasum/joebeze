@@ -49,3 +49,22 @@ input[type="date"]::-moz-focus-inner,
 input[type="datetime-local"]::-moz-focus-outer {
     border: 0;
 }
+/* General styling for the select element */
+select {
+    @apply w-full text-white bg-slate-900 border rounded-md focus:ring-white;
+    background-image: url('data:image/svg+xml;charset=US-ASCII,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="white" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>');
+    background-repeat: no-repeat;
+    background-position: right 0.8rem center;
+    background-size: 1.25rem 1.25rem;
+    padding-right: 2.5rem; /* Ensure padding does not hide the chevron */
+}
+
+/* Remove default styling in different browsers */
+select::-ms-expand {
+    display: none;
+}
+
+select:-moz-focusring {
+    text-shadow: 0 0 0 #000;
+}
+
