@@ -22,7 +22,7 @@
                             </ul>
                         </aside>
                         <div class="flex-1 overflow-hidden">
-                            <div v-if="$page.props.flash.message" >
+                            <div v-if="$page.props.messages">
                                 <FlashMessage/>
                             </div>
                             <slot></slot>
