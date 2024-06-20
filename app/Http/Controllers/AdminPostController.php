@@ -53,12 +53,6 @@ class AdminPostController extends Controller
     public function update(Post $post) {
         $attributes = $this->validatePost($post);
 
-        // Convert the date format
-        $formattedDate = Carbon::createFromFormat('Y-m-d', request('published_at'))->format('Y-m-d');
-
-        // Add the formatted date to the attributes array
-        $attributes['published_at'] = $formattedDate;
-
         $post->update($attributes);
 
         return back()->with('success', 'Post Updated!');

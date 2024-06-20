@@ -61,7 +61,7 @@ onMounted(() => {
                 ['clean']
             ],
         },
-        debug: 'info',
+        // debug: 'info',
     });
     // Apply custom styles
     const editor = quill.root;
