@@ -1,16 +1,16 @@
 <template>
     <transition-group name="fade" tag="div">
-        <div v-for="message in messages.success" :key="message.id">
-            <Success :message="message" />
+        <div v-for="success in messages.success" :key="success.id">
+            <Success :message="success" />
         </div>
-        <div v-for="message in messages.error" :key="message.id">
-            <Error :message="message" />
+        <div v-for="error in messages.error" :key="error.id">
+            <Error :message="error" />
         </div>
-        <div v-for="message in messages.warning" :key="message.id">
-            <Warning :message="message" />
+        <div v-for="warning in messages.warning" :key="warning.id">
+            <Warning :message="warning" />
         </div>
-        <div v-for="message in messages.information" :key="message.id">
-            <Information :message="message" />
+        <div v-for="information in messages.information" :key="information.id">
+            <Information :message="information" />
         </div>
     </transition-group>
 </template>

@@ -67,6 +67,9 @@ const form = useForm({
 });
 
 function submit() {
+    // add messages to session
+
+
     form.patch(`/admin/posts/${props.post.id}`, {
         onSuccess: () => {
             page.props.messages.success.push({
