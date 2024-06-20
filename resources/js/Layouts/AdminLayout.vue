@@ -21,7 +21,7 @@
                                 </Link>
                             </ul>
                         </aside>
-                        <div class="flex-1 overflow-x-auto overflow-y-hidden">
+                        <div class="flex-1 overflow-hidden">
                             <slot></slot>
                         </div>
                     </div>

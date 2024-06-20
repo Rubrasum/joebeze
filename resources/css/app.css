@@ -26,12 +26,26 @@ main a:hover:not(.btn-read-gray):not(.btn-color-cat) {
     text-decoration: none;
 }
 /* Custom styling for the date picker button */
-input[type="date"]::-webkit-calendar-picker-indicator {
+input[type="date"]::-webkit-calendar-picker-indicator,
+input[type="datetime-local"]::-webkit-calendar-picker-indicator {
     filter: invert(1);
     cursor: pointer;
 }
 
 /* Firefox specific styling */
-input[type="date"]::-moz-focus-inner {
+input[type="date"]::-moz-focus-inner,
+input[type="datetime-local"]::-moz-focus-outer {
+    border: 0;
+}
+/* Custom styling for the date picker button */
+input[type="date"]::-webkit-calendar-picker-indicator,
+input[type="datetime-local"]::-webkit-calendar-picker-indicator {
+    filter: invert(1);
+    cursor: pointer;
+}
+
+/* Firefox specific styling */
+input[type="date"]::-moz-focus-inner,
+input[type="datetime-local"]::-moz-focus-outer {
     border: 0;
 }
