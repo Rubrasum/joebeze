@@ -17,7 +17,7 @@
 
                             <Input name="published_at" type="date" required class="datepicker" v-model="form.published_at" />
 
-                            <Textarea name="excerpt" :label="'Post Excerpt'" :height="'h-48'" required v-model="form.excerpt"></Textarea>
+                            <QuillArea name="excerpt" :label="'Post Excerpt'" :height="'h-48'" required v-model="form.excerpt"></QuillArea>
                             <QuillArea name="body" :label="'Post Body'" :height="'h-96'" required v-model="form.body"></QuillArea>
 
                             <Button>Update</Button>

@@ -1,7 +1,7 @@
 <template>
     <Field class="mb-8">
         <Label :name="name" :label="label" :class="['block text-md px-2 leading-8 bg-slate-900 text-white']"/>
-        <div :id="name" ref="quillEditor" class="quill-editor w-full"></div>
+        <div :id="name" class="quill-editor w-full"></div>
         <Error :name="name" />
     </Field>
 </template>
@@ -46,18 +46,17 @@ const props = defineProps({
 });
 
 const emit = defineEmits(['update:modelValue']);
-const quillEditor = ref(null);
 
 onMounted(() => {
 
-    const quill = new Quill(quillEditor.value, {
+    const quill = new Quill(`#${props.name}`, {
         theme: 'snow',
         modules: {
             toolbar: [
                 [{ 'header': '1' }, { 'header': '2' }, { 'font': [] }],
                 [{ size: ['small', false, 'large', 'huge'] }, { 'color': [] }, { 'background': [] }],
                 ['bold', 'italic', 'underline', 'strike', 'blockquote'],
-                [{ 'list': 'ordered' }, { 'list': 'bullet' }, { 'indent': '-1' }, { 'indent': '+1' }],
+                [{ 'list': 'ordered' }, { 'list': 'bullet' }, ],
                 ['link', 'image', 'video'],
                 ['clean']
             ],
