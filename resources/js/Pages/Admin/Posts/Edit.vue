@@ -5,7 +5,7 @@
             <div class="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
                 <div class="py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8">
                     <div class="shadow overflow-hidden border-b border-gray-200 sm:rounded-lg">
-                        <form @submit.prevent="form.patch(`/admin/posts/${post.id}`)" enctype="multipart/form-data">
+                        <form @submit.prevent="form.patch(`/admin/posts/${post.id}`)">
 <!--                            https://inertiajs.com/forms-->
                             <TitleInput name="title" :label="'Post Title'" v-model="form.title" required />
 
@@ -55,6 +55,8 @@ const props = defineProps({
 });
 const page = usePage();
 
+const post = computed(() => page.props.post)
+
 const form = useForm({
     title: props.post.title,
     slug: props.post.slug,
@@ -76,6 +78,4 @@ function formatDate(dateString) {
     const seconds = String(date.getSeconds()).padStart(2, '0');
     return `${year}-${month}-${day}T${hours}:${minutes}:${seconds}`;
 }
-
-const post = computed(() => page.props.post)
 </script>
