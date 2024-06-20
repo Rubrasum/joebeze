@@ -1,11 +1,11 @@
 <template>
     <Head title="Manage Posts" />
-    <main class="flex-1">
+    <main class="flex-1 mx-2">
         <div class="flex flex-col">
             <div class="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
                 <div class="py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8">
-                    <div class="shadow overflow-hidden border-b border-gray-200 sm:rounded-lg">
-                        <form @submit.prevent="form.patch(`/admin/posts/${post.id}`)">
+                    <div class="shadow overflow-hidden sm:rounded-lg">
+                        <form @submit.prevent="submit">
 <!--                            https://inertiajs.com/forms-->
                             <TitleInput name="title" :label="'Post Title'" v-model="form.title" required />
 
@@ -66,7 +66,14 @@ const form = useForm({
     published_at: formatDate(props.post.published_at) || '',
 });
 
-
+function submit() {
+    form.patch(`/admin/posts/${props.post.id}`, {
+        preserveScroll: true,
+        onSuccess: () => {
+            page.props.flash.message = 'Post updated successfully!';
+        },
+    });
+}
 
 function formatDate(dateString) {
     const date = new Date(dateString);
