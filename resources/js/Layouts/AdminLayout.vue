@@ -38,7 +38,7 @@
 
 <script setup>
 // Importing necessary functions and components from Vue and Inertia.js
-import { Link, router } from '@inertiajs/vue3';
+import {Link, router, usePage} from '@inertiajs/vue3';
 import MainContain from '@/Components/Layout/MainContain.vue';
 import Footer from '@/Components/Layout/Footer.vue';
 import AdminNav from '@/Components/Layout/AdminNav.vue';
@@ -53,6 +53,7 @@ window.onload = function() {
 
 const slot = useSlots();
 const title = ref(slot.title ? slot.title()[0].children : 'Admin Dashboard');
+
 
 
 </script>

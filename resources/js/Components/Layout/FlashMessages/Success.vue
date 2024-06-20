@@ -6,7 +6,7 @@
             </div>
             <div class="ml-3">
                 <h3 class="text-sm font-medium text-green-800">{{ title }}</h3>
-                <div class="mt-2 text-sm text-green-700">
+                <div class="text-sm text-green-700">
                     <p>{{ message }}</p>
                 </div>
             </div>

@@ -68,9 +68,8 @@ const form = useForm({
 
 function submit() {
     form.patch(`/admin/posts/${props.post.id}`, {
-        preserveScroll: true,
         onSuccess: () => {
-            page.props.flash.message = 'Post updated successfully!';
+            page.props.messages.success.push('Post updated successfully!');
         },
     });
 }
