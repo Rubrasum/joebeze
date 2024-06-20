@@ -51,9 +51,19 @@ const props = defineProps({
     categories : {
         type: Array,
         required: true,
-    }
+    },
 });
 const page = usePage();
+
+
+if (page.props.messages === undefined) {
+    page.props.messages = {
+        success: [],
+        error: [],
+        warning: [],
+        information: [],
+    }
+}
 
 const post = computed(() => page.props.post)
 
@@ -69,8 +79,8 @@ const form = useForm({
 function submit() {
     // add messages to session
 
-
     form.patch(`/admin/posts/${props.post.id}`, {
+        only: ['post'],
         onSuccess: () => {
             page.props.messages.success.push({
                 message: 'Post updated successfully!',
