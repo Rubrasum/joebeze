@@ -40,7 +40,7 @@ class HandleInertiaRequests extends Middleware
                 'success' => [],
                 'error' => [],
                 'info' => [],
-                'alert' => [],
+                'warning' => [],
             ],
         ]);
     }
