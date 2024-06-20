@@ -1,16 +1,18 @@
 <template>
-    <div v-for="message in messages.success" :key="message.id">
-        <Success :message="message" />
-    </div>
-    <div v-for="message in messages.error" :key="message.id">
-        <Error :message="message" />
-    </div>
-    <div v-for="message in messages.warning" :key="message.id">
-        <Warning :message="message" />
-    </div>
-    <div v-for="message in messages.information" :key="message.id">
-        <Information :message="message" />
-    </div>
+    <transition-group name="fade" tag="div">
+        <div v-for="message in messages.success" :key="message.id">
+            <Success :message="message" />
+        </div>
+        <div v-for="message in messages.error" :key="message.id">
+            <Error :message="message" />
+        </div>
+        <div v-for="message in messages.warning" :key="message.id">
+            <Warning :message="message" />
+        </div>
+        <div v-for="message in messages.information" :key="message.id">
+            <Information :message="message" />
+        </div>
+    </transition-group>
 </template>
 
 <script setup>
@@ -24,7 +26,7 @@ import {usePage} from "@inertiajs/vue3";
 const page = usePage();
 const messages = computed(() => page.props.messages);
 
-// every 20 seconds clear the messages
+// Custom duration
 setInterval(() => {
     for (const key in page.props.messages) {
         // handle duration
@@ -38,9 +40,16 @@ setInterval(() => {
                 page.props.messages[key].splice(page.props.messages[key].indexOf(message), 1);
             }
         }
-
-
     }
 }, 1000);
 
 </script>
+
+<style>
+.fade-enter-active, .fade-leave-active {
+    @apply transition-opacity duration-500;
+}
+.fade-enter-from, .fade-leave-to {
+    @apply opacity-0;
+}
+</style>
