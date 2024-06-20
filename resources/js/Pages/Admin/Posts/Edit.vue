@@ -69,7 +69,10 @@ const form = useForm({
 function submit() {
     form.patch(`/admin/posts/${props.post.id}`, {
         onSuccess: () => {
-            page.props.messages.success.push('Post updated successfully!');
+            page.props.messages.success.push({
+                message: 'Post updated successfully!',
+                duration: 10,
+            });
         },
     });
 }

@@ -26,12 +26,21 @@ const messages = computed(() => page.props.messages);
 
 // every 20 seconds clear the messages
 setInterval(() => {
-    page.props.messages = {
-        success: [],
-        error: [],
-        warning: [],
-        information: [],
-    };
-}, 20000);
+    for (const key in page.props.messages) {
+        // handle duration
+        for (const message of page.props.messages[key]) {
+            if (message.duration === undefined) {
+                message.duration = 10;
+            } else if (message.duration > 0) {
+                message.duration -= 1;
+            } else {
+                // remove the message
+                page.props.messages[key].splice(page.props.messages[key].indexOf(message), 1);
+            }
+        }
+
+
+    }
+}, 1000);
 
 </script>
