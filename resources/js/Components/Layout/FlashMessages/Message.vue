@@ -1,15 +1,15 @@
 <template>
     <div v-if="message.type === 'information'">
-        <Information :message="message" />
+        <Information :message="message.message" />
     </div>
     <div v-else-if="message.type === 'success'">
-        <Success :message="message" />
+        <Success :message="message.message" />
     </div>
     <div v-else-if="message.type === 'error'">
-        <Error :message="message" />
+        <Error :message="message.message" />
     </div>
     <div v-else-if="message.type === 'warning'">
-        <Warning :message="message" />
+        <Warning :message="message.message" />
     </div>
 
 </template>

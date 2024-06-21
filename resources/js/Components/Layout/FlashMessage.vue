@@ -9,6 +9,7 @@
 </template>
 
 <script setup>
+// TODO FIX THIS GARBAGE BECAUSE IT NEEDS TO USE FLASH MESSAGES LIKE THE DOCS SAID :(
 import Message from "@/Components/Layout/FlashMessages/Message.vue";
 import {computed, onMounted, ref} from "vue";
 import {usePage} from "@inertiajs/vue3";
