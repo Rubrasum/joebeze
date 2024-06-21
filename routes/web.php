@@ -1,6 +1,8 @@
 <?php
 
+use App\Http\Controllers\AdminPostController;
 use App\Http\Controllers\PostController;
+use App\Http\Controllers\ProfileController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
@@ -40,7 +42,9 @@ Route::middleware([
     });
 // Admin Section
     Route::middleware('can:admin')->group(function () {
-        Route::resource('admin/posts', AdminPostController::class)->except('show');
+        Route::get('admin/posts', [AdminPostController::class, 'index'])->name('admin.posts.index');
+        Route::get('admin/posts/{post:id}/edit', [AdminPostController::class, 'edit'])->name('admin.posts.edit');
+        Route::patch('admin/posts/{post:id}', [AdminPostController::class, 'update'])->name('admin.posts.update');
     });
 });
 

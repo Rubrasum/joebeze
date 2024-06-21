@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+use App\Models\Category;
 use App\Models\Post;
 use App\Models\User;
 use Illuminate\Database\Seeder;
@@ -19,10 +20,14 @@ class DatabaseSeeder extends Seeder
             'email' => 'josephbetbeze@gmail.com',
             'admin' => true,
         ]);
+        $categories = Category::factory()->count(10)->create();
 
-        Post::factory(15)->create([
-            'user_id' => $user->id
-        ]);
+        $categories->each(function ($category) use ($user) {
+            Post::factory(20)->create([
+                'user_id' => $user->id,
+                'category_id' => $category->id
+            ]);
+        });
 
 
     }

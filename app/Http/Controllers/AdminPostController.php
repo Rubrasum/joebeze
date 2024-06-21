@@ -2,18 +2,29 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Category;
 use App\Models\Post;
 use Carbon\Carbon;
 use Illuminate\Validation\Rule;
+use Inertia\Inertia;
 
 class AdminPostController extends Controller
 {
     public function index()
     {
-        return view('admin.posts.index', [
-            'posts' => Post::latest('published_at')
-                ->paginate(25)
-                ->withQueryString()
+//        return view('admin.posts.index', [
+//            'posts' => Post::latest('published_at')
+//                ->paginate(25)
+//                ->withQueryString()
+//        ]);
+
+        // Inertia version
+        $posts = Post::latest('published_at')
+            ->paginate(10)
+            ->withQueryString();
+
+        return Inertia::render('Admin/Posts/Index', [
+            'posts' => $posts
         ]);
     }
 
@@ -30,18 +41,17 @@ class AdminPostController extends Controller
     }
 
     public function edit(Post $post) {
-        return view('admin.posts.edit', ['post' => $post]);
+        // Get categories for dropdown
+        $categories = Category::all();
+
+        return Inertia::render('Admin/Posts/Edit', [
+            'post' => $post,
+            'categories' => $categories
+        ]);
     }
 
     public function update(Post $post) {
         $attributes = $this->validatePost($post);
-
-
-        // Convert the date format
-        $formattedDate = Carbon::createFromFormat('Y-m-d', request('published_at'))->format('Y-m-d');
-
-        // Add the formatted date to the attributes array
-        $attributes['published_at'] = $formattedDate;
 
         $post->update($attributes);
 

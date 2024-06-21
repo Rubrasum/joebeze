@@ -1,6 +1,6 @@
 <template>
     <header class="bg-white">
-        <div id="nav_container" class="nav_container h-24 flex items-center items-center justify-center" x-data="{ open: false }">
+        <div id="nav_container" class="nav_container h-24 flex items-center items-center justify-center" >
             <Link :href="`/`" preserve-state>
                 <SpecialLogo v-once/>
             </Link>

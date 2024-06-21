@@ -1,6 +1,5 @@
 <script setup>
 // Importing necessary functions and components from Vue and Inertia.js
-import { ref } from 'vue';
 import { Link, router } from '@inertiajs/vue3';
 import MainContain from '@/Components/Layout/MainContain.vue';
 import Footer from '@/Components/Layout/Footer.vue';
@@ -8,10 +7,6 @@ import PrimaryNav from '@/Components/Layout/PrimaryNav.vue';
 
 
 // SAMPLE CODE FOR PAGE //////////////////////////////////////////////////////////////////////////////////////////////
-// Function to log out the user
-const logout = () => {
-    router.post(route('logout'));
-};
 // hide the page body_container id element until its loaded
 window.onload = function() {
     // change body element to visible

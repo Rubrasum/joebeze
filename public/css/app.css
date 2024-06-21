@@ -2,11 +2,11 @@ body article h2 {
     font-size: 1.75rem;
     line-height: 1rem;
 }
+/* TODO CLEAN UP - DECIDE ON CSS PHILOSOPHY/PARADIGMS */
+/*main a:not(.btn-read-gray):not(.btn-color-cat) {*/
+/*    text-decoration: underline;*/
+/*}*/
 
-main a:not(.btn-read-gray):not(.btn-color-cat) {
-    text-decoration: underline;
-}
-
-main a:hover:not(.btn-read-gray):not(.btn-color-cat) {
-    text-decoration: none;
-}
+/*main a:hover:not(.btn-read-gray):not(.btn-color-cat) {*/
+/*    text-decoration: none;*/
+/*}*/
