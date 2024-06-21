@@ -1,6 +1,6 @@
 <template>
-    <div class="inline-block">
-        <transition-group name="slide-fade" tag="div" class="relative">
+    <div class="inline-block w-full">
+        <transition-group name="slide-fade" tag="div" class="relative w-192">
             <div v-for="(message, index) in messages" :key="index" class="mb-2 relative w-full" >
                 <Message :message="message" class="relative" v-if="message.duration > 0" />
             </div>
