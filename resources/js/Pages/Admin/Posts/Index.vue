@@ -4,32 +4,34 @@
         <div class="flex flex-col  w-full">
             <div class="-my-2 overflow-x-auto w-full">
                 <div class="py-2 align-middle inline-block sm:px-2 lg:px-4 w-full">
-                    <div class="shadow overflow-hidden border-b border-gray-200 sm:rounded-lg ">
+                    <h2>All Posts</h2>
+
+                    <div class="overflow-hidden shadow border border-white sm:rounded-lg">
                         <table class="min-w-full divide-y divide-gray-200" >
-                            <thead class="bg-gray-50 w-full">
+                            <thead>
                             <tr>
-                                <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                <th scope="col">
                                     Id
                                 </th>
-                                <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                <th scope="col" class="border-0">
                                     Title
                                 </th>
-                                <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                <th scope="col" class="border-0">
                                     <span class="sr-only">Edit</span>
                                 </th>
-                                <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                <th scope="col" class="border-0">
                                     <span class="sr-only">Delete</span>
                                 </th>
                             </tr>
                             </thead>
-                            <tbody class="bg-white divide-y divide-gray-200 w-full">
+                            <tbody class="bg-slate-900 divide-y divide-gray-200 w-full">
                             <tr v-for="post in posts.data" :key="post.id">
                                 <td class="px-6 py-4 ">
-                                    <div class="text-sm text-gray-900">{{ post.id }}</div>
+                                    <div class="text-sm text-white">{{ post.id }}</div>
                                 </td>
-                                <td class="px-6 py-4 ">
+                                <td class="px-6 py-4">
                                     <div class="flex items-center">
-                                        <div class="text-sm font-medium text-slate-900 hover:font-bold">
+                                        <div class="text-sm font-medium">
                                             <Link :href="`/post/${post.slug}`">
                                                 {{ post.title }}
                                             </Link>

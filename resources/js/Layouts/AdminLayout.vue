@@ -60,7 +60,21 @@ const title = ref(slot.title ? slot.title()[0].children : 'Admin Dashboard');
 
 
 <style>
-
+a {
+    @apply text-white underline text-sm font-medium;
+}
+a:hover {
+    @apply text-gray-300 no-underline;
+}
+h2 {
+    @apply text-3xl font-bold mb-1 pb-2 border-b border-gray-200;
+}
+th {
+    @apply px-6 py-2 text-left text-base font-semibold text-white uppercase tracking-wider border-r border-dashed border-gray-200;
+}
+thead {
+    @apply bg-slate-900 w-full;
+}
 
 html {
     scroll-behavior: smooth
