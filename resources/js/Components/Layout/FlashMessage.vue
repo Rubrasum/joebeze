@@ -1,55 +1,56 @@
 <template>
-    <transition-group name="fade" tag="div">
-        <div v-for="success in messages.success" :key="success.id">
-            <Success :message="success" />
-        </div>
-        <div v-for="error in messages.error" :key="error.id">
-            <Error :message="error" />
-        </div>
-        <div v-for="warning in messages.warning" :key="warning.id">
-            <Warning :message="warning" />
-        </div>
-        <div v-for="information in messages.information" :key="information.id">
-            <Information :message="information" />
-        </div>
-    </transition-group>
+    <div class="inline-block">
+        <transition-group name="slide-fade" tag="div" class="relative">
+            <div v-for="(message, index) in messages" :key="index" class="mb-2 relative w-full" >
+                <Message :message="message" class="relative" v-if="message.duration > 0" />
+            </div>
+        </transition-group>
+    </div>
 </template>
 
 <script setup>
-import Success from '@/Components/Layout/FlashMessages/Success.vue';
-import Error from '@/Components/Layout/FlashMessages/Error.vue';
-import Warning from '@/Components/Layout/FlashMessages/Warning.vue';
-import Information from '@/Components/Layout/FlashMessages/Information.vue';
-import {computed} from "vue";
+import Message from "@/Components/Layout/FlashMessages/Message.vue";
+import {computed, onMounted, ref} from "vue";
 import {usePage} from "@inertiajs/vue3";
 
 const page = usePage();
-const messages = computed(() => page.props.messages);
+const messages = ref(page.props.messages);
 
 // Custom duration
 setInterval(() => {
-    for (const key in page.props.messages) {
-        // handle duration
-        for (const message of page.props.messages[key]) {
-            if (message.duration === undefined) {
-                message.duration = 10;
-            } else if (message.duration > 0) {
-                message.duration -= 1;
-            } else {
-                // remove the message
-                page.props.messages[key].splice(page.props.messages[key].indexOf(message), 1);
-            }
+    // handle duration
+    for (const message of page.props.messages) {
+        if (message.duration === undefined) {
+            message.duration = 10;
+        } else if (message.duration > 0) {
+            message.duration -= 1;
+        } else {
+            message.invisible = true;
         }
     }
 }, 1000);
 
+onMounted(() => {
+    setInterval(() => {
+        // if all messages invisible, remove all messages
+        if (page.props.messages.every(message => message.invisible)) {
+            page.props.messages = [];
+        }
+    }, 100000);
+});
+
 </script>
 
-<style>
-.fade-enter-active, .fade-leave-active {
-    @apply transition-opacity duration-500;
+<style >
+.slide-fade-enter-active, .slide-fade-leave-active{
+    transition: opacity 1s, transform 1s;
 }
-.fade-enter-from, .fade-leave-to {
-    @apply opacity-0;
+.slide-fade-enter-from, .slide-fade-leave-to {
+    opacity: 0;
+    transform: translateY(-20px);
+}
+.slide-fade-move {
+    transition: transform 1s ease;
 }
 </style>
+

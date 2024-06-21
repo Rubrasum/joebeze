@@ -57,12 +57,7 @@ const page = usePage();
 
 
 if (page.props.messages === undefined) {
-    page.props.messages = {
-        success: [],
-        error: [],
-        warning: [],
-        information: [],
-    }
+    page.props.messages = [];
 }
 
 const post = computed(() => page.props.post)
@@ -82,9 +77,10 @@ function submit() {
     form.patch(`/admin/posts/${props.post.id}`, {
         only: ['post'],
         onSuccess: () => {
-            page.props.messages.success.push({
-                message: 'Post updated successfully!',
-                duration: 10,
+            page.props.messages.push({
+                message: 'Post "' + page.props.post.title + '" updated successfully!',
+                duration: 5,
+                type: "success"
             });
         },
     });
