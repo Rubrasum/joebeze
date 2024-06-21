@@ -21,7 +21,7 @@
                 </div>
 
 
-                <div class="text-white space-y-4 lg:text-lg leading-loose pt-10">{{ post.body }}</div>
+                <div class="text-white space-y-4 lg:text-lg leading-loose pt-10" v-html="post.body"></div>
             </article>
         </main>
     </div>
