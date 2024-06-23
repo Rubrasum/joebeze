@@ -1,0 +1,96 @@
+<template>
+    <Head title="Manage Posts" />
+    <main class="flex-1 mx-2">
+        <div class="flex flex-col">
+            <div class="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
+                <div class="py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8">
+                    <div class="shadow overflow-hidden sm:rounded-lg">
+                        <form @submit.prevent="submit">
+                            <!--                            https://inertiajs.com/forms-->
+                            <TitleInput name="title" :label="'Post Title'" v-model="form.title" required />
+
+                            <Input name="slug" :label="'Post Slug'" v-model="form.slug" required />
+
+                            <Select name="category_id" :label="'Category'" v-model="form.category_id"
+                                    :options="page.props.categories.map(category => ({ key: category.slug, value: category.id }))"
+                                    required/>
+
+                            <Input name="published_at" type="datetime-local" required class="datepicker" v-model="form.published_at" />
+
+                            <QuillArea name="excerpt" :label="'Post Excerpt'" :height="'h-48'" required v-model="form.excerpt"></QuillArea>
+                            <QuillArea name="body" :label="'Post Body'" :height="'h-96'" required v-model="form.body"></QuillArea>
+
+                            <Button>Update</Button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+</template>
+
+
+<script setup>
+import {Head, Link, router, useForm, usePage} from '@inertiajs/vue3';
+import AdminLayout from '@/Layouts/AdminLayout.vue';
+import {computed} from "vue";
+import Input from "@/Components/Forms/Input.vue";
+import TitleInput from "@/Components/Forms/TitleInput.vue";
+import Button from "@/Components/Forms/Button.vue";
+import Select from "@/Components/Forms/Select.vue";
+import QuillArea from "@/Components/Forms/QuillArea.vue";
+
+defineOptions({
+    layout: AdminLayout,
+})
+const props = defineProps({
+    categories : {
+        type: Array,
+        required: true,
+    },
+});
+const page = usePage();
+
+
+if (page.props.messages === undefined) {
+    page.props.messages = [];
+}
+
+const post = computed(() => page.props.post)
+
+const form = useForm({
+    title: "",
+    slug: "",
+    excerpt: "",
+    body: "",
+    category_id: "",
+    published_at: "",
+});
+
+function submit() {
+    // add messages to session
+
+    form.post(`/admin/posts/${props.post.id}`, {
+        only: ['post'],
+        onSuccess: () => {
+            page.props.messages.push({
+                message: 'Post "' + form.title + '" created successfully!',
+                duration: 5,
+                type: "success"
+            });
+            router.get(`/admin/posts/${page.props.post.id}`);
+        },
+    });
+}
+
+function formatDate(dateString) {
+    const date = new Date(dateString);
+    const year = date.getFullYear();
+    const month = String(date.getMonth() + 1).padStart(2, '0'); // January is 0! Js is bad!
+    const day = String(date.getDate()).padStart(2, '0');
+    const hours = String(date.getHours()).padStart(2, '0');
+    const minutes = String(date.getMinutes()).padStart(2, '0');
+    const seconds = String(date.getSeconds()).padStart(2, '0');
+    return `${year}-${month}-${day}T${hours}:${minutes}:${seconds}`;
+}
+</script>

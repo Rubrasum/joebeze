@@ -32,12 +32,12 @@ class AdminPostController extends Controller
         return view('admin.posts.create');
     }
 
-    public function store() {
-        Post::create(array_merge($this->validatePost(), [
-            'user_id' => request()->user()->id
-        ]));
+    public function store(Post $post) {
+        $attributes = $this->validatePost($post);
 
-        return redirect('/admin/posts');
+        $post->create($attributes);
+
+        return back()->with('success', 'Post Created!');
     }
 
     public function edit(Post $post) {
@@ -51,11 +51,15 @@ class AdminPostController extends Controller
     }
 
     public function update(Post $post) {
+        $categories = Category::all();
         $attributes = $this->validatePost($post);
 
         $post->update($attributes);
 
-        return back()->with('success', 'Post Updated!');
+        return Inertia::render('Admin/Posts/Edit', [
+            'post' => $post,
+            'categories' => $categories
+        ]);
     }
 
     public function destroy(Post $post) {
