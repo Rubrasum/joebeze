@@ -70,7 +70,7 @@ const form = useForm({
 function submit() {
     // add messages to session
 
-    form.post(`/admin/posts/${props.post.id}`, {
+    form.post(`/admin/posts`, {
         only: ['post'],
         onSuccess: () => {
             page.props.messages.push({

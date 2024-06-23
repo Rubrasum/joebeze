@@ -10,12 +10,11 @@
                                 <h2>All Posts</h2>
                             </div>
                             <div class="ml-4 mt-2 flex-shrink-0">
-                                <Link type="button"
-                                      class="relative inline-flex items-center rounded-md bg-slate-700 px-3 py-2
+                                <Link class="relative inline-flex items-center rounded-md bg-slate-700 px-3 py-2
                                       text-sm font-semibold text-white shadow-sm hover:bg-slate-600
                                       focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2
                                       focus-visible:outline-slate-600 border border-white"
-                                      :href="`/post/${post.slug}`"
+                                      :href="`/admin/posts/create`"
                                 >Create new job</Link>
                             </div>
                         </div>
