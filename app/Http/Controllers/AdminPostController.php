@@ -29,7 +29,12 @@ class AdminPostController extends Controller
     }
 
     public function create() {
-        return view('admin.posts.create');
+        // Get categories for dropdown
+        $categories = Category::all();
+
+        return Inertia::render('Admin/Posts/Create', [
+            'categories' => $categories
+        ]);
     }
 
     public function store(Post $post) {

@@ -4,7 +4,22 @@
         <div class="flex flex-col  w-full">
             <div class="-my-2 overflow-x-auto w-full">
                 <div class="py-2 align-middle inline-block sm:px-2 lg:px-4 w-full">
-                    <h2>All Posts</h2>
+                    <div class="bg-slate-900 mb-2 px-2 py-2 sm:px-6">
+                        <div class="-ml-4 -mt-2 flex flex-wrap items-center justify-between sm:flex-nowrap">
+                            <div class="ml-4 mt-2">
+                                <h2>All Posts</h2>
+                            </div>
+                            <div class="ml-4 mt-2 flex-shrink-0">
+                                <Link type="button"
+                                      class="relative inline-flex items-center rounded-md bg-slate-700 px-3 py-2
+                                      text-sm font-semibold text-white shadow-sm hover:bg-slate-600
+                                      focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2
+                                      focus-visible:outline-slate-600 border border-white"
+                                      :href="`/post/${post.slug}`"
+                                >Create new job</Link>
+                            </div>
+                        </div>
+                    </div>
 
                     <div class="overflow-hidden shadow border border-white sm:rounded-lg">
                         <table class="min-w-full divide-y divide-gray-200" >
