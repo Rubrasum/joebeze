@@ -24,7 +24,7 @@ class UpdatePostRequest extends FormRequest
     {
         // TODO Update the rules on the frontend
         return [
-            'title' => 'required|max:200',
+            'title' => 'required|max:200|unique:posts,title,' . $this->post->id,
             'slug' => 'required|max:50|unique:posts,slug,' . $this->post->id,
             'excerpt' => 'required|min:5|max:2000',
             'body' => 'required|min:5|max:5000',
