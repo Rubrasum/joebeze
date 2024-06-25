@@ -20,7 +20,7 @@
                             <QuillArea name="excerpt" :label="'Post Excerpt'" :height="'h-48'" required v-model="form.excerpt"></QuillArea>
                             <QuillArea name="body" :label="'Post Body'" :height="'h-96'" required v-model="form.body"></QuillArea>
 
-                            <Button>Update</Button>
+                            <Button>Create new post</Button>
                         </form>
                     </div>
                 </div>
