@@ -6,20 +6,27 @@
                 <div class="py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8">
                     <div class="shadow overflow-hidden sm:rounded-lg">
                         <form @submit.prevent="submit">
-                            <div class="flex justify-end">
-                                <Link :href="`/admin/posts/${post.id}`"
-                                      :class="`relative inline-flex items-center rounded-md bg-slate-700 px-3 py-2
-                                      text-sm font-semibold text-white shadow-sm hover:bg-slate-600
-                                      focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2
-                                      focus-visible:outline-slate-600 border border-white mr-2`"
-                                >View (Leave editor)</Link>
-                                <Link :href="`/posts/${post.slug}`"
-                                      :class="`relative inline-flex items-center rounded-md bg-slate-700 px-3 py-2
-                                      text-sm font-semibold text-white shadow-sm hover:bg-slate-600
-                                      focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2
-                                      focus-visible:outline-slate-600 border border-white`"
+                            <div class="flex justify-between">
+                                <div>
+                                    <h1 class="items-center rounded-md bg-slate-700 px-3 py-2 text-sm font-semibold text-white shadow-sm">
+                                        Editing Post: {{ post.id }}
+                                    </h1>
+                                </div>
+                                <div>
+                                    <Link :href="`/admin/posts/${post.id}`"
+                                          :class="`relative inline-flex items-center rounded-md bg-slate-700 px-3 py-2
+                                          text-sm font-semibold text-white shadow-sm hover:bg-slate-600
+                                          focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2
+                                          focus-visible:outline-slate-600 border border-white mr-2`"
+                                    >View (Leave editor)</Link>
+                                    <Link :href="`/posts/${post.slug}`"
+                                          :class="`relative inline-flex items-center rounded-md bg-slate-700 px-3 py-2
+                                          text-sm font-semibold text-white shadow-sm hover:bg-slate-600
+                                          focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2
+                                          focus-visible:outline-slate-600 border border-white`"
 
-                                >Preview</Link>
+                                    >Preview</Link>
+                                </div>
                             </div>
 <!--                            https://inertiajs.com/forms-->
                             <TitleInput name="title" :label="'Post Title'" v-model="form.title" required />

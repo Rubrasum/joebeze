@@ -14,7 +14,7 @@
                                       text-sm font-semibold text-white shadow-sm hover:bg-slate-600
                                       focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2
                                       focus-visible:outline-slate-600 border border-white"
-                                      :href="`/admin/posts/create`"
+                                      :href="`/admin/posts/create/`"
                                 >Create new post</Link>
                             </div>
                         </div>
@@ -46,7 +46,7 @@
                                 <td class="px-6 py-4">
                                     <div class="flex items-center">
                                         <div class="text-sm font-medium">
-                                            <Link :href="`/admin/posts/${post.id}`">
+                                            <Link :href="`/post/${post.slug}`">
                                                 {{ post.title }}
                                             </Link>
                                         </div>
