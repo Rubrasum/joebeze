@@ -19,14 +19,16 @@ const messages = ref(page.props.messages);
 
 // Custom duration
 setInterval(() => {
-    // handle duration
-    for (const message of page.props.messages) {
-        if (message.duration === undefined) {
-            message.duration = 10;
-        } else if (message.duration > 0) {
-            message.duration -= 1;
-        } else {
-            message.invisible = true;
+    if (page.props.messages !== undefined) {
+        // handle duration
+        for (const message of page.props.messages) {
+            if (message.duration === undefined) {
+                message.duration = 10;
+            } else if (message.duration > 0) {
+                message.duration -= 1;
+            } else {
+                message.invisible = true;
+            }
         }
     }
 }, 1000);

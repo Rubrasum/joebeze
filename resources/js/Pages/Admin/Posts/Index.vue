@@ -15,7 +15,7 @@
                                       focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2
                                       focus-visible:outline-slate-600 border border-white"
                                       :href="`/admin/posts/create`"
-                                >Create new job</Link>
+                                >Create new post</Link>
                             </div>
                         </div>
                     </div>
