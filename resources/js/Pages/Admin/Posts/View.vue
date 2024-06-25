@@ -9,15 +9,17 @@
                             <div class="flex justify-end">
                                 <!-- Convert these to their own button components. Replace on Edit Page too.  -->
                                 <Link :href="`/admin/posts/${post.id}/edit`"
-                                      :class="`relative inline-flex items-center rounded-l-md rounded-r-md bg-white px-3 py-2 text-sm
-                                                font-semibold text-gray-900 ring-1 ring-inset ring-gray-300
-                                                hover:bg-gray-50 focus:z-10 mr-2`"
+                                      :class="`relative inline-flex items-center rounded-md bg-slate-700 px-3 py-2
+                                      text-sm font-semibold text-white shadow-sm hover:bg-slate-600
+                                      focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2
+                                      focus-visible:outline-slate-600 border border-white mr-2`"
 
                                 >Edit</Link>
                                 <Link :href="`/posts/${post.slug}`"
-                                      :class="`relative inline-flex items-center rounded-l-md rounded-r-md bg-white px-3 py-2 text-sm
-                                                font-semibold text-gray-900 ring-1 ring-inset ring-gray-300
-                                                hover:bg-gray-50 focus:z-10`"
+                                      :class="`relative inline-flex items-center rounded-md bg-slate-700 px-3 py-2
+                                      text-sm font-semibold text-white shadow-sm hover:bg-slate-600
+                                      focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2
+                                      focus-visible:outline-slate-600 border border-white`"
 
                                 >Preview</Link>
                             </div>
