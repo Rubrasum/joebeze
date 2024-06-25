@@ -6,6 +6,20 @@
                 <div class="py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8">
                     <div class="shadow overflow-hidden sm:rounded-lg">
                         <form @submit.prevent="submit">
+                            <div class="flex justify-end">
+                                <Link :href="`/admin/posts/${post.id}`"
+                                      :class="`relative inline-flex items-center rounded-l-md rounded-r-md bg-white px-3 py-2 text-sm
+                                                font-semibold text-gray-900 ring-1 ring-inset ring-gray-300
+                                                hover:bg-gray-50 focus:z-10`"
+
+                                >View (Leave editor)</Link>
+                                <Link :href="`/posts/${post.slug}`"
+                                      :class="`relative inline-flex items-center rounded-l-md rounded-r-md bg-white px-3 py-2 text-sm
+                                                font-semibold text-gray-900 ring-1 ring-inset ring-gray-300
+                                                hover:bg-gray-50 focus:z-10`"
+
+                                >Preview</Link>
+                            </div>
 <!--                            https://inertiajs.com/forms-->
                             <TitleInput name="title" :label="'Post Title'" v-model="form.title" required />
 
