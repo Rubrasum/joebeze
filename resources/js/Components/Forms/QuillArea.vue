@@ -1,7 +1,8 @@
 <template>
     <Field class="mb-8">
         <Label :name="name" :label="label" :class="['block text-md px-2 leading-8 bg-slate-900 text-white']"/>
-        <div :id="name" class="quill-editor w-full"></div>
+        <div :id="name" class="quill-editor w-full
+                disabled:opacity-50 disabled:cursor-not-allowed" :disabled="disabled"></div>
         <Error :name="name" />
     </Field>
 </template>
@@ -42,6 +43,10 @@ const props = defineProps({
     label : {
         type: String,
         default: null,
+    },
+    disabled : {
+        type: Boolean,
+        default: false,
     }
 });
 
@@ -65,17 +70,37 @@ onMounted(() => {
     });
     // Apply custom styles
     const editor = quill.root;
+
     editor.style.minHeight = props.height === 'h-48' ? '12rem' : '24rem'; // Match h-48 and h-96
     editor.style.backgroundColor = 'rgb(15 23 42)'; // Tailwind Slate-800
     editor.style.color = '#ffffff'; // White text
     editor.style.padding = '1rem'; // Matching textarea padding
 
-
     quill.root.innerHTML = props.modelValue;
 
-    quill.on('text-change', () => {
-        emit('update:modelValue', quill.root.innerHTML);
-    });
+    if (props.disabled) {
+        // watch disabled to disable the editor
+        quill.disable();
+        // make quill cursor not-allowed
+        quill.root.style.cursor = 'not-allowed';
+        // and opacity 50
+        quill.root.style.opacity = '0.5';
+        // and same for toolbar
+        quill.getModule('toolbar').container.style.cursor = 'not-allowed';
+        // recursively disable all buttons
+        quill.getModule('toolbar').container.querySelectorAll('button').forEach((button) => {
+            button.disabled = true;
+        });
+        // remove div with class ql-toolbar
+        quill.getModule('toolbar').container.remove();
+    } else {
+
+        quill.on('text-change', () => {
+            emit('update:modelValue', quill.root.innerHTML);
+        });
+
+    }
+
 });
 
 // Watch for external modelValue changes and update Quill

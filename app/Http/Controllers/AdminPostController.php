@@ -31,6 +31,15 @@ class AdminPostController extends Controller
         ]);
     }
 
+    public function show(Post $post) {
+        // Get categories for dropdown
+        $categories = Category::all();
+        return Inertia::render('Admin/Posts/View', [
+            'post' => $post,
+            'categories' => $categories
+        ]);
+    }
+
     public function create() {
         // Get categories for dropdown
         $categories = Category::all();

@@ -42,7 +42,8 @@ Route::middleware([
     });
 // Admin Section
     Route::middleware('can:admin')->group(function () {
-        Route::get('admin/posts', [AdminPostController::class, 'index'])->name('admin.posts.index');
+        Route::get('admin/posts', [AdminPostController::class, 'index'])->name('home');
+        Route::get('admin/posts/{post:id}', [AdminPostController::class, 'show'])->name('admin.posts.show');
         Route::get('admin/posts/{post:id}/edit', [AdminPostController::class, 'edit'])->name('admin.posts.edit');
         Route::get('admin/posts/create', [AdminPostController::class, 'create'])->name('admin.posts.create');
         Route::post('admin/posts/', [AdminPostController::class, 'store'])->name('admin.posts.store');
