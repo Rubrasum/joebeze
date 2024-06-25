@@ -11,7 +11,7 @@
                                 <Link :href="`/admin/posts/${post.id}/edit`"
                                       :class="`relative inline-flex items-center rounded-l-md rounded-r-md bg-white px-3 py-2 text-sm
                                                 font-semibold text-gray-900 ring-1 ring-inset ring-gray-300
-                                                hover:bg-gray-50 focus:z-10`"
+                                                hover:bg-gray-50 focus:z-10 mr-2`"
 
                                 >Edit</Link>
                                 <Link :href="`/posts/${post.slug}`"
