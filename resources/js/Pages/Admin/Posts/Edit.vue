@@ -18,8 +18,8 @@
                                           text-sm font-semibold text-white shadow-sm hover:bg-slate-600
                                           focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2
                                           focus-visible:outline-slate-600 border border-white mr-2`"
-                                    >View (Leave editor)</Link>
-                                    <Link :href="`/posts/${post.slug}`"
+                                    >Cancel Edit</Link>
+                                    <Link :href="`/post/${post.slug}`"
                                           :class="`relative inline-flex items-center rounded-md bg-slate-700 px-3 py-2
                                           text-sm font-semibold text-white shadow-sm hover:bg-slate-600
                                           focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2
@@ -98,6 +98,26 @@ function submit() {
 
     form.patch(`/admin/posts/${props.post.id}`, {
         only: ['post'],
+        onError: (errors) => {
+            // Log the detailed error object to the console for debugging
+            console.error('Error Details:', errors);
+
+            // Construct a detailed error message if the errors object contains specific error messages
+            let detailedErrorMessage = 'There was an error updating the post "' + page.props.post.title + '".';
+            if (errors && typeof errors === 'object' && Object.keys(errors).length > 0) {
+                // Append each error message to the detailed error message
+                Object.keys(errors).forEach((key) => {
+                    detailedErrorMessage += ` ${key}: ${errors[key]}`;
+                });
+            }
+
+            // Display the detailed error message in the UI
+            page.props.messages.push({
+                message: detailedErrorMessage,
+                duration: 10,
+                type: "error"
+            });
+        },
         onSuccess: () => {
             page.props.messages.push({
                 message: 'Post "' + page.props.post.title + '" updated successfully!',

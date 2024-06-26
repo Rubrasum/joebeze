@@ -1,23 +1,26 @@
 <template>
     <Field>
         <div class="mb-14">
-            <Label :name="name" :label="label" class="block text-5xl px-2 leading-8 bg-slate-900 text-white"/>
-            <div class="relative mt-2">
-                <input
-                    class="peer block w-full text-4xl border font-weight-lighter border-0 custom-slate px-3 pt-4 pb-3
+            <div>
+                <Label :name="name" :label="label" class="block text-5xl px-2 mb-6 leading-8 bg-slate-900 text-white"/>
+                <div class="relative mt-2">
+                    <input
+                        class="peer block w-full text-4xl border font-weight-lighter border-0 custom-slate px-3 pt-4 pb-3
                     text-white focus:ring-0 sm:leading-6
                     disabled:opacity-75 disabled:cursor-not-allowed"
-                    :name="name"
-                    :id="name"
-                    :type="type"
-                    :required="required"
-                    :placeholder="placeholder"
-                    :value="modelValue"
-                    @input="$emit('update:modelValue', $event.target.value)"
-                    :disabled="disabled"
-                />
-                <div class="absolute inset-x-0 bottom-0 border-t border-slate-500 peer-focus:border-t-2  peer-focus:border-white" aria-hidden="true" />
+                        :name="name"
+                        :id="name"
+                        :type="type"
+                        :required="required"
+                        :placeholder="placeholder"
+                        :value="modelValue"
+                        @input="$emit('update:modelValue', $event.target.value)"
+                        :disabled="disabled"
+                    />
+                    <div class="absolute inset-x-0 bottom-0 border-t border-slate-500 peer-focus:border-t-2  peer-focus:border-white" aria-hidden="true" />
+                </div>
             </div>
+
         </div>
         <Error :name="name" />
     </Field>
