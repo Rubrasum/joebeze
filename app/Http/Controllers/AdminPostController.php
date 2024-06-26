@@ -2,9 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\StorePostRequest;
+use App\Http\Requests\UpdatePostRequest;
 use App\Models\Category;
 use App\Models\Post;
 use Carbon\Carbon;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Validation\Rule;
 use Inertia\Inertia;
 
@@ -28,16 +31,36 @@ class AdminPostController extends Controller
         ]);
     }
 
-    public function create() {
-        return view('admin.posts.create');
+    public function show(Post $post) {
+        // Get categories for dropdown
+        $categories = Category::all();
+        return Inertia::render('Admin/Posts/View', [
+            'post' => $post,
+            'categories' => $categories
+        ]);
     }
 
-    public function store() {
-        Post::create(array_merge($this->validatePost(), [
-            'user_id' => request()->user()->id
-        ]));
+    public function create() {
+        // Get categories for dropdown
+        $categories = Category::all();
 
-        return redirect('/admin/posts');
+        return Inertia::render('Admin/Posts/Create', [
+            'categories' => $categories
+        ]);
+    }
+
+    public function store(StorePostRequest $request) {
+        $validated = $request->validated();
+
+        // get user id
+        $validated['user_id'] = auth()->id();
+
+        // Store the blog post
+        $post = Post::create($validated);
+
+        return Inertia::render('Admin/Posts/Edit', [
+            'post' => $post,
+        ]);
     }
 
     public function edit(Post $post) {
@@ -50,10 +73,10 @@ class AdminPostController extends Controller
         ]);
     }
 
-    public function update(Post $post) {
-        $attributes = $this->validatePost($post);
+    public function update(UpdatePostRequest $request, Post $post) {
+        $data = $request->validated();
 
-        $post->update($attributes);
+        $post->update($data);
 
         return back()->with('success', 'Post Updated!');
     }

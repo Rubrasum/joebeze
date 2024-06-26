@@ -21,12 +21,6 @@ Route::middleware([
     })->name('dashboard');
 
     // TODO UPDATE ALL THESE TO USE THE JETSTREAM/SANCTUM AUTH AS WELL AS ADMIN COLUMN
-    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
-    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
-    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
-    Route::get('/dashboard', function () {
-        return view('dashboard');
-    })->name('dashboard');
 
     // resume download
     Route::get('/resume', function () {
@@ -43,8 +37,12 @@ Route::middleware([
 // Admin Section
     Route::middleware('can:admin')->group(function () {
         Route::get('admin/posts', [AdminPostController::class, 'index'])->name('admin.posts.index');
+        Route::get('admin/posts/create', [AdminPostController::class, 'create'])->name('admin.posts.create');
+        Route::get('admin/posts/{post:id}', [AdminPostController::class, 'show'])->name('admin.posts.show');
         Route::get('admin/posts/{post:id}/edit', [AdminPostController::class, 'edit'])->name('admin.posts.edit');
+        Route::post('admin/posts/', [AdminPostController::class, 'store'])->name('admin.posts.store');
         Route::patch('admin/posts/{post:id}', [AdminPostController::class, 'update'])->name('admin.posts.update');
+        Route::delete('admin/posts/{post:id}', [AdminPostController::class, 'destroy'])->name('admin.posts.destroy');
     });
 });
 

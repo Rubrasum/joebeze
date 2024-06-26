@@ -9,40 +9,46 @@
                             <div class="flex justify-between">
                                 <div>
                                     <h1 class="items-center rounded-md bg-slate-700 px-3 py-2 text-sm font-semibold text-white shadow-sm">
-                                        Editing Post: {{ post.id }}
+                                        Viewing Post: {{ post.id }}
                                     </h1>
                                 </div>
                                 <div>
-                                    <Link :href="`/admin/posts/${post.id}`"
+                                    <!-- Convert these to their own button components. Replace on Edit Page too.  -->
+                                    <Link :href="`/admin/posts/${post.id}/edit`"
                                           :class="`relative inline-flex items-center rounded-md bg-slate-700 px-3 py-2
-                                          text-sm font-semibold text-white shadow-sm hover:bg-slate-600
-                                          focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2
-                                          focus-visible:outline-slate-600 border border-white mr-2`"
-                                    >View (Leave editor)</Link>
+                                      text-sm font-semibold text-white shadow-sm hover:bg-slate-600
+                                      focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2
+                                      focus-visible:outline-slate-600 border border-white mr-2`"
+
+                                    >Edit</Link>
                                     <Link :href="`/posts/${post.slug}`"
                                           :class="`relative inline-flex items-center rounded-md bg-slate-700 px-3 py-2
-                                          text-sm font-semibold text-white shadow-sm hover:bg-slate-600
-                                          focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2
-                                          focus-visible:outline-slate-600 border border-white`"
+                                      text-sm font-semibold text-white shadow-sm hover:bg-slate-600
+                                      focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2
+                                      focus-visible:outline-slate-600 border border-white`"
 
                                     >Preview</Link>
                                 </div>
                             </div>
-<!--                            https://inertiajs.com/forms-->
-                            <TitleInput name="title" :label="'Post Title'" v-model="form.title" required />
+                            <!--                            https://inertiajs.com/forms-->
+                            <TitleInput name="title" :label="'Post Title'" v-model="form.title" required
+                                        :disabled="true"/>
 
-                            <Input name="slug" :label="'Post Slug'" v-model="form.slug" required />
+                            <Input name="slug" :label="'Post Slug'" v-model="form.slug" required
+                                   :disabled="true"/>
 
                             <Select name="category_id" :label="'Category'" v-model="form.category_id"
                                     :options="page.props.categories.map(category => ({ key: category.slug, value: category.id }))"
-                                    required/>
+                                    required
+                                    :disabled="true"/>
 
-                            <Input name="published_at" type="datetime-local" required class="datepicker" v-model="form.published_at" />
+                            <Input name="published_at" type="datetime-local" required class="datepicker" v-model="form.published_at"
+                                   :disabled="true"/>
 
-                            <QuillArea name="excerpt" :label="'Post Excerpt'" :height="'h-48'" required v-model="form.excerpt"></QuillArea>
-                            <QuillArea name="body" :label="'Post Body'" :height="'h-96'" required v-model="form.body"></QuillArea>
-
-                            <Button>Update</Button>
+                            <QuillArea name="excerpt" :label="'Post Excerpt'" :height="'h-48'" required v-model="form.excerpt"
+                                       :disabled="true"></QuillArea>
+                            <QuillArea name="body" :label="'Post Body'" :height="'h-96'" required v-model="form.body"
+                                       :disabled="true"></QuillArea>
                         </form>
                     </div>
                 </div>
@@ -69,11 +75,7 @@ const props = defineProps({
     post: {
         type: Object,
         required: true,
-    },
-    categories : {
-        type: Array,
-        required: true,
-    },
+    }
 });
 const page = usePage();
 
@@ -93,20 +95,9 @@ const form = useForm({
     published_at: formatDate(props.post.published_at) || '',
 });
 
-function submit() {
-    // add messages to session
+// disable the entire form and all the fields
+form.disabled = true;
 
-    form.patch(`/admin/posts/${props.post.id}`, {
-        only: ['post'],
-        onSuccess: () => {
-            page.props.messages.push({
-                message: 'Post "' + page.props.post.title + '" updated successfully!',
-                duration: 5,
-                type: "success"
-            });
-        },
-    });
-}
 
 function formatDate(dateString) {
     const date = new Date(dateString);

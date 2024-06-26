@@ -6,29 +6,7 @@
                 <div class="py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8">
                     <div class="shadow overflow-hidden sm:rounded-lg">
                         <form @submit.prevent="submit">
-                            <div class="flex justify-between">
-                                <div>
-                                    <h1 class="items-center rounded-md bg-slate-700 px-3 py-2 text-sm font-semibold text-white shadow-sm">
-                                        Editing Post: {{ post.id }}
-                                    </h1>
-                                </div>
-                                <div>
-                                    <Link :href="`/admin/posts/${post.id}`"
-                                          :class="`relative inline-flex items-center rounded-md bg-slate-700 px-3 py-2
-                                          text-sm font-semibold text-white shadow-sm hover:bg-slate-600
-                                          focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2
-                                          focus-visible:outline-slate-600 border border-white mr-2`"
-                                    >View (Leave editor)</Link>
-                                    <Link :href="`/posts/${post.slug}`"
-                                          :class="`relative inline-flex items-center rounded-md bg-slate-700 px-3 py-2
-                                          text-sm font-semibold text-white shadow-sm hover:bg-slate-600
-                                          focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2
-                                          focus-visible:outline-slate-600 border border-white`"
-
-                                    >Preview</Link>
-                                </div>
-                            </div>
-<!--                            https://inertiajs.com/forms-->
+                            <!--                            https://inertiajs.com/forms-->
                             <TitleInput name="title" :label="'Post Title'" v-model="form.title" required />
 
                             <Input name="slug" :label="'Post Slug'" v-model="form.slug" required />
@@ -42,7 +20,7 @@
                             <QuillArea name="excerpt" :label="'Post Excerpt'" :height="'h-48'" required v-model="form.excerpt"></QuillArea>
                             <QuillArea name="body" :label="'Post Body'" :height="'h-96'" required v-model="form.body"></QuillArea>
 
-                            <Button>Update</Button>
+                            <Button>Create new post</Button>
                         </form>
                     </div>
                 </div>
@@ -53,7 +31,7 @@
 
 
 <script setup>
-import {Head, Link, useForm, usePage} from '@inertiajs/vue3';
+import {Head, Link, router, useForm, usePage} from '@inertiajs/vue3';
 import AdminLayout from '@/Layouts/AdminLayout.vue';
 import {computed} from "vue";
 import Input from "@/Components/Forms/Input.vue";
@@ -66,10 +44,6 @@ defineOptions({
     layout: AdminLayout,
 })
 const props = defineProps({
-    post: {
-        type: Object,
-        required: true,
-    },
     categories : {
         type: Array,
         required: true,
@@ -85,25 +59,26 @@ if (page.props.messages === undefined) {
 const post = computed(() => page.props.post)
 
 const form = useForm({
-    title: props.post.title,
-    slug: props.post.slug,
-    excerpt: props.post.excerpt,
-    body: props.post.body,
-    category_id: props.post.category_id,
-    published_at: formatDate(props.post.published_at) || '',
+    title: "",
+    slug: "",
+    excerpt: "",
+    body: "",
+    category_id: "",
+    published_at: "",
 });
 
 function submit() {
     // add messages to session
 
-    form.patch(`/admin/posts/${props.post.id}`, {
+    form.post(`/admin/posts`, {
         only: ['post'],
         onSuccess: () => {
             page.props.messages.push({
-                message: 'Post "' + page.props.post.title + '" updated successfully!',
+                message: 'Post "' + form.title + '" created successfully!',
                 duration: 5,
                 type: "success"
             });
+            router.get(`/admin/posts/${page.props.post.id}`);
         },
     });
 }

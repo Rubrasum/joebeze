@@ -28,7 +28,7 @@
                 <nav class="isolate inline-flex -space-x-px rounded-md shadow-sm" aria-label="Pagination">
                     <!-- Current: "z-10 bg-indigo-600 text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600", Default: "text-gray-900 ring-1 ring-inset ring-gray-300 hover:bg-gray-50 focus:outline-offset-0" -->
                      <Link v-for="link in items.links"
-                           :href="link.url"
+                           :href="link.url ?? '#'"
                            class="relative inline-flex items-center w-8 py-1.5 text-sm font-semibold text-gray-900 ring-1 ring-inset ring-gray-300 focus:z-20 focus:outline-offset-0"
                            :class="link.url === null || link.active ? 'bg-gray-200 text-gray-600 cursor-default' : 'hover:bg-gray-50'"
 
