@@ -42,11 +42,7 @@ Route::middleware([
         Route::get('admin/posts/{post:id}/edit', [AdminPostController::class, 'edit'])->name('admin.posts.edit');
         Route::post('admin/posts/', [AdminPostController::class, 'store'])->name('admin.posts.store');
         Route::patch('admin/posts/{post:id}', [AdminPostController::class, 'update'])->name('admin.posts.update');
-
-
-
-
-
+        Route::delete('admin/posts/{post:id}', [AdminPostController::class, 'destroy'])->name('admin.posts.destroy');
     });
 });
 

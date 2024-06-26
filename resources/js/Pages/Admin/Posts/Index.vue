@@ -59,8 +59,8 @@
                                 </td>
 
                                 <td class="px-6 py-4  text-right text-sm font-medium">
-                                    <form method="DELETE" :action="`/admin/posts/${post.id}`">
-                                        <button class="text-xs text-gray-400">Delete</button>
+                                    <form @submit.prevent="deletePost(post.id)" >
+                                        <button class="text-xs text-gray-400" >Delete</button>
                                     </form>
                                 </td>
                             </tr>
@@ -75,7 +75,7 @@
 </template>
 
 <script setup>
-import { Head, Link, usePage } from '@inertiajs/vue3';
+import {Head, Link, router, usePage} from '@inertiajs/vue3';
 import {computed} from "vue";
 import AdminLayout from '@/Layouts/AdminLayout.vue';
 import Pagination from "@/Components/Pagination/Main.vue";
@@ -92,4 +92,19 @@ defineProps({
 })
 
 const posts = computed(() => page.props.posts)
+
+function deletePost(postId) {
+    if (confirm('Are you sure you want to delete this post?')) {
+        router.delete("/admin/posts/"+postId, {
+            only: ['posts'],
+            onSuccess: () => {
+                page.props.messages.push({
+                    message: 'Post "' + postId + '" deleted successfully!',
+                    duration: 5,
+                    type: "success"
+                });
+            },
+        });
+    }
+}
 </script>
