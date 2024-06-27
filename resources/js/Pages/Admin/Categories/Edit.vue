@@ -106,7 +106,7 @@ function submit() {
         },
         onSuccess: () => {
             page.props.messages.push({
-                message: 'Category "' + page.props.category.title + '" updated successfully!',
+                message: 'Category "' + page.props.category.name + '" updated successfully!',
                 duration: 5,
                 type: "success"
             });
