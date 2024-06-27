@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AdminCategoryController;
 use App\Http\Controllers\AdminPostController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\ProfileController;
@@ -37,6 +38,7 @@ Route::middleware([
 // Admin Section
     Route::middleware('can:admin')->group(function () {
         Route::resource('admin/posts', AdminPostController::class);
+        Route::resource('admin/categories', AdminCategoryController::class);
     });
 
 
