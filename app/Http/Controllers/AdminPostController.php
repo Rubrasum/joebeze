@@ -31,15 +31,6 @@ class AdminPostController extends Controller
         ]);
     }
 
-    public function show(Post $post) {
-        // Get categories for dropdown
-        $categories = Category::all();
-        return Inertia::render('Admin/Posts/View', [
-            'post' => $post,
-            'categories' => $categories
-        ]);
-    }
-
     public function create() {
         // Get categories for dropdown
         $categories = Category::all();
@@ -60,6 +51,15 @@ class AdminPostController extends Controller
 
         return Inertia::render('Admin/Posts/Edit', [
             'post' => $post,
+        ]);
+    }
+
+    public function show(Post $post) {
+        // Get categories for dropdown
+        $categories = Category::all();
+        return Inertia::render('Admin/Posts/View', [
+            'post' => $post,
+            'categories' => $categories
         ]);
     }
 
@@ -85,18 +85,5 @@ class AdminPostController extends Controller
         $post->delete();
 
         return back()->with('success', 'Post Deleted!');
-    }
-
-    protected function validatePost(?Post $post = null) {
-        $post ??= new Post();
-
-        return request()->validate([
-            'title' => 'required',
-            'slug' => ['required', Rule::unique('posts', 'slug')->ignore($post)],
-            'excerpt' => 'required',
-            'body' => 'required',
-            'category_id' => ['required', Rule::exists('categories', 'id')],
-            'published_at' => 'required',
-        ]);
     }
 }
