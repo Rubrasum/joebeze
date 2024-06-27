@@ -7,15 +7,15 @@
                     <div class="bg-slate-900 mb-2 px-2 py-2 sm:px-6">
                         <div class="-ml-4 -mt-2 flex flex-wrap items-center justify-between sm:flex-nowrap">
                             <div class="ml-4 mt-2">
-                                <h2>All Posts</h2>
+                                <h2>All Categories</h2>
                             </div>
                             <div class="ml-4 mt-2 flex-shrink-0">
                                 <Link class="relative inline-flex items-center rounded-md bg-slate-700 px-3 py-2
                                       text-sm font-semibold text-white shadow-sm hover:bg-slate-600
                                       focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2
                                       focus-visible:outline-slate-600 border border-white"
-                                      :href="`/admin/posts/create/`"
-                                >Create new post</Link>
+                                      :href="`/admin/categories/create/`"
+                                >Create new category</Link>
                             </div>
                         </div>
                     </div>
@@ -28,7 +28,10 @@
                                     Id
                                 </th>
                                 <th scope="col" class="border-0">
-                                    Title
+                                    Name
+                                </th>
+                                <th scope="col" class="border-0">
+                                    Color
                                 </th>
                                 <th scope="col" class="border-0">
                                     <span class="sr-only">Edit</span>
@@ -39,34 +42,41 @@
                             </tr>
                             </thead>
                             <tbody class="bg-slate-900 divide-y divide-gray-200 w-full">
-                            <tr v-for="post in posts.data" :key="post.id">
+                            <tr v-for="category in categories.data" :key="category.id">
                                 <td class="px-6 py-4 ">
-                                    <div class="text-sm text-white">{{ post.id }}</div>
+                                    <div class="text-sm text-white">{{ category.id }}</div>
                                 </td>
                                 <td class="px-6 py-4">
                                     <div class="flex items-center">
                                         <div class="text-sm font-medium">
-                                            <Link :href="`/post/${post.slug}`">
-                                                {{ post.title }}
+                                            <Link :href="`/category/${category.slug}`">
+                                                {{ category.name }}
                                             </Link>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td class="px-6 py-4">
+                                    <div class="flex items-center">
+                                        <div class="text-sm font-medium">
+                                            <p :class="`bg-[${category.color}]`">{{ category.color }}</p>
                                         </div>
                                     </div>
                                 </td>
 
 
                                 <td class="px-6 py-4  text-right text-sm font-medium">
-                                    <Link :href="`/admin/posts/${post.id}/edit`" class="text-blue-500 hover:text-blue-600">Edit</Link>
+                                    <Link :href="`/admin/categories/${category.id}/edit`" class="text-blue-500 hover:text-blue-600">Edit</Link>
                                 </td>
 
                                 <td class="px-6 py-4  text-right text-sm font-medium">
-                                    <form @submit.prevent="deletePost(post.id)" >
+                                    <form @submit.prevent="deleteCategory(category.id)" >
                                         <button class="text-xs text-gray-400" >Delete</button>
                                     </form>
                                 </td>
                             </tr>
                             </tbody>
                         </table>
-                        <Pagination :items="posts"/>
+                        <Pagination :items="categories"/>
                     </div>
                 </div>
             </div>
@@ -85,21 +95,21 @@ defineOptions({
 const page = usePage();
 
 defineProps({
-    posts: {
+    categories: {
         type: Object,
         required: true
     }
 })
 
-const posts = computed(() => page.props.posts)
+const categories = computed(() => page.props.categories)
 
-function deletePost(postId) {
-    if (confirm('Are you sure you want to delete this post?')) {
-        router.delete("/admin/posts/"+postId, {
-            only: ['posts'],
+function deleteCategory(categoryId) {
+    if (confirm('Are you sure you want to delete this category?')) {
+        router.delete("/admin/categories/"+categoryId, {
+            only: ['categories'],
             onSuccess: () => {
                 page.props.messages.push({
-                    message: 'Post "' + postId + '" deleted successfully!',
+                    message: 'Category "' + categoryId + '" deleted successfully!',
                     duration: 5,
                     type: "success"
                 });
