@@ -1,5 +1,5 @@
 <template>
-    <Head title="Manage Categories" />
+    <Head title="Create Category" />
     <main class="flex-1 mx-2">
         <div class="flex flex-col">
             <div class="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
