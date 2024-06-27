@@ -14,7 +14,7 @@ class AdminCategoryController extends Controller
      */
     public function index()
     {
-        $categories = Category::latest()->orderBy('name')->get()
+        $categories = Category::latest()->orderBy('name')
             ->paginate(10)
             ->withQueryString();
 

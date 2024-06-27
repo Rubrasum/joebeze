@@ -19,6 +19,11 @@
                                 >
                                     <li class="px-4 py-2">All Posts</li>
                                 </Link>
+                                <Link :href="'/admin/categories'"
+                                      class="text-white border-white bg-gray-700 hover:text-white hover:border-white inline-block mb-2 mr-4 rounded-lg border-2"
+                                >
+                                    <li class="px-4 py-2">All Categories</li>
+                                </Link>
                             </ul>
                         </aside>
                         <div class="flex-1 overflow-hidden">
