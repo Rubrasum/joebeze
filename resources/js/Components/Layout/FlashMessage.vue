@@ -36,7 +36,7 @@ setInterval(() => {
 onMounted(() => {
     setInterval(() => {
         // if all messages invisible, remove all messages
-        if (page.props.messages.every(message => message.invisible)) {
+        if (page.props.messages === undefined || page.props.messages.every(message => message.invisible)) {
             page.props.messages = [];
         }
     }, 100000);
