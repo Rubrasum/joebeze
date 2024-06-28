@@ -21,7 +21,7 @@ export default {
     }, // added colors here because dynamic factory on categories
     safelist: [
         {
-            pattern: /(text|border)-(yellow|cyan|indigo|rose|sky)-(300|400|500|600)/,
+            pattern: /(text|border)-(yellow-300|cyan-400|indigo-500|rose-600|sky-600)/,
         }
     ],
 
