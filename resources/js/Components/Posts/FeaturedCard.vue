@@ -13,7 +13,7 @@
                         <div class="mt-4 space-x-2">
                             <Link  :href="`/?category=${post.category.slug}`" preserve-state
                                    :class="`px-3 py-1 border-2 border-${post.category.color} rounded-full
-                                   text-${post.category.color} text-sm uppercase font-semibold btn-color-cat`"
+                                   text-${post.category.color} text-sm uppercase font-semibold`"
 
                             >
                                 {{ post.category.name }}
