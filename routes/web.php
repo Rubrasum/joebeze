@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AdminCategoryController;
 use App\Http\Controllers\AdminPostController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\ProfileController;
@@ -36,14 +37,11 @@ Route::middleware([
     });
 // Admin Section
     Route::middleware('can:admin')->group(function () {
-        Route::get('admin/posts', [AdminPostController::class, 'index'])->name('admin.posts.index');
-        Route::get('admin/posts/create', [AdminPostController::class, 'create'])->name('admin.posts.create');
-        Route::patch('admin/posts/{post:id}', [AdminPostController::class, 'update'])->name('admin.posts.update');
-        Route::delete('admin/posts/{post:id}', [AdminPostController::class, 'destroy'])->name('admin.posts.destroy');
-        Route::get('admin/posts/{post:id}', [AdminPostController::class, 'show'])->name('admin.posts.show');
-        Route::get('admin/posts/{post:id}/edit', [AdminPostController::class, 'edit'])->name('admin.posts.edit');
-        Route::post('admin/posts/', [AdminPostController::class, 'store'])->name('admin.posts.store');
+        Route::resource('admin/posts', AdminPostController::class);
+        Route::resource('admin/categories', AdminCategoryController::class);
     });
+
+
 });
 
 
