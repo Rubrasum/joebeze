@@ -83,6 +83,9 @@ defineOptions({
     layout: AdminLayout,
 })
 const page = usePage();
+if (!page.props.messages) {
+    page.props.messages = []
+}
 
 defineProps({
     posts: {

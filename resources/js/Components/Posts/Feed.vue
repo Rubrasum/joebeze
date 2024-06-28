@@ -3,8 +3,10 @@
         <div>
             <FeaturedCard :post="items[0]" />
         </div>
-        <div v-for="(post, index) in items.slice(1)" :key="post.id">
-            <Card :post="post" />
+        <div v-if="items.length >= 2">
+            <div v-for="(post, index) in items.slice(1)" :key="post.id">
+                <Card :post="post" />
+            </div>
         </div>
         <div ref="landmark">    </div>
     </div>
