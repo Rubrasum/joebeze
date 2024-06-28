@@ -13,7 +13,7 @@
                         <span class="font-semibold">{{ formatDate(post.published_at) }}</span>
                     </p>
                     <Link :href="`/?category=${post.category.slug}`"
-                       class="px-3 py-1 border border-blue-300 rounded-full text-blue-300 text-xs uppercase font-semibold"
+                       :class="`px-3 py-1 border border-${post.category.color} rounded-full text-${post.category.color} text-xs uppercase font-semibold`"
                     >{{ post.category.name }}</Link>
                     <div v-if="$page.props.auth.user">
                         <Link :href="`/admin/posts/${post.id}/edit`">Edit</Link>
