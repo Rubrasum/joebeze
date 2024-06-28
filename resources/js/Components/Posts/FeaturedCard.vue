@@ -20,7 +20,7 @@
                             </Link>
                         </div>
                         <div class="flex justify-between items-center mt-2">
-                            <p class="text-white pt-2">Published: <span class="font-semibold">{{ post.published_at }}</span></p>
+                            <p class="text-white pt-2">Published: <span class="font-semibold">{{ formattedDate }}</span></p>
                             <footer>
                                 <Link :href="`/post/${post.slug}`"  :only="['post']"
                                       class="bg-gray-500 hover:bg-gray-700 text-white font-bold py-2 px-4 rounded btn-read-gray"
@@ -40,6 +40,8 @@
 
 <script setup>
 import { Link } from '@inertiajs/vue3';
+import {computed} from "vue";
+import {format} from "date-fns";
 
 // Define the props
 const props = defineProps({
@@ -48,4 +50,5 @@ const props = defineProps({
         required: true
     }
 });
+const formattedDate = computed(() => format(new Date(props.post.published_at), 'MMMM dd, yyyy'));
 </script>
