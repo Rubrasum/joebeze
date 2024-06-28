@@ -20,10 +20,11 @@
                                           focus-visible:outline-slate-600 border border-white mr-2`"
                                     >Cancel Edit</Link>
                                     <Link :href="`/category/${category.slug}`"
-                                          :class="`relative inline-flex items-center rounded-md bg-slate-700 px-3 py-2
-                                          text-sm font-semibold text-white shadow-sm hover:bg-slate-600
+                                          :class="`relative inline-flex items-center rounded-md bg-slate-400 px-3 py-2
+                                          text-sm font-semibold text-gray-300 shadow-sm
                                           focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2
-                                          focus-visible:outline-slate-600 border border-white`"
+                                          focus-visible:outline-slate-800 border border-gray-300
+                                          cursor-not-allowed`"
 
                                     >Preview</Link>
                                 </div>
@@ -33,7 +34,13 @@
 
                             <Input name="slug" :label="'Category Slug'" v-model="form.slug" required />
 
-                            <Input name="color" :label="'Category Color'" v-model="form.color" required />
+                            <Information class="my-2" :message="`Image is expected at /images/category-logos/${form.name}-cat-logo.jpg`" />
+
+                            <h3>Image preview: </h3>
+
+                            <img :src="`/images/category-logos/${category.name}-cat-logo.jpg`" alt="Image" class="w-1/4 h-auto border-2 border-gray-800">
+
+                            <Input class="mb-8" name="color" :label="'Category Color'" v-model="form.color" required/>
 
                             <Button>Update</Button>
                         </form>
@@ -52,6 +59,8 @@ import {computed} from "vue";
 import Input from "@/Components/Forms/Input.vue";
 import TitleInput from "@/Components/Forms/TitleInput.vue";
 import Button from "@/Components/Forms/Button.vue";
+import Information from "@/Components/Layout/FlashMessages/Information.vue";
+import Label from "@/Components/Forms/Label.vue";
 import Select from "@/Components/Forms/Select.vue";
 import QuillArea from "@/Components/Forms/QuillArea.vue";
 
