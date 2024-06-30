@@ -12,8 +12,22 @@ class Kernel extends ConsoleKernel
      */
     protected function schedule(Schedule $schedule): void
     {
-        // $schedule->command('inspire')->hourly();
-        $schedule->command('backup:run')->daily()->at('12:45');
+        $schedule->command('backup:daily')
+            ->daily()
+            ->at('12:45')
+            ->environments(['production'])
+            ->before(function () {
+                config(['backup.destination.disks.s3.path' => 'Files/Daily']);
+            });
+
+        $schedule->command('backup:weekly')
+            ->weekly()
+            ->sundays()
+            ->at('01:00')
+            ->environments(['production'])
+            ->before(function () {
+                config(['backup.destination.disks.s3.path' => 'Files/Weekly']);
+            });
     }
 
     /**
