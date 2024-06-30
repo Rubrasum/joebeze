@@ -150,17 +150,7 @@ return [
             /*
              * The disk names on which the backups will be stored.
              */
-            'disks' => [
-                's3' => [
-                    'driver' => 's3',
-                    'key' => env('AWS_ACCESS_KEY_ID'),
-                    'secret' => env('AWS_SECRET_ACCESS_KEY'),
-                    'region' => env('AWS_DEFAULT_REGION'),
-                    'bucket' => env('AWS_BUCKET'),
-                    'url' => env('AWS_URL'),
-                    'endpoint' => env('AWS_ENDPOINT'),
-                ],
-            ],
+            'disks' => ['s3']
         ],
 
         /*
@@ -222,7 +212,7 @@ return [
             'to' => 'dev@joebeze.com',
 
             'from' => [
-                'address' => env('MAIL_FROM_ADDRESS', 'noreplay@joebeze.com'),
+                'address' => env('MAIL_FROM_ADDRESS', 'noreply@joebeze.com'),
                 'name' => env('MAIL_FROM_NAME', 'Joebeze Site Admin'),
             ],
         ],
