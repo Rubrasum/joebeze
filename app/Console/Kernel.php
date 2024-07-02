@@ -24,7 +24,7 @@ class Kernel extends ConsoleKernel
             ->environments(['production'])
             ->before(function () {
                 config(['backup.destination.disks.s3.path' => 'Files/Daily']);
-            });
+            })->appendOutputTo(storage_path('logs/backup-daily.log'));
 
         $schedule->command('backup:weekly')
             ->weekly()
@@ -33,7 +33,7 @@ class Kernel extends ConsoleKernel
             ->environments(['production'])
             ->before(function () {
                 config(['backup.destination.disks.s3.path' => 'Files/Weekly']);
-            });
+            })->appendOutputTo(storage_path('logs/backup-daily.log'));
 
         $schedule->command('backup:monthly')
             ->monthlyOn(1)
@@ -41,7 +41,7 @@ class Kernel extends ConsoleKernel
             ->environments(['production'])
             ->before(function () {
                 config(['backup.destination.disks.s3.path' => 'Files/Monthly']);
-            });
+            })->appendOutputTo(storage_path('logs/backup-daily.log'));
 
         $schedule->command('backup:yearly')
             ->yearlyOn(1, 1)
@@ -49,7 +49,7 @@ class Kernel extends ConsoleKernel
             ->environments(['production'])
             ->before(function () {
                 config(['backup.destination.disks.s3.path' => 'Files/Yearly']);
-            });
+            })->appendOutputTo(storage_path('logs/backup-daily.log'));
     }
 
     /**
