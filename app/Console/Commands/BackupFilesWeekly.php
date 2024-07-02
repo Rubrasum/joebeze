@@ -19,7 +19,7 @@ class BackupFilesWeekly extends Command
      *
      * @var string
      */
-    protected $description = 'Run weekly backup';
+    protected $description = 'Run weekly backup of files';
 
     /**
      * Execute the console command.
