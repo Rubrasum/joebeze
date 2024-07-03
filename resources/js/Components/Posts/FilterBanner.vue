@@ -6,7 +6,7 @@
         <nav class="h-full flex justify-between items-center">
             <div id="Logo container placeholder" class="w-full">
                 <div class="block z-[110] max-w-[33.85vw]">
-                    <h4 class="mr-2" :class="{ 'text-accent': currentCategory || search }" >Filter: </h4>
+                    <h4 class="mr-2" :class="{ 'text-accent': currentCategory || page.props.search }" >Filter: </h4>
                 </div>
             </div>
             <div class="hidden lg:flex items-center">
@@ -26,7 +26,8 @@
                             type="search"
                             name="search"
                             placeholder="Search"
-                            class="border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                            class="border border-primary-gray rounded-lg px-4 py-2 focus:outline-none focus:outline-none
+                            focus:ring-2 focus:ring-accent bg-primary-bg text-primary-text"
                             v-model="search"
                         />
                     </form>
@@ -35,7 +36,9 @@
             <div class="lg:hidden">
                 <button
                     @click="open = !open"
-                    class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-white hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white bg-gray-800 border-2 border-gray-300"
+                    class="inline-flex items-center justify-center p-2 rounded-md text-secondary-text hover:text-white
+                            hover:bg-primary-bg focus:outline-none focus:ring-2 focus:ring-inset focus:ring-accent
+                            bg-secondary-bg border-2 border-primary-bg"
                     aria-controls="mobile-menu"
                     :aria-expanded="open"
                 >
@@ -92,7 +95,8 @@
                             type="text"
                             name="search"
                             placeholder="Search"
-                            class="block w-full border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                            class="block w-full border border-secondary-bg rounded-lg px-4 py-2 focus:outline-none
+                                   focus:ring-2 focus:ring-accent"
                             v-model="search"
                         />
                     </form>

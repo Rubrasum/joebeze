@@ -1,8 +1,9 @@
 <template>
+
+    <div class="bg-secondary-bg rounded-b-md">
+        <PostFilterBanner :currentCategory="currentCategory" :search="search"/>
+    </div>
     <div v-if="items.length > 0">
-        <div class="bg-secondary-bg rounded-b-md">
-            <PostFilterBanner :currentCategory="currentCategory" :search="search"/>
-        </div>
         <div>
             <FeaturedCard :post="items[0]" />
         </div>
