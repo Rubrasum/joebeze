@@ -1,5 +1,5 @@
 <template>
-    <div className="bg-background relative" ref="containerRef">
+    <div className="bg-background relative border-b-2 border-secondary-bg" ref="containerRef">
         <div ref="p5Container" className="absolute inset-0 z-10"></div>
         <div ref="slotContainer" className="relative z-10">
             <slot></slot>
