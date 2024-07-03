@@ -20,7 +20,7 @@ class Kernel extends ConsoleKernel
     {
         $schedule->command('backup:daily')
             ->daily()
-            ->at('12:45')
+            ->at('00:30')
             ->environments(['production'])
             ->before(function () {
                 config(['backup.destination.disks.s3.path' => 'Files/Daily']);
