@@ -15,9 +15,9 @@ export default {
     theme: {
         extend: {
             fontFamily: {
-                'title': ['"Cascadia Code SemiLight"', 'monospace'],
-                'subtitle': ['"Bodoni MT"', 'serif'],
-                'paragraph': ['Retina', 'Arial', 'Helvetica', 'sans-serif'],
+                'title': ['EncodeSans', 'serif'],
+                'subtitle': ['CascadiaMonoPL', 'monospace'],
+                'paragraph': ['Inter', 'Arial', 'Helvetica', 'sans-serif'],
             },
             colors: {
                 'primary': "#2E2532",
