@@ -10,19 +10,19 @@
                     </div>
                     <div class="lg:col-span-3">
                         <Link :href="`/post/${post.slug}`" preserve-state >
-                            <h1 class="text-secondary text-3xl md:text-4xl font-bold">{{ post.title }}</h1>
+                            <h2 class="text-secondary text-3xl md:text-4xl">{{ post.title }}</h2>
                         </Link>
                         <div class="mt-4 space-x-2">
                             <Link  :href="`/?category=${post.category.slug}`" preserve-state
                                    :class="`px-3 py-1 border-2 border-${post.category.color} rounded-full
-                                   text-${post.category.color} text-sm uppercase font-semibold`"
+                                   text-${post.category.color} text-sm uppercase`"
 
                             >
                                 {{ post.category.name }}
                             </Link>
                         </div>
                         <div class="flex justify-between items-center mt-2">
-                            <p class="text-white pt-2">Published: <span class="font-semibold">{{ formattedDate }}</span></p>
+                            <h3 class="text-white pt-2">Published: {{ formattedDate }}</h3>
                             <footer>
                                 <Link :href="`/post/${post.slug}`"  :only="['post']"
                                       class="bg-accent-dark hover:bg-accent text-secondary font-bold py-2 px-4 rounded btn-read-gray"
