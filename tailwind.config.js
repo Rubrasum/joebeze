@@ -20,11 +20,13 @@ export default {
                 'paragraph': ['Inter', 'Arial', 'Helvetica', 'sans-serif'],
             },
             colors: {
-                'primary': "#2E2532",
-                'secondary': "#FBFBFB",
-                'accent': "#62929E",
-                'accent-dark': "#4A6D7C",
-                'background': "#000000"
+                'primary-mint': '#5FBB97',
+                'primary-gray': '#4A6D7C',
+                'primary-text': '#FBFBFB',
+                'secondary-text': '#5FBB97',
+                'primary-bg': '#000000',
+                'secondary-bg': '#2E2532',
+                'accent': '#5FBB97',
             }
         },
     }, // added colors here because dynamic factory on categories
