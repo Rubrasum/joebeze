@@ -3,7 +3,7 @@
 import { Link, router } from '@inertiajs/vue3';
 import MainContain from '@/Components/Layout/MainContain.vue';
 import Footer from '@/Components/Layout/Footer.vue';
-import PrimaryNav from '@/Components/Layout/PrimaryNav.vue';
+import LogoBanner from '@/Components/Layout/LogoBanner.vue';
 
 
 // SAMPLE CODE FOR PAGE //////////////////////////////////////////////////////////////////////////////////////////////
@@ -24,7 +24,8 @@ window.onload = function() {
         <!-- more complicated designs might have slightly more complicated container layouts.
         Maybe nav and banner are both without containers. Who the fuck nose. So a full design will include unqiue -->
         <!-- Primary Navigation Menu -->
-        <PrimaryNav v-once/>
+        <LogoBanner v-once/>
+
         <MainContain>
 
             <!-- Secondary Navigation Menu -->
