@@ -2,7 +2,7 @@
     <div class="bg-primary-bg">
         <div class="w-full relative">
             <div class="top-0 left-0 w-full bg-primary-bg bg-opacity-60 flex flex-col justify-between">
-                <div class="mb-8 mx-[10vw] px-4 py-5 mb-12 md:grid items-center md:grid-cols-10 md:gap-5
+                <div class="mb-8 px-4 py-5 mb-12 md:grid items-center md:grid-cols-10 md:gap-5
                             border-b-2 border-secondary-bg rounded-br-md">
                     <div class="md:col-span-2 h-full">
                         <img :src="`/images/category-logos/${post.category.name}-cat-logo.jpg`" alt="Image" class="w-full h-auto border-2 border-primary">

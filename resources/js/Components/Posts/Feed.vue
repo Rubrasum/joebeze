@@ -1,5 +1,7 @@
 <template>
     <div v-if="items.length > 0">
+
+        <PostFilterBanner :currentCategory="currentCategory" :search="search"/>
         <div>
             <FeaturedCard :post="items[0]" />
         </div>
@@ -22,6 +24,7 @@
 <script setup>
 import FeaturedCard from './FeaturedCard.vue';
 import Card from './Card.vue';
+import PostFilterBanner from '@/Components/Posts/FilterBanner.vue';
 import {Link, router, usePage} from '@inertiajs/vue3';
 import {computed, onMounted, ref, watch} from 'vue';
 

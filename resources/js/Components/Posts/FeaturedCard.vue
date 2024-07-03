@@ -1,8 +1,6 @@
 <template>
-    <div class="bg-primary-bg">
-        <div class="w-full relative">
             <div class="top-0 left-0 w-full bg-primary-bg bg-opacity-60 flex flex-col justify-between border-accent">
-                <div class="mb-8 mx-[10vw] pt-8 lg:pt-16 px-4 xl:px-16 pb-8 lg:grid lg:grid-cols-5 lg:gap-5
+                <div class="mb-8 pt-8 lg:pt-16 px-4 xl:px-16 pb-8 lg:grid lg:grid-cols-5 lg:gap-5
                             border-b-2 border-secondary-bg rounded-br-md ">
                     <div class="lg:col-span-2 border-accent">
                         <img :src="`/images/category-logos/${post.category.name}-cat-logo.jpg`" alt="Image"
@@ -36,8 +34,6 @@
                     </div>
                 </div>
             </div>
-        </div>
-    </div>
 </template>
 
 <script setup>

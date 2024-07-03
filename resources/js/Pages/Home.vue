@@ -1,7 +1,12 @@
 <template>
     <Head title="Home" />
-
-    <Feed  :posts="posts"/>
+    <div class="bg-primary-bg">
+        <div class="w-full relative">
+            <div class="top-0 left-0 bg-primary-bg bg-opacity-60 flex flex-col justify-between border-accent mx-[10vw]">
+                <Feed  :posts="posts"/>
+            </div>
+        </div>
+    </div>
 </template>
 
 <script setup>
