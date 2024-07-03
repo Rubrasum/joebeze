@@ -61,7 +61,7 @@
                     </PopoverButton>
 
                     <transition enter-active-class="transition ease-out duration-200" enter-from-class="opacity-0 translate-y-1" enter-to-class="opacity-100 translate-y-0" leave-active-class="transition ease-in duration-150" leave-from-class="opacity-100 translate-y-0" leave-to-class="opacity-0 translate-y-1">
-                        <PopoverPanel class="absolute -left-8 top-full z-10 mt-3 w-96 rounded-3xl bg-secondary-bg p-4 shadow-light-lg ring-1 ring-primary-gray/[5]">
+                        <PopoverPanel class="absolute -left-8 top-full z-10 mt-6 w-96 rounded-b-md bg-secondary-bg p-4 shadow-light-lg ring-1 ring-primary-gray/[5]">
                             <div v-for="item in company" :key="item.name" class="relative group rounded-lg p-4 hover:bg-primary-bg text-primary-text  hover:text-accent">
                                 <a :href="item.href" class="block text-sm font-semibold leading-6 ">
                                     {{ item.name }}
