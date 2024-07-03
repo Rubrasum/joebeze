@@ -12,7 +12,7 @@
     </div>
     <div v-else>
         <div class="flex items-center flex-grow justify-center text-center ">
-            <p class="text-2xl md:text-3xl lg:text-4xl text-white font-semibold py-14">
+            <p class="text-2xl md:text-3xl lg:text-4xl text-secondary font-semibold py-14">
                 Oops... No posts found.
             </p>
         </div>
