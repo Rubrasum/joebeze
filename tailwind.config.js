@@ -27,7 +27,12 @@ export default {
                 'primary-bg': '#000000',
                 'secondary-bg': '#2E2532',
                 'accent': '#5FBB97',
-            }
+            },
+            boxShadow: {
+                'light': '0 4px 6px 2px rgba(255, 255, 255, 0.1), 0 2px 4px -1px rgba(255, 255, 255, 0.06)',
+                'light-lg': '0 0px 15px 5px rgba(95, 187, 151, 0.3), 0 4px 6px -2px rgba(95, 187, 151, 0.3)',
+            },
+
         },
     }, // added colors here because dynamic factory on categories
     safelist: [
