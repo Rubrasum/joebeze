@@ -3,7 +3,7 @@
         <div id="logo-background" class="absolute z-[98] w-full h-full block p-4 top-0 left-0 bg-white rounded-lg shadow-lg border-2 border-white transition-all duration-250 ease-in-out">
             <div class="ripple"></div>
         </div>
-        <div class="overflow-hidden lg:h-[3.96vw] h-[7.92vw]">
+        <div class="overflow-hidden lg:h-[3.96vw] h-[7.92vw] rounded-xl">
             <div id="logo-background2"
                  class="absolute z-[98] lg:h-[3.96vw] h-[7.92vw] lg:w-[33.85vw] w-[67.70vw] block top-0 left-0 bg-transparent rounded-lg shadow-lg border-2 border-white transition-all duration-250 ease-in-out">
             </div>
