@@ -17,6 +17,13 @@ export default {
             fontFamily: {
                 sans: ['Figtree', ...defaultTheme.fontFamily.sans],
             },
+            colors: {
+                'primary': "#2E2532",
+                'secondary': "#FBFBFB",
+                'accent': "#62929E",
+                'accent-dark': "#4A6D7C",
+                'background': "#000000"
+            }
         },
     }, // added colors here because dynamic factory on categories
     safelist: [
