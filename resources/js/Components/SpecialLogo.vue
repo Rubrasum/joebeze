@@ -739,13 +739,6 @@ onMounted(() => {
 
 /* Actual Styling not cut from the SVGS */
 
-
- /*Top Element */
-.nav_container {
-    background-image: url("/images/bytebeze-banner-tess.png");
-    background-repeat: repeat;
-}
-
 #logo-background {
     background-position: center bottom;
     background-size: cover;
