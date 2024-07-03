@@ -23,7 +23,7 @@ export default {
                 'primary-mint': '#5FBB97',
                 'primary-gray': '#4A6D7C',
                 'primary-text': '#FBFBFB',
-                'secondary-text': '#5FBB97',
+                'secondary-text': '#B5B5B5',
                 'primary-bg': '#000000',
                 'secondary-bg': '#2E2532',
                 'accent': '#5FBB97',
