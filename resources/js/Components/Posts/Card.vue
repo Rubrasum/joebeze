@@ -1,19 +1,20 @@
 <template>
-    <div class="bg-black">
+    <div class="bg-background">
         <div class="w-full relative">
-            <div class="top-0 left-0 w-full bg-black bg-opacity-60 flex flex-col justify-between">
-                <div class="mb-8 mx-[10vw] px-4 py-5 mb-12 md:grid items-center md:grid-cols-10 md:gap-5 border-l-8 border-r-2 border-b-4 border-t-8 border-gray-800 rounded-br-md">
+            <div class="top-0 left-0 w-full bg-background bg-opacity-60 flex flex-col justify-between">
+                <div class="mb-8 mx-[10vw] px-4 py-5 mb-12 md:grid items-center md:grid-cols-10 md:gap-5
+                            border-b-2 border-primary rounded-br-md">
                     <div class="md:col-span-2 h-full">
-                        <img :src="`/images/category-logos/${post.category.name}-cat-logo.jpg`" alt="Image" class="w-full h-auto border-2 border-gray-800">
+                        <img :src="`/images/category-logos/${post.category.name}-cat-logo.jpg`" alt="Image" class="w-full h-auto border-2 border-primary">
                     </div>
                     <div class="md:col-span-8 md:flex">
                         <div class="md:w-2/5 pr-3 items-center md:items-start md:flex-row md:items-baseline md:space-x-3">
                             <Link :href="`/post/${post.slug}`" preserve-state :only="['post']">
-                                <h2 class="text-white text-2xl font-bold">{{ post.title }}</h2>
+                                <h2 class="text-secondary text-2xl">{{ post.title }}</h2>
                             </Link>
-                            <p class="text-white my-2">Published: <span class="font-semibold">{{ formattedDate }}</span></p>
+                            <h3 class="text-secondary my-2">Published: {{ formattedDate }}</h3>
                         </div>
-                        <div class="md:w-3/5 text-white">
+                        <div class="md:w-3/5 text-secondary">
                             <div class="mb-4 text-justify text-sm xl:text-base" v-html="post.excerpt"></div>
                             <div class="flex justify-between items-center">
                                 <div class="space-x-2">
@@ -26,7 +27,7 @@
                                 </div>
                                 <div>
                                     <Link :href="`/post/${post.slug}`"  preserve-state :only="['post']"
-                                       class="bg-gray-500 hover:bg-gray-700 text-white font-bold py-2 px-4
+                                       class="bg-accent-dark hover:bg-accent text-secondary py-2 px-4
                                        rounded btn-read-gray"
                                     >
                                         Read more
@@ -35,7 +36,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-span-1 text-white flex items-end justify-center h-full">
+                    <div class="col-span-1 text-secondary flex items-end justify-center h-full">
                         <!-- Additional content if needed -->
                     </div>
                 </div>

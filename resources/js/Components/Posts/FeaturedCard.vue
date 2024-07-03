@@ -2,8 +2,8 @@
     <div class="bg-background">
         <div class="w-full relative">
             <div class="top-0 left-0 w-full bg-background bg-opacity-60 flex flex-col justify-between border-t-8 border-primary">
-                <div class="mb-8 mx-[10vw] pt-8 lg:pt-16 px-4 xl:px-16 pb-8 lg:grid lg:grid-cols-5 lg:gap-5 border-l-8
-                            border-r-2 border-b-2 border-primary rounded-br-md">
+                <div class="mb-8 mx-[10vw] pt-8 lg:pt-16 px-4 xl:px-16 pb-8 lg:grid lg:grid-cols-5 lg:gap-5
+                            border-b-2 border-primary rounded-br-md">
                     <div class="lg:col-span-2 border-primary">
                         <img :src="`/images/category-logos/${post.category.name}-cat-logo.jpg`" alt="Image"
                              class="w-full h-auto border-2 border-primary">
