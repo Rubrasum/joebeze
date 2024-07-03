@@ -7,8 +7,10 @@
         <!-- more complicated designs might have slightly more complicated container layouts.
         Maybe nav and banner are both without containers. Who the fuck nose. So a full design will include unqiue -->
         <!-- Primary Navigation Menu -->
-        <LogoBanner v-once/>
-        <PrimaryNav />
+        <HeaderContainer >
+            <LogoBanner v-once/>
+            <PrimaryNav />
+        </HeaderContainer>
 
         <MainContain>
 
@@ -29,6 +31,7 @@ import MainContain from '@/Components/Layout/MainContain.vue';
 import Footer from '@/Components/Layout/Footer.vue';
 import LogoBanner from '@/Components/Layout/LogoBanner.vue';
 import PrimaryNav from '@/Components/Layout/PrimaryNav.vue';
+import HeaderContainer from '@/Components/Layout/HeaderContainer.vue'
 
 
 // SAMPLE CODE FOR PAGE //////////////////////////////////////////////////////////////////////////////////////////////
