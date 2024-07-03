@@ -15,7 +15,9 @@ export default {
     theme: {
         extend: {
             fontFamily: {
-                sans: ['Figtree', ...defaultTheme.fontFamily.sans],
+                'title': ['"Cascadia Code SemiLight"', 'monospace'],
+                'subtitle': ['"Bodoni MT"', 'serif'],
+                'paragraph': ['Retina', 'Arial', 'Helvetica', 'sans-serif'],
             },
             colors: {
                 'primary': "#2E2532",
