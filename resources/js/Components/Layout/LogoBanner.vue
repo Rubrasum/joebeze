@@ -1,10 +1,13 @@
 <template>
     <header>
-        <div id="nav_container" class="nav_container h-24 flex items-center items-center justify-center" >
-            <Link :href="`/`" preserve-state>
-                <SpecialLogo v-once/>
-            </Link>
-            <div class="container mx-auto px-4 h-full z-[99]">
+        <div id="nav_container" class="nav_container h-24 flex items-center justify-between relative max-w-7xl mx-auto" >
+            <div class="flex">
+                <Link :href="`/`" preserve-state class="flex">
+                    <SpecialLogo v-once/>
+                </Link>
+            </div>
+
+            <div class=" px-4 h-full z-[99] flex">
                 <nav class="h-full flex justify-between items-center py-4">
                     <div id="Logo container placeholder" class="w-full">
                         <div class="block z-[110] max-w-[33.85vw]"></div>
