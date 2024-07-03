@@ -1,8 +1,13 @@
 <template>
-    <div class="px-4 h-full z-[99] flex">
+    <div class="p-4 h-full z-[99] flex items-center justify-between">
+        <div class="">
+            <h2>Latest From the Blog</h2>
+        </div>
         <nav class="h-full flex justify-between items-center">
             <div id="Logo container placeholder" class="w-full">
-                <div class="block z-[110] max-w-[33.85vw]"></div>
+                <div class="block z-[110] max-w-[33.85vw]">
+                    <h4 class="mr-2" :class="{ 'text-accent': currentCategory || search }" >Filter: </h4>
+                </div>
             </div>
             <div class="hidden lg:flex items-center">
                 <div class="relative mr-4" :class="{ hidden : !posts }">
