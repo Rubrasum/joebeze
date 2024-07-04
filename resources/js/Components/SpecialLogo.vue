@@ -168,7 +168,7 @@ onMounted(() => {
 
         draw(context) {
             this.opacity -= this.speed / 200;
-            context.fillStyle = this.color.replace('rgb', 'rgba').replace(')', `, ${this.opacity})`);
+            context.fillStyle = '#5B9';
             context.beginPath();
             context.arc(this.x, this.y, this.size, 0, Math.PI * 2);
             context.fill();
@@ -192,7 +192,8 @@ onMounted(() => {
         drawTo(x, y, ctx) {
             ctx.beginPath();
             ctx.moveTo(this.x, this.y);
-            ctx.lineTo(x, y);
+            ctx.lineTo(x + 12, y + 10);
+            ctx.strokeStyle = '#5B9'; // Set the line color
             ctx.stroke();
             ctx.fillStyle = "red";
             ctx.fillRect(x + 12, y + 10, 5, 5); // Adjust the position of the dot
@@ -343,7 +344,7 @@ onMounted(() => {
                     const segmentLength = path.path.getTotalLength() / path.points.length;
                     const distance = this.pointIndex * segmentLength;
                     path.path.style.strokeDasharray = `${distance} ${path.path.getTotalLength()}`;
-                    path.path.style.stroke = '#fff';
+                    path.path.style.stroke = '#5B9';
                     path.path.style.strokeWidth = '2px';
                 }
 
