@@ -28,7 +28,7 @@ h1, h2 {
 h3, h4, h5, h6 {
     @apply font-subtitle text-primary-text;
 }
-p, a, label, input, select, button {
+p, a, label, input, select, button, ul, ol, li, span {
     @apply font-paragraph text-primary-text;
 }
 
