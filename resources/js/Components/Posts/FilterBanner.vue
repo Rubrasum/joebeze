@@ -26,10 +26,13 @@
                             type="search"
                             name="search"
                             placeholder="Search"
-                            class="border border-primary-gray rounded-lg px-4 py-2 focus:outline-none focus:outline-none
-                            focus:ring-2 focus:ring-accent bg-primary-bg text-primary-text"
+                            class="border border-accent rounded-lg px-4 py-2
+           focus:outline-none focus:ring-2 focus:ring-offset-0 focus:ring-accent
+           focus:shadow-none focus:border-accent
+           bg-primary-bg text-primary-text"
                             v-model="search"
                         />
+
                     </form>
                 </div>
             </div>
@@ -91,12 +94,13 @@
                             name="category"
                             :value="currentCategory.name"
                         />
+
                         <input
-                            type="text"
+                            type="search"
                             name="search"
                             placeholder="Search"
-                            class="block w-full border border-secondary-bg rounded-lg px-4 py-2 focus:outline-none
-                                   focus:ring-2 focus:ring-accent"
+                            class="border border-accent rounded-lg px-4 py-2 focus:outline-none
+                                    focus:ring-2 focus:ring-accent bg-primary-bg text-primary-text"
                             v-model="search"
                         />
                     </form>

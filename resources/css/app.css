@@ -15,10 +15,15 @@
     color: #000000;
     text-decoration: none;
 }
-
-.navbar input[type="search"] {
-    outline: none;
-    border: 1px solid #cccccc;
+/* custom styling for focus on input fields */
+input:focus {
+    --tw-ring-inset: var(--tw-empty,/*!*/ /*!*/);
+    --tw-ring-offset-width: 0px;
+    --tw-ring-offset-color: transparent;
+    --tw-ring-color: transparent;
+    --tw-ring-offset-shadow: none;
+    --tw-ring-shadow: none;
+    box-shadow: none;
 }
 
 
