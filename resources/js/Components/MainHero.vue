@@ -1,6 +1,6 @@
 <template>
     <div class="relative isolate">
-        <svg class="absolute inset-x-0 -top-20 -z-10 h-[45rem] w-full stroke-primary-gray
+        <svg class="absolute inset-x-0 -top-[2rem] -z-10 h-[64rem] w-full stroke-primary-gray
                     [mask-image:radial-gradient(32rem_32rem_at_center,white,transparent)]"
              aria-hidden="true">
             <defs>
@@ -8,7 +8,7 @@
                     <path d="M.5 200V.5H200" fill="none" />
                 </pattern>
             </defs>
-            <svg x="50%" y="-1" class="overflow-visible fill-accent/[80]">
+            <svg x="50%" y="-1" class="overflow-visible fill-accent">
                 <path d="M-200 0h201v201h-201Z M600 0h201v201h-201Z M-400 600h201v201h-201Z M200 800h201v201h-201Z" stroke-width="0" />
             </svg>
             <rect width="100%" height="100%" stroke-width="0" fill="url(#1f932ae7-37de-4c0a-a8b0-a6e3b4d44b84)" />
@@ -23,11 +23,8 @@
                     <div class="relative w-full max-w-xl lg:shrink-0 xl:max-w-2xl">
                         <h1 class="tracking-tight text-primary-text ">Elevated Laravel Development.</h1>
                         <ul class="list-disc list-inside text-left">
-                            <li class="ml-4 bulleted">
-                                <h5 class="mt-6 text-sm leading-8 text-subtitle sm:max-w-md lg:max-w-none">
-                                    OCR Tool - 3000+ possible matches - <b>Python</b>, Laravel, Vue.js, Tailwind CSS, and more.
-                                </h5>
-                            </li>
+                            <li class="ml-8 bulleted font-subtitle">OCR Tool - <b>Python API</b>, Laravel Vue database/interface/scraper.</li>
+                            <li></li>
                         </ul>
                         <div class="mt-10 flex items-center gap-x-6">
                             <a href="#"
@@ -41,27 +38,32 @@
                     <div class="mt-14 flex justify-end gap-8 sm:-mt-44 sm:justify-start sm:pl-20 lg:mt-0 lg:pl-0">
                         <div class="w-44 flex-none space-y-8 pt-32 sm:pt-0">
                             <div class="relative">
-                                <img src="https://images.unsplash.com/photo-1670272504528-790c24957dda?ixlib=rb-4.0.3&ixid=MnwxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&crop=left&w=400&h=528&q=80" alt="" class="aspect-[2/3] w-full rounded-xl bg-primary-text/5 object-cover shadow-lg" />
+                                <img src="https://images.unsplash.com/photo-1670272504528-790c24957dda?ixlib=rb-4.0.3&ixid=MnwxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&crop=left&w=400&h=528&q=80"
+                                     alt="" class="aspect-[2/3] w-full rounded-xl bg-primary-text/5 object-cover shadow-light-lg" />
                                 <div class="pointer-events-none absolute inset-0 rounded-xl ring-1 ring-inset ring-primary-text/10" />
                             </div>
                             <div class="relative">
-                                <img src="https://images.unsplash.com/photo-1670272505284-8faba1c31f7d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&h=528&q=80" alt="" class="aspect-[2/3] w-full rounded-xl bg-primary-text/5 object-cover shadow-lg" />
+                                <img src="https://images.unsplash.com/photo-1670272505284-8faba1c31f7d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&h=528&q=80"
+                                     alt="" class="aspect-[2/3] w-full rounded-xl bg-primary-text/5 object-cover shadow-light-lg" />
                                 <div class="pointer-events-none absolute inset-0 rounded-xl ring-1 ring-inset ring-primary-text/10" />
                             </div>
                         </div>
                         <div class="mr-auto w-44 flex-none space-y-8 sm:mr-0 sm:pt-52 lg:pt-36">
                             <div class="relative">
-                                <img src="https://images.unsplash.com/photo-1485217988980-11786ced9454?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&h=528&q=80" alt="" class="aspect-[2/3] w-full rounded-xl bg-primary-text/5 object-cover shadow-lg" />
+                                <img src="https://images.unsplash.com/photo-1485217988980-11786ced9454?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&h=528&q=80"
+                                     alt="" class="aspect-[2/3] w-full rounded-xl bg-primary-text/5 object-cover shadow-light-lg" />
                                 <div class="pointer-events-none absolute inset-0 rounded-xl ring-1 ring-inset ring-primary-text/10" />
                             </div>
                         </div>
                         <div class="w-44 flex-none space-y-8 pt-32 sm:pt-0">
                             <div class="relative">
-                                <img src="https://images.unsplash.com/photo-1670272504528-790c24957dda?ixlib=rb-4.0.3&ixid=MnwxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&crop=left&w=400&h=528&q=80" alt="" class="aspect-[2/3] w-full rounded-xl bg-primary-text/5 object-cover shadow-lg" />
+                                <img src="https://images.unsplash.com/photo-1670272504528-790c24957dda?ixlib=rb-4.0.3&ixid=MnwxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&crop=left&w=400&h=528&q=80"
+                                     alt="" class="aspect-[2/3] w-full rounded-xl bg-primary-text/5 object-cover shadow-light-lg" />
                                 <div class="pointer-events-none absolute inset-0 rounded-xl ring-1 ring-inset ring-primary-text/10" />
                             </div>
                             <div class="relative">
-                                <img src="https://images.unsplash.com/photo-1670272505284-8faba1c31f7d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&h=528&q=80" alt="" class="aspect-[2/3] w-full rounded-xl bg-primary-text/5 object-cover shadow-lg" />
+                                <img src="https://images.unsplash.com/photo-1670272505284-8faba1c31f7d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&h=528&q=80"
+                                     alt="" class="aspect-[2/3] w-full rounded-xl bg-primary-text/5 object-cover shadow-light-lg" />
                                 <div class="pointer-events-none absolute inset-0 rounded-xl ring-1 ring-inset ring-primary-text/10" />
                             </div>
                         </div>
