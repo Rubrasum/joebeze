@@ -1,7 +1,7 @@
 <template>
     <Head title="Home" />
-    <div class="bg-primary-bg">
-        <div class="w-full relative  border-b-2 border-secondary-bg">
+    <div class="bg-primary-bg ">
+        <div class="w-full relative  border-b-2 border-secondary-bg  overflow-hidden z-50">
             <div class="top-0 left-0 bg-primary-bg bg-opacity-60 flex flex-col justify-between mx-[10vw]">
                 <MainHero />
             </div>
