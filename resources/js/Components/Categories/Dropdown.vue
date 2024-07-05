@@ -9,7 +9,7 @@
                            focus:ring-accent sm:hidden"
         >
             {{ currentCategory ? currentCategory.name : 'All Categories' }}
-            <ChevronDownIcon class="-mr-1 h-5 w-5 text-gray-400 absolute right-4" aria-hidden="true" />
+            <ChevronDownIcon class="-mr-1 h-5 w-5 absolute right-4" :class="{ 'text-accent' : currentCategory, 'text-primary-gray' : !currentCategory }" aria-hidden="true" />
         </button>
 
         <div v-if="isDropdownOpen"
