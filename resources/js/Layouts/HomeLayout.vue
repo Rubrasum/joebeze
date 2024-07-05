@@ -32,14 +32,14 @@ import Footer from '@/Components/Layout/Footer.vue';
 import LogoBanner from '@/Components/Layout/LogoBanner.vue';
 import PrimaryNav from '@/Components/Layout/PrimaryNav.vue';
 import HeaderContainer from '@/Components/Layout/HeaderContainer.vue'
+import {onMounted} from "vue";
 
 
 // SAMPLE CODE FOR PAGE //////////////////////////////////////////////////////////////////////////////////////////////
 // hide the page body_container id element until its loaded
-window.onload = function() {
-    // change body element to visible
+onMounted(() => {
     document.body.style.visibility = 'visible';
-}
+});
 
 </script>
 
