@@ -8,7 +8,7 @@
         </div>
 
         <div class="w-full relative  border-b-2 border-secondary-bg">
-            <div class="top-0 left-0 bg-primary-bg bg-opacity-60 flex flex-col justify-between border-accent mx-[10vw]">
+            <div class="top-0 left-0 bg-primary-bg bg-opacity-60 border-accent mx-[10vw]">
                 <Feed  :posts="posts"/>
             </div>
         </div>
