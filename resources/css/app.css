@@ -29,6 +29,7 @@ input:focus {
 
 h1, h2 {
     @apply font-title text-primary-text;
+    @apply p-2 m-2;
 }
 h3, h4, h5, h6 {
     @apply font-subtitle text-primary-text;

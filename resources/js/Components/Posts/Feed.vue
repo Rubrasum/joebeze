@@ -1,6 +1,6 @@
 <template>
 
-    <div class="bg-secondary-bg rounded-b-md">
+    <div class="bg-primary-bg rounded-b-md py-8">
         <PostFilterBanner :currentCategory="currentCategory" :search="search"/>
     </div>
     <div v-if="items.length > 0">
