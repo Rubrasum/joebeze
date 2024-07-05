@@ -286,7 +286,7 @@ onMounted(() => {
 
         init(text, size) {
             // Set font size for the text
-            this.ctx.font = `${size}px nasalisation`;
+            this.ctx.font = `${size}px NasalizationRg-Regular`;
             // Calculate starting X position to center the text
             this.startX = (this.w - this.ctx.measureText(text).width) / 2;
             // Draw text onto the canvas
@@ -691,7 +691,7 @@ onMounted(() => {
 /* joebeze_logo_filled */
 .cls-2-1 {
     fill: url(#tessPattern);
-    font-family: NasalizationRg-Regular, Nasalization;
+    font-family: 'NasalizationRg-Regular', Nasalization;
     font-size: 56px;
     transition: fill 2s ease;
 }

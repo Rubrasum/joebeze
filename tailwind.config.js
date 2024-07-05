@@ -18,6 +18,7 @@ export default {
                 'title': ['EncodeSans', 'serif'],
                 'subtitle': ['CascadiaMonoPL', 'monospace'],
                 'paragraph': ['Inter', 'Arial', 'Helvetica', 'sans-serif'],
+                'nasalization': ['NasalizationRg-Regular', 'Nasalization'],
             },
             colors: {
                 'primary-mint': '#5FBB97',
