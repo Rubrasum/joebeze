@@ -1,4 +1,8 @@
 <template>
+
+    <div class="bg-primary-bg rounded-b-md py-8">
+        <PostFilterBanner :currentCategory="currentCategory" :search="search"/>
+    </div>
     <div v-if="items.length > 0">
         <div>
             <FeaturedCard :post="items[0]" />
@@ -12,7 +16,7 @@
     </div>
     <div v-else>
         <div class="flex items-center flex-grow justify-center text-center ">
-            <p class="text-2xl md:text-3xl lg:text-4xl text-white font-semibold py-14">
+            <p class="text-2xl md:text-3xl lg:text-4xl text-secondary font-semibold py-14">
                 Oops... No posts found.
             </p>
         </div>
@@ -22,6 +26,7 @@
 <script setup>
 import FeaturedCard from './FeaturedCard.vue';
 import Card from './Card.vue';
+import PostFilterBanner from '@/Components/Posts/FilterBanner.vue';
 import {Link, router, usePage} from '@inertiajs/vue3';
 import {computed, onMounted, ref, watch} from 'vue';
 

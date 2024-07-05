@@ -1,9 +1,9 @@
 <template>
-    <div id="logo-container" class="lg:h-[3.96vw] h-[7.92vw] lg:w-[33.85vw] w-[67.70vw] relative items-center overflow-hidden ml-[10vw]  rounded-md">
+    <div id="logo-container" class="lg:h-[3.96vw] h-[7.92vw] lg:w-[33.85vw] w-[67.70vw] relative items-center overflow-hidden rounded-md">
         <div id="logo-background" class="absolute z-[98] w-full h-full block p-4 top-0 left-0 bg-white rounded-lg shadow-lg border-2 border-white transition-all duration-250 ease-in-out">
             <div class="ripple"></div>
         </div>
-        <div class="overflow-hidden lg:h-[3.96vw] h-[7.92vw]">
+        <div class="overflow-hidden lg:h-[3.96vw] h-[7.92vw] rounded-xl">
             <div id="logo-background2"
                  class="absolute z-[98] lg:h-[3.96vw] h-[7.92vw] lg:w-[33.85vw] w-[67.70vw] block top-0 left-0 bg-transparent rounded-lg shadow-lg border-2 border-white transition-all duration-250 ease-in-out">
             </div>
@@ -168,7 +168,7 @@ onMounted(() => {
 
         draw(context) {
             this.opacity -= this.speed / 200;
-            context.fillStyle = this.color.replace('rgb', 'rgba').replace(')', `, ${this.opacity})`);
+            context.fillStyle = '#5B9';
             context.beginPath();
             context.arc(this.x, this.y, this.size, 0, Math.PI * 2);
             context.fill();
@@ -192,7 +192,8 @@ onMounted(() => {
         drawTo(x, y, ctx) {
             ctx.beginPath();
             ctx.moveTo(this.x, this.y);
-            ctx.lineTo(x, y);
+            ctx.lineTo(x + 12, y + 10);
+            ctx.strokeStyle = '#5B9'; // Set the line color
             ctx.stroke();
             ctx.fillStyle = "red";
             ctx.fillRect(x + 12, y + 10, 5, 5); // Adjust the position of the dot
@@ -343,7 +344,7 @@ onMounted(() => {
                     const segmentLength = path.path.getTotalLength() / path.points.length;
                     const distance = this.pointIndex * segmentLength;
                     path.path.style.strokeDasharray = `${distance} ${path.path.getTotalLength()}`;
-                    path.path.style.stroke = '#fff';
+                    path.path.style.stroke = '#5B9';
                     path.path.style.strokeWidth = '2px';
                 }
 
@@ -738,13 +739,6 @@ onMounted(() => {
 }
 
 /* Actual Styling not cut from the SVGS */
-
-
- /*Top Element */
-.nav_container {
-    background-image: url("/images/bytebeze-banner-tess.png");
-    background-repeat: repeat;
-}
 
 #logo-background {
     background-position: center bottom;

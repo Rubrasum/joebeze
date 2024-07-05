@@ -1,0 +1,20 @@
+
+@font-face {
+    font-family: 'Inter'; /* Or whatever name you want to use */
+    src: url('../fonts/Inter-VariableFont_slnt,wght.ttf') format('truetype-variations');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'EncodeSans'; /* Or whatever name you want to use */
+    src: url('../fonts/EncodeSansCondensed-Light.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'CascadiaMonoPL'; /* Or whatever name you want to use */
+    src: url('../fonts/Cascadia Code SemiLight 350.otf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+}

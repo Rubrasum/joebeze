@@ -1,20 +1,3 @@
-<script setup>
-// Importing necessary functions and components from Vue and Inertia.js
-import { Link, router } from '@inertiajs/vue3';
-import MainContain from '@/Components/Layout/MainContain.vue';
-import Footer from '@/Components/Layout/Footer.vue';
-import PrimaryNav from '@/Components/Layout/PrimaryNav.vue';
-
-
-// SAMPLE CODE FOR PAGE //////////////////////////////////////////////////////////////////////////////////////////////
-// hide the page body_container id element until its loaded
-window.onload = function() {
-    // change body element to visible
-    document.body.style.visibility = 'visible';
-}
-
-</script>
-
 <template>
     <div class="flex flex-col min-h-screen">
 <!--        <Banner />-->
@@ -24,7 +7,11 @@ window.onload = function() {
         <!-- more complicated designs might have slightly more complicated container layouts.
         Maybe nav and banner are both without containers. Who the fuck nose. So a full design will include unqiue -->
         <!-- Primary Navigation Menu -->
-        <PrimaryNav v-once/>
+        <HeaderContainer >
+            <LogoBanner v-once/>
+            <PrimaryNav />
+        </HeaderContainer>
+
         <MainContain>
 
             <!-- Secondary Navigation Menu -->
@@ -37,6 +24,25 @@ window.onload = function() {
         <Footer />
     </div>
 </template>
+<script setup>
+// Importing necessary functions and components from Vue and Inertia.js
+import { Link, router } from '@inertiajs/vue3';
+import MainContain from '@/Components/Layout/MainContain.vue';
+import Footer from '@/Components/Layout/Footer.vue';
+import LogoBanner from '@/Components/Layout/LogoBanner.vue';
+import PrimaryNav from '@/Components/Layout/PrimaryNav.vue';
+import HeaderContainer from '@/Components/Layout/HeaderContainer.vue'
+
+
+// SAMPLE CODE FOR PAGE //////////////////////////////////////////////////////////////////////////////////////////////
+// hide the page body_container id element until its loaded
+window.onload = function() {
+    // change body element to visible
+    document.body.style.visibility = 'visible';
+}
+
+</script>
+
 
 <style>
 
