@@ -18,7 +18,7 @@ let p5Instance = null;
 
 const sketch = (p) => {
     let stars = [];
-    const numStars = 1200;
+    const numStars = 300;
     const maxSpeed = 50;
     let canvasWidth, canvasHeight;
     const zFar = 4000;
