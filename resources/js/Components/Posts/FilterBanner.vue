@@ -1,6 +1,6 @@
 <template>
 
-    <div class="border-b border-secondary-bg pb-5 sm:flex sm:items-center sm:justify-between">
+    <div class="border-double border-b-4 border-secondary-bg pb-5 sm:flex sm:items-center sm:justify-between">
         <h2 class="leading-6 text-primary-text">Latest From the Blog</h2>
         <div class="mt-3 sm:ml-4 sm:mt-0">
             <div class="flex rounded-md shadow-sm">

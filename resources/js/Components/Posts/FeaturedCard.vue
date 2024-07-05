@@ -1,8 +1,8 @@
 <template>
     <div class="top-0 left-0 w-full bg-primary-bg bg-opacity-60 flex  justify-end border-accent">
-        <div class="w-11/12 flex flex-col">
-            <div class="mb-8 pt-8 lg:pt-16 px-4 xl:px-16 pb-8 lg:grid lg:grid-cols-5 lg:gap-5
-                    border-b-2 border-secondary-bg rounded-br-md ">
+        <div class="w-11/12 flex flex-col border-l-2 border-secondary-bg">
+            <div class="mb-8 pt-8 px-4 xl:px-16 pb-8 lg:grid lg:grid-cols-5 lg:gap-5
+                     inset-0 rounded-br-md border-y-2 border-secondary-bg rounded-br-md ">
                 <div class="lg:col-span-2 border-accent">
                     <img :src="`/images/category-logos/${post.category.name}-cat-logo.jpg`" alt="Image"
                          class="w-full h-auto bg-secondary-bg text-primary-text">
