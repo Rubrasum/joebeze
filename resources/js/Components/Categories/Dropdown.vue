@@ -14,7 +14,7 @@
 
         <div v-if="isDropdownOpen"
              class="absolute bg-secondary-bg border border-primary-gray shadow-light-lg z-50 inset-x-0 py-1 w-full
-                    rounded-b-xl overflow-auto max-h-52
+                    rounded-b-xl overflow-auto max-h-52 thin-scrollbar
 ">
             <DropdownItem
                 @click="updatePosts(null)"
