@@ -3,13 +3,18 @@
     <div class="bg-primary-bg rounded-b-md py-8">
         <PostFilterBanner :currentCategory="currentCategory" :search="search"/>
     </div>
-    <div v-if="items.length > 0">
-        <div>
-            <FeaturedCard :post="items[0]" />
-        </div>
-        <div v-if="items.length >= 2">
+    <div v-if="items.length > 0" class="flex justify-end">
+        <div v-if="items.length >= 2" class="divide-y divide-secondary-bg w-11/12 ">
+            <div>
+                <FeaturedCard :post="items[0]" />
+            </div>
             <div v-for="(post, index) in items.slice(1)" :key="post.id">
                 <Card :post="post" />
+            </div>
+        </div>
+        <div v-else>
+            <div>
+                <FeaturedCard :post="items[0]" />
             </div>
         </div>
         <div ref="landmark">    </div>

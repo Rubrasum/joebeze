@@ -1,9 +1,9 @@
 <template>
-    <div class="top-0 left-0 w-full bg-primary-bg bg-opacity-60 flex  justify-end border-accent">
-        <div class="w-11/12 flex flex-col border-l-2 border-secondary-bg">
-            <div class="mb-8 pt-8 px-4 xl:px-16 pb-8 lg:grid lg:grid-cols-5 lg:gap-5
-                     inset-0 rounded-br-md border-y-2 border-secondary-bg rounded-br-md ">
-                <div class="lg:col-span-2 border-accent">
+    <div class="top-0 left-0 w-full bg-primary-bg bg-opacity-60 flex  justify-end ">
+        <div class="flex flex-col mb-12">
+            <div class="lg:grid lg:grid-cols-5 lg:gap-5 pb-8 px-8
+                 inset-0 border-l border-secondary-bg">
+                <div class="lg:col-span-2 p-2">
                     <img :src="`/images/category-logos/${post.category.name}-cat-logo.jpg`" alt="Image"
                          class="w-full h-auto bg-secondary-bg text-primary-text">
                 </div>
@@ -14,7 +14,7 @@
                     <div class="mt-4 space-x-2">
                         <Link  :href="`/?category=${post.category.slug}`" preserve-state
                                :class="`px-3 py-1 border-2 border-${post.category.color} rounded-full
-                           text-${post.category.color} text-sm uppercase`"
+                       text-${post.category.color} text-sm uppercase`"
 
                         >
                             {{ post.category.name }}
