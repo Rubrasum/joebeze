@@ -14,7 +14,7 @@
                                 <Link :href="`/post/${post.slug}`" preserve-state :only="['post']">
                                     <h2 class="text-primary-text text-2xl py-0 my-0">{{ post.title }}</h2>
                                 </Link>
-                                <h3 class="text-primary-text my-2">Published: {{ formattedDate }}</h3>
+                                <h3 class="text-primary-text my-2  text-base">Published: {{ formattedDate }}</h3>
                             </div>
                             <div class="md:w-3/5 text-primary-text">
                                 <div class="mb-4 text-justify text-sm xl:text-base" v-html="post.excerpt"></div>

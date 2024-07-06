@@ -21,7 +21,7 @@
                         </Link>
                     </div>
                     <div class="flex justify-between items-center mt-2">
-                        <h3 class="text-primary-text pt-2">Published: {{ formattedDate }}</h3>
+                        <h3 class="text-primary-text pt-2 text-base">Published: {{ formattedDate }}</h3>
                         <footer>
                             <Link :href="`/post/${post.slug}`"  :only="['post']"
                                   class="bg-primary-gray hover:bg-accent text-primary-text font-bold py-2 px-4 rounded btn-read-gray"
