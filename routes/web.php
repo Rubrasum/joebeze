@@ -11,8 +11,34 @@ use Inertia\Inertia;
 // Typical Web pages
 Route::get('/', [PostController::class, 'index']);
 Route::get('post/{post:slug}', [PostController::class, 'show']);
-Route::get('/redtagscan', function () {
+
+// Project Pages TODO add to database
+Route::get('/projects/redtagscan', function () {
     return Inertia::render('Projects/RedTagScan', [
+        'canLogin' => Route::has('login'),
+        'canRegister' => Route::has('register'),
+        'laravelVersion' => Application::VERSION,
+        'phpVersion' => PHP_VERSION,
+    ]);
+});
+Route::get('/projects/joebeze', function () {
+    return Inertia::render('Projects/Joebeze', [
+        'canLogin' => Route::has('login'),
+        'canRegister' => Route::has('register'),
+        'laravelVersion' => Application::VERSION,
+        'phpVersion' => PHP_VERSION,
+    ]);
+});
+Route::get('/projects/mortgaas', function () {
+    return Inertia::render('Projects/MortgaaS', [
+        'canLogin' => Route::has('login'),
+        'canRegister' => Route::has('register'),
+        'laravelVersion' => Application::VERSION,
+        'phpVersion' => PHP_VERSION,
+    ]);
+});
+Route::get('/projects/anamorphosis', function () {
+    return Inertia::render('Projects/Anamorphosis', [
         'canLogin' => Route::has('login'),
         'canRegister' => Route::has('register'),
         'laravelVersion' => Application::VERSION,
