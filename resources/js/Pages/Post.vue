@@ -1,17 +1,18 @@
 <template>
     <Head :title="post.title" />
     <div v-if="post !== null">
-        <main class="bg-black mt-2">
-            <article id="post-article" class="container mx-auto p-16 mb-8 border-l-8 border-r-2 border-b-2 border-gray-900 rounded-br-md min-w-48 w-3/4 max-w-screen-lg">
+        <main class="bg-black mt-4">
+            <article id="post-article"
+                     class="container mx-auto px-16 pb-16 pt-8 my-8 border-x border-secondary-bg
+                     min-w-48 w-3/4 max-w-screen-lg">
                 <div class="col-span-3">
                     <h1 class="text-white text-4xl font-bold mb-10">{{ post.title }}</h1>
                 </div>
 
-                <div class="col-span-2 border-t-2 border-b-2 border-gray-900 text-center flex justify-center items-center space-x-4">
-                    <p class="my-2 text-white">
-                        Published
-                        <span class="font-semibold">{{ formatDate(post.published_at) }}</span>
-                    </p>
+                <div class="col-span-2 border-dashed border-y border-secondary-bg text-center flex justify-center items-center space-x-4">
+                    <h6 class="my-2 text-white">
+                        Published {{ formatDate(post.published_at) }}
+                    </h6>
                     <Link :href="`/?category=${post.category.slug}`"
                        :class="`px-3 py-1 border border-${post.category.color} rounded-full text-${post.category.color} text-xs uppercase font-semibold`"
                     >{{ post.category.name }}</Link>
