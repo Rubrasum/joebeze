@@ -12,7 +12,7 @@
             <PopoverGroup class="hidden lg:flex lg:gap-x-12">
                 <Popover class="relative">
                     <PopoverButton class="flex items-center gap-x-1 text-sm font-semibold leading-6 text-primary-text">
-                        Product
+                        Portfolio
                         <ChevronDownIcon class="h-5 w-5 flex-none text-accent" aria-hidden="true" />
                     </PopoverButton>
 
@@ -25,7 +25,7 @@
                                    rounded-b-md bg-secondary-bg shadow-light-lg ring-1 ring-primary-gray"
                         >
                             <div class="p-4">
-                                <div v-for="item in products" :key="item.name"
+                                <div v-for="item in projects" :key="item.name"
                                      class="group relative flex gap-x-6 rounded-lg p-4 text-sm leading-6 hover:bg-primary-bg"
                                 >
                                     <div
@@ -43,10 +43,10 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="grid grid-cols-2 divide-x divide-primary-gray/[5] bg-primary-bg/[25]">
+                            <div class="grid grid-cols-2 border-t border-accent divide-x divide-primary-gray/[5] bg-primary-bg/[25]">
                                 <a v-for="item in callsToAction" :key="item.name" :href="item.href"
                                    class="flex items-center justify-center gap-x-2.5 p-3 text-sm font-semibold leading-6
-                                   text-primary-text hover:text-accent hover:bg-secondary-bg">
+                                   text-primary-text hover:text-accent hover:shadow-light-lg-inset" target="_blank" rel="noopener noreferrer" >
                                     <component :is="item.icon" class="h-5 w-5 flex-none text-accent group-hover:text-primary-text"
                                                aria-hidden="true" />
                                     {{ item.name }}
@@ -105,7 +105,7 @@
                     <div class="mt-6 flow-root">
                         <div class="-my-6 divide-y divide-primary-gray/[10]">
                             <div class="space-y-2 py-6">
-                                <a v-for="item in products" :key="item.name" :href="item.href" class="group -mx-3 flex items-center gap-x-6 rounded-lg p-3 text-base font-semibold leading-7 text-primary-text hover:bg-primary-bg">
+                                <a v-for="item in projects" :key="item.name" :href="item.href" class="group -mx-3 flex items-center gap-x-6 rounded-lg p-3 text-base font-semibold leading-7 text-primary-text hover:bg-primary-bg">
                                     <div class="flex h-11 w-11 flex-none items-center justify-center rounded-lg bg-primary-bg group-hover:bg-secondary-bg">
                                         <component :is="item.icon" class="h-6 w-6 text-secondary-text group-hover:text-accent" aria-hidden="true" />
                                     </div>
@@ -125,7 +125,9 @@
                     </div>
                 </div>
                 <div class="sticky bottom-0 grid grid-cols-2 divide-x divide-primary-gray/[5] bg-primary-bg text-center">
-                    <a v-for="item in callsToAction" :key="item.name" :href="item.href" class="p-3 text-base font-semibold leading-7 text-primary-text hover:bg-secondary-bg">{{ item.name }}</a>
+                    <div v-for="item in callsToAction" :key="item.name" >
+                        <a target="_blank" rel="noopener noreferrer" :href="item.href" class="p-3 text-base font-semibold leading-7 text-primary-text hover:bg-secondary-bg">{{ item.name }}</a>
+                    </div>
                 </div>
             </DialogPanel>
         </Dialog>
@@ -137,26 +139,25 @@
 
 import { Dialog, DialogPanel, Popover, PopoverButton, PopoverGroup, PopoverPanel } from '@headlessui/vue'
 import {
-    ArrowPathIcon,
+    DocumentTextIcon,
     Bars3Icon,
-    ChartPieIcon,
-    CursorArrowRaysIcon,
-    FingerPrintIcon,
-    SquaresPlusIcon,
+    EyeIcon,
+    NewspaperIcon,
+    PhoneArrowDownLeftIcon,
+    Squares2X2Icon,
     XMarkIcon,
 } from '@heroicons/vue/24/outline'
 import { ChevronDownIcon, PhoneIcon, PlayCircleIcon } from '@heroicons/vue/20/solid'
 
-const products = [
-    { name: 'Analytics', description: 'Get a better understanding of your traffic', href: '#', icon: ChartPieIcon },
-    { name: 'Engagement', description: 'Speak directly to your customers', href: '#', icon: CursorArrowRaysIcon },
-    { name: 'Security', description: 'Your customers’ data will be safe and secure', href: '#', icon: FingerPrintIcon },
-    { name: 'Integrations', description: 'Connect with third-party tools', href: '#', icon: SquaresPlusIcon },
-    { name: 'Automations', description: 'Build strategic funnels that will convert', href: '#', icon: ArrowPathIcon },
+const projects = [
+    { name: 'Red Tag Scan', description: 'Match your EFT inventory against 3000+ template icons', href: '/redtagscan', icon: EyeIcon },
+    { name: 'The Dev Blog', description: 'A lightweight web strategy', href: '#', icon: NewspaperIcon },
+    { name: 'MortgaaS', description: 'Lead Generation taken to the edge with monitoring and automation.', href: '#', icon: PhoneArrowDownLeftIcon },
+    { name: 'Anamorphosis', description: 'C++ Powder physics engine, compiled with WASM and run on your browser', href: '#', icon: PhoneArrowDownLeftIcon },
 ]
 const callsToAction = [
-    { name: 'Watch demo', href: '#', icon: PlayCircleIcon },
-    { name: 'Contact sales', href: '#', icon: PhoneIcon },
+    { name: 'Github', href: 'https://github.com/Rubrasum/', icon: Squares2X2Icon },
+    { name: 'Certifications', href: 'https://www.linkedin.com/in/joseph-betbeze-08b503155/#:~:text=and%20%2B9%20skills-,Licenses%20%26%20certifications,-Licenses%20%26%20certifications', icon: DocumentTextIcon },
 ]
 const company = [
     { name: 'About us', href: '#', description: 'Learn more about our company values and mission to empower others' },
