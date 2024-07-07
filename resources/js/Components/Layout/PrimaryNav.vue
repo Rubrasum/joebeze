@@ -150,10 +150,10 @@ import {
 import { ChevronDownIcon, PhoneIcon, PlayCircleIcon } from '@heroicons/vue/20/solid'
 
 const projects = [
-    { name: 'Red Tag Scan', description: 'Match your EFT inventory against 3000+ template icons', href: '/redtagscan', icon: EyeIcon },
-    { name: 'The Dev Blog', description: 'A lightweight web strategy', href: '#', icon: NewspaperIcon },
-    { name: 'MortgaaS', description: 'Lead Generation taken to the edge with monitoring and automation.', href: '#', icon: PhoneArrowDownLeftIcon },
-    { name: 'Anamorphosis', description: 'C++ Powder physics engine, compiled with WASM and run on your browser', href: '#', icon: PhoneArrowDownLeftIcon },
+    { name: 'Red Tag Scan', description: 'Match your EFT inventory against 3000+ template icons', href: '/projects/redtagscan', icon: EyeIcon },
+    { name: 'The Dev Blog', description: 'A lightweight web strategy', href: '/projects/joebeze', icon: NewspaperIcon },
+    { name: 'MortgaaS', description: 'Lead Generation taken to the edge with monitoring and automation.', href: '/projects/mortgaas', icon: PhoneArrowDownLeftIcon },
+    { name: 'Anamorphosis', description: 'C++ Powder physics engine, compiled with WASM and run on your browser', href: '/projects/anamorphosis', icon: PhoneArrowDownLeftIcon },
 ]
 const callsToAction = [
     { name: 'Github', href: 'https://github.com/Rubrasum/', icon: Squares2X2Icon },
