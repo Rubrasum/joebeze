@@ -8,9 +8,19 @@ use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 
+// Typical Web pages
 Route::get('/', [PostController::class, 'index']);
-Route::get('/home', [PostController::class, 'home']);
 Route::get('post/{post:slug}', [PostController::class, 'show']);
+Route::get('/redtagscan', function () {
+    return Inertia::render('Projects/RedTagScan', [
+        'canLogin' => Route::has('login'),
+        'canRegister' => Route::has('register'),
+        'laravelVersion' => Application::VERSION,
+        'phpVersion' => PHP_VERSION,
+    ]);
+});
+
+
 
 Route::middleware([
     'auth:sanctum',
