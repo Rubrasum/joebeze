@@ -1,6 +1,6 @@
 <template>
     <header>
-        <nav class="mx-auto flex max-w-7xl items-center justify-between p-6 lg:px-8" aria-label="Global">
+        <nav class="mx-auto flex max-w-7xl items-center justify-center p-6 lg:px-8" aria-label="Global">
             <div class="flex lg:hidden">
                 <button type="button"
                         class="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-primary-text"
@@ -10,9 +10,10 @@
                 </button>
             </div>
             <PopoverGroup class="hidden lg:flex lg:gap-x-12">
+                <a href="#" class="text-primary py-3"><h5 class="leading-6 text-sm text-accent underline ">Home</h5></a>
                 <Popover class="relative">
-                    <PopoverButton class="flex items-center gap-x-1 text-sm font-semibold leading-6 text-primary-text">
-                        Portfolio
+                    <PopoverButton class="flex items-center gap-x-1 text-sm leading-6 text-primary-text py-3">
+                        <h5 class="leading-6 text-sm">Portfolio</h5>
                         <ChevronDownIcon class="h-5 w-5 flex-none text-accent" aria-hidden="true" />
                     </PopoverButton>
 
@@ -56,12 +57,9 @@
                     </transition>
                 </Popover>
 
-                <a href="#" class="text-sm font-semibold leading-6 text-primary-text">Features</a>
-                <a href="#" class="text-sm font-semibold leading-6 text-primary-text">Marketplace</a>
-
                 <Popover class="relative">
-                    <PopoverButton class="flex items-center gap-x-1 text-sm font-semibold leading-6 text-primary-text">
-                        Company
+                    <PopoverButton class="flex items-center gap-x-1 text-sm leading-6 text-primary-text py-3">
+                        <h5 class="leading-6 text-sm">Services</h5>
                         <ChevronDownIcon class="h-5 w-5 flex-none text-accent" aria-hidden="true" />
                     </PopoverButton>
 
@@ -70,10 +68,10 @@
                                 leave-from-class="opacity-100 translate-y-0" leave-to-class="opacity-0 translate-y-1">
                         <PopoverPanel
                             class="absolute -left-8 top-full z-10 mt-6 w-96 rounded-b-md bg-secondary-bg p-4
-                            shadow-light-lg ring-1 ring-primary-gray/[5]">
-                            <div v-for="item in company" :key="item.name"
-                                 class="relative group rounded-lg p-4 hover:bg-primary-bg text-primary-text  hover:text-accent">
-                                <a :href="item.href" class="block text-sm font-semibold leading-6 ">
+                            shadow-light-lg ring-1 ring-primary-gray/[5] h-[32rem] overflow-y-auto thin-scrollbar">
+                            <div v-for="item in services" :key="item.name"
+                                 class="relative group rounded-lg p-4 hover:bg-primary-bg text-primary-text ">
+                                <a :href="item.href" class="block text-sm font-semibold leading-6 group-hover:text-accent">
                                     {{ item.name }}
                                     <span class="absolute inset-0" />
                                 </a>
@@ -82,11 +80,13 @@
                         </PopoverPanel>
                     </transition>
                 </Popover>
-            </PopoverGroup>
 
-            <div class="hidden lg:flex lg:flex-1 lg:justify-end">
-                <a href="#" class="text-sm font-semibold leading-6 text-primary-text">Log in <span aria-hidden="true">&rarr;</span></a>
-            </div>
+                <a href="#" class="text-primary-text py-3"><h5 class="leading-6 text-sm">About Me</h5></a>
+                <a href="#" class="text-primary-text flex items-center gap-x-1 text-sm leading-6 text-primary-text py-3">
+                    <h5 class="leading-6 text-sm">Contact</h5>
+                </a>
+
+            </PopoverGroup>
         </nav>
         <Dialog class="lg:hidden" @close="mobileMenuOpen = false" :open="mobileMenuOpen">
             <div class="fixed inset-0 z-10" />
@@ -146,6 +146,7 @@ import {
     PhoneArrowDownLeftIcon,
     Squares2X2Icon,
     XMarkIcon,
+    ArrowDownTrayIcon,
 } from '@heroicons/vue/24/outline'
 import { ChevronDownIcon, PhoneIcon, PlayCircleIcon } from '@heroicons/vue/20/solid'
 
@@ -159,15 +160,14 @@ const callsToAction = [
     { name: 'Github', href: 'https://github.com/Rubrasum/', icon: Squares2X2Icon },
     { name: 'Certifications', href: 'https://www.linkedin.com/in/joseph-betbeze-08b503155/#:~:text=and%20%2B9%20skills-,Licenses%20%26%20certifications,-Licenses%20%26%20certifications', icon: DocumentTextIcon },
 ]
-const company = [
-    { name: 'About us', href: '#', description: 'Learn more about our company values and mission to empower others' },
-    { name: 'Careers', href: '#', description: 'Looking for you next career opportunity? See all of our open positions' },
-    {
-        name: 'Support',
-        href: '#',
-        description: 'Get in touch with our dedicated support team or reach out on our community forums',
-    },
-    { name: 'Blog', href: '#', description: 'Read our latest announcements and get perspectives from our team' },
+const services = [
+    { name: 'Responsive Design', href: '#', description: 'Beautifully tailored designs that bring an appeal to your business on any device.' },
+    { name: 'SEO Strategy', href: '#', description: 'A comprehensive search engine optimization strategy for long term keyword acquisition.' },
+    { name: 'Lead Management', href: '#', description: 'Learn more about our company values and mission to empower others.' },
+    { name: 'Real Time Analytics', href: '#', description: 'Looking for you next career opportunity? See all of our open positions.' },
+    { name: 'Support', href: '#', description: 'Get in touch with our dedicated support team or reach out on our community forums.' },
+    { name: 'Custom Admin Tools', href: '#', description: 'Data Integration, Dashboards, Custom Reports, Training and Support.' },
+    { name: 'End to End Testing', href: '#', description: 'All your features tested automatically following an update.'}
 ]
 
 import Dropdown from '@/Components/Categories/Dropdown.vue';
