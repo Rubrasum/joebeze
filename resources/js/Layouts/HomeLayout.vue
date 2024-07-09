@@ -48,7 +48,7 @@ onMounted(() => {
 
 
 html {
-    scroll-behavior: smooth
+    scroll-behavior: auto;
 }
 body {
     visibility: hidden;
