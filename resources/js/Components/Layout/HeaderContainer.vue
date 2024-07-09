@@ -1,10 +1,12 @@
 <template>
-    <div className="z-40 bg-background relative border-b-2 border-secondary-bg pt-2" ref="containerRef">
-        <div ref="p5Container" className="absolute inset-0 z-10"></div>
-        <div ref="slotContainer" className="relative z-10">
-            <slot></slot>
+    <header>
+        <div className="z-40 bg-background relative border-b-2 border-secondary-bg pt-2" ref="containerRef">
+            <div ref="p5Container" className="absolute inset-0 z-10"></div>
+            <div ref="slotContainer" className="relative z-10">
+                <slot></slot>
+            </div>
         </div>
-    </div>
+    </header>
 </template>
 
 <script setup>

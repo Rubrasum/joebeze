@@ -9,7 +9,7 @@
         <!-- Primary Navigation Menu -->
         <HeaderContainer >
             <LogoBanner v-once/>
-            <PrimaryNav />
+            <PrimaryNav :key="$page.url"/>
         </HeaderContainer>
 
         <MainContain>
