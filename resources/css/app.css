@@ -6,15 +6,6 @@
     display: none;
 }
 
-
-.navbar {
-    background-color: #ffffff;
-}
-
-.navbar a {
-    color: #000000;
-    text-decoration: none;
-}
 /* custom styling for focus on input fields */
 input:focus {
     --tw-ring-inset: var(--tw-empty,/*!*/ /*!*/);
@@ -24,6 +15,22 @@ input:focus {
     --tw-ring-offset-shadow: none;
     --tw-ring-shadow: none;
     box-shadow: none;
+}
+/* basic link styling, fake-link is for non-a tag elements */
+a, .fake-link {
+    @apply text-primary-gray;
+    @apply underline;
+}
+a:hover, .fake-link:hover {
+    @apply no-underline;
+    @apply text-accent;
+}
+a.nav-link, .nav-link {
+    @apply text-primary-text;
+    @apply no-underline;
+}
+a.nav-link:active, .nav-link:active  {
+    @apply text-accent;
 }
 
 
@@ -56,7 +63,7 @@ h5 {
 h6 {
     @apply text-xl;
 }
-
+/* category button styling for cards I think */
 main a:hover:not(.btn-read-gray):not(.btn-color-cat) {
     text-decoration: none;
 }
