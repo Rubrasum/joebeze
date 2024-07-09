@@ -10,7 +10,7 @@
                 </button>
             </div>
             <PopoverGroup class="hidden lg:flex lg:gap-x-12">
-                <a href="#" class="text-primary py-3"><h5 class="leading-6 text-sm text-accent underline ">Home</h5></a>
+                <Link :href="`/`" class="text-primary py-3"><h5 class="leading-6 text-sm text-accent underline ">Home</h5></Link>
                 <Popover class="relative">
                     <PopoverButton class="flex items-center gap-x-1 text-sm leading-6 text-primary-text py-3">
                         <h5 class="leading-6 text-sm">Portfolio</h5>
@@ -81,10 +81,10 @@
                     </transition>
                 </Popover>
 
-                <a href="#" class="text-primary-text py-3"><h5 class="leading-6 text-sm">About Me</h5></a>
-                <a href="#" class="text-primary-text flex items-center gap-x-1 text-sm leading-6 text-primary-text py-3">
+                <Link :href="`/about-me`" class="text-primary-text py-3"><h5 class="leading-6 text-sm">About Me</h5></Link>
+                <Link :href="`/contact`" class="text-primary-text flex items-center gap-x-1 text-sm leading-6 text-primary-text py-3">
                     <h5 class="leading-6 text-sm">Contact</h5>
-                </a>
+                </Link>
 
             </PopoverGroup>
         </nav>
