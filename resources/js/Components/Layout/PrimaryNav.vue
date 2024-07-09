@@ -36,10 +36,10 @@
                                         <component :is="item.icon" class="h-6 w-6 text-accent" aria-hidden="true" />
                                     </div>
                                     <div class="flex-auto">
-                                        <a :href="item.href" class="block font-semibold text-primary-text">
+                                        <Link :href="item.href" class="block font-semibold text-primary-text">
                                             {{ item.name }}
                                             <span class="absolute inset-0" />
-                                        </a>
+                                        </Link>
                                         <p class="mt-1 text-secondary-text group-hover:text-accent">{{ item.description }}</p>
                                     </div>
                                 </div>
@@ -149,6 +149,7 @@ import {
     ArrowDownTrayIcon,
 } from '@heroicons/vue/24/outline'
 import { ChevronDownIcon, PhoneIcon, PlayCircleIcon } from '@heroicons/vue/20/solid'
+import { Link } from '@inertiajs/vue3'
 
 const projects = [
     { name: 'Red Tag Scan', description: 'Match your EFT inventory against 3000+ template icons', href: '/projects/redtagscan', icon: EyeIcon },

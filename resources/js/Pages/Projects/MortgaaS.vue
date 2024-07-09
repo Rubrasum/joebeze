@@ -13,9 +13,7 @@
                     </h6>
                 </div>
 
-                <p>The inspiration behind this project is pretty simple and personal. Tarkov developers use the Alpha container as the quintissential selling point for the $140 version of the game. And personally I never wanted to have to pay for that privelege. But to get by without it, you need to manage your stash inventory perfectly. I thought, "wouldn't it be great if I could scan my inventory for quest and items worth selling? Then I could make decisions faster in game, and also learn the items even faster, with an incredible edge on recent changes". At the time, there were no examples of this besides ratscan, which was incredibly unpopular due to the fear of banning. Nowadays a version exists but it is disappointing at best. </p>
-                <br>
-                <p>Currently the version I have developed exists as a python API.</p>
+                <p>Lead Generation is a well-seasoned field. Lets find all the best rubs. </p>
                 <br>
                 <p>More information soon...</p>
 
