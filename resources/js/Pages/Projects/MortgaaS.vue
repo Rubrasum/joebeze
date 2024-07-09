@@ -9,7 +9,7 @@
 
                 <div class="col-span-2 border-dashed border-y border-secondary-bg text-center flex justify-center items-center space-x-4 mb-4">
                     <h6 class="my-2 text-white">
-                        Imagine the most modern website
+                        Imagine the most modern website, and then build it.
                     </h6>
                 </div>
 
