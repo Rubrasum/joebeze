@@ -1,13 +1,11 @@
 <template>
-    <header>
-        <div id="nav_container" class="nav_container h-24 flex items-center justify-center relative max-w-7xl mx-auto" >
-            <div class="flex">
-                <Link :href="`/`" preserve-state class="flex">
-                    <SpecialLogo v-once/>
-                </Link>
-            </div>
+    <div id="nav_container" class="nav_container h-24 flex items-center justify-center relative max-w-7xl mx-auto" >
+        <div class="flex">
+            <Link :href="`/`" preserve-state class="flex">
+                <SpecialLogo v-once/>
+            </Link>
         </div>
-    </header>
+    </div>
 </template>
 
 <script setup>
