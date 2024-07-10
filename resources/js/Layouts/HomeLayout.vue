@@ -12,6 +12,8 @@
             <PrimaryNav :key="$page.url"/>
         </HeaderContainer>
 
+        <GoogleAnalytics />
+
         <MainContain>
 
             <!-- Secondary Navigation Menu -->
@@ -32,6 +34,7 @@ import Footer from '@/Components/Layout/Footer.vue';
 import LogoBanner from '@/Components/Layout/LogoBanner.vue';
 import PrimaryNav from '@/Components/Layout/PrimaryNav.vue';
 import HeaderContainer from '@/Components/Layout/HeaderContainer.vue'
+import GoogleAnalytics from '@/Layouts/GlobalServices/GoogleAnalytics.vue'
 import {onMounted} from "vue";
 
 
