@@ -24,10 +24,12 @@
                         <h1 class="tracking-tight text-primary-text ">Elevated Laravel Development.</h1>
                         <h2 class="tracking-tight text-secondary-text ml-6 mb-4 text-2xl ">Checkout what I've been up to</h2>
                         <ul class="list-disc list-inside text-left">
-                            <li class="ml-8 bulleted font-subtitle">EFT OCR Tool - <b>Python API</b></li>
-                            <li class="ml-8 bulleted font-subtitle">"The" Joebeze Dev Blog - Your standard blog with a LIVVT stack.</li>
-                            <li class="ml-8 bulleted font-subtitle">Anamorphosis - C++ Powder Physics Enging, WASM </li>
-                            <li class="ml-8 bulleted font-subtitle">MortgaaS - Lead generation strategy with the works</li>
+                            <li class="ml-8 bulleted font-subtitle">Image scrape, scan, and lookup tool.</li>
+                            <li class="ml-8 bulleted font-subtitle">Custom Laravel CMS for Lead Generation -
+                                                                    Ginabetbeze.com</li>
+                            <li class="ml-8 bulleted font-subtitle">C++ Powder Physics Enging</li>
+                            <li class="ml-8 bulleted font-subtitle">Duskup - Dusk powered uptime monitoring / E2E
+                                                                    Testing</li>
                         </ul>
                         <div class="mt-10 flex items-center gap-x-6">
                             <a href="#"
@@ -41,32 +43,34 @@
                     <div class="mt-14 flex justify-end gap-8 sm:-mt-44 sm:justify-start sm:pl-20 lg:mt-0 lg:pl-0">
                         <div class="w-44 flex-none space-y-8 pt-32 sm:pt-0">
                             <div class="relative">
-                                <img src="https://images.unsplash.com/photo-1670272504528-790c24957dda?ixlib=rb-4.0.3&ixid=MnwxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&crop=left&w=400&h=528&q=80"
-                                     alt="" class="aspect-[2/3] w-full rounded-xl bg-primary-text/5 object-cover shadow-light-lg" />
-                                <div class="pointer-events-none absolute inset-0 rounded-xl ring-1 ring-inset ring-primary-text/10" />
-                            </div>
-                            <div class="relative">
-                                <img src="https://images.unsplash.com/photo-1670272505284-8faba1c31f7d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&h=528&q=80"
-                                     alt="" class="aspect-[2/3] w-full rounded-xl bg-primary-text/5 object-cover shadow-light-lg" />
-                                <div class="pointer-events-none absolute inset-0 rounded-xl ring-1 ring-inset ring-primary-text/10" />
+                                <img :src="`/images/demos/redtagscan-demo.jpg`"
+                                     alt=""
+                                     class="border border-gray-600 aspect-[2/3] w-full rounded-xl bg-primary-text/5 object-cover shadow-light-lg" />
+                                <div
+                                    class="pointer-events-none absolute inset-0 rounded-xl ring-1 ring-inset ring-primary-text/10" />
                             </div>
                         </div>
                         <div class="mr-auto w-44 flex-none space-y-8 sm:mr-0 sm:pt-52 lg:pt-36">
                             <div class="relative">
-                                <img src="https://images.unsplash.com/photo-1485217988980-11786ced9454?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&h=528&q=80"
-                                     alt="" class="aspect-[2/3] w-full rounded-xl bg-primary-text/5 object-cover shadow-light-lg" />
-                                <div class="pointer-events-none absolute inset-0 rounded-xl ring-1 ring-inset ring-primary-text/10" />
+                                <a href="https://ginabetbeze.com" target="_blank">
+                                    <img :src="`/images/demos/gibeze-demo.jpg`"
+                                         alt=""
+                                         class="border border-gray-600 aspect-[2/3] w-full rounded-xl bg-primary-text/5 object-cover shadow-light-lg" />
+                                    <div class="pointer-events-none absolute inset-0 rounded-xl ring-1 ring-inset ring-primary-text/10" />
+                                </a>
                             </div>
                         </div>
                         <div class="w-44 flex-none space-y-8 pt-32 sm:pt-0">
                             <div class="relative">
-                                <img src="https://images.unsplash.com/photo-1670272504528-790c24957dda?ixlib=rb-4.0.3&ixid=MnwxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&crop=left&w=400&h=528&q=80"
-                                     alt="" class="aspect-[2/3] w-full rounded-xl bg-primary-text/5 object-cover shadow-light-lg" />
+                                <img :src="`/images/demos/particles-demo.jpg`"
+                                     alt=""
+                                     class="border border-gray-600 aspect-[2/3] w-full rounded-xl bg-primary-text/5 object-cover shadow-light-lg" />
                                 <div class="pointer-events-none absolute inset-0 rounded-xl ring-1 ring-inset ring-primary-text/10" />
                             </div>
                             <div class="relative">
-                                <img src="https://images.unsplash.com/photo-1670272505284-8faba1c31f7d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&h=528&q=80"
-                                     alt="" class="aspect-[2/3] w-full rounded-xl bg-primary-text/5 object-cover shadow-light-lg" />
+                                <img :src="`/images/demos/duskup-demo.jpg`"
+                                     alt=""
+                                     class="border border-gray-600 aspect-[2/3] w-full rounded-xl bg-primary-text/5 object-cover shadow-light-lg" />
                                 <div class="pointer-events-none absolute inset-0 rounded-xl ring-1 ring-inset ring-primary-text/10" />
                             </div>
                         </div>
