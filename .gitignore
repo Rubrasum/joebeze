@@ -21,8 +21,9 @@ Homestead.yaml
 Homestead.json
 /.vagrant
 .phpunit.result.cache
-/.idea/blade.xml
+/.idea/*
 /public/build/assets/*
 /public/build/assets/*
 /database/migrations/migrations.rar
 /public/build/manifest.json
+/bootstrap/ssr/*
