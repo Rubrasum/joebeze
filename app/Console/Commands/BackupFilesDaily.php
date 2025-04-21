@@ -26,10 +26,17 @@ class BackupFilesDaily extends Command
      */
     public function handle()
     {
-        $backupJob = BackupJobFactory::createFromArray(config('backup'));
-        $backupJob->setFilename('daily_' . date('Y-m-d') . '.zip');
-        $backupJob->run();
+        try {
+            // Get app name and convert spaces to underscores
+            $appName = str_replace(' ', '_', config('app.name'));
 
-        $this->info('Daily backup completed successfully!');
+            // Create and run the backup
+            $backupJob = BackupJobFactory::createFromArray(config('backup'));
+            $backupJob->setFilename("{$appName}_daily_" . date('Y-m-d') . '.zip');
+            $backupJob->run();
+            $this->info('Daily backup completed successfully!');
+        } catch (\Exception $e) {
+            $this->error('Daily backup failed: ' . $e->getMessage());
+        }
     }
 }

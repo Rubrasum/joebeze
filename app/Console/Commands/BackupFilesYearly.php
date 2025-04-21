@@ -26,10 +26,17 @@ class BackupFilesYearly extends Command
      */
     public function handle()
     {
-        $backupJob = BackupJobFactory::createFromArray(config('backup'));
-        $backupJob->setFilename('yearly_' . date('Y-m-d') . '.zip');
-        $backupJob->run();
+        try {
+            // Get app name and convert spaces to underscores
+            $appName = str_replace(' ', '_', config('app.name'));
 
-        $this->info('Yearly backup completed successfully!');
+            // Create and run the backup
+            $backupJob = BackupJobFactory::createFromArray(config('backup'));
+            $backupJob->setFilename("{$appName}_yearly_" . date('Y-m-d') . '.zip');
+            $backupJob->run();
+            $this->info('Yearly backup completed successfully!');
+        } catch (\Exception $e) {
+            $this->error('Yearly backup failed: ' . $e->getMessage());
+        }
     }
 }

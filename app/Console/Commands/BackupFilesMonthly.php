@@ -26,10 +26,17 @@ class BackupFilesMonthly extends Command
      */
     public function handle()
     {
-        $backupJob = BackupJobFactory::createFromArray(config('backup'));
-        $backupJob->setFilename('monthly_' . date('Y-m-d') . '.zip');
-        $backupJob->run();
+        try {
+            // Get app name and convert spaces to underscores
+            $appName = str_replace(' ', '_', config('app.name'));
 
-        $this->info('Monthly backup completed successfully!');
+            // Create and run the backup
+            $backupJob = BackupJobFactory::createFromArray(config('backup'));
+            $backupJob->setFilename("{$appName}_monthly_" . date('Y-m-d') . '.zip');
+            $backupJob->run();
+            $this->info('Monthly backup completed successfully!');
+        } catch (\Exception $e) {
+            $this->error('Monthly backup failed: ' . $e->getMessage());
+        }
     }
 }

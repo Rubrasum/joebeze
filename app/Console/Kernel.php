@@ -19,37 +19,29 @@ class Kernel extends ConsoleKernel
     protected function schedule(Schedule $schedule): void
     {
         $schedule->command('backup:daily')
-            ->daily()
-            ->at('00:30')
-            ->environments(['production'])
-            ->before(function () {
-                config(['backup.destination.disks.s3.path' => 'Files/Daily']);
-            })->appendOutputTo(storage_path('logs/backup-daily.log'));
+            ->dailyAt('00:30')
+            ->when(fn () => app()->environment('production'))
+            ->appendOutputTo(storage_path('logs/backup-daily.log'));
 
         $schedule->command('backup:weekly')
-            ->weekly()
-            ->sundays()
-            ->at('01:00')
-            ->environments(['production'])
-            ->before(function () {
-                config(['backup.destination.disks.s3.path' => 'Files/Weekly']);
-            })->appendOutputTo(storage_path('logs/backup-daily.log'));
+            ->weeklyOn(0, '01:00') // 0 = Sunday
+            ->when(fn () => app()->environment('production'))
+            ->appendOutputTo(storage_path('logs/backup-weekly.log'));
 
         $schedule->command('backup:monthly')
-            ->monthlyOn(1)
-            ->at('02:00')
-            ->environments(['production'])
-            ->before(function () {
-                config(['backup.destination.disks.s3.path' => 'Files/Monthly']);
-            })->appendOutputTo(storage_path('logs/backup-daily.log'));
+            ->monthlyOn(1, '01:30')
+            ->when(fn () => app()->environment('production'))
+            ->appendOutputTo(storage_path('logs/backup-monthly.log'));
 
         $schedule->command('backup:yearly')
-            ->yearlyOn(1, 1)
-            ->at('03:00')
-            ->environments(['production'])
-            ->before(function () {
-                config(['backup.destination.disks.s3.path' => 'Files/Yearly']);
-            })->appendOutputTo(storage_path('logs/backup-daily.log'));
+            ->yearlyOn(1, 1, '02:00')
+            ->when(fn () => app()->environment('production'))
+            ->appendOutputTo(storage_path('logs/backup-yearly.log'));
+
+        $schedule->command('backup:clean')
+            ->dailyAt('02:30')
+            ->when(fn () => app()->environment('production'))
+            ->appendOutputTo(storage_path('logs/backup-clean.log'));
     }
 
     /**

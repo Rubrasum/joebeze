@@ -26,10 +26,17 @@ class BackupFilesWeekly extends Command
      */
     public function handle()
     {
-        $backupJob = BackupJobFactory::createFromArray(config('backup'));
-        $backupJob->setFilename('weekly_' . date('Y-m-d') . '.zip');
-        $backupJob->run();
+        try {
+            // Get app name and convert spaces to underscores
+            $appName = str_replace(' ', '_', config('app.name'));
 
-        $this->info('Weekly backup completed successfully!');
+            // Create and run the backup
+            $backupJob = BackupJobFactory::createFromArray(config('backup'));
+            $backupJob->setFilename("{$appName}_weekly_" . date('Y-m-d') . '.zip');
+            $backupJob->run();
+            $this->info('Weekly backup completed successfully!');
+        } catch (\Exception $e) {
+            $this->error('Weekly backup failed: ' . $e->getMessage());
+        }
     }
 }
