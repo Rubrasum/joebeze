@@ -21,7 +21,7 @@
             <div class="mx-auto max-w-7xl px-6 pb-16 pt-4 sm:pt-4 lg:px-8 lg:pt-4">
                 <div class="mx-auto max-w-2xl gap-x-14 lg:mx-0 lg:flex lg:max-w-none lg:items-center">
                     <div class="relative w-full max-w-xl lg:shrink-0 xl:max-w-2xl">
-                        <h1 class="tracking-tight text-primary-text ">Elevated Laravel Development.</h1>
+                        <h1 class="tracking-tight text-primary-text ">Elevated Laravel Development</h1>
                         <h2 class="tracking-tight text-secondary-text ml-6 mb-4 text-2xl ">Checkout what I've been up to</h2>
                         <ul class="list-disc list-inside text-left">
                             <li class="ml-8 bulleted font-subtitle">Image scrape, scan, and lookup tool.</li>
