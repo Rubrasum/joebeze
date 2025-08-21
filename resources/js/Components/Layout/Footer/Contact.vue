@@ -6,10 +6,6 @@
                 <InboxArrowDownIcon  class="h-5 w-5 fill-accent group-hover:fill-primary-text mr-2"/>
                 <a href="mailto:dev@joebeze.com" class="group-hover:primary-text"> dev@joebeze.com</a>
             </li>
-            <li class="mb-6 flex items-center group">
-                <DevicePhoneMobileIcon  class="h-5 w-5 fill-accent group-hover:fill-primary-text mr-2"/>
-                <a href="tel:+19044772732" class="group-hover:text-primary-text">+1 (904) 477-2732</a>
-            </li>
             <li class="mb-2 flex items-start">
                 <div class="mr-2"><MapPinIcon class="h-5 w-5 fill-primary-text group-hover:fill-primary-text"/></div>
                 <div>
