@@ -9,8 +9,6 @@
             <li class="mb-2 flex items-start">
                 <div class="mr-2"><MapPinIcon class="h-5 w-5 fill-primary-text group-hover:fill-primary-text"/></div>
                 <div>
-                    <span>Joseph Betbeze</span>
-                    <br>
                     <span>Jacksonville, FL</span>
                 </div>
             </li>
