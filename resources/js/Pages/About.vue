@@ -7,13 +7,9 @@
                     <h1 class="text-white mb-10">About Me</h1>
                 </div>
 
-                <div class="col-span-2 border-dashed border-y border-secondary-bg text-center flex justify-center items-center space-x-4 mb-4">
-                    <h6 class="my-2 text-white">
-                        My name is Joseph Betbeze.
-                    </h6>
-                </div>
-
                 <p>As a software engineer and consultant, I specialize in complex focused SaaS development, offering customized solutions that drive business growth and success.</p>
+
+                <p>My preferred Stack for web development is Laravel Inertia Vue. </p>
 
             </article>
         </main>

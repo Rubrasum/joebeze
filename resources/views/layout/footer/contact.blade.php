@@ -4,13 +4,6 @@
         <li class="mb-2 flex items-center"><i class="fas fa-envelope mr-2"></i> <a href="mailto:dev@joebeze.com" class="hover:text-white">josephbetbeze@gmail.com</a></li>
         <li class="mb-2 flex items-start">
             <div class="mr-2"><i class="fas fa-map-marker-alt"></i></div>
-            <div>
-                <span>Joseph Betbeze</span>
-                <br>
-                <span>211 South Greenwood Avenue,</span>
-                <br>
-                <span>Tulsa, OK 74120</span>
-            </div>
         </li>
     </ul>
 </div>
